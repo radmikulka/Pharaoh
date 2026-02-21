@@ -1,0 +1,5 @@
+- settings
+- localizations
+- rewards queue
+- rateus
+- dialog system

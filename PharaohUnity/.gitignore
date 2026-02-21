@@ -76,5 +76,5 @@ crashlytics-build.properties
 /.idea/*
 /.utmp/*
 
-/Assets/AldaEngine*
+/Assets/CommonEngine*
 /Assets/ServiceEngine*

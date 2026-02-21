@@ -1,0 +1,28 @@
+{
+    "name": "AldaGames.Main",
+    "rootNamespace": "",
+    "references": [
+        "Zenject",
+        "UniTask",
+        "AldaGames.ServiceEngine",
+        "AppsFlyer",
+        "AldaGames.ServerData",
+        "AldaGames.AldaEngine.Sharp",
+        "AldaGames.AldaEngine.Unity",
+        "AldaGames.Application",
+        "AldaGames.CoreGame",
+        "AldaGames.Infrastructure",
+        "AldaGames.Common",
+        "AldaGames.Ui",
+        "UnityEngine.Purchasing"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

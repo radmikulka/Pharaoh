@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfabde347404f74b809a8c6eccc54e2, type: 3}
+  m_Name: ServiceMaster
+  m_EditorClassIdentifier: 
+  _facebook:
+    AppName: Tycoon Builder
+    FacebookAppId: 4186329635026717
+    ClientToken: b206fe0d9f870a0879e570d765ada7fc
+    AbsoluteAndroidKeystorePath: C:\Dev\TycoonBuilder\TycoonBuilderUnity\Keystore\TycoonBuilder.keystore
+  _admobConfig:
+    AndroidId: ca-app-pub-5084454339603412~5297057735
+    AppleId: ca-app-pub-5084454339603412~3908527516
+  _singular:
+    ApiKey: alda_games_3e7bb8db
+    ApiSecret: de2c9157fa10b2d6911e350a64acf1ec
+  _applovin:
+    SdkKey: NNyWGdfwJ0GRlTsknEg8yuRgblRnplQfN-F6O_lccoStTvrAEwPTW1EIBpBWE6uw3BxTV5KU_JA1BcxU-5o2Bq
+    AndroidRewardedAdUnitId: 6cdbbe673aa867ec
+    AndroidInterstitialAdUnitId: 
+    IosRewardedAdUnitId: 900c6914fd59cbc0
+    IosInterstitialAdUnitId: 
+  _googleLogin:
+    WebClientId: 673829159141-pofgfil27dkkutf630tv3ahpc5osli9n.apps.googleusercontent.com

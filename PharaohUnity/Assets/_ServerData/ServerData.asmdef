@@ -1,0 +1,17 @@
+{
+    "name": "AldaGames.ServerData",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8a3df59188a067f46add46c48656a7fd",
+        "GUID:76b2b1ea0c784274d856e2743c6f48ff"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

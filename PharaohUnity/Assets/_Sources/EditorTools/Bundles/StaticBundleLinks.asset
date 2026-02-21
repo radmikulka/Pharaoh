@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c90eb03d9e42b9b0f398e4f1cd6b10, type: 3}
+  m_Name: StaticBundleLinks
+  m_EditorClassIdentifier: AldaGames.Infrastructure::AldaEngine.CStaticBundleLinks
+  _staticBundleLinks:
+  - _bundleId: 6
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderVehicleDetail.prefab
+    _assetGuid: 131dfd165cbc1d046beaac6a1261b5b3
+  - _bundleId: 9
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderIntro.prefab
+    _assetGuid: e0d140e00ea686b4e931069495a1d8f9
+  - _bundleId: 8
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderEvent.prefab
+    _assetGuid: 96fcf523051b12a43b21e51119ec1226
+  - _bundleId: 1002
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderR1Enviro.prefab
+    _assetGuid: 1312c7ad4efc2684c81225b51e3035b6
+  - _bundleId: 1005
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderR2Content.prefab
+    _assetGuid: 551884467631822428a96f684a59a7af
+  - _bundleId: 1004
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderR2Enviro.prefab
+    _assetGuid: 14edd50eea875984e90a8e19e3f30493
+  - _bundleId: 10
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderEventsQ1.prefab
+    _assetGuid: 95d5142448fc8b14ab33515aa022319e
+  - _bundleId: 11
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderEventsQ2.prefab
+    _assetGuid: b97fa4bbc6adc4843a633211dce83d10
+  - _bundleId: 12
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderEventsQ3.prefab
+    _assetGuid: 480e56a1ec1fdbd4fa47867ac71fc466
+  - _bundleId: 13
+    _assetPath: Assets/_Sources/EditorTools/Bundles/BundlePlaceholderEventsQ4.prefab
+    _assetGuid: 430b67e1e9cd8e948a699f2b396ece5e
+  _sharedVehicleTrailers:
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Bulk_InGame.prefab
+    _assetGuid: 49d2a5403690a9344bd87db49baa8e54
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Liquid_InGame.prefab
+    _assetGuid: 835a1f1c58757d448be4bc549faa5ec7
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Flat_InGame.prefab
+    _assetGuid: da778bd21510eb34eb2d1277cd39f7d9
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Container_InGame.prefab
+    _assetGuid: 8bdd36eb94ef7364c80c4c097b538178
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Passenger_InGame.prefab
+    _assetGuid: 6f0ff8f9417657a44a69dfabf0988333

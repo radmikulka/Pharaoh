@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfb6d35d7d65194ab0c4ad3cbb93de4, type: 3}
+  m_Name: OrderedBundlesCollection
+  m_EditorClassIdentifier: AldaGames.Infrastructure::AldaEngine.CTycoonOrderedBundlesCollection
+  _orderedLocalBundles:
+  - _bundle: {fileID: 11400000, guid: 6c54a55d960ca11448b3e15382c1fbbd, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: b390ebaddc26bb742b58ae7d26f3b8da, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: e70f1aaf1dbe7024f8787fec263364aa, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 7138233605ed236419436eb69ae7c07f, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 664cc2db82197444b94ceaf6ae9c0464, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: baf08e7638de60d41b1cd7bb8bcdd952, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: a0562bd5455607644b3648eddc38e7f3, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: ef0f8d291a65d1f4ab38c0ffbb6effc6, type: 2}
+    _isStandalone: 1
+  _region1:
+  - _bundle: {fileID: 11400000, guid: ada11b97c53b4a742b452053a1b57dec, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 7ffbb2a2b3ec8f847b9156d7c4121321, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 13bd5f744e8368a4893fa0582dbd2646, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: dd262e73f4547114d9dec5158a876cb5, type: 2}
+    _isStandalone: 1
+  _region2:
+  - _bundle: {fileID: 11400000, guid: cfb57fddd01979e49a9299e16bdfb13b, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 3e67db3a325eba14dafea56e841a2223, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: ea675a80616efe14a99fde98b6b0755a, type: 2}
+    _isStandalone: 1
+  _liveEvents:
+  - _bundle: {fileID: 11400000, guid: 9c15aa1f06ec1ec45a7e70ecf087c00d, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 505cd03fb44b04c4ea894a3b4d208be7, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 00a43667a6acf55409fec52c678c6b10, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 49832e512aff3ea4082432fbd4c82e4c, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: e987066f72913074a8357899952b7408, type: 2}
+    _isStandalone: 1
+  _eventEarthAndFire:
+  - _bundle: {fileID: 11400000, guid: 7e38f7981211e394f80f875d967fc733, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: bdacce42d4e8f724d9b90bb0d938e4cd, type: 2}
+    _isStandalone: 0
+  - _bundle: {fileID: 11400000, guid: 7a05895bc42cef948a38d9dac56ec8ca, type: 2}
+    _isStandalone: 1
+  _premiumOffers:
+  - _bundle: {fileID: 11400000, guid: cc20ac2fd1566ec429a2bda738610dd3, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 4de70bdea4e684549863254cbc0ad740, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 4a11b253b34279d41abb6414c40a0172, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 0ca9833ab1a302243ac4eb2a5ae37da7, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 908cf9e9d4c3e19449ec9e017511bdb0, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 851c65dcad546684b90d3e65b46f304f, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 26c7f2ba0e326db43bd42526b4fe23d2, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: a61c0bfcf5faffa439e6de8372b4330d, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: d78332c0aa480fc4a9f377f78b9c82dd, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: e291d29167c09154d9b0f823be60bb39, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: 35f94eb686dc78a49917e4b77514e73d, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: eacea272f61407444ba41b1f4bd2d2ef, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: b853fafbfdc35e74ab5e4365131556ba, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: f3091da8fc7be9d48a6bf95f72c0847d, type: 2}
+    _isStandalone: 1
+  - _bundle: {fileID: 11400000, guid: fe2e2cf8aac94af44b5d6e6b02086360, type: 2}
+    _isStandalone: 1

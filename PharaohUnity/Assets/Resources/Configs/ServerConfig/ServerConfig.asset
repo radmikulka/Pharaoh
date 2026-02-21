@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1e1fe5ed9f4ec98d97559ebab1a36a, type: 3}
+  m_Name: ServerConfig
+  m_EditorClassIdentifier: 
+  _isLocal: 0
+  _serverType: 2
+  _deleteUser: 0
+  _likeABoss: 0
+  _overrideYear: 1932
+  _overrideUid: 
+  _presetId: 0
+  _manualPresetId: 
+  _fakeDelayInSecs: 0
+  _ignoreHitTimeoutTime: 0

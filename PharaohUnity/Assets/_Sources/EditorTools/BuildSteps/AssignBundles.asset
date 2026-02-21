@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7a3d6026bb0de42b9d2191c2ef7702, type: 3}
+  m_Name: AssignBundles
+  m_EditorClassIdentifier: 
+  _atlasses:
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/BaseAtlas.spriteatlasv2
+    _assetGuid: 9dcd11c4126d71f4cbc6c582458d795c
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/ShopAtlas.spriteatlasv2
+    _assetGuid: 750042b99e976784aaa5da3c2c451c2c
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/DialoguesAtlas.spriteatlasv2
+    _assetGuid: e0dd3707d2661984c9827d3c84f73f08
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/InfoScreens.spriteatlasv2
+    _assetGuid: 7e1d25d72d2ddb444af53b85601cf91d
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/Dispatchers.spriteatlasv2
+    _assetGuid: 197e296173dfc6d4ca1e420bdfb2d044
+  - _bundleId: 1
+    _assetPath: Assets/_Sources/Textures/GUI/BaseCrunch.spriteatlasv2
+    _assetGuid: 9d38f42a314b3b24ba1a699aa7eb7eda
+  - _bundleId: 10
+    _assetPath: Assets/_Sources/Textures/GUI/LiveEventsQ1.spriteatlasv2
+    _assetGuid: c0cfcfe27199da5498bbb7ca648e0a71
+  - _bundleId: 10
+    _assetPath: Assets/_Sources/Textures/GUI/LiveEventsQ1Crunch.spriteatlasv2
+    _assetGuid: c869158c44ae2d74aac3054fd280383b
+  - _bundleId: 1003
+    _assetPath: Assets/_Sources/Textures/GUI/Region1.spriteatlasv2
+    _assetGuid: 86419275bb0d6064a9c3c71d7378f373
+  - _bundleId: 1003
+    _assetPath: Assets/_Sources/Textures/GUI/Region1Crunch.spriteatlasv2
+    _assetGuid: c104a72a4cd6f8847a97b8e3b200eab4
+  - _bundleId: 1005
+    _assetPath: Assets/_Sources/Textures/GUI/Region2.spriteatlasv2
+    _assetGuid: 29d5cb8727629ba40bdce288b5f40a16
+  - _bundleId: 1005
+    _assetPath: Assets/_Sources/Textures/GUI/Region2Crunch.spriteatlasv2
+    _assetGuid: 031c3383a993b4c42a7a358cb8385af8
+  _orderedAssetBundles: {fileID: 11400000, guid: 1aefc2fa18cbf5e4abd2dc5240c64f4f, type: 2}
