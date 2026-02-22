@@ -1,0 +1,20 @@
+{
+    "name": "AldaGames.CoreGame.MapGenerator.Editor",
+    "rootNamespace": "",
+    "references": [
+        "AldaGames.CoreGame",
+        "EditorAttributes",
+        "AldaGames.AldaEngine.Unity"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

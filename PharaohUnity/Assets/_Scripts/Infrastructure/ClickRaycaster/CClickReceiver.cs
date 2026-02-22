@@ -24,7 +24,7 @@ namespace Pharaoh
 			_onClickEvent.Subscribe(onClick);
 		}
 
-		public void OnClicked()
+		public void OnClicked(RaycastHit hit)
 		{
 			_onClickEvent.Invoke();
 		}

@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405baf55d1874954c959fcdbba38bb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SingularAPIKey: alda_games_3e7bb8db
-  SingularAPISecret: de2c9157fa10b2d6911e350a64acf1ec
+  SingularAPIKey: 
+  SingularAPISecret: 
   InitializeOnAwake: 0
   enableLogging: 1
   logLevel: 3
@@ -55,7 +55,7 @@ MonoBehaviour:
   manualSKANConversionManagement: 0
   waitForTrackingAuthorizationWithTimeoutInterval: 0
   enableODMWithTimeoutInterval: -1
-  facebookAppId: 4186329635026717
+  facebookAppId: 
   collectOAID: 0
   limitAdvertisingIdentifiers: 0
   ddlTimeoutSec: 0

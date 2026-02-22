@@ -273,7 +273,7 @@ namespace Pharaoh
 		private async Task SendNext(CHitRecord[] hits)
 		{
 			bool suppressErrorThrow = ContainsSuppressCommunicationErrorThrow(hits);
-			CHitRecordsGroup recordsGroup = new(_hitHeader, hits, suppressErrorThrow);
+			CHitRecordsGroup recordsGroup = new(_hitHeader, hits);
 			int sessionId = _sessionId;
 			try
 			{

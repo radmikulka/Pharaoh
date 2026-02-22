@@ -3,10 +3,12 @@
 // DATE:   06.09.2023
 // =========================================
 
+using UnityEngine;
+
 namespace Pharaoh
 {
-	internal interface IClickableItem
+	public interface IClickableItem
 	{
-		void OnClicked();
+		void OnClicked(RaycastHit hit);
 	}
 }

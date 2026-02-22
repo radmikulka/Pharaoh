@@ -89,16 +89,16 @@ namespace Pharaoh
                 if (item == null)
                     continue;
 
-                SetCurrentSelectedItem(item);
+                SetCurrentSelectedItem(item, hit);
                 return true;
             }
 
             return false;
         }
 
-        private void SetCurrentSelectedItem(IClickableItem item)
+        private void SetCurrentSelectedItem(IClickableItem item, RaycastHit hit)
         {
-            item.OnClicked();
+            item.OnClicked(hit);
         }
 		
         private class CRaycastHitComparer : IComparer<RaycastHit>

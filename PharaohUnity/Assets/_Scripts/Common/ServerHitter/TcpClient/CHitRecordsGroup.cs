@@ -10,15 +10,10 @@ namespace Pharaoh
 	internal class CHitRecordsGroup
 	{
 		public readonly CHitInfoHeader Header;
-		public readonly bool SuppressAutomaticErrorHandling;
 		public readonly CHitRecord[] Records;
 
-		public CHitRecordsGroup(
-			CHitInfoHeader header, 
-			CHitRecord[] records, 
-			bool suppressAutomaticErrorHandling)
+		public CHitRecordsGroup(CHitInfoHeader header, CHitRecord[] records)
 		{
-			SuppressAutomaticErrorHandling = suppressAutomaticErrorHandling;
 			Records = records;
 			Header = header;
 		}

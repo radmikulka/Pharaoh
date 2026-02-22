@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using AldaEngine;
 using KBCore.Refs;
+using Pharaoh.Map;
 using UnityEngine;
 
 namespace Pharaoh
@@ -15,6 +16,7 @@ namespace Pharaoh
 	public class CRegionInstaller : CSceneDiInstaller
 	{
 		[SerializeField, Child] private CMission _mission;
+		[SerializeField, Child] private CMapInstance _mapInstance;
 
 		private void OnValidate()
 		{
@@ -24,8 +26,9 @@ namespace Pharaoh
 		public override void InstallBindings()
 		{
 			base.InstallBindings();
-			
+
 			Container.AddSingletonFromInstance(_mission);
+			Container.AddSingletonFromInstance(_mapInstance);
 		}
 	}
 }

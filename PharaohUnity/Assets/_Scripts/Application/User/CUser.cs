@@ -13,6 +13,7 @@ namespace Pharaoh
     public class CUser : IDestroyable
     {
         public readonly COwnedValuables OwnedValuables;
+        public readonly COwnedResources OwnedResources;
         public readonly CActiveMission ActiveMission;
         public readonly CAnimatedCurrencies AnimatedCurrencies;
         
@@ -22,19 +23,22 @@ namespace Pharaoh
         private readonly List<CBaseUserComponent> _allComponents = new();
 
         public CUser(
-            CAnimatedCurrencies animatedCurrencies, 
+            CAnimatedCurrencies animatedCurrencies,
             CInitialUserDataProvider dataProvider,
-            COwnedValuables ownedValuables, 
-            CActiveMission activeMission, 
+            COwnedValuables ownedValuables,
+            COwnedResources ownedResources,
+            CActiveMission activeMission,
             IEventBus eventBus
             )
         {
             AnimatedCurrencies = animatedCurrencies;
             OwnedValuables = ownedValuables;
+            OwnedResources = ownedResources;
             ActiveMission = activeMission;
             _eventBus = eventBus;
 
             _allComponents.Add(OwnedValuables);
+            _allComponents.Add(OwnedResources);
             _allComponents.Add(AnimatedCurrencies);
             _allComponents.Add(ActiveMission);
             

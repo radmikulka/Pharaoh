@@ -16,15 +16,10 @@ namespace Pharaoh
 	public class CHitBuilder
 	{
 		private readonly CHitsDispatcher _hitDispatcher;
-		private readonly IGameTime _gameTime;
 
-		public CHitBuilder(
-			CHitsDispatcher hitDispatcher, 
-			IGameTime gameTime
-			)
+		public CHitBuilder(CHitsDispatcher hitDispatcher)
 		{
 			_hitDispatcher = hitDispatcher;
-			_gameTime = gameTime;
 		}
 
 		public CHitRecordBuilder GetBuilder(CRequestHit hit)

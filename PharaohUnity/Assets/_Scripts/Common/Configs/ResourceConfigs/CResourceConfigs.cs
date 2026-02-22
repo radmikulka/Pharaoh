@@ -17,13 +17,15 @@ namespace Pharaoh
 		public CResourceConfigsSet<CResourceResourceConfig, EResource> Resources { get; private set; }
 		public CResourceConfigsSet<CSceneResourceConfig, ESceneId> Scenes { get; private set; }
 		public CResourceConfigsSet<CMissionConfig, EMissionId> Missions { get; private set; }
-		
+		public CResourceConfigsSet<CBuildingResourceConfig, EBuildingId> Buildings { get; private set; }
+
 		public void Construct()
 		{
 			Scenes = GetConfigs<CResourceConfigsSet<CSceneResourceConfig, ESceneId>, CSceneResourceConfig>();
 			Missions = GetConfigs<CResourceConfigsSet<CMissionConfig, EMissionId>, CMissionConfig>();
 			Valuables = GetConfigs<CResourceConfigsSet<CValuableResourceConfig, EValuable>, CValuableResourceConfig>();
 			Resources = GetConfigs<CResourceConfigsSet<CResourceResourceConfig, EResource>, CResourceResourceConfig>();
+			Buildings = GetConfigs<CResourceConfigsSet<CBuildingResourceConfig, EBuildingId>, CBuildingResourceConfig>();
 		}
 	}
 }

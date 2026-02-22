@@ -85,6 +85,7 @@ namespace Pharaoh
            Container.AddSingleton<CUser>(true);
            Container.AddSingleton<CAnimatedCurrencies>();
            Container.AddSingleton<COwnedValuables>();
+           Container.AddSingleton<COwnedResources>();
         }
 
         private void InstallGameMode()

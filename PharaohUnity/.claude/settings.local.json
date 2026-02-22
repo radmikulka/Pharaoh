@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(find C:\\\\Dev\\\\Pharaoh\\\\PharaohUnity\\\\Assets\\\\_Scripts:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }

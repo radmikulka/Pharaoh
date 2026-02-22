@@ -28,9 +28,9 @@ namespace Pharaoh
 			CRequestHit hit, 
 			Action<EErrorCode> onFail)
 		{
+			SendAsSingleHit = sendAsSingleHit || suppressCommunicationErrorThrow;
 			SuppressCommunicationErrorThrow = suppressCommunicationErrorThrow;
 			ExecuteImmediately = executeImmediately;
-			SendAsSingleHit = sendAsSingleHit || suppressCommunicationErrorThrow;
 			CreationTime = DateTime.UtcNow;
 			OnSuccess = onSuccess;
 			OnFail = onFail;

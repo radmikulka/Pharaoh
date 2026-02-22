@@ -6,6 +6,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using AldaEngine;
 using AldaEngine.Tcp;
 using Cysharp.Threading.Tasks;
@@ -46,7 +47,8 @@ namespace Pharaoh
 			_hitsDispatcher.CreateNewTcpClient(_serverEndpointProvider.ActiveEndPoint);
 			
 			await _debugUserDeletionHandler.TryDeleteUserAsync();
-			
+
+			Task timeoutTime = Task.Delay(5000);
 			CResponseHit response = await SendConnectHitAsync(ct);
 			return response;
 		}
