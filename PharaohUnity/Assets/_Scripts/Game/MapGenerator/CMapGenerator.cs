@@ -78,6 +78,47 @@ namespace Pharaoh.MapGenerator
 #endif
         }
 
+        public void GenerateUpTo(IMapGenerationStep stopAfterStep)
+        {
+            if (stopAfterStep == null)
+            {
+                Debug.LogWarning("[CMapGenerator] GenerateUpTo called with a null step — aborting.");
+                return;
+            }
+
+            var steps = CollectSteps();
+
+            if (steps.Count == 0)
+            {
+                Debug.LogWarning("[CMapGenerator] No IMapGenerationStep components found on child GameObjects.");
+                return;
+            }
+
+            _mapData = new CMapData(_width, _height);
+
+            bool found = false;
+            foreach (var step in steps)
+            {
+                Debug.Log($"[CMapGenerator] Running: {step.StepName}");
+                step.Execute(_mapData, _seed);
+
+                if (ReferenceEquals(step, stopAfterStep))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                Debug.LogWarning($"[CMapGenerator] GenerateUpTo: step '{stopAfterStep.StepName}' was not found among active children — all steps were executed.");
+            else
+                Debug.Log($"[CMapGenerator] Done (up to '{stopAfterStep.StepName}') — {_width}×{_height} tiles.");
+
+#if UNITY_EDITOR
+            UnityEditor.SceneView.RepaintAll();
+#endif
+        }
+
         // ─── Helpers ────────────────────────────────────────────────────────
 
         /// <summary>
