@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: ServiceMaster
   m_EditorClassIdentifier: 
   _facebook:
-    AppName: Tycoon Builder
-    FacebookAppId: 4186329635026717
-    ClientToken: b206fe0d9f870a0879e570d765ada7fc
-    AbsoluteAndroidKeystorePath: C:\Dev\TycoonBuilder\TycoonBuilderUnity\Keystore\TycoonBuilder.keystore
+    AppName: 
+    FacebookAppId: 
+    ClientToken: 
+    AbsoluteAndroidKeystorePath: 
   _admobConfig:
-    AndroidId: ca-app-pub-5084454339603412~5297057735
-    AppleId: ca-app-pub-5084454339603412~3908527516
+    AndroidId: 
+    AppleId: 
   _singular:
-    ApiKey: alda_games_3e7bb8db
-    ApiSecret: de2c9157fa10b2d6911e350a64acf1ec
+    ApiKey: 
+    ApiSecret: 
   _applovin:
-    SdkKey: NNyWGdfwJ0GRlTsknEg8yuRgblRnplQfN-F6O_lccoStTvrAEwPTW1EIBpBWE6uw3BxTV5KU_JA1BcxU-5o2Bq
-    AndroidRewardedAdUnitId: 6cdbbe673aa867ec
+    SdkKey: 
+    AndroidRewardedAdUnitId: 
     AndroidInterstitialAdUnitId: 
-    IosRewardedAdUnitId: 900c6914fd59cbc0
+    IosRewardedAdUnitId: 
     IosInterstitialAdUnitId: 
   _googleLogin:
-    WebClientId: 673829159141-pofgfil27dkkutf630tv3ahpc5osli9n.apps.googleusercontent.com
+    WebClientId: 
