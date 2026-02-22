@@ -15,7 +15,7 @@ namespace Pharaoh.MapGenerator
 
         [Header("Path Shape")]
         [SerializeField] [Range(0f, 1f)] private float _windiness = 0.5f;
-        [SerializeField] private float _noiseFrequency = 0.05f;
+        [SerializeField] [Min(0.001f)] private float _noiseFrequency = 0.05f;
 
         public string StepName => "Rivers";
 
@@ -41,7 +41,7 @@ namespace Pharaoh.MapGenerator
             int breadth = horizontal ? mapData.Height : mapData.Width;
 
             // Pick start position along the entry edge
-            int startCross = FindLandOnEdge(mapData, rng, horizontal, isEnd: false);
+            int startCross = FindLandOnEdge(mapData, rng, horizontal);
             if (startCross < 0) return;
 
             // Set up noise for lateral drift
@@ -69,8 +69,8 @@ namespace Pharaoh.MapGenerator
                 if (!mapData.IsValid(x, y)) continue;
 
                 // Carve main tile
-                CarveTile(mapData, x, y);
-                placed++;
+                if (CarveTile(mapData, x, y))
+                    placed++;
 
                 // Widen river
                 if (_maxWidth > 1)
@@ -85,19 +85,16 @@ namespace Pharaoh.MapGenerator
             Debug.Log($"[{StepName}] River carved: {placed} tiles (direction: {(horizontal ? "E-W" : "N-S")}).");
         }
 
-        private int FindLandOnEdge(CMapData mapData, System.Random rng, bool horizontal, bool isEnd)
+        private int FindLandOnEdge(CMapData mapData, System.Random rng, bool horizontal)
         {
             int breadth = horizontal ? mapData.Height : mapData.Width;
-            int edgePos = isEnd
-                ? (horizontal ? mapData.Width - 1 : mapData.Height - 1)
-                : 0;
 
-            // Collect all land tiles on this edge
+            // Collect all land tiles on the entry edge (position 0)
             var candidates = new List<int>();
             for (int i = 0; i < breadth; i++)
             {
-                int x = horizontal ? edgePos : i;
-                int y = horizontal ? i : edgePos;
+                int x = horizontal ? 0 : i;
+                int y = horizontal ? i : 0;
                 if (mapData.IsValid(x, y) && mapData.Get(x, y).Type == ETileType.Land)
                     candidates.Add(i);
             }
@@ -106,14 +103,13 @@ namespace Pharaoh.MapGenerator
             return candidates[rng.Next(candidates.Count)];
         }
 
-        private static void CarveTile(CMapData mapData, int x, int y)
+        private static bool CarveTile(CMapData mapData, int x, int y)
         {
             STile tile = mapData.Get(x, y);
-            if (tile.Type == ETileType.Land)
-            {
-                tile.Type = ETileType.Water;
-                mapData.Set(x, y, tile);
-            }
+            if (tile.Type != ETileType.Land) return false;
+            tile.Type = ETileType.Water;
+            mapData.Set(x, y, tile);
+            return true;
         }
     }
 }
