@@ -51,6 +51,7 @@ namespace Pharaoh.MapGenerator
                 DecorationType    = _decorationType,
                 IsObstacleBlocked = _isObstacleBlocked,
                 ObstaclePrefab    = _obstaclePrefab,
+                ContentTag        = _contentTag,
             };
         }
 
