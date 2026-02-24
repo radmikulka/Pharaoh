@@ -53,7 +53,7 @@ namespace Pharaoh.MapGenerator
         {
             var steps = CollectSteps();
 
-            if (steps.Count == 0)
+            if (steps.Length == 0)
             {
                 Debug.LogWarning("[CMapGenerator] No IMapGenerationStep components found on child GameObjects.");
                 return;
@@ -157,6 +157,11 @@ namespace Pharaoh.MapGenerator
 
         public void GenerateUpTo(IMapGenerationStep stopAfterStep)
         {
+            if (_editorTilesRoot)
+            {
+                _editorTilesRoot.gameObject.SetActive(false);
+            }
+            
             if (stopAfterStep == null)
             {
                 Debug.LogWarning("[CMapGenerator] GenerateUpTo called with a null step — aborting.");
@@ -165,7 +170,7 @@ namespace Pharaoh.MapGenerator
 
             var steps = CollectSteps();
 
-            if (steps.Count == 0)
+            if (steps.Length == 0)
             {
                 Debug.LogWarning("[CMapGenerator] No IMapGenerationStep components found on child GameObjects.");
                 return;
@@ -208,19 +213,9 @@ namespace Pharaoh.MapGenerator
         /// Collects IMapGenerationStep components from direct children in sibling order.
         /// Inactive child GameObjects are skipped.
         /// </summary>
-        private List<IMapGenerationStep> CollectSteps()
+        private IMapGenerationStep[] CollectSteps()
         {
-            var result = new List<IMapGenerationStep>();
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                var child = transform.GetChild(i);
-                if (!child.gameObject.activeSelf) continue;
-
-                var step = child.GetComponent<IMapGenerationStep>();
-                if (step != null)
-                    result.Add(step);
-            }
-            return result;
+            return GetComponentsInChildren<IMapGenerationStep>();
         }
 
         /// <summary>

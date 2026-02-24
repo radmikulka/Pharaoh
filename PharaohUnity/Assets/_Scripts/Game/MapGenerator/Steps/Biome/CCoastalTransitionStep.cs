@@ -24,12 +24,19 @@ namespace Pharaoh.MapGenerator
             new(-1, 0),
         };
 
+#if UNITY_EDITOR
+        private List<Vector2Int> _cachedCoastalTiles = new();
+#endif
+
         public override string StepName => "Coastal Transition";
         public override string StepDescription => "Taguje land políčka sousedící s vodou EContentTag — vytváří pobřežní přechodovou zónu.";
 
         public override void Execute(CMapData mapData, int seed)
         {
             int tagged = 0;
+#if UNITY_EDITOR
+            _cachedCoastalTiles.Clear();
+#endif
 
             // Ring 1: Land adjacent to Water → _coastTag
             tagged += TagAdjacentToWater(mapData);
@@ -62,6 +69,9 @@ namespace Pharaoh.MapGenerator
                 STile tile = mapData.Get(pos.x, pos.y);
                 tile.ContentTag = _coastTag;
                 mapData.Set(pos.x, pos.y, tile);
+#if UNITY_EDITOR
+                _cachedCoastalTiles.Add(pos);
+#endif
             }
 
             return toTag.Count;
@@ -88,6 +98,9 @@ namespace Pharaoh.MapGenerator
                 STile tile = mapData.Get(pos.x, pos.y);
                 tile.ContentTag = _coastTag;
                 mapData.Set(pos.x, pos.y, tile);
+#if UNITY_EDITOR
+                _cachedCoastalTiles.Add(pos);
+#endif
             }
 
             return toTag.Count;
@@ -116,5 +129,15 @@ namespace Pharaoh.MapGenerator
             }
             return false;
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            if (_cachedCoastalTiles == null || _cachedCoastalTiles.Count == 0) return;
+            Gizmos.color = new Color(0.9f, 0.75f, 0.3f, 0.7f); // sandy yellow
+            foreach (var p in _cachedCoastalTiles)
+                Gizmos.DrawCube(new Vector3(p.x, 0.2f, p.y), new Vector3(0.9f, 0.05f, 0.9f));
+        }
+#endif
     }
 }

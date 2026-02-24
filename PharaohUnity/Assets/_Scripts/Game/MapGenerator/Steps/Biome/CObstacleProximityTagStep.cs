@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -9,6 +10,9 @@ namespace Pharaoh.MapGenerator
     /// </summary>
     public class CObstacleProximityTagStep : CMapGenerationStepBase
     {
+#if UNITY_EDITOR
+        private List<Vector2Int> _cachedTaggedTiles = new();
+#endif
         [Header("Source")]
         [Tooltip("Only obstacles of this type are used as tag origins.")]
         [SerializeField] private EObstacleType _obstacleType = EObstacleType.Tree;
@@ -27,6 +31,9 @@ namespace Pharaoh.MapGenerator
         {
             int tagged = 0;
             int radiusSq = _radius * _radius;
+#if UNITY_EDITOR
+            _cachedTaggedTiles.Clear();
+#endif
 
             for (int x = 0; x < mapData.Width; x++)
             {
@@ -54,6 +61,9 @@ namespace Pharaoh.MapGenerator
                             neighbor.ContentTag = _contentTag;
                             mapData.Set(nx, ny, neighbor);
                             tagged++;
+#if UNITY_EDITOR
+                            _cachedTaggedTiles.Add(new Vector2Int(nx, ny));
+#endif
                         }
                     }
                 }
@@ -61,5 +71,15 @@ namespace Pharaoh.MapGenerator
 
             Debug.Log($"[{StepName}] Tagged {tagged} tiles (obstacle={_obstacleType}, tag={_contentTag}, radius={_radius}).");
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            if (_cachedTaggedTiles == null || _cachedTaggedTiles.Count == 0) return;
+            Gizmos.color = new Color(0.3f, 0.8f, 0.4f, 0.7f); // green
+            foreach (var p in _cachedTaggedTiles)
+                Gizmos.DrawCube(new Vector3(p.x, 0.2f, p.y), new Vector3(0.9f, 0.05f, 0.9f));
+        }
+#endif
     }
 }
