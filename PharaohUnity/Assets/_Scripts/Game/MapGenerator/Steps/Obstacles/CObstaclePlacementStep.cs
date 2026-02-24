@@ -9,8 +9,8 @@ namespace Pharaoh.MapGenerator
 {
     /// <summary>
     /// Places obstacles on land tiles using a two-pass algorithm:
-    ///   Pass 1 — noise threshold filter produces candidate tiles.
-    ///   Pass 2 — rejection sampling enforces a uniform minimum spacing.
+    ///   Pass 1 — score all valid tiles by noise, take top N (oversampled) as candidates.
+    ///   Pass 2 — rejection sampling enforces a uniform minimum spacing; stops at _targetCount.
     ///
     /// Add multiple instances of this step for different obstacle types,
     /// each with their own noise config and prefab array.
@@ -22,10 +22,12 @@ namespace Pharaoh.MapGenerator
         [SerializeField] private GameObject[] _prefabs;
 
         [Header("Density Noise")]
-        [Tooltip("Noise config that controls WHERE obstacles can appear.")]
+        [Tooltip("Noise config that controls WHERE obstacles can appear (high-noise tiles get priority).")]
         [SerializeField] private CNoiseConfig _densityNoise;
-        [Tooltip("Normalized noise value above which a tile becomes a candidate (0=full coverage, 1=nothing).")]
-        [SerializeField] [Range(0f, 1f)] private float _densityThreshold = 0.60f;
+
+        [Header("Placement")]
+        [Tooltip("Target number of obstacles to place. Actual count may be slightly lower if the map is too small.")]
+        [SerializeField] [Min(1)] private int _targetCount = 50;
 
         [Header("Spacing")]
         [Tooltip("Minimum distance in tiles between any two obstacles of this type.")]
@@ -50,8 +52,9 @@ namespace Pharaoh.MapGenerator
 
             var noise = _densityNoise.CreateNoise(seed);
 
-            // ── Pass 1: collect candidate tiles via noise threshold ──────────
-            var candidates = new List<Vector2Int>(mapData.Width * mapData.Height / 4);
+            // ── Pass 1: score all valid tiles, take top N by noise ───────────
+            // High-noise tiles are preferred; oversample to account for spacing rejects.
+            var noiseScores = new List<(Vector2Int pos, float score)>(mapData.Width * mapData.Height);
 
             for (int x = 0; x < mapData.Width; x++)
             {
@@ -69,11 +72,21 @@ namespace Pharaoh.MapGenerator
 
                     float raw        = noise.GetNoise(nx, ny);
                     float normalized = (raw + 1f) / 2f; // −1..1 → 0..1
-
-                    if (normalized > _densityThreshold)
-                        candidates.Add(new Vector2Int(x, y));
+                    noiseScores.Add((new Vector2Int(x, y), normalized));
                 }
             }
+
+            // Sort descending by noise score so highest-density tiles are first
+            noiseScores.Sort((a, b) => b.score.CompareTo(a.score));
+
+            // Oversample: each placed item blocks a circle of radius _minSpacing,
+            // so we need more candidates than the target count.
+            float oversamplingFactor = Mathf.Max(2f, _minSpacing * 2f + 1f);
+            int candidateCount = Mathf.Min((int)(_targetCount * oversamplingFactor), noiseScores.Count);
+
+            var candidates = new List<Vector2Int>(candidateCount);
+            for (int i = 0; i < candidateCount; i++)
+                candidates.Add(noiseScores[i].pos);
 
             // ── Shuffle candidates (Fisher-Yates) ────────────────────────────
             var rng = new System.Random(seed);
@@ -89,6 +102,7 @@ namespace Pharaoh.MapGenerator
 
             for (int i = 0; i < candidates.Count; i++)
             {
+                if (placed >= _targetCount) break;
                 var pos = candidates[i];
                 if (exclusion[pos.x, pos.y]) continue;
 
