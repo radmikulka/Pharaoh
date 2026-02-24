@@ -53,24 +53,21 @@ namespace Pharaoh.Map
                 for (int y = 0; y < Height; y++)
                 {
                     CMapCell cell = _cells[x, y];
-                    if (cell.TileType != ETileType.Land)
+                    if (!cell.TileType.IsBuildable())
                         continue;
 
                     ECellTag tags = ECellTag.None;
 
                     foreach (CMapCell neighbor in GetNeighbors(x, y))
                     {
-                        if (neighbor.BiomeType == EBiomeType.Forest)
-                            tags |= ECellTag.NearForest;
-
                         if (neighbor.TileType == ETileType.Water)
                             tags |= ECellTag.NearWater | ECellTag.Coastal;
 
-                        if (neighbor.ObstacleType == EObstacleType.Rock)
-                            tags |= ECellTag.NearRock;
+                        if (neighbor.TileType == ETileType.Sand)
+                            tags |= ECellTag.NearSand;
 
-                        if (neighbor.BiomeType == EBiomeType.Desert)
-                            tags |= ECellTag.NearDesert;
+                        if (neighbor.ObstacleObject != null)
+                            tags |= ECellTag.NearRock;
                     }
 
                     cell.Tags = tags;

@@ -22,6 +22,8 @@ namespace Pharaoh.Building
 		private readonly List<CBuilding> _buildings = new();
 		private readonly Dictionary<CMapCell, CBuildingView> _views = new();
 
+		public IReadOnlyList<CBuilding> Buildings => _buildings;
+
 		public CBuildingManager(
 			CBuildingPlacementValidator validator,
 			IMissionController missionController,

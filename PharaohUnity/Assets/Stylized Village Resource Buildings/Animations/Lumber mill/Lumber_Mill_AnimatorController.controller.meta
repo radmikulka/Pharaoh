@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b5a1fb5931e08a145baa0ecc73ff6481
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301249
+  packageName: Stylized Village Resource Buildings
+  packageVersion: 1.0
+  assetPath: Assets/Stylized Village Resource Buildings/Animations/Lumber mill/Lumber_Mill_AnimatorController.controller
+  uploadId: 713519

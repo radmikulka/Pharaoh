@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Pharaoh.MapGenerator
 {
@@ -8,8 +9,8 @@ namespace Pharaoh.MapGenerator
         public int X;
         public int Y;
         public ETileType Type;
-        public int RegionId;           // -1 = unassigned
-        public EBiomeType BiomeType;   // assigned by CVoronoiRegionStep
-        public EObstacleType ObstacleType; // assigned by CObstaclePlacementStep
+        public GameObject ObstaclePrefab;  // set on the anchor tile by obstacle placement steps
+        public bool IsObstacleBlocked;    // true for all tiles in a multi-tile formation's footprint
+        public EDecorationType DecorationType; // assigned by CDecorationPlacementStep
     }
 }

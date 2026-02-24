@@ -26,6 +26,12 @@ CBUFFER_START(UnityPerMaterial)
     UNITY_TEXTURE_STREAMING_DEBUG_VARS;
 CBUFFER_END
 
+#ifdef _TINT_INSTANCED
+UNITY_INSTANCING_BUFFER_START(TintProps)
+    UNITY_DEFINE_INSTANCED_PROP(half4, _TintColor)
+UNITY_INSTANCING_BUFFER_END(TintProps)
+#endif
+
 #ifdef UNITY_DOTS_INSTANCING_ENABLED
 UNITY_DOTS_INSTANCING_START(MaterialPropertyMetadata)
     UNITY_DOTS_INSTANCED_PROP(float4, _BaseColor)
@@ -93,6 +99,9 @@ inline void InitializeSimpleLitSurfaceData(float2 uv, out SurfaceData outSurface
     outSurfaceData.alpha = AlphaDiscard(outSurfaceData.alpha, _Cutoff);
 
     outSurfaceData.albedo = albedoAlpha.rgb * _BaseColor.rgb;
+#ifdef _TINT_INSTANCED
+    outSurfaceData.albedo *= UNITY_ACCESS_INSTANCED_PROP(TintProps, _TintColor).rgb;
+#endif
     outSurfaceData.albedo = AlphaModulate(outSurfaceData.albedo, outSurfaceData.alpha);
 
     half4 specularSmoothness = SampleSpecularSmoothness(uv, outSurfaceData.alpha, _SpecColor, TEXTURE2D_ARGS(_SpecGlossMap, sampler_SpecGlossMap));

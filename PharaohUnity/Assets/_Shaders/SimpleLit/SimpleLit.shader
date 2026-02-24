@@ -6,6 +6,7 @@ Shader "Custom/Simple Lit"
     {
         [MainTexture] _BaseMap("Base Map (RGB) Smoothness / Alpha (A)", 2D) = "white" {}
         [MainColor]   _BaseColor("Base Color", Color) = (1, 1, 1, 1)
+        _TintColor("Tint Color", Color) = (1, 1, 1, 1)
 
         _Cutoff("Alpha Clipping", Range(0.0, 1.0)) = 0.5
 
@@ -124,6 +125,7 @@ Shader "Custom/Simple Lit"
             //#pragma shader_feature_local_fragment _ _RIM_TO_LIGHT
             #pragma shader_feature_local_fragment _GLOSSINESS_FROM_BASE_ALPHA
             #pragma shader_feature_local _ _VERTEX_COLOR
+            #pragma shader_feature_local _TINT_INSTANCED
 
             // -------------------------------------
             // Universal Pipeline keywords

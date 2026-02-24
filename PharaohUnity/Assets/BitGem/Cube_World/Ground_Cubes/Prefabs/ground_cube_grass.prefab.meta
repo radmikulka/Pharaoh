@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a72c8674262065d4bbab62e0ff4873c8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 125895
+  packageName: Cube World Ground Block 1 - Smashy Craft Series
+  packageVersion: 1.1
+  assetPath: Assets/BitGem/Cube_World/Ground_Cubes/Prefabs/ground_cube_grass.prefab
+  uploadId: 320362

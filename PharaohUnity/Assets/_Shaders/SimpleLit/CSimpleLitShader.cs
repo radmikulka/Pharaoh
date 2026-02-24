@@ -59,6 +59,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGUI
             SimpleLitGUI.Advanced(shadingModelProperties);
             
             DrawShaderKeywordToggle("Multiply by vertex color", "_VERTEX_COLOR");
+            DrawShaderKeywordToggle("Per-instance tint color (GPU instancing)", "_TINT_INSTANCED");
             
             base.DrawAdvancedOptions(material);
         }

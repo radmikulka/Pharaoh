@@ -53,6 +53,7 @@ namespace Pharaoh
         {
             Container.AddSingleton<CBuildingPlacementValidator>();
             Container.AddSingleton<CBuildingManager>(true);
+            Container.AddSingleton<CBuildingTickSystem>(true);
             Container.AddSingletonFromInstance(_buildingMenuPanel);
         }
     }

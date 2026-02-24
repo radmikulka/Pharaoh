@@ -4,5 +4,12 @@ namespace Pharaoh.MapGenerator
     {
         Water,
         Land,
+        Sand = 2,
+    }
+
+    public static class ETileTypeExtensions
+    {
+        public static bool IsBuildable(this ETileType type) =>
+            type == ETileType.Land || type == ETileType.Sand;
     }
 }

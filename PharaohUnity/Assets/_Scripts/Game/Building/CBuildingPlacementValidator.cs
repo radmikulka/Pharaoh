@@ -21,7 +21,7 @@ namespace Pharaoh.Building
 			if (cell == null)
 				return false;
 
-			if (cell.TileType != ETileType.Land)
+			if (!cell.TileType.IsBuildable())
 				return false;
 
 			if (cell.HasBuilding)

@@ -8,6 +8,7 @@ namespace Pharaoh.Building
 		public EBuildingId Id { get; }
 		public CMapCell Cell { get; }
 		public bool IsActive { get; set; }
+		public int Level { get; set; } = 1;
 
 		public CBuilding(EBuildingId id, CMapCell cell)
 		{

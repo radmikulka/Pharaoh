@@ -10,30 +10,51 @@ namespace Pharaoh.MapGenerator
     /// Final pipeline step — instantiates physical Unity GameObjects from CMapData
     /// and stores them in a CMapInstance component.
     ///
+    /// Two-pass approach:
+    ///   Pass 1 — creates all CMapCell objects and spawns tile / decoration GOs.
+    ///   Pass 2 — spawns obstacle prefabs and assigns ObstacleObject on the tile.
+    ///
     /// Hierarchy produced:
     ///   _mapRoot (or transform.parent)
     ///   └── MapInstance  (CMapInstance)
     ///       ├── Tile_0_0
-    ///       ├── Obstacle_Rock_3_7
-    ///       ├── ...
+    ///       ├── Obstacle_3_7
     ///       └── WaterPlane
     /// </summary>
-    public class CSpawnMapStep : MonoBehaviour, IMapGenerationStep
+    public class CSpawnMapStep : CMapGenerationStepBase
     {
         [Header("Tile")]
         [SerializeField] private GameObject _landTilePrefab;
+        [SerializeField] private GameObject _sandTilePrefab;
         [SerializeField] private GameObject _waterPlanePrefab;
 
-        [Header("Obstacles")]
-        [SerializeField] private CObstacleEntry[] _obstacles;
+        [Header("Decorations")]
+        [SerializeField] private CDecorationEntry[] _decorations;
 
         [Header("Container")]
         [Tooltip("Parent for the spawned MapInstance. If null, uses this step's parent (MapGenerator).")]
         [SerializeField] private Transform _mapRoot;
 
-        public string StepName => "Spawn Physical Map";
+        [Header("Sand Tint")]
+        [SerializeField] private Color _sandTintA = new(0.90f, 0.82f, 0.55f);
+        [SerializeField] private Color _sandTintB = new(0.95f, 0.88f, 0.60f);
 
-        public void Execute(CMapData mapData, int seed)
+        private static readonly int TintColorId = Shader.PropertyToID("_TintColor");
+        private MaterialPropertyBlock _tileMpb;
+
+        public override string StepName => "Spawn Physical Map";
+        public override string StepDescription => "Spawní fyzické herní objekty z CMapData a sestavuje CMapInstance se všemi dlaždicemi, překážkami a dekoracemi.";
+
+        // Deterministic hash [0,1] from tile position — same seed → same result every generate.
+        private static float TileHash(int x, int y)
+        {
+            int h = x * 374761393 + y * 1099087573;
+            h = (h ^ (h >> 13)) * 1597334677;
+            h ^= h >> 16;
+            return (h & 0x7FFFFFFF) / (float)0x7FFFFFFF;
+        }
+
+        public override void Execute(CMapData mapData, int seed)
         {
             Transform parent = _mapRoot != null ? _mapRoot : transform.parent;
 
@@ -48,19 +69,19 @@ namespace Pharaoh.MapGenerator
 #endif
             }
 
-            // ── Create MapInstance ───────────────────────────────────────────
+            // ── Create MapInstance root ──────────────────────────────────────
             var mapInstanceGO = new GameObject("MapInstance");
             mapInstanceGO.transform.SetParent(parent, false);
 
             var mapInstance = mapInstanceGO.AddComponent<CMapInstance>();
             mapInstance.Initialize(mapData.Width, mapData.Height);
 
-            // ── Build obstacle prefab lookup ─────────────────────────────────
-            var obstacleMap = new Dictionary<EObstacleType, GameObject>(_obstacles.Length);
-            foreach (var entry in _obstacles)
+            // ── Build decoration prefab lookup ──────────────────────────────
+            var decorationMap = new Dictionary<EDecorationType, GameObject>(_decorations.Length);
+            foreach (var entry in _decorations)
             {
                 if (entry.Prefab != null)
-                    obstacleMap[entry.Type] = entry.Prefab;
+                    decorationMap[entry.Type] = entry.Prefab;
             }
 
             // ── Optional water plane ─────────────────────────────────────────
@@ -71,8 +92,57 @@ namespace Pharaoh.MapGenerator
                 water.transform.localPosition = new Vector3(mapData.Width * 0.5f - 0.5f, 0f, mapData.Height * 0.5f - 0.5f);
             }
 
-            // ── Spawn land tiles and obstacles ───────────────────────────────
+            _tileMpb = new MaterialPropertyBlock();
             int tileCount = 0;
+            int decorationCount = 0;
+
+            // ── Pass 1: create cells, spawn tiles and decorations ────────────
+            for (int x = 0; x < mapData.Width; x++)
+            {
+                for (int y = 0; y < mapData.Height; y++)
+                {
+                    STile tile = mapData.Get(x, y);
+                    var cell = new CMapCell(x, y, tile.Type, tile.DecorationType);
+
+                    if (tile.Type.IsBuildable())
+                    {
+                        var pos = new Vector3(x, 0f, y);
+
+                        bool isSand = tile.Type == ETileType.Sand;
+                        var prefab = isSand && _sandTilePrefab != null ? _sandTilePrefab : _landTilePrefab;
+
+                        if (prefab != null)
+                        {
+                            var tileGO = Instantiate(prefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                            tileGO.name = $"Tile_{x}_{y}";
+                            cell.TileObject = tileGO;
+                            tileCount++;
+
+                            if (isSand)
+                            {
+                                float t = TileHash(x, y);
+                                _tileMpb.SetColor(TintColorId, Color.Lerp(_sandTintA, _sandTintB, t));
+                                var renderer = tileGO.GetComponentInChildren<Renderer>();
+                                if (renderer != null)
+                                    renderer.SetPropertyBlock(_tileMpb);
+                            }
+                        }
+
+                        if (tile.DecorationType != EDecorationType.None &&
+                            decorationMap.TryGetValue(tile.DecorationType, out var decorationPrefab))
+                        {
+                            var decoGO = Instantiate(decorationPrefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                            decoGO.name = $"Decoration_{tile.DecorationType}_{x}_{y}";
+                            cell.DecorationObject = decoGO;
+                            decorationCount++;
+                        }
+                    }
+
+                    mapInstance.SetCell(x, y, cell);
+                }
+            }
+
+            // ── Pass 2: spawn obstacles, mark formation footprints ───────────
             int obstacleCount = 0;
 
             for (int x = 0; x < mapData.Width; x++)
@@ -80,28 +150,15 @@ namespace Pharaoh.MapGenerator
                 for (int y = 0; y < mapData.Height; y++)
                 {
                     STile tile = mapData.Get(x, y);
-                    var cell = new CMapCell(x, y, tile.Type, tile.BiomeType, tile.ObstacleType);
+                    if (!tile.Type.IsBuildable()) continue;
+                    if (tile.ObstaclePrefab == null) continue;
 
-                    if (tile.Type == ETileType.Land && _landTilePrefab != null)
-                    {
-                        var pos = new Vector3(x, 0f, y);
+                    var pos = new Vector3(x, 0f, y);
+                    var obstacleGO = Instantiate(tile.ObstaclePrefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                    obstacleGO.name = $"Obstacle_{x}_{y}";
+                    obstacleCount++;
 
-                        var tileGO = Instantiate(_landTilePrefab, pos, Quaternion.identity, mapInstanceGO.transform);
-                        tileGO.name = $"Tile_{x}_{y}";
-                        cell.TileObject = tileGO;
-                        tileCount++;
-
-                        if (tile.ObstacleType != EObstacleType.None &&
-                            obstacleMap.TryGetValue(tile.ObstacleType, out var obstaclePrefab))
-                        {
-                            var obstacleGO = Instantiate(obstaclePrefab, pos, Quaternion.identity, mapInstanceGO.transform);
-                            obstacleGO.name = $"Obstacle_{tile.ObstacleType}_{x}_{y}";
-                            cell.ObstacleObject = obstacleGO;
-                            obstacleCount++;
-                        }
-                    }
-
-                    mapInstance.SetCell(x, y, cell);
+                    mapInstance.GetCell(x, y).ObstacleObject = obstacleGO;
                 }
             }
 
@@ -117,14 +174,14 @@ namespace Pharaoh.MapGenerator
             collider.size = new Vector3(mapData.Width, 0.2f, mapData.Height);
             mapInstanceGO.layer = CObjectLayer.RaycastTarget;
 
-            Debug.Log($"[CSpawnMapStep] Spawned MapInstance — {tileCount} tiles, {obstacleCount} obstacles.");
+            Debug.Log($"[CSpawnMapStep] Spawned MapInstance — {tileCount} tiles, {obstacleCount} obstacles, {decorationCount} decorations.");
         }
     }
 
     [Serializable]
-    public struct CObstacleEntry
+    public struct CDecorationEntry
     {
-        public EObstacleType Type;
+        public EDecorationType Type;
         public GameObject Prefab;
     }
 }

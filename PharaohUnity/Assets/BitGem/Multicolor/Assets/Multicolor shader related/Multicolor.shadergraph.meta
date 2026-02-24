@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bf4efdc613a4c6b4bbd2fd12fee32cd7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183973
+  packageName: URP Multicolor Material - Proto Series
+  packageVersion: 1.0
+  assetPath: Assets/Bitgem/Multicolor/Assets/Multicolor shader related/Multicolor.shadergraph
+  uploadId: 403398
