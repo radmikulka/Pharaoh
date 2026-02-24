@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using AldaEngine;
-using UnityEditor;
-#endif
 
 namespace Pharaoh.MapGenerator
 {
@@ -17,7 +13,7 @@ namespace Pharaoh.MapGenerator
     ///
     /// Add multiple instances for different decoration types (grass, flowers, etc.).
     /// </summary>
-    public class CDecorationPlacementStep : CMapGenerationStepBase
+    public class CDecorationPlacementStep : CMapGenerationStepBase, IHaveNoise
     {
         [Header("Decoration")]
         [SerializeField] private EDecorationType _decorationType = EDecorationType.Grass;
@@ -33,6 +29,8 @@ namespace Pharaoh.MapGenerator
         [Header("Spacing")]
         [Tooltip("Minimum distance in tiles between any two decorations of this type.")]
         [SerializeField] [Min(0)] private int _minSpacing = 1;
+
+        public CNoiseConfig NoiseConfig => _densityNoise;
 
         public override string StepName => $"Decorations ({_decorationType})";
         public override string StepDescription => "Rozmísťuje dekorativní objekty na land políčkách pomocí noise hustoty a rejection samplingu.";
@@ -66,8 +64,8 @@ namespace Pharaoh.MapGenerator
                     if (_densityNoise.UseDomainWarp)
                         noise.DomainWarp(ref nx, ref ny);
 
-                    float raw        = noise.GetNoise(nx, ny);
-                    float normalized = (raw + 1f) / 2f;
+                    float raw        = _densityNoise.SampleNoise(noise, nx, ny);
+                    float normalized = Mathf.Clamp01((raw + 1f) / 2f);
                     noiseScores.Add((new Vector2Int(x, y), normalized));
                 }
             }
@@ -127,33 +125,4 @@ namespace Pharaoh.MapGenerator
             Debug.Log($"[{StepName}] Placed {placed} decorations from {candidates.Count} candidates.");
         }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(CDecorationPlacementStep))]
-    public class CDecorationPlacementStepEditor : CMapStepEditor
-    {
-        private Editor _noiseEditor;
-
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            var densityNoise = serializedObject
-                .FindProperty("_densityNoise").objectReferenceValue as CNoiseConfig;
-
-            if (densityNoise == null) { _noiseEditor = null; return; }
-
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField("— Density Noise Config —", EditorStyles.boldLabel);
-
-            Editor.CreateCachedEditor(densityNoise, null, ref _noiseEditor);
-            _noiseEditor.OnInspectorGUI();
-        }
-
-        private void OnDisable()
-        {
-            if (_noiseEditor != null) DestroyImmediate(_noiseEditor);
-        }
-    }
-#endif
 }

@@ -20,7 +20,10 @@ namespace Pharaoh.MapGenerator
         [Header("Domain Warp")]
         public bool UseDomainWarp = true;
         public FastNoiseLite.DomainWarpType DomainWarpType = FastNoiseLite.DomainWarpType.OpenSimplex2;
-        public float DomainWarpAmplitude = 30f;
+        [Range(1f, 100f)]public float DomainWarpAmplitude = 30f;
+
+        [Header("Output")]
+        [Range(0.01f, 3f)] public float Amplitude = 1f;
 
         public FastNoiseLite CreateNoise(int seed)
         {
@@ -38,6 +41,9 @@ namespace Pharaoh.MapGenerator
 
             return noise;
         }
+
+        public float SampleNoise(FastNoiseLite noise, float nx, float ny)
+            => noise.GetNoise(nx, ny) * Amplitude;
     }
 
 #if UNITY_EDITOR
@@ -81,7 +87,7 @@ namespace Pharaoh.MapGenerator
             {
                 float nx = x, ny = y;
                 if (config.UseDomainWarp) noise.DomainWarp(ref nx, ref ny);
-                float v = (noise.GetNoise(nx, ny) + 1f) / 2f;
+                float v = Mathf.Clamp01((config.SampleNoise(noise, nx, ny) + 1f) / 2f);
                 tex.SetPixel(x, y, new Color(v, v, v));
             }
 

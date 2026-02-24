@@ -92,7 +92,7 @@ namespace Pharaoh.MapGenerator
             }
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if (_previewTiles == null || _previewTiles.Count == 0)
                 RefreshPreview();
@@ -119,13 +119,13 @@ namespace Pharaoh.MapGenerator
         /// stampGrid determines the river's starting cross-position via dot product with crossDir.
         /// Returns the number of water tiles carved.
         /// </summary>
-        public int Bake(CMapData mapData, Vector2Int stampGrid, int globalSeed)
+        public int Bake(CMapData mapData, Vector2Int stampGrid)
         {
             Vector3 rawFwd  = transform.forward;
             Vector2 flowDir  = new Vector2(rawFwd.x, rawFwd.z).normalized;
             Vector2 crossDir = new Vector2(-flowDir.y, flowDir.x); // 90° CCW perp
 
-            int noiseSeed = globalSeed ^ _localSeed;
+            int noiseSeed = _localSeed;
 
             var pathNoise = new FastNoiseLite(noiseSeed);
             pathNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);

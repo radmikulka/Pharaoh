@@ -40,7 +40,7 @@ namespace Pharaoh.MapGenerator
                     continue;
                 }
 
-                int placed = stamp.Bake(mapData, stampGrid, seed);
+                int placed = stamp.Bake(mapData, stampGrid);
                 Debug.Log($"[Rivers] Stamp '{stamp.name}' → {placed} tiles.");
             }
         }

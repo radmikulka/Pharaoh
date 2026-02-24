@@ -43,7 +43,7 @@ namespace Pharaoh.MapGenerator
                     continue;
                 }
 
-                int placed = stamp.Bake(mapData, gridCenter, seed);
+                int placed = stamp.Bake(mapData, gridCenter);
                 Debug.Log($"[CLayoutShapeStep] Stamp '{stamp.name}' → {placed} tiles at {gridCenter}.");
             }
         }

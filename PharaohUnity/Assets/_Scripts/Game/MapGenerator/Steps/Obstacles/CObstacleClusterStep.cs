@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using AldaEngine;
-using UnityEditor;
-#endif
 
 namespace Pharaoh.MapGenerator
 {
@@ -16,7 +12,7 @@ namespace Pharaoh.MapGenerator
     /// Add multiple instances of this step for different obstacle types,
     /// each with their own noise config and prefab array.
     /// </summary>
-    public class CObstacleClusterStep : CMapGenerationStepBase
+    public class CObstacleClusterStep : CMapGenerationStepBase, IHaveNoise
     {
         [Header("Prefabs")]
         [Tooltip("One or more obstacle prefabs. A random one is chosen per tile (seeded).")]
@@ -34,8 +30,10 @@ namespace Pharaoh.MapGenerator
         [SerializeField] [Min(1)] private int _minSpacing = 2;
         [Tooltip("Minimum spacing between obstacles in the cluster core (tighter than MinSpacing).")]
         [SerializeField] [Min(0)] private int _coreSpacing = 0;
-        [Tooltip("Multiplier on DensityThreshold for fringe candidates. Lower = wider fringe.")]
-        [SerializeField] [Range(0.5f, 0.95f)] private float _edgeFactor = 0.7f;
+        [Tooltip("Multiplier on DensityThreshold for fringe candidates. Lower = wider fringe. At 1.0 only core tiles are placed.")]
+        [SerializeField] [Range(0.5f, 1f)] private float _edgeFactor = 0.7f;
+
+        public CNoiseConfig NoiseConfig => _densityNoise;
 
         public override string StepName => "Obstacle Clusters";
         public override string StepDescription => "Rozmísťuje překážky ve shlucích — husté jádro s řidším okrajem, řízeným dvěma prahovými hodnotami noise.";
@@ -60,6 +58,7 @@ namespace Pharaoh.MapGenerator
 
             var noise = _densityNoise.CreateNoise(seed);
             float fringeThreshold = _densityThreshold * _edgeFactor;
+            if (fringeThreshold >= 1f) return; // nic nemůže projít — normalized je max 1
 
             // ── Pass 1: collect candidates with their noise values ───────────
             var candidates      = new List<Vector2Int>(mapData.Width * mapData.Height / 4);
@@ -79,8 +78,8 @@ namespace Pharaoh.MapGenerator
                     if (_densityNoise.UseDomainWarp)
                         noise.DomainWarp(ref nx, ref ny);
 
-                    float raw        = noise.GetNoise(nx, ny);
-                    float normalized = (raw + 1f) / 2f; // −1..1 → 0..1
+                    float raw        = _densityNoise.SampleNoise(noise, nx, ny);
+                    float normalized = Mathf.Clamp01((raw + 1f) / 2f);
 
                     if (normalized > fringeThreshold)
                     {
@@ -152,33 +151,4 @@ namespace Pharaoh.MapGenerator
         }
 #endif
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(CObstacleClusterStep))]
-    public class CObstacleClusterStepEditor : CMapStepEditor
-    {
-        private Editor _noiseEditor;
-
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            var densityNoise = serializedObject
-                .FindProperty("_densityNoise").objectReferenceValue as CNoiseConfig;
-
-            if (densityNoise == null) { _noiseEditor = null; return; }
-
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField("— Density Noise Config —", EditorStyles.boldLabel);
-
-            Editor.CreateCachedEditor(densityNoise, null, ref _noiseEditor);
-            _noiseEditor.OnInspectorGUI();
-        }
-
-        private void OnDisable()
-        {
-            if (_noiseEditor != null) DestroyImmediate(_noiseEditor);
-        }
-    }
-#endif
 }

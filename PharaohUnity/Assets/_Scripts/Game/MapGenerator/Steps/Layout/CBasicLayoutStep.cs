@@ -1,20 +1,18 @@
 using UnityEngine;
-#if UNITY_EDITOR
-using AldaEngine;
-using UnityEditor;
-#endif
 
 namespace Pharaoh.MapGenerator
 {
     /// <summary>
     /// Step 0 — generates the basic land/water layout using noise + an edge falloff.
     /// </summary>
-    public class CBasicLayoutStep : CMapGenerationStepBase
+    public class CBasicLayoutStep : CMapGenerationStepBase, IHaveNoise
     {
         [SerializeField] private CNoiseConfig _noiseConfig;
         [SerializeField] private EBorderType _borderType = EBorderType.AllSides;
         [SerializeField] [Range(0f, 1f)] private float _waterThreshold = 0.4f;
         [SerializeField] [Range(0.5f, 6f)] private float _falloffStrength = 3f;
+
+        public CNoiseConfig NoiseConfig => _noiseConfig;
 
         public override string StepName => "Basic Layout (Land / Water)";
         public override string StepDescription => "Generuje základní rozložení mapy (Land / Water) pomocí noise a edge falloffu.";
@@ -39,8 +37,8 @@ namespace Pharaoh.MapGenerator
                     if (_noiseConfig.UseDomainWarp)
                         noise.DomainWarp(ref nx, ref ny);
 
-                    float raw = noise.GetNoise(nx, ny);
-                    float normalized = (raw + 1f) / 2f; // −1..1 → 0..1
+                    float raw = _noiseConfig.SampleNoise(noise, nx, ny);
+                    float normalized = Mathf.Clamp01((raw + 1f) / 2f);
 
                     float falloff = ComputeFalloff(x, y, mapData.Width, mapData.Height);
                     float value = Mathf.Clamp01(normalized - falloff);
@@ -78,33 +76,4 @@ namespace Pharaoh.MapGenerator
             return falloff;
         }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(CBasicLayoutStep))]
-    public class CBasicLayoutStepEditor : CMapStepEditor
-    {
-        private Editor _noiseEditor;
-
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            var noiseConfig = serializedObject
-                .FindProperty("_noiseConfig").objectReferenceValue as CNoiseConfig;
-
-            if (noiseConfig == null) { _noiseEditor = null; return; }
-
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField("— Noise Config —", EditorStyles.boldLabel);
-
-            Editor.CreateCachedEditor(noiseConfig, null, ref _noiseEditor);
-            _noiseEditor.OnInspectorGUI();
-        }
-
-        private void OnDisable()
-        {
-            if (_noiseEditor != null) DestroyImmediate(_noiseEditor);
-        }
-    }
-#endif
 }

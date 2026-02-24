@@ -45,22 +45,35 @@ namespace Pharaoh.MapGenerator
         private void RefreshPreview()
         {
             _previewTiles = new List<Vector2Int>();
-            int targetSize = (_sizeRange.Min + _sizeRange.Max) / 2;
-            GrowLakeVirtual(Vector2Int.zero, targetSize, _localSeed, _previewTiles);
+            var rng = new System.Random(_localSeed);
+            int targetSize = rng.Next(_sizeRange.Min, _sizeRange.Max + 1);
+
+            // Match noise coordinates used in GrowLake: sample at absolute grid position
+            var generator = GetComponentInParent<CMapGenerator>();
+            Vector3 localPos = generator != null
+                ? generator.transform.InverseTransformPoint(transform.position)
+                : transform.localPosition;
+            var gridCenter = new Vector2Int(Mathf.RoundToInt(localPos.x), Mathf.RoundToInt(localPos.z));
+
+            GrowLakeVirtual(gridCenter, targetSize, _localSeed, _previewTiles);
         }
 
-        private void GrowLakeVirtual(Vector2Int seed, int targetSize, int noiseSeed, List<Vector2Int> result)
+        // Grows shape from 'origin' using absolute noise coordinates (matching GrowLake).
+        // Tiles stored as local offsets from origin so gizmo can draw relative to transform.position.
+        // Note: Preview ignores tile-type and map-bounds filtering that Bake applies,
+        // so the actual baked shape may be smaller near edges or other terrain features.
+        private void GrowLakeVirtual(Vector2Int origin, int targetSize, int noiseSeed, List<Vector2Int> result)
         {
             var noise = new FastNoiseLite(noiseSeed);
             noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
             noise.SetFrequency(_noiseFrequency);
 
             var filled = new HashSet<Vector2Int>();
-            var frontier = new List<Vector2Int> { seed };
+            var frontier = new List<Vector2Int> { origin };
             var rng = new System.Random(noiseSeed);
 
-            filled.Add(seed);
-            result.Add(seed);
+            filled.Add(origin);
+            result.Add(Vector2Int.zero);
 
             Vector2Int[] offsets = { new(0, 1), new(0, -1), new(1, 0), new(-1, 0) };
 
@@ -82,7 +95,7 @@ namespace Pharaoh.MapGenerator
                     if (normalized < threshold) continue;
 
                     filled.Add(neighbor);
-                    result.Add(neighbor);
+                    result.Add(neighbor - origin);
                     frontier.Add(neighbor);
 
                     if (filled.Count >= targetSize) break;
@@ -94,7 +107,7 @@ namespace Pharaoh.MapGenerator
         public bool IsCenterValid(ETileType type) =>
             _isIsland ? type == ETileType.Water : type.IsBuildable();
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if (_previewTiles == null || _previewTiles.Count == 0)
                 RefreshPreview();
@@ -110,11 +123,11 @@ namespace Pharaoh.MapGenerator
         /// Bakes this lake stamp into mapData centered at gridCenter.
         /// Returns the number of water tiles placed.
         /// </summary>
-        public int Bake(CMapData mapData, Vector2Int gridCenter, int globalSeed)
+        public int Bake(CMapData mapData, Vector2Int gridCenter)
         {
-            var rng = new System.Random(globalSeed ^ _localSeed);
+            var rng = new System.Random(_localSeed);
             int targetSize = rng.Next(_sizeRange.Min, _sizeRange.Max + 1);
-            return GrowLake(mapData, gridCenter, targetSize, globalSeed ^ _localSeed);
+            return GrowLake(mapData, gridCenter, targetSize, _localSeed);
         }
 
         private int GrowLake(CMapData mapData, Vector2Int seed, int targetSize, int noiseSeed)
