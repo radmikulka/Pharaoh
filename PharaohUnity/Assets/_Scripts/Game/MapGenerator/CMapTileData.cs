@@ -69,7 +69,7 @@ namespace Pharaoh.MapGenerator
             Color color = _tileType switch
             {
                 ETileType.Water => new Color(0.20f, 0.45f, 0.85f),
-                ETileType.Sand  => new Color(0.92f, 0.84f, 0.50f),
+                ETileType.Coast  => new Color(0.92f, 0.84f, 0.50f),
                 _               => new Color(0.30f, 0.65f, 0.25f),
             };
 

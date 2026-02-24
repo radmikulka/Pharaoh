@@ -108,7 +108,7 @@ namespace Pharaoh.MapGenerator
                     {
                         var pos = new Vector3(x, 0f, y);
 
-                        bool isSand = tile.Type == ETileType.Sand;
+                        bool isSand = tile.Type == ETileType.Coast;
                         var prefab = isSand && _sandTilePrefab != null ? _sandTilePrefab : _landTilePrefab;
 
                         if (prefab != null)

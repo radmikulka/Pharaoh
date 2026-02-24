@@ -1,3 +1,4 @@
+using ModestTree;
 using UnityEngine;
 #if UNITY_EDITOR
 using AldaEngine;
@@ -10,13 +11,11 @@ namespace Pharaoh.MapGenerator
     {
         [Header("Noise")]
         public FastNoiseLite.NoiseType NoiseType = FastNoiseLite.NoiseType.OpenSimplex2;
-        public float Frequency = 0.015f;
+        [Range(0.001f, 0.1f)] public float Frequency = 0.015f;
 
         [Header("Fractal")]
         public FastNoiseLite.FractalType FractalType = FastNoiseLite.FractalType.FBm;
-        public int Octaves = 4;
-        public float Lacunarity = 2f;
-        public float Gain = 0.5f;
+        [Range(1, 4)] public int Octaves = 4;
 
         [Header("Domain Warp")]
         public bool UseDomainWarp = true;
@@ -30,8 +29,6 @@ namespace Pharaoh.MapGenerator
             noise.SetFrequency(Frequency);
             noise.SetFractalType(FractalType);
             noise.SetFractalOctaves(Octaves);
-            noise.SetFractalLacunarity(Lacunarity);
-            noise.SetFractalGain(Gain);
 
             if (UseDomainWarp)
             {

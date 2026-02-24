@@ -10,8 +10,8 @@ namespace Pharaoh.MapGenerator
     /// orient transform.forward in the flow direction, and it will carve an edge-to-edge river
     /// during generation with noise-controlled width variation.
     ///
-    /// horizontal flow (E-W): |forward.x| >= |forward.z|  →  cross-axis = Z (stampGrid.y)
-    /// vertical   flow (N-S): |forward.z|  > |forward.x|  →  cross-axis = X (stampGrid.x)
+    /// Flow direction is the actual XZ projection of transform.forward (any angle supported).
+    /// Cross-direction is 90° CCW perpendicular to flow in the XZ plane.
     /// </summary>
     public class CRiverStamp : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace Pharaoh.MapGenerator
         [SerializeField] [Min(0.001f)] private float _pathNoiseFrequency = 0.05f;
 
         [Header("Width")]
-        [SerializeField] private SIntMinMaxRange _widthRange = new(1, 3);
+        [SerializeField] [MinMaxRangeInt(1, 15)] private SIntMinMaxRange _widthRange = new(1, 3);
         [SerializeField] [Min(0.001f)] private float _widthNoiseFrequency = 0.05f;
 
         [Header("Local Seed")]
@@ -97,14 +97,15 @@ namespace Pharaoh.MapGenerator
             if (_previewTiles == null || _previewTiles.Count == 0)
                 RefreshPreview();
 
-            bool horizontal = Mathf.Abs(transform.forward.x) >= Mathf.Abs(transform.forward.z);
-            Vector3 mainAxis  = horizontal ? Vector3.right   : Vector3.forward;
-            Vector3 crossAxis = horizontal ? Vector3.forward : Vector3.right;
+            Vector2 flowDir2D  = new Vector2(transform.forward.x, transform.forward.z).normalized;
+            Vector2 crossDir2D = new Vector2(-flowDir2D.y, flowDir2D.x);
+            Vector3 flowDir3D  = new Vector3(flowDir2D.x, 0, flowDir2D.y);
+            Vector3 crossDir3D = new Vector3(crossDir2D.x, 0, crossDir2D.y);
 
             Gizmos.color = new Color(0.15f, 0.35f, 0.75f, 0.65f);
             foreach (var t in _previewTiles)
                 Gizmos.DrawCube(
-                    transform.position + mainAxis * t.x + crossAxis * t.y,
+                    transform.position + flowDir3D * t.x + crossDir3D * t.y,
                     new Vector3(0.9f, 0.05f, 0.9f));
 
             // Arrow showing flow direction
@@ -114,15 +115,17 @@ namespace Pharaoh.MapGenerator
 
         /// <summary>
         /// Bakes this river stamp into mapData.
-        /// stampGrid.y drives the starting cross-position for horizontal (E-W) flow;
-        /// stampGrid.x drives it for vertical (N-S) flow.
+        /// Flow direction is the XZ projection of transform.forward (any angle).
+        /// stampGrid determines the river's starting cross-position via dot product with crossDir.
         /// Returns the number of water tiles carved.
         /// </summary>
         public int Bake(CMapData mapData, Vector2Int stampGrid, int globalSeed)
         {
-            bool horizontal = Mathf.Abs(transform.forward.x) >= Mathf.Abs(transform.forward.z);
-            int  length     = horizontal ? mapData.Width : mapData.Height;
-            int  noiseSeed  = globalSeed ^ _localSeed;
+            Vector3 rawFwd  = transform.forward;
+            Vector2 flowDir  = new Vector2(rawFwd.x, rawFwd.z).normalized;
+            Vector2 crossDir = new Vector2(-flowDir.y, flowDir.x); // 90° CCW perp
+
+            int noiseSeed = globalSeed ^ _localSeed;
 
             var pathNoise = new FastNoiseLite(noiseSeed);
             pathNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
@@ -132,50 +135,57 @@ namespace Pharaoh.MapGenerator
             widthNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
             widthNoise.SetFrequency(_widthNoiseFrequency);
 
-            // Starting cross-position comes from stamp grid placement
-            float crossPos   = horizontal ? stampGrid.y : stampGrid.x;
-            int prevCrossInt = Mathf.RoundToInt(crossPos);
-            int placed       = 0;
-
-            for (int step = 0; step < length; step++)
+            // Project all four map corners onto flow and cross directions to get valid ranges
+            Vector2[] corners =
             {
-                float raw  = pathNoise.GetNoise(step, 0f);
-                float drift = raw * _windiness * 2f;
-                crossPos  += drift;
+                new Vector2(0,             0),
+                new Vector2(mapData.Width, 0),
+                new Vector2(mapData.Width, mapData.Height),
+                new Vector2(0,             mapData.Height)
+            };
 
-                int breadth = horizontal ? mapData.Height : mapData.Width;
-                crossPos = Mathf.Clamp(crossPos, 0, breadth - 1);
+            float flowMin = float.MaxValue, flowMax = float.MinValue;
+            float crossMin = float.MaxValue, crossMax = float.MinValue;
+            foreach (var corner in corners)
+            {
+                float fd = Vector2.Dot(corner, flowDir);
+                float cd = Vector2.Dot(corner, crossDir);
+                if (fd < flowMin)  flowMin  = fd;
+                if (fd > flowMax)  flowMax  = fd;
+                if (cd < crossMin) crossMin = cd;
+                if (cd > crossMax) crossMax = cd;
+            }
 
-                int crossInt = Mathf.RoundToInt(crossPos);
+            // Starting cross-position from stamp grid placement
+            float crossPos = Vector2.Dot(new Vector2(stampGrid.x, stampGrid.y), crossDir);
 
-                float widthT     = (widthNoise.GetNoise(step, 0f) + 1f) / 2f;
-                int currentWidth = Mathf.RoundToInt(Mathf.Lerp(_widthRange.Min, _widthRange.Max, widthT));
-                int halfWidth    = currentWidth / 2;
+            const float stepSize = 0.5f;
+            int steps = Mathf.CeilToInt((flowMax - flowMin) / stepSize);
+            var painted = new HashSet<Vector2Int>();
+            int placed  = 0;
 
-                int crossMin = Mathf.Min(prevCrossInt, crossInt);
-                int crossMax = Mathf.Max(prevCrossInt, crossInt);
+            for (int s = 0; s < steps; s++)
+            {
+                float t = flowMin + s * stepSize;
 
-                for (int c = crossMin; c <= crossMax; c++)
+                crossPos += pathNoise.GetNoise(t, 0f) * _windiness * 2f * stepSize;
+                crossPos  = Mathf.Clamp(crossPos, crossMin, crossMax);
+
+                float widthT  = (widthNoise.GetNoise(t, 0f) + 1f) / 2f;
+                int halfWidth = Mathf.RoundToInt(Mathf.Lerp(_widthRange.Min, _widthRange.Max, widthT)) / 2;
+
+                Vector2 center = t * flowDir + crossPos * crossDir;
+
+                for (int w = -halfWidth; w <= halfWidth; w++)
                 {
-                    int cx = horizontal ? step : c;
-                    int cy = horizontal ? c    : step;
-
-                    if (mapData.IsValid(cx, cy) && CarveTile(mapData, cx, cy))
-                        placed++;
-
-                    for (int w = 1; w <= halfWidth; w++)
+                    Vector2 pos = center + w * crossDir;
+                    var key = new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
+                    if (painted.Add(key) && mapData.IsValid(key.x, key.y))
                     {
-                        int wx1 = horizontal ? cx     : cx - w;
-                        int wy1 = horizontal ? cy - w : cy;
-                        int wx2 = horizontal ? cx     : cx + w;
-                        int wy2 = horizontal ? cy + w : cy;
-
-                        if (mapData.IsValid(wx1, wy1)) CarveTile(mapData, wx1, wy1);
-                        if (mapData.IsValid(wx2, wy2)) CarveTile(mapData, wx2, wy2);
+                        if (CarveTile(mapData, key.x, key.y))
+                            placed++;
                     }
                 }
-
-                prevCrossInt = crossInt;
             }
 
             return placed;

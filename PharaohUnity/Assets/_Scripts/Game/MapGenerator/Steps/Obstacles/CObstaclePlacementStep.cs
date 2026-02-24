@@ -20,6 +20,7 @@ namespace Pharaoh.MapGenerator
         [Header("Prefabs")]
         [Tooltip("One or more obstacle prefabs. A random one is chosen per tile (seeded).")]
         [SerializeField] private GameObject[] _prefabs;
+        [SerializeField] private EObstacleType _obstacleType;
 
         [Header("Density Noise")]
         [Tooltip("Noise config that controls WHERE obstacles can appear (high-noise tiles get priority).")]
@@ -35,6 +36,10 @@ namespace Pharaoh.MapGenerator
 
         public override string StepName => "Obstacle Placement";
         public override string StepDescription => "Rozmísťuje překážky pomocí noise hustoty s rovnoměrným rozestupem.";
+
+#if UNITY_EDITOR
+        private List<Vector2Int> _placedTiles = new();
+#endif
 
         public override void Execute(CMapData mapData, int seed)
         {
@@ -99,6 +104,9 @@ namespace Pharaoh.MapGenerator
             // ── Pass 2: rejection sampling — enforce uniform spacing ──────────
             var exclusion = new bool[mapData.Width, mapData.Height];
             int placed = 0;
+#if UNITY_EDITOR
+            _placedTiles.Clear();
+#endif
 
             for (int i = 0; i < candidates.Count; i++)
             {
@@ -108,8 +116,12 @@ namespace Pharaoh.MapGenerator
 
                 STile tile = mapData.Get(pos.x, pos.y);
                 tile.ObstaclePrefab = _prefabs[rng.Next(_prefabs.Length)];
+                tile.ObstacleType   = _obstacleType;
                 mapData.Set(pos.x, pos.y, tile);
                 placed++;
+#if UNITY_EDITOR
+                _placedTiles.Add(pos);
+#endif
 
                 int rSq = _minSpacing * _minSpacing;
                 for (int dx = -_minSpacing; dx <= _minSpacing; dx++)
@@ -126,6 +138,16 @@ namespace Pharaoh.MapGenerator
 
             Debug.Log($"[{StepName}] Placed {placed} obstacles from {candidates.Count} candidates.");
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            if (_placedTiles == null || _placedTiles.Count == 0) return;
+            Gizmos.color = new Color(0.8f, 0.3f, 0.1f, 0.7f);
+            foreach (var p in _placedTiles)
+                Gizmos.DrawCube(new Vector3(p.x, 0f, p.y), new Vector3(0.8f, 0.8f, 0.8f));
+        }
+#endif
     }
 
 #if UNITY_EDITOR

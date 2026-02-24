@@ -32,7 +32,7 @@ namespace Pharaoh.MapGenerator
 
             // Rings 2..N: Land adjacent to Sand → Sand (each pass expands by one ring)
             for (int ring = 2; ring <= _sandDepth; ring++)
-                converted += ConvertAdjacentLand(mapData, ETileType.Sand);
+                converted += ConvertAdjacentLand(mapData, ETileType.Coast);
 
             Debug.Log($"[{StepName}] Converted {converted} land tiles to sand (depth={_sandDepth}).");
         }
@@ -60,7 +60,7 @@ namespace Pharaoh.MapGenerator
             foreach (var pos in toConvert)
             {
                 STile tile = mapData.Get(pos.x, pos.y);
-                tile.Type = ETileType.Sand;
+                tile.Type = ETileType.Coast;
                 mapData.Set(pos.x, pos.y, tile);
             }
 
