@@ -1,15 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
 {
     /// <summary>
-    /// Converts Land tiles adjacent to Water into Sand, creating a visual transition zone.
+    /// Tags Land tiles adjacent to Water with a configurable EContentTag, creating a coastal transition zone.
     /// Run after CFillSmallPoolsStep and before CObstaclePlacementStep.
     /// </summary>
     public class CCoastalTransitionStep : CMapGenerationStepBase
     {
         [Header("Coastal Transition")]
-        [Tooltip("How many rings of sand tiles to generate around water edges.")]
+        [Tooltip("Content tag applied to coastal tiles.")]
+        [SerializeField] private EContentTag _coastTag = EContentTag.Coast;
+
+        [Tooltip("How many rings of tagged tiles to generate around water edges.")]
         [SerializeField] [Range(1, 10)] private int _sandDepth = 1;
 
         private static readonly Vector2Int[] CardinalOffsets =
@@ -21,59 +25,93 @@ namespace Pharaoh.MapGenerator
         };
 
         public override string StepName => "Coastal Transition";
-        public override string StepDescription => "Převádí land políčka sousedící s vodou na písek — vytváří pobřežní přechodovou zónu.";
+        public override string StepDescription => "Taguje land políčka sousedící s vodou EContentTag — vytváří pobřežní přechodovou zónu.";
 
         public override void Execute(CMapData mapData, int seed)
         {
-            int converted = 0;
+            int tagged = 0;
 
-            // Ring 1: Land adjacent to Water → Sand
-            converted += ConvertAdjacentLand(mapData, ETileType.Water);
+            // Ring 1: Land adjacent to Water → _coastTag
+            tagged += TagAdjacentToWater(mapData);
 
-            // Rings 2..N: Land adjacent to Sand → Sand (each pass expands by one ring)
+            // Rings 2..N: Land adjacent to already-tagged tiles → _coastTag
             for (int ring = 2; ring <= _sandDepth; ring++)
-                converted += ConvertAdjacentLand(mapData, ETileType.Coast);
+                tagged += TagAdjacentToTagged(mapData);
 
-            Debug.Log($"[{StepName}] Converted {converted} land tiles to sand (depth={_sandDepth}).");
+            Debug.Log($"[{StepName}] Tagged {tagged} land tiles (tag={_coastTag}, depth={_sandDepth}).");
         }
 
-        /// <summary>
-        /// Finds all Land tiles cardinally adjacent to tiles of <paramref name="adjacentTo"/> type
-        /// and converts them to Sand. Returns the number of tiles converted.
-        /// </summary>
-        private int ConvertAdjacentLand(CMapData mapData, ETileType adjacentTo)
+        private int TagAdjacentToWater(CMapData mapData)
         {
-            // Snapshot which tiles to convert before mutating, to avoid order-dependent results
-            var toConvert = new System.Collections.Generic.List<Vector2Int>();
+            var toTag = new List<Vector2Int>();
 
             for (int x = 0; x < mapData.Width; x++)
             {
                 for (int y = 0; y < mapData.Height; y++)
                 {
-                    if (mapData.Get(x, y).Type != ETileType.Land) continue;
-
-                    if (HasCardinalNeighborOfType(mapData, x, y, adjacentTo))
-                        toConvert.Add(new Vector2Int(x, y));
+                    STile tile = mapData.Get(x, y);
+                    if (tile.Type != ETileType.Land) continue;
+                    if (tile.ContentTag != EContentTag.None) continue;
+                    if (HasCardinalNeighborOfTileType(mapData, x, y, ETileType.Water))
+                        toTag.Add(new Vector2Int(x, y));
                 }
             }
 
-            foreach (var pos in toConvert)
+            foreach (var pos in toTag)
             {
                 STile tile = mapData.Get(pos.x, pos.y);
-                tile.Type = ETileType.Coast;
+                tile.ContentTag = _coastTag;
                 mapData.Set(pos.x, pos.y, tile);
             }
 
-            return toConvert.Count;
+            return toTag.Count;
         }
 
-        private bool HasCardinalNeighborOfType(CMapData mapData, int x, int y, ETileType type)
+        private int TagAdjacentToTagged(CMapData mapData)
+        {
+            var toTag = new List<Vector2Int>();
+
+            for (int x = 0; x < mapData.Width; x++)
+            {
+                for (int y = 0; y < mapData.Height; y++)
+                {
+                    STile tile = mapData.Get(x, y);
+                    if (tile.Type != ETileType.Land) continue;
+                    if (tile.ContentTag != EContentTag.None) continue;
+                    if (HasCardinalNeighborWithTag(mapData, x, y, _coastTag))
+                        toTag.Add(new Vector2Int(x, y));
+                }
+            }
+
+            foreach (var pos in toTag)
+            {
+                STile tile = mapData.Get(pos.x, pos.y);
+                tile.ContentTag = _coastTag;
+                mapData.Set(pos.x, pos.y, tile);
+            }
+
+            return toTag.Count;
+        }
+
+        private bool HasCardinalNeighborOfTileType(CMapData mapData, int x, int y, ETileType type)
         {
             foreach (var offset in CardinalOffsets)
             {
                 int nx = x + offset.x;
                 int ny = y + offset.y;
                 if (mapData.IsValid(nx, ny) && mapData.Get(nx, ny).Type == type)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool HasCardinalNeighborWithTag(CMapData mapData, int x, int y, EContentTag tag)
+        {
+            foreach (var offset in CardinalOffsets)
+            {
+                int nx = x + offset.x;
+                int ny = y + offset.y;
+                if (mapData.IsValid(nx, ny) && mapData.Get(nx, ny).ContentTag == tag)
                     return true;
             }
             return false;
