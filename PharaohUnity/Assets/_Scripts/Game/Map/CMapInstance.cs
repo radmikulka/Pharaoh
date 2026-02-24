@@ -63,7 +63,7 @@ namespace Pharaoh.Map
                         if (neighbor.TileType == ETileType.Water)
                             tags |= ECellTag.NearWater | ECellTag.Coastal;
 
-                        if (neighbor.TileType == ETileType.Coast)
+                        if (neighbor.ContentTag == EContentTag.Coast)
                             tags |= ECellTag.NearSand;
 
                         if (neighbor.ObstacleObject != null)

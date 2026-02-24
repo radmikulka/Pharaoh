@@ -102,13 +102,13 @@ namespace Pharaoh.MapGenerator
                 for (int y = 0; y < mapData.Height; y++)
                 {
                     STile tile = mapData.Get(x, y);
-                    var cell = new CMapCell(x, y, tile.Type, tile.DecorationType);
+                    var cell = new CMapCell(x, y, tile.Type, tile.DecorationType, tile.ContentTag);
 
                     if (tile.Type.IsBuildable())
                     {
                         var pos = new Vector3(x, 0f, y);
 
-                        bool isSand = tile.Type == ETileType.Coast;
+                        bool isSand = tile.ContentTag == EContentTag.Coast;
                         var prefab = isSand && _sandTilePrefab != null ? _sandTilePrefab : _landTilePrefab;
 
                         if (prefab != null)

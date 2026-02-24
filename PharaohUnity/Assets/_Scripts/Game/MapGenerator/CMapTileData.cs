@@ -16,6 +16,7 @@ namespace Pharaoh.MapGenerator
         [HideInInspector] [SerializeField] private int _y;
 
         [SerializeField] private ETileType       _tileType;
+        [SerializeField] private EContentTag     _contentTag;
         [SerializeField] private EDecorationType _decorationType;
         [SerializeField] private bool            _isObstacleBlocked;
         [SerializeField] private GameObject      _obstaclePrefab;
@@ -32,6 +33,7 @@ namespace Pharaoh.MapGenerator
             _x                 = tile.X;
             _y                 = tile.Y;
             _tileType          = tile.Type;
+            _contentTag        = tile.ContentTag;
             _decorationType    = tile.DecorationType;
             _isObstacleBlocked = tile.IsObstacleBlocked;
             _obstaclePrefab    = tile.ObstaclePrefab;
@@ -66,12 +68,11 @@ namespace Pharaoh.MapGenerator
             var meshRenderer = GetComponent<Renderer>();
             if (meshRenderer == null) return;
 
-            Color color = _tileType switch
-            {
-                ETileType.Water => new Color(0.20f, 0.45f, 0.85f),
-                ETileType.Coast  => new Color(0.92f, 0.84f, 0.50f),
-                _               => new Color(0.30f, 0.65f, 0.25f),
-            };
+            Color color = _tileType == ETileType.Water
+                ? new Color(0.20f, 0.45f, 0.85f)
+                : _contentTag == EContentTag.Coast
+                    ? new Color(0.92f, 0.84f, 0.50f)
+                    : new Color(0.30f, 0.65f, 0.25f);
 
             var mpb = new MaterialPropertyBlock();
             meshRenderer.GetPropertyBlock(mpb);

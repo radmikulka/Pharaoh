@@ -10,6 +10,7 @@ namespace Pharaoh.Map
         public int Y { get; }
         public ETileType TileType { get; }
         public EDecorationType DecorationType { get; }
+        public EContentTag ContentTag { get; }
 
         public GameObject TileObject { get; internal set; }     // spawned land tile
         public GameObject ObstacleObject { get; internal set; } // spawned obstacle (null if none)
@@ -19,12 +20,13 @@ namespace Pharaoh.Map
         public EBuildingId BuildingId { get; internal set; } = EBuildingId.None;
         public bool HasBuilding => BuildingId != EBuildingId.None;
 
-        public CMapCell(int x, int y, ETileType tileType, EDecorationType decorationType)
+        public CMapCell(int x, int y, ETileType tileType, EDecorationType decorationType, EContentTag contentTag = EContentTag.None)
         {
             X = x;
             Y = y;
             TileType = tileType;
             DecorationType = decorationType;
+            ContentTag = contentTag;
         }
     }
 }
