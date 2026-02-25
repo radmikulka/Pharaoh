@@ -30,6 +30,10 @@ namespace Pharaoh.MapGenerator
         [Tooltip("Minimum distance in tiles between any two obstacles of this type.")]
         [SerializeField] [Min(1)] private int _minSpacing = 2;
 
+        [Header("Range")]
+        [Tooltip("Radius in cells around this object's position. 0 = no restriction (full map).")]
+        [SerializeField] [Min(0)] private int _range = 0;
+
         public CNoiseConfig NoiseConfig => _densityNoise;
 
         public override string StepName => "Obstacle Placement";
@@ -55,6 +59,10 @@ namespace Pharaoh.MapGenerator
 
             var noise = _densityNoise.CreateNoise(seed);
 
+            int cx      = Mathf.RoundToInt(transform.position.x);
+            int cy      = Mathf.RoundToInt(transform.position.z);
+            int rangeSq = _range * _range;
+
             // ── Pass 1: score all valid tiles, take top N by noise ───────────
             // High-noise tiles are preferred; oversample to account for spacing rejects.
             var noiseScores = new List<(Vector2Int pos, float score)>(mapData.Width * mapData.Height);
@@ -68,6 +76,12 @@ namespace Pharaoh.MapGenerator
                     if (!tile.Type.IsBuildable())      continue;
                     if (tile.ObstaclePrefab != null)   continue;
                     if (tile.IsObstacleBlocked)        continue;
+
+                    if (_range > 0)
+                    {
+                        int dx = x - cx, dy = y - cy;
+                        if (dx * dx + dy * dy > rangeSq) continue;
+                    }
 
                     float nx = x, ny = y;
                     if (_densityNoise.UseDomainWarp)
@@ -144,6 +158,17 @@ namespace Pharaoh.MapGenerator
             Gizmos.color = new Color(0.8f, 0.3f, 0.1f, 0.7f);
             foreach (var p in _placedTiles)
                 Gizmos.DrawCube(new Vector3(p.x, 0f, p.y), new Vector3(0.8f, 0.8f, 0.8f));
+
+            // Draw range circle
+            if (_range > 0)
+            {
+                int cx = Mathf.RoundToInt(transform.position.x);
+                int cy = Mathf.RoundToInt(transform.position.z);
+                var center = new Vector3(cx, 0f, cy);
+
+                UnityEditor.Handles.color = new Color(1f, 0.8f, 0.1f, 0.8f);
+                UnityEditor.Handles.DrawWireDisc(center, Vector3.up, _range);
+            }
         }
 #endif
     }
