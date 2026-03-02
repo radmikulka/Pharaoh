@@ -46,6 +46,7 @@ namespace Pharaoh
             InstallCoreLogic();
             InstallGameMode();
             InstallUser();
+            InstallSave();
             InstallCommonComponents();
         }
         
@@ -70,6 +71,11 @@ namespace Pharaoh
             return result;
         }
 
+        private void InstallSave()
+        {
+            Container.AddSingleton<ISaveManager, CSaveManager>(true);
+        }
+
         private void InstallCommonComponents()
         {
             Container.AddSingletonFromInstance(_lazyActionQueue);
@@ -86,6 +92,8 @@ namespace Pharaoh
            Container.AddSingleton<CAnimatedCurrencies>();
            Container.AddSingleton<COwnedValuables>();
            Container.AddSingleton<COwnedResources>();
+           Container.AddSingleton<CActiveMission>();
+           Container.AddSingleton<COwnedResearches>();
         }
 
         private void InstallGameMode()

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1107b744bff61f4428daecc6756e0f5d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315757
+  packageName: Stylized Sea of Clouds Environment VFX
+  packageVersion: 1.0.1
+  assetPath: Assets/TurishaderPackages/CloudsFloor/Materials/CloudsOcean.mat
+  uploadId: 746799

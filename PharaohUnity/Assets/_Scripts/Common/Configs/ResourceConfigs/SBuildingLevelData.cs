@@ -1,11 +1,14 @@
 using System;
+using ServerData;
 
 namespace Pharaoh
 {
 	[Serializable]
 	public struct SBuildingLevelData
 	{
-		public SResourceAmount[] Upkeep;
-		public SResourceAmount[] Production;
+		public SResource[] Upkeep;
+		public SResource[] Production;
+		public SResource[] LevelCost;
+		public IUnlockRequirement LevelUpRequirement;
 	}
 }

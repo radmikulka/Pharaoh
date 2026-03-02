@@ -1,0 +1,33 @@
+# Shader de Nubes Estilizadas (No Volumétricas)
+
+Este shader está diseñado para simular nubes estilizadas y no volumétricas utilizando desplazamiento de vértices. Está optimizado para entornos como océanos, cielos o paisajes surrealistas. A continuación, se ofrece una explicación detallada de cada parámetro expuesto para ayudarte a lograr el resultado visual que buscas.
+
+## Parámetros del Material
+
+🌥️ CloudHeight (float)
+Define la altura base de la capa de nubes. Útil para elevar o bajar las nubes en el espacio mundial o local.
+
+🎚️ Contact fade (float)
+Controla cuánto se desvanecen las nubes al acercarse al suelo u otra geometría. Un valor más alto crea una transición más suave.
+
+🎨 DarkColor (Color)
+Este es el color de la sombra o la parte más oscura de la nube. Añade profundidad y contraste visual.
+
+☀️ LightColor (Color)
+El color principal de las nubes bajo la luz. Generalmente es la parte brillante iluminada por el sol.
+
+🌓 DarkPower (float)
+Controla la intensidad del efecto de oscuridad/sombra. Valores más altos aumentan el contraste y la percepción de volumen.
+
+🌬️ TurbulenceSpeed (float)
+Controla la velocidad a la que las formas de las nubes se mueven o evolucionan con el tiempo. Aporta una sensación de vida y atmósfera.
+
+🔍 Scale (float)
+Determina la escala del patrón de ruido o textura utilizado para generar las formas de las nubes. Valores más bajos crean nubes más grandes y suaves; valores más altos añaden más detalle.
+
+## 📬 Soporte
+
+Para preguntas, comentarios o reportes de errores, por favor contacta a:  
+📧 turishader@gmail.com
+
+¡Gracias por usar este shader! 🌤️

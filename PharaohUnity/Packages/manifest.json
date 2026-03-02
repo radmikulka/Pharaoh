@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "com.antigravity.ide": "https://github.com/prithvi-bharadwaj/Antigravity-IDE.git",
-    "com.google.android.appbundle": "file:../Assets/ServiceEngine/Packages/com.google.android.appbundle-1.9.0.tgz",
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+"com.google.android.appbundle": "file:../Assets/ServiceEngine/Packages/com.google.android.appbundle-1.9.0.tgz",
     "com.google.external-dependency-manager": "file:../Assets/ServiceEngine/Packages/com.google.external-dependency-manager-1.2.183.tgz",
     "com.google.firebase.analytics": "file:../Assets/ServiceEngine/Packages/com.google.firebase.analytics-12.2.0.tgz",
     "com.google.firebase.app": "file:../Assets/ServiceEngine/Packages/com.google.firebase.app-12.2.0.tgz",

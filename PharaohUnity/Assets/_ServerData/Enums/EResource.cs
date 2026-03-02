@@ -13,5 +13,6 @@ namespace ServerData
 		Coal = 11,
 		Stone = 12,
 		Furniture = 20,
+		KnowledgePoints = 100,
 	}
 }

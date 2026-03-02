@@ -8,5 +8,6 @@ namespace Pharaoh
 	public enum EScreenId
 	{
 		None = 0,
+		Research = 1,
 	}
 }

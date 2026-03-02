@@ -7,13 +7,15 @@ namespace Pharaoh.Building
 {
 	public class CBuildingPlacementValidator
 	{
-		private readonly CResourceConfigs _resourceConfigs;
+		private readonly CDesignBuildingsConfigs _buildingConfigs;
 		private readonly CMapInstance _mapInstance;
+		private readonly CUser _user;
 
-		public CBuildingPlacementValidator(CResourceConfigs resourceConfigs, CMapInstance mapInstance)
+		public CBuildingPlacementValidator(CDesignBuildingsConfigs buildingConfigs, CMapInstance mapInstance, CUser user)
 		{
-			_resourceConfigs = resourceConfigs;
+			_buildingConfigs = buildingConfigs;
 			_mapInstance = mapInstance;
+			_user = user;
 		}
 
 		public bool CanPlace(EBuildingId buildingId, CMapCell cell)
@@ -27,8 +29,11 @@ namespace Pharaoh.Building
 			if (cell.HasBuilding)
 				return false;
 
-			CBuildingResourceConfig config = _resourceConfigs.Buildings.GetConfig(buildingId);
+			CBuildingConfig config = _buildingConfigs.GetBuilding(buildingId);
 			if (config.RequiredTags != ECellTag.None && (cell.Tags & config.RequiredTags) != config.RequiredTags)
+				return false;
+
+			if (!_user.IsUnlockRequirementMet(config.PlacementRequirement))
 				return false;
 
 			return true;

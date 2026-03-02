@@ -138,6 +138,57 @@ namespace Pharaoh.MapGenerator
             _cachedHeight = h;
         }
 
+        // --- Fast reassignment (no destroy/create, used when only seed positions change) ---
+
+        /// <summary>
+        /// Re-assigns VoronoiRegionId for every tile based on current seed point positions.
+        /// Does NOT destroy or create any GameObjects — only reads existing CVoronoiSeedPoint children.
+        /// Uses grid bucketing for O(1) average nearest-seed lookup.
+        /// </summary>
+        public void ReAssignVoronoi(CMapData mapData)
+        {
+            var allSeeds = GetComponentsInChildren<CVoronoiSeedPoint>();
+            if (allSeeds.Length == 0) return;
+            Array.Sort(allSeeds, (a, b) => a.RegionId.CompareTo(b.RegionId));
+
+            var seedPositions = new Vector2[allSeeds.Length];
+            for (int i = 0; i < allSeeds.Length; i++)
+            {
+                var pos = allSeeds[i].transform.position;
+                seedPositions[i] = new Vector2(pos.x, pos.z);
+            }
+
+            int w = mapData.Width, h = mapData.Height;
+            if (_cachedRegionIds == null || _cachedRegionIds.Length != w * h)
+                _cachedRegionIds = new int[w * h];
+
+            // Build spatial grid once for O(1) average nearest-seed lookup per tile.
+            float cellSize = Mathf.Max(1f, Mathf.Sqrt(w * h / (float)allSeeds.Length));
+            int gridCols   = Mathf.Max(1, Mathf.CeilToInt(w / cellSize));
+            int gridRows   = Mathf.Max(1, Mathf.CeilToInt(h / cellSize));
+            var buckets    = new List<int>[gridCols * gridRows];
+            for (int i = 0; i < buckets.Length; i++) buckets[i] = new List<int>();
+            for (int i = 0; i < seedPositions.Length; i++)
+            {
+                int col = Mathf.Clamp((int)(seedPositions[i].x / cellSize), 0, gridCols - 1);
+                int row = Mathf.Clamp((int)(seedPositions[i].y / cellSize), 0, gridRows - 1);
+                buckets[col + row * gridCols].Add(i);
+            }
+
+            for (int x = 0; x < w; x++)
+            for (int y = 0; y < h; y++)
+            {
+                STile tile     = mapData.Get(x, y);
+                int   regionId = FindNearestRegionFast(x, y, seedPositions, cellSize, gridCols, gridRows, buckets);
+                tile.VoronoiRegionId = regionId;
+                mapData.Set(x, y, tile);
+                _cachedRegionIds[x + y * w] = regionId;
+            }
+
+            _cachedWidth  = w;
+            _cachedHeight = h;
+        }
+
         // --- Helper methods ---
 
         private static Vector2 RandomInsideUnitCircle(System.Random rng)
@@ -164,10 +215,44 @@ namespace Pharaoh.MapGenerator
             return id;
         }
 
+        /// <summary>
+        /// Grid-bucket nearest-seed lookup. Searches the tile's cell and its 8 neighbours (3×3 window).
+        /// Falls back to brute-force when the 3×3 window contains no seeds (sparse edge case).
+        /// </summary>
+        private static int FindNearestRegionFast(int tx, int ty, Vector2[] seeds,
+            float cellSize, int gridCols, int gridRows, List<int>[] buckets)
+        {
+            int tileCol = Mathf.Clamp((int)(tx / cellSize), 0, gridCols - 1);
+            int tileRow = Mathf.Clamp((int)(ty / cellSize), 0, gridRows - 1);
+
+            float best  = float.MaxValue;
+            int   bestId = 0;
+            bool  found  = false;
+
+            for (int dc = -1; dc <= 1; dc++)
+            for (int dr = -1; dr <= 1; dr++)
+            {
+                int nc = tileCol + dc;
+                int nr = tileRow + dr;
+                if (nc < 0 || nc >= gridCols || nr < 0 || nr >= gridRows) continue;
+                foreach (int si in buckets[nc + nr * gridCols])
+                {
+                    float dx = tx - seeds[si].x;
+                    float dy = ty - seeds[si].y;
+                    float d  = dx * dx + dy * dy;
+                    if (d < best) { best = d; bestId = si; found = true; }
+                }
+            }
+
+            return found ? bestId : FindNearestRegion(tx, ty, seeds);
+        }
+
         // --- Gizmo visualization ---
 
 #if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmosSelected() => DrawRegionGizmos();
+
+        public void DrawRegionGizmos()
         {
             if (_cachedRegionIds == null || _cachedWidth == 0) return;
 
@@ -175,19 +260,32 @@ namespace Pharaoh.MapGenerator
             int total = seedPoints.Length;
             if (total == 0) return;
 
-            // Pre-compute colors (1× HSVToRGB per region, not per tile)
-            var colors = new Color[total];
-            for (int r = 0; r < total; r++)
-                colors[r] = Color.HSVToRGB(r / (float)total, 0.7f, 0.9f);
+            // --- Edge visualization ---
+            Gizmos.color = Color.black;
 
-            for (int x = 0; x < _cachedWidth; x++)
+            // Horizontal boundaries (between (x,y) and (x+1,y))
+            for (int x = 0; x < _cachedWidth - 1; x++)
             {
                 for (int y = 0; y < _cachedHeight; y++)
                 {
-                    int regionId = _cachedRegionIds[x + y * _cachedWidth];
-                    if (regionId >= 0 && regionId < total)
-                        Gizmos.color = colors[regionId];
-                    Gizmos.DrawCube(new Vector3(x, 0f, y), new Vector3(0.9f, 0.05f, 0.9f));
+                    int r1 = _cachedRegionIds[x + y * _cachedWidth];
+                    int r2 = _cachedRegionIds[(x + 1) + y * _cachedWidth];
+                    if (r1 != r2)
+                        Gizmos.DrawLine(new Vector3(x + 0.5f, 1f, y - 0.5f),
+                                        new Vector3(x + 0.5f, 1f, y + 0.5f));
+                }
+            }
+
+            // Vertical boundaries (between (x,y) and (x,y+1))
+            for (int x = 0; x < _cachedWidth; x++)
+            {
+                for (int y = 0; y < _cachedHeight - 1; y++)
+                {
+                    int r1 = _cachedRegionIds[x + y * _cachedWidth];
+                    int r2 = _cachedRegionIds[x + (y + 1) * _cachedWidth];
+                    if (r1 != r2)
+                        Gizmos.DrawLine(new Vector3(x - 0.5f, 1f, y + 0.5f),
+                                        new Vector3(x + 0.5f, 1f, y + 0.5f));
                 }
             }
         }

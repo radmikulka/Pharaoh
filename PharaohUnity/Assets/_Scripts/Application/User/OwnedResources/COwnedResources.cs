@@ -14,11 +14,13 @@ namespace Pharaoh
 		private readonly COwnedResource _sharedGold = new(EResource.Gold);
 
 		private readonly IEventBus _eventBus;
+		private readonly CDesignMissionsConfigs _missionConfigs;
 		private readonly CResourceConfigs _resourceConfigs;
 
-		public COwnedResources(IEventBus eventBus, CResourceConfigs resourceConfigs)
+		public COwnedResources(IEventBus eventBus, CDesignMissionsConfigs missionConfigs, CResourceConfigs resourceConfigs)
 		{
 			_eventBus = eventBus;
+			_missionConfigs = missionConfigs;
 			_resourceConfigs = resourceConfigs;
 		}
 
@@ -71,9 +73,8 @@ namespace Pharaoh
 			if (_missionResources.TryGetValue(mission, out CMissionResources existing))
 				return existing;
 
-			CMissionConfig config = _resourceConfigs.Missions.GetConfig(mission);
-			EResource[] availableResources = config != null ? config.AvailableResources : System.Array.Empty<EResource>();
-			CMissionResources missionResources = new(availableResources, _sharedGold);
+			EResource[] availableResources = _missionConfigs.GetMission(mission)?.AvailableResources ?? System.Array.Empty<EResource>();
+			CMissionResources missionResources = new(availableResources, _sharedGold, _resourceConfigs.Gameplay);
 			_missionResources[mission] = missionResources;
 			return missionResources;
 		}

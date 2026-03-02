@@ -29,6 +29,8 @@ namespace Pharaoh
 
 					return true;
 				}
+				case CResearchUnlockRequirement research:
+					return user.OwnedResearches.HasResearch(user.ActiveMission.Mission, research.RequiredResearch);
 			}
 
 			return false;

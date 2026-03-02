@@ -29,12 +29,12 @@ namespace Pharaoh.Building
 
 			if (levelData.Upkeep != null && levelData.Upkeep.Length > 0)
 			{
-				foreach (SResourceAmount upkeep in levelData.Upkeep)
+				foreach (SResource upkeep in levelData.Upkeep)
 				{
 					if (upkeep.Amount <= 0)
 						continue;
 
-					int available = GetAvailable(upkeep.Resource);
+					int available = GetAvailable(upkeep.Id);
 					float resourceRatio = (float) available / upkeep.Amount;
 					ratio = Mathf.Min(ratio, resourceRatio);
 				}
@@ -42,25 +42,25 @@ namespace Pharaoh.Building
 				if (ratio <= 0f)
 					return;
 
-				foreach (SResourceAmount upkeep in levelData.Upkeep)
+				foreach (SResource upkeep in levelData.Upkeep)
 				{
 					if (upkeep.Amount <= 0)
 						continue;
 
 					int consumed = Mathf.FloorToInt(upkeep.Amount * ratio);
-					AddTo(_consumed, upkeep.Resource, consumed);
+					AddTo(_consumed, upkeep.Id, consumed);
 				}
 			}
 
 			if (levelData.Production != null && levelData.Production.Length > 0)
 			{
-				foreach (SResourceAmount production in levelData.Production)
+				foreach (SResource production in levelData.Production)
 				{
 					if (production.Amount <= 0)
 						continue;
 
 					int produced = Mathf.FloorToInt(production.Amount * ratio);
-					AddTo(_produced, production.Resource, produced);
+					AddTo(_produced, production.Id, produced);
 				}
 			}
 		}

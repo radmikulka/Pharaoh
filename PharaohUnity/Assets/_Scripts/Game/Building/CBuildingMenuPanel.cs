@@ -20,6 +20,10 @@ namespace Pharaoh.Building
 		private CBuildingPlacementValidator _validator;
 		private IMissionController _missionController;
 		private CResourceConfigs _resourceConfigs;
+		private CDesignBuildingsConfigs _buildingConfigs;
+		private CDesignMissionsConfigs _missionConfigs;
+		private CBuildingManager _buildingManager;
+		private COwnedResources _ownedResources;
 		private IBundleManager _bundleManager;
 		private IMainCameraProvider _mainCameraProvider;
 		private CEscapeHandler _escapeHandler;
@@ -35,6 +39,10 @@ namespace Pharaoh.Building
 			CBuildingPlacementValidator validator,
 			IMissionController missionController,
 			CResourceConfigs resourceConfigs,
+			CDesignBuildingsConfigs buildingConfigs,
+			CDesignMissionsConfigs missionConfigs,
+			CBuildingManager buildingManager,
+			COwnedResources ownedResources,
 			IBundleManager bundleManager,
 			IMainCameraProvider mainCameraProvider,
 			CEscapeHandler escapeHandler,
@@ -44,6 +52,10 @@ namespace Pharaoh.Building
 			_validator = validator;
 			_missionController = missionController;
 			_resourceConfigs = resourceConfigs;
+			_buildingConfigs = buildingConfigs;
+			_missionConfigs = missionConfigs;
+			_buildingManager = buildingManager;
+			_ownedResources = ownedResources;
 			_bundleManager = bundleManager;
 			_mainCameraProvider = mainCameraProvider;
 			_escapeHandler = escapeHandler;
@@ -128,22 +140,27 @@ namespace Pharaoh.Building
 			if (cell == null)
 				return;
 
-			CMissionConfig missionConfig = _resourceConfigs.Missions.GetConfig(_missionController.ActiveMissionId);
-			EBuildingId[] availableBuildings = missionConfig.AvailableBuildings;
+			EBuildingId[] availableBuildings = _missionConfigs.GetMission(_missionController.ActiveMissionId)?.AvailableBuildings;
 
 			if (availableBuildings == null)
 				return;
 
 			List<EBuildingId> placeable = _validator.GetPlaceableBuildings(cell, availableBuildings);
+			EMissionId missionId = _missionController.ActiveMissionId;
 
 			for (int i = 0; i < placeable.Count; i++)
 			{
 				EBuildingId buildingId = placeable[i];
-				CBuildingResourceConfig config = _resourceConfigs.Buildings.GetConfig(buildingId);
-				Sprite icon = _bundleManager.LoadItem<Sprite>(config.Icon, EBundleCacheType.Persistent);
+				CBuildingResourceConfig resourceConfig = _resourceConfigs.Buildings.GetConfig(buildingId);
+				Sprite icon = _bundleManager.LoadItem<Sprite>(resourceConfig.Icon, EBundleCacheType.Persistent);
+
+				CBuildingConfig buildingConfig = _buildingConfigs.GetBuilding(buildingId);
+				int ownedCount = _buildingManager.GetBuildingCount(buildingId);
+				SResource[] cost = buildingConfig.GetBuildCost(ownedCount);
+				bool affordable = _ownedResources.HasEnough(missionId, cost);
 
 				CBuildingMenuItem item = Instantiate(_itemPrefab, _honeycombRoot);
-				item.Initialize(buildingId, icon, config.DisplayName, _targetCell, _eventBus, this);
+				item.Initialize(buildingId, icon, buildingConfig.DisplayName, _targetCell, _eventBus, this, cost, affordable);
 
 				RectTransform rt = item.GetComponent<RectTransform>();
 				rt.anchoredPosition = GetHoneycombOffset(i);

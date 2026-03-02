@@ -1,0 +1,4859 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7251398919079171470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf349aeb98a48044286534ac213409e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 2683926162
+  isEnabled: 1
+  layerName: Build Sand
+  guid: b8088034-3c7c-495a-9fc8-1d1599d177d3
+  assignedBlueprintLayerGuid: a2e7e077-01a0-4746-83d7-acc7fb1a133d
+  foldoutState: 0
+  useMultiLayers: 0
+  masks: []
+  hierarchyLayerID: b8088034-3c7c-495a-9fc8-1d1599d177d3
+  lastHierarchyLayerID: b8088034-3c7c-495a-9fc8-1d1599d177d3
+  configuration: {fileID: 11400000}
+  useDualGrid: 1
+  meshGenerationOverride: 0
+  mergeTiles: 0
+  shadowCastingMode: 1
+  objectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  renderingLayer:
+    serializedVersion: 0
+    m_Bits: 0
+  colliderType: 1
+  tileColliderHeight: 0
+  tileColliderExtrusionHeight: 0
+  tilePresetsTop:
+  - preset: {fileID: 11400000, guid: 2c3140e543f8e1c4592e4ec9a8291c1e, type: 2}
+    tileHeight: 0
+    weight: 1
+  tilePresetsMiddle: []
+  tilePresetsBottom: []
+  scaleTileToCellSize: 1
+  layerYOffset: 0.01
+  scaleOffset: {x: 1, y: 1, z: 1}
+  addGrassRenderer: 0
+  grassPointCount: 0
+  grassShadowCastingMode: 0
+  grassMaterial_A: {fileID: 0}
+  grassMaterial_B: {fileID: 0}
+  grassBladeMesh_A: {fileID: 0}
+  grassBladeMesh_B: {fileID: 0}
+  grassMeshAWeight: 0
+  grassMeshBWeight: 0
+  tileLayers:
+  - name: 
+    heightOffset: 0
+    ignoreFillTiles: 0
+    layerOverrides: []
+  serializedWorldPositions:
+  - {x: 7, y: 8}
+  - {x: 7, y: 9}
+  - {x: 8, y: 9}
+  - {x: 8, y: 8}
+  - {x: 9, y: 9}
+  - {x: 8, y: 7}
+  - {x: 9, y: 8}
+  - {x: 9, y: 6}
+  - {x: 8, y: 5}
+  - {x: 9, y: 5}
+  - {x: 8, y: 6}
+  - {x: 9, y: 7}
+  - {x: 6, y: 8}
+  - {x: 7, y: 7}
+  - {x: 6, y: 9}
+  - {x: 8, y: 10}
+  - {x: 8, y: 11}
+  - {x: 9, y: 10}
+  - {x: 5, y: 10}
+  - {x: 6, y: 10}
+  - {x: 7, y: 10}
+  - {x: 10, y: 6}
+  - {x: 10, y: 7}
+  - {x: 11, y: 6}
+  - {x: 10, y: 5}
+  - {x: 9, y: 4}
+  - {x: 10, y: 4}
+  serializedTiles:
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 8.5}
+    worldMapPosition: {x: 6, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 8.5}
+    worldMapPosition: {x: 6, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 7.5}
+    worldMapPosition: {x: 7, y: 8}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 7.5}
+    worldMapPosition: {x: 7, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 8.5}
+    worldMapPosition: {x: 7, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 8.5}
+    worldMapPosition: {x: 8, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 7.5}
+    worldMapPosition: {x: 8, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 6.5}
+    worldMapPosition: {x: 8, y: 7}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 6.5}
+    worldMapPosition: {x: 8, y: 7}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 5.5}
+    worldMapPosition: {x: 9, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 4.5}
+    worldMapPosition: {x: 8, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 5.5}
+    worldMapPosition: {x: 8, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 4.5}
+    worldMapPosition: {x: 8, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 7.5}
+    worldMapPosition: {x: 6, y: 8}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 6.5}
+    worldMapPosition: {x: 7, y: 7}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 9.5}
+    worldMapPosition: {x: 6, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 9.5}
+    worldMapPosition: {x: 6, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 9.5}
+    worldMapPosition: {x: 7, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 10.5}
+    worldMapPosition: {x: 7, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 10.5}
+    worldMapPosition: {x: 7, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 9.5}
+    worldMapPosition: {x: 8, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 10.5}
+    worldMapPosition: {x: 8, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 11.5}
+    worldMapPosition: {x: 8, y: 11}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 11.5}
+    worldMapPosition: {x: 8, y: 11}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 9.5}
+    worldMapPosition: {x: 5, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 10.5}
+    worldMapPosition: {x: 5, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 10.5}
+    worldMapPosition: {x: 5, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 8.5}
+    worldMapPosition: {x: 9, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 7.5}
+    worldMapPosition: {x: 9, y: 8}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 5.5}
+    worldMapPosition: {x: 9, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 6.5}
+    worldMapPosition: {x: 9, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 4.5}
+    worldMapPosition: {x: 10, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 4.5}
+    worldMapPosition: {x: 10, y: 5}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 5.5}
+    worldMapPosition: {x: 10, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 6.5}
+    worldMapPosition: {x: 10, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 7.5}
+    worldMapPosition: {x: 10, y: 7}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 5.5}
+    worldMapPosition: {x: 11, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 6.5}
+    worldMapPosition: {x: 11, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 9.5}
+    worldMapPosition: {x: 9, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 10.5}
+    worldMapPosition: {x: 9, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 3.5}
+    worldMapPosition: {x: 9, y: 4}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 3.5}
+    worldMapPosition: {x: 9, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 3.5}
+    worldMapPosition: {x: 10, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  allPositions: []
+--- !u!114 &-5398853214598126160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6d10c4aac2a4440a141c607b715097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 62471175
+  guid: a2e7e077-01a0-4746-83d7-acc7fb1a133d
+  layerName: Sand Only
+  icon: {fileID: 0}
+  isEnabled: 1
+  layerColor: {r: 1, g: 1, b: 1, a: 1}
+  previewTexture: {fileID: 1504369534307310597}
+  randomSeedOverride: 1
+  customRandomSeed: 1
+  customSeed: 233
+  defaultLayerHeight: 0
+  lockFromPaint: 0
+  foldoutState: 0
+  tileMapModifiers: []
+  showDebugGrid: 0
+  configuration: {fileID: 11400000}
+  serializedPaintPositions:
+  - {x: 6, y: 9}
+  - {x: 7, y: 8}
+  - {x: 7, y: 9}
+  - {x: 7, y: 10}
+  - {x: 8, y: 9}
+  - {x: 8, y: 8}
+  - {x: 8, y: 10}
+  - {x: 9, y: 9}
+  - {x: 8, y: 7}
+  - {x: 9, y: 8}
+  - {x: 8, y: 11}
+  - {x: 9, y: 10}
+  - {x: 9, y: 6}
+  - {x: 10, y: 5}
+  - {x: 10, y: 6}
+  - {x: 10, y: 7}
+  - {x: 11, y: 6}
+  - {x: 8, y: 5}
+  - {x: 9, y: 4}
+  - {x: 9, y: 5}
+  - {x: 8, y: 6}
+  - {x: 9, y: 7}
+  - {x: 6, y: 8}
+  - {x: 7, y: 7}
+  - {x: 10, y: 4}
+  - {x: 5, y: 10}
+  - {x: 6, y: 10}
+  serializedWorldPositions:
+  - {x: 6, y: 9}
+  - {x: 7, y: 8}
+  - {x: 7, y: 9}
+  - {x: 7, y: 10}
+  - {x: 8, y: 9}
+  - {x: 8, y: 8}
+  - {x: 8, y: 10}
+  - {x: 9, y: 9}
+  - {x: 8, y: 7}
+  - {x: 9, y: 8}
+  - {x: 8, y: 11}
+  - {x: 9, y: 10}
+  - {x: 9, y: 6}
+  - {x: 10, y: 5}
+  - {x: 10, y: 6}
+  - {x: 10, y: 7}
+  - {x: 11, y: 6}
+  - {x: 8, y: 5}
+  - {x: 9, y: 4}
+  - {x: 9, y: 5}
+  - {x: 8, y: 6}
+  - {x: 9, y: 7}
+  - {x: 6, y: 8}
+  - {x: 7, y: 7}
+  - {x: 10, y: 4}
+  - {x: 5, y: 10}
+  - {x: 6, y: 10}
+--- !u!114 &-3675897236689739723
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf349aeb98a48044286534ac213409e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 2097123507
+  isEnabled: 1
+  layerName: Build Island
+  guid: 4fd43861-5e0b-4a6c-a66e-1bd384701f70
+  assignedBlueprintLayerGuid: 14b36c32-2c08-44a4-b0f6-b1b0dc313a42
+  foldoutState: 0
+  useMultiLayers: 0
+  masks: []
+  hierarchyLayerID: 4fd43861-5e0b-4a6c-a66e-1bd384701f70
+  lastHierarchyLayerID: 4fd43861-5e0b-4a6c-a66e-1bd384701f70
+  configuration: {fileID: 11400000}
+  useDualGrid: 1
+  meshGenerationOverride: 0
+  mergeTiles: 0
+  shadowCastingMode: 1
+  objectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  renderingLayer:
+    serializedVersion: 0
+    m_Bits: 0
+  colliderType: 1
+  tileColliderHeight: 0
+  tileColliderExtrusionHeight: 0
+  tilePresetsTop:
+  - preset: {fileID: 11400000, guid: ea0b15228b82a6844a4b7fd4ec9a130f, type: 2}
+    tileHeight: 0
+    weight: 1
+  tilePresetsMiddle: []
+  tilePresetsBottom: []
+  scaleTileToCellSize: 1
+  layerYOffset: 0
+  scaleOffset: {x: 1, y: 1, z: 1}
+  addGrassRenderer: 0
+  grassPointCount: 0
+  grassShadowCastingMode: 0
+  grassMaterial_A: {fileID: 0}
+  grassMaterial_B: {fileID: 0}
+  grassBladeMesh_A: {fileID: 0}
+  grassBladeMesh_B: {fileID: 0}
+  grassMeshAWeight: 0
+  grassMeshBWeight: 0
+  tileLayers:
+  - name: 
+    heightOffset: 0
+    ignoreFillTiles: 0
+    layerOverrides:
+    - name: 
+      blueprintOverrideLayer: a2e7e077-01a0-4746-83d7-acc7fb1a133d
+      preset: {fileID: 11400000, guid: 2daeba1cea32b5e4f82a4b5dedaf731d, type: 2}
+      requiredNeighbourCount: 4
+  serializedWorldPositions:
+  - {x: 11, y: 13}
+  - {x: 10, y: 14}
+  - {x: 10, y: 10}
+  - {x: 10, y: 11}
+  - {x: 10, y: 12}
+  - {x: 10, y: 13}
+  - {x: 11, y: 14}
+  - {x: 11, y: 12}
+  - {x: 12, y: 13}
+  - {x: 6, y: 12}
+  - {x: 6, y: 13}
+  - {x: 6, y: 14}
+  - {x: 7, y: 12}
+  - {x: 7, y: 13}
+  - {x: 8, y: 12}
+  - {x: 8, y: 13}
+  - {x: 8, y: 14}
+  - {x: 6, y: 11}
+  - {x: 7, y: 11}
+  - {x: 8, y: 11}
+  - {x: 6, y: 10}
+  - {x: 7, y: 10}
+  - {x: 8, y: 10}
+  - {x: 9, y: 10}
+  - {x: 9, y: 11}
+  - {x: 9, y: 12}
+  - {x: 9, y: 13}
+  - {x: 5, y: 14}
+  - {x: 5, y: 13}
+  - {x: 5, y: 12}
+  - {x: 9, y: 14}
+  - {x: 9, y: 17}
+  - {x: 9, y: 16}
+  - {x: 9, y: 18}
+  - {x: 5, y: 15}
+  - {x: 5, y: 16}
+  - {x: 9, y: 15}
+  - {x: 11, y: 16}
+  - {x: 11, y: 15}
+  - {x: 10, y: 15}
+  - {x: 10, y: 17}
+  - {x: 10, y: 16}
+  - {x: 4, y: 14}
+  - {x: 4, y: 13}
+  - {x: 4, y: 15}
+  - {x: 19, y: 9}
+  - {x: 15, y: 6}
+  - {x: 17, y: 9}
+  - {x: 15, y: 9}
+  - {x: 15, y: 8}
+  - {x: 16, y: 9}
+  - {x: 16, y: 7}
+  - {x: 15, y: 7}
+  - {x: 16, y: 6}
+  - {x: 17, y: 6}
+  - {x: 15, y: 5}
+  - {x: 16, y: 5}
+  - {x: 17, y: 5}
+  - {x: 18, y: 5}
+  - {x: 16, y: 8}
+  - {x: 18, y: 11}
+  - {x: 19, y: 10}
+  - {x: 19, y: 11}
+  - {x: 16, y: 10}
+  - {x: 16, y: 11}
+  - {x: 17, y: 10}
+  - {x: 17, y: 11}
+  - {x: 15, y: 10}
+  - {x: 15, y: 11}
+  - {x: 15, y: 12}
+  - {x: 16, y: 12}
+  - {x: 16, y: 13}
+  - {x: 17, y: 12}
+  - {x: 17, y: 13}
+  - {x: 18, y: 12}
+  - {x: 18, y: 10}
+  - {x: 20, y: 9}
+  - {x: 20, y: 11}
+  - {x: 20, y: 10}
+  - {x: 14, y: 6}
+  - {x: 13, y: 6}
+  - {x: 14, y: 7}
+  - {x: 14, y: 8}
+  - {x: 14, y: 9}
+  - {x: 13, y: 5}
+  - {x: 13, y: 7}
+  - {x: 11, y: 5}
+  - {x: 12, y: 5}
+  - {x: 12, y: 6}
+  - {x: 14, y: 5}
+  - {x: 12, y: 4}
+  - {x: 14, y: 4}
+  - {x: 16, y: 4}
+  - {x: 15, y: 4}
+  serializedTiles:
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 12.5}
+    worldMapPosition: {x: 12, y: 13}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 13.5}
+    worldMapPosition: {x: 12, y: 13}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 12.5}
+    worldMapPosition: {x: 12, y: 13}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 13.5}
+    worldMapPosition: {x: 12, y: 13}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 12.5}
+    worldMapPosition: {x: 11, y: 13}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 13.5}
+    worldMapPosition: {x: 11, y: 13}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 13.5}
+    worldMapPosition: {x: 10, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 9.5}
+    worldMapPosition: {x: 9, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 10.5}
+    worldMapPosition: {x: 9, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 11.5}
+    worldMapPosition: {x: 9, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 12.5}
+    worldMapPosition: {x: 9, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 9.5}
+    worldMapPosition: {x: 10, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 10.5}
+    worldMapPosition: {x: 10, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 11.5}
+    worldMapPosition: {x: 10, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 11.5}
+    worldMapPosition: {x: 11, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 9.5}
+    worldMapPosition: {x: 14, y: 9}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 14.5}
+    worldMapPosition: {x: 10, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 14.5}
+    worldMapPosition: {x: 10, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 15.5}
+    worldMapPosition: {x: 9, y: 15}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 16.5}
+    worldMapPosition: {x: 9, y: 17}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 17.5}
+    worldMapPosition: {x: 9, y: 17}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 15.5}
+    worldMapPosition: {x: 10, y: 16}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 16.5}
+    worldMapPosition: {x: 10, y: 16}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 15.5}
+    worldMapPosition: {x: 11, y: 16}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 16.5}
+    worldMapPosition: {x: 11, y: 16}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 14.5}
+    worldMapPosition: {x: 11, y: 15}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 17.5}
+    worldMapPosition: {x: 10, y: 17}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 18.5}
+    worldMapPosition: {x: 9, y: 18}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 13.5}
+    worldMapPosition: {x: 9, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 11.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 12.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 11.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 12.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 13.5}
+    worldMapPosition: {x: 6, y: 13}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 13.5}
+    worldMapPosition: {x: 6, y: 13}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 11.5}
+    worldMapPosition: {x: 7, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 12.5}
+    worldMapPosition: {x: 7, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 13.5}
+    worldMapPosition: {x: 7, y: 13}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 11.5}
+    worldMapPosition: {x: 8, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 12.5}
+    worldMapPosition: {x: 8, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 10.5}
+    worldMapPosition: {x: 6, y: 11}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 10.5}
+    worldMapPosition: {x: 6, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 10.5}
+    worldMapPosition: {x: 7, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 10.5}
+    worldMapPosition: {x: 8, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 9.5}
+    worldMapPosition: {x: 6, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 9.5}
+    worldMapPosition: {x: 6, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 9.5}
+    worldMapPosition: {x: 7, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 9.5}
+    worldMapPosition: {x: 8, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 13.5}
+    worldMapPosition: {x: 5, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 12.5}
+    worldMapPosition: {x: 5, y: 13}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 11.5}
+    worldMapPosition: {x: 5, y: 12}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 14.5}
+    worldMapPosition: {x: 9, y: 14}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 15.5}
+    worldMapPosition: {x: 9, y: 15}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 16.5}
+    worldMapPosition: {x: 9, y: 17}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 17.5}
+    worldMapPosition: {x: 9, y: 17}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 14.5}
+    worldMapPosition: {x: 6, y: 14}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 14.5}
+    worldMapPosition: {x: 6, y: 14}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 14.5}
+    worldMapPosition: {x: 8, y: 14}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 18.5}
+    worldMapPosition: {x: 9, y: 18}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 14.5}
+    worldMapPosition: {x: 5, y: 14}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 15.5}
+    worldMapPosition: {x: 5, y: 15}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 15.5}
+    worldMapPosition: {x: 5, y: 15}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 4.5, y: 16.5}
+    worldMapPosition: {x: 5, y: 16}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 16.5}
+    worldMapPosition: {x: 5, y: 16}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 3.5, y: 12.5}
+    worldMapPosition: {x: 4, y: 13}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 3.5, y: 13.5}
+    worldMapPosition: {x: 4, y: 13}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 3.5, y: 14.5}
+    worldMapPosition: {x: 4, y: 14}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 3.5, y: 15.5}
+    worldMapPosition: {x: 4, y: 15}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 7.5}
+    worldMapPosition: {x: 16, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 8.5}
+    worldMapPosition: {x: 16, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 7.5}
+    worldMapPosition: {x: 16, y: 8}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 8.5}
+    worldMapPosition: {x: 16, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 8.5}
+    worldMapPosition: {x: 19, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 5.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 6.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 5.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 6.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 8.5}
+    worldMapPosition: {x: 17, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 8.5}
+    worldMapPosition: {x: 15, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 4.5}
+    worldMapPosition: {x: 14, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 7.5}
+    worldMapPosition: {x: 15, y: 8}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 6.5}
+    worldMapPosition: {x: 16, y: 7}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 5.5}
+    worldMapPosition: {x: 16, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 5.5}
+    worldMapPosition: {x: 17, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 6.5}
+    worldMapPosition: {x: 17, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 4.5}
+    worldMapPosition: {x: 15, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 4.5}
+    worldMapPosition: {x: 16, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 4.5}
+    worldMapPosition: {x: 17, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 4.5}
+    worldMapPosition: {x: 18, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 5.5}
+    worldMapPosition: {x: 18, y: 5}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 9.5}
+    worldMapPosition: {x: 18, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 10.5}
+    worldMapPosition: {x: 18, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 9.5}
+    worldMapPosition: {x: 18, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 10.5}
+    worldMapPosition: {x: 18, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 11.5}
+    worldMapPosition: {x: 18, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 11.5}
+    worldMapPosition: {x: 18, y: 11}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 9.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 10.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 9.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 10.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 11.5}
+    worldMapPosition: {x: 16, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 11.5}
+    worldMapPosition: {x: 16, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 9.5}
+    worldMapPosition: {x: 15, y: 9}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 10.5}
+    worldMapPosition: {x: 15, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 11.5}
+    worldMapPosition: {x: 15, y: 11}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 12.5}
+    worldMapPosition: {x: 15, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 12.5}
+    worldMapPosition: {x: 15, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 12.5}
+    worldMapPosition: {x: 16, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 13.5}
+    worldMapPosition: {x: 16, y: 13}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 13.5}
+    worldMapPosition: {x: 16, y: 13}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 12.5}
+    worldMapPosition: {x: 17, y: 12}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 13.5}
+    worldMapPosition: {x: 17, y: 13}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 18.5, y: 12.5}
+    worldMapPosition: {x: 18, y: 12}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 19.5, y: 8.5}
+    worldMapPosition: {x: 19, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 20.5, y: 8.5}
+    worldMapPosition: {x: 20, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 19.5, y: 9.5}
+    worldMapPosition: {x: 19, y: 9}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 19.5, y: 10.5}
+    worldMapPosition: {x: 19, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 19.5, y: 11.5}
+    worldMapPosition: {x: 19, y: 11}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 20.5, y: 9.5}
+    worldMapPosition: {x: 20, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 20.5, y: 10.5}
+    worldMapPosition: {x: 20, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 20.5, y: 11.5}
+    worldMapPosition: {x: 20, y: 11}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 4.5}
+    worldMapPosition: {x: 14, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 5.5}
+    worldMapPosition: {x: 14, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 6.5}
+    worldMapPosition: {x: 14, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 5.5}
+    worldMapPosition: {x: 13, y: 6}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 6.5}
+    worldMapPosition: {x: 13, y: 6}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 7.5}
+    worldMapPosition: {x: 14, y: 7}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 8.5}
+    worldMapPosition: {x: 14, y: 8}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 4.5}
+    worldMapPosition: {x: 13, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 7.5}
+    worldMapPosition: {x: 13, y: 7}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 4.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 5.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 4.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 5.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 6.5}
+    worldMapPosition: {x: 12, y: 6}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 3.5}
+    worldMapPosition: {x: 14, y: 4}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 3.5}
+    worldMapPosition: {x: 12, y: 4}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 3.5}
+    worldMapPosition: {x: 12, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 3.5}
+    worldMapPosition: {x: 14, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 3.5}
+    worldMapPosition: {x: 15, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 3.5}
+    worldMapPosition: {x: 16, y: 4}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  allPositions: []
+--- !u!114 &-1118338709149609795
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf349aeb98a48044286534ac213409e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 1820665547
+  isEnabled: 1
+  layerName: Build Path
+  guid: f7e0413e-7dfe-44f4-a485-ea1863e20f2d
+  assignedBlueprintLayerGuid: 1fc780b1-9fad-4d6e-be61-729c83ec8c8b
+  foldoutState: 0
+  useMultiLayers: 0
+  masks: []
+  hierarchyLayerID: f7e0413e-7dfe-44f4-a485-ea1863e20f2d
+  lastHierarchyLayerID: f7e0413e-7dfe-44f4-a485-ea1863e20f2d
+  configuration: {fileID: 11400000}
+  useDualGrid: 1
+  meshGenerationOverride: 0
+  mergeTiles: 0
+  shadowCastingMode: 1
+  objectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  renderingLayer:
+    serializedVersion: 0
+    m_Bits: 0
+  colliderType: 1
+  tileColliderHeight: 0
+  tileColliderExtrusionHeight: 0
+  tilePresetsTop:
+  - preset: {fileID: 11400000, guid: 84e89fcbc3283cf4a881d5973ac7c6e4, type: 2}
+    tileHeight: 0
+    weight: 1
+  tilePresetsMiddle: []
+  tilePresetsBottom: []
+  scaleTileToCellSize: 1
+  layerYOffset: 0.02
+  scaleOffset: {x: 1, y: 1, z: 1}
+  addGrassRenderer: 0
+  grassPointCount: 0
+  grassShadowCastingMode: 0
+  grassMaterial_A: {fileID: 0}
+  grassMaterial_B: {fileID: 0}
+  grassBladeMesh_A: {fileID: 0}
+  grassBladeMesh_B: {fileID: 0}
+  grassMeshAWeight: 0
+  grassMeshBWeight: 0
+  tileLayers:
+  - name: 
+    heightOffset: 0
+    ignoreFillTiles: 0
+    layerOverrides: []
+  serializedWorldPositions:
+  - {x: 16, y: 10}
+  - {x: 15, y: 10}
+  - {x: 17, y: 10}
+  - {x: 15, y: 8}
+  - {x: 15, y: 7}
+  - {x: 15, y: 6}
+  - {x: 15, y: 5}
+  - {x: 15, y: 9}
+  - {x: 13, y: 5}
+  - {x: 12, y: 5}
+  - {x: 11, y: 5}
+  - {x: 10, y: 5}
+  - {x: 10, y: 6}
+  - {x: 14, y: 5}
+  - {x: 9, y: 7}
+  - {x: 8, y: 7}
+  - {x: 8, y: 8}
+  - {x: 8, y: 9}
+  - {x: 7, y: 9}
+  - {x: 9, y: 6}
+  - {x: 7, y: 11}
+  - {x: 6, y: 11}
+  - {x: 6, y: 12}
+  - {x: 7, y: 12}
+  - {x: 8, y: 12}
+  - {x: 9, y: 12}
+  - {x: 9, y: 13}
+  - {x: 9, y: 14}
+  - {x: 7, y: 10}
+  - {x: 9, y: 15}
+  serializedTiles:
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 9.5}
+    worldMapPosition: {x: 17, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 16.5, y: 10.5}
+    worldMapPosition: {x: 17, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 9.5}
+    worldMapPosition: {x: 17, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 17.5, y: 10.5}
+    worldMapPosition: {x: 17, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 9.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 10.5}
+    worldMapPosition: {x: 16, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 9.5}
+    worldMapPosition: {x: 15, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 10.5}
+    worldMapPosition: {x: 15, y: 10}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 8.5}
+    worldMapPosition: {x: 15, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 8.5}
+    worldMapPosition: {x: 15, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 7.5}
+    worldMapPosition: {x: 15, y: 8}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 7.5}
+    worldMapPosition: {x: 15, y: 8}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 6.5}
+    worldMapPosition: {x: 15, y: 7}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 6.5}
+    worldMapPosition: {x: 15, y: 7}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 5.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 5.5}
+    worldMapPosition: {x: 15, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 14.5, y: 4.5}
+    worldMapPosition: {x: 15, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 15.5, y: 4.5}
+    worldMapPosition: {x: 15, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 4.5}
+    worldMapPosition: {x: 14, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 13.5, y: 5.5}
+    worldMapPosition: {x: 14, y: 5}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 4.5}
+    worldMapPosition: {x: 13, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 12.5, y: 5.5}
+    worldMapPosition: {x: 13, y: 5}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 4.5}
+    worldMapPosition: {x: 12, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 11.5, y: 5.5}
+    worldMapPosition: {x: 12, y: 5}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 4.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 5.5}
+    worldMapPosition: {x: 11, y: 5}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 4.5}
+    worldMapPosition: {x: 10, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 5.5}
+    worldMapPosition: {x: 10, y: 5}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 6.5}
+    worldMapPosition: {x: 10, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 10.5, y: 6.5}
+    worldMapPosition: {x: 10, y: 6}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 7.5}
+    worldMapPosition: {x: 9, y: 7}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 5.5}
+    worldMapPosition: {x: 9, y: 6}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 6.5}
+    worldMapPosition: {x: 9, y: 6}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 7.5}
+    worldMapPosition: {x: 9, y: 7}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 6.5}
+    worldMapPosition: {x: 8, y: 7}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 7.5}
+    worldMapPosition: {x: 8, y: 7}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 8.5}
+    worldMapPosition: {x: 8, y: 8}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 8.5}
+    worldMapPosition: {x: 8, y: 8}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 8.5}
+    worldMapPosition: {x: 7, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 9.5}
+    worldMapPosition: {x: 8, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 13
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 9.5}
+    worldMapPosition: {x: 8, y: 9}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 9.5}
+    worldMapPosition: {x: 7, y: 9}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 10.5}
+    worldMapPosition: {x: 7, y: 10}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 11
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 10.5}
+    worldMapPosition: {x: 7, y: 10}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 11.5}
+    worldMapPosition: {x: 7, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 15
+    tileType: 5
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 11.5}
+    worldMapPosition: {x: 7, y: 11}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 7
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 10.5}
+    worldMapPosition: {x: 6, y: 11}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 2
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 11.5}
+    worldMapPosition: {x: 6, y: 11}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 5.5, y: 12.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 6.5, y: 12.5}
+    worldMapPosition: {x: 6, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 7.5, y: 12.5}
+    worldMapPosition: {x: 7, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 12
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 11.5}
+    worldMapPosition: {x: 8, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 3
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 12.5}
+    worldMapPosition: {x: 8, y: 12}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 14
+    tileType: 2
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 13.5}
+    worldMapPosition: {x: 9, y: 13}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 11.5}
+    worldMapPosition: {x: 9, y: 12}
+    yRotation: 0
+    yRotationOffset: 0
+    configuration: 1
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 12.5}
+    worldMapPosition: {x: 9, y: 12}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 13.5}
+    worldMapPosition: {x: 9, y: 13}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 14.5}
+    worldMapPosition: {x: 9, y: 14}
+    yRotation: 90
+    yRotationOffset: 0
+    configuration: 10
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 8.5, y: 15.5}
+    worldMapPosition: {x: 9, y: 15}
+    yRotation: 180
+    yRotationOffset: 0
+    configuration: 8
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 14.5}
+    worldMapPosition: {x: 9, y: 14}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 5
+    tileType: 4
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  - isAssigned: 1
+    tilePosition: {x: 9.5, y: 15.5}
+    worldMapPosition: {x: 9, y: 15}
+    yRotation: 270
+    yRotationOffset: 0
+    configuration: 4
+    tileType: 1
+    location:
+      north: 0
+      west: 0
+      east: 0
+      south: 0
+      northWest: 0
+      northEast: 0
+      southWest: 0
+      southEast: 0
+  allPositions: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4266a1de7520464db226ba74040127b, type: 3}
+  m_Name: 2.5D Island ConfigurationPaint
+  m_EditorClassIdentifier: 
+  useParallel: 0
+  width: 50
+  height: 50
+  cellSizeOld: 0
+  cellSize: 1
+  lastCellSize: 1
+  mergePreviewTextures: 0
+  clusterCellSize: 5
+  useGlobalRandomSeed: 0
+  globalRandomSeed: 103
+  currentRandomSeed: 2251155376
+  layerChanged: 0
+  showGizmos: 0
+  showPaintGrid: 0
+  gizmoLayer: {fileID: 0}
+  paintLayer: {fileID: -5398853214598126160}
+  tileMapLayers: []
+  blueprintLayerFolders:
+  - folderName: Root
+    guid: d9723e4f-8cd1-4b1c-981b-0ea264652df3
+    foldoutState: 1
+    assignedBlueprintLayers: []
+    blueprintLayers:
+    - {fileID: 1924241743068250440}
+    - {fileID: -5398853214598126160}
+    - {fileID: 6235136083116652736}
+  buildLayerFolders:
+  - folderName: New Folder
+    guid: 99c19a1c-ef71-4354-a6f9-5297a024e438
+    foldoutState: 1
+    buildLayers:
+    - {fileID: -3675897236689739723}
+    - {fileID: -1118338709149609795}
+    - {fileID: -7251398919079171470}
+  selectedTileMapLayerGuid: 
+  random:
+    state: 26274881
+  mergeTiles: 0
+  shadowCastingMode: 1
+  objectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  renderingLayer:
+    serializedVersion: 0
+    m_Bits: 1
+  colliderType: 1
+  tileColliderHeight: 0
+  tileColliderExtrusionHeight: 0
+--- !u!28 &1504369534307310597
+Texture2D:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 50
+  m_Height: 50
+  m_CompleteImageSize: 13260
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 13260
+  _typelessdata: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bfbfbfbf7f7f7f7f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3fffffffffbfbfbfbf00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f7f7f7f7fbfbfbfbf0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018181818b8b8b8b800000000000000000000000000000000000000000000000000000000000000000000000000000000767676763c3c3c3c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000060606062e2e2e2e000000000000000000000000000000001d1d1d1d0f0f0f0f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018181818000000000000000000000000000000000000000000000000000000000000000000000000
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &1924241743068250440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6d10c4aac2a4440a141c607b715097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 1638179197
+  guid: 14b36c32-2c08-44a4-b0f6-b1b0dc313a42
+  layerName: Island
+  icon: {fileID: 0}
+  isEnabled: 1
+  layerColor: {r: 1, g: 1, b: 1, a: 1}
+  previewTexture: {fileID: 5193858696395670386}
+  randomSeedOverride: 0
+  customRandomSeed: 0
+  customSeed: 0
+  defaultLayerHeight: 0
+  lockFromPaint: 0
+  foldoutState: 0
+  tileMapModifiers: []
+  showDebugGrid: 0
+  configuration: {fileID: 11400000}
+  serializedPaintPositions:
+  - {x: 12, y: 13}
+  - {x: 11, y: 13}
+  - {x: 10, y: 14}
+  - {x: 9, y: 14}
+  - {x: 9, y: 15}
+  - {x: 9, y: 17}
+  - {x: 9, y: 16}
+  - {x: 10, y: 16}
+  - {x: 11, y: 16}
+  - {x: 11, y: 15}
+  - {x: 6, y: 12}
+  - {x: 6, y: 13}
+  - {x: 6, y: 14}
+  - {x: 7, y: 12}
+  - {x: 7, y: 13}
+  - {x: 8, y: 12}
+  - {x: 8, y: 13}
+  - {x: 8, y: 14}
+  - {x: 6, y: 11}
+  - {x: 7, y: 11}
+  - {x: 8, y: 11}
+  - {x: 6, y: 10}
+  - {x: 7, y: 10}
+  - {x: 8, y: 10}
+  - {x: 9, y: 10}
+  - {x: 9, y: 11}
+  - {x: 9, y: 12}
+  - {x: 10, y: 10}
+  - {x: 10, y: 11}
+  - {x: 10, y: 12}
+  - {x: 9, y: 13}
+  - {x: 10, y: 13}
+  - {x: 10, y: 15}
+  - {x: 10, y: 17}
+  - {x: 9, y: 18}
+  - {x: 5, y: 14}
+  - {x: 5, y: 15}
+  - {x: 5, y: 16}
+  - {x: 5, y: 13}
+  - {x: 4, y: 13}
+  - {x: 4, y: 14}
+  - {x: 4, y: 15}
+  - {x: 5, y: 12}
+  - {x: 11, y: 14}
+  - {x: 16, y: 8}
+  - {x: 18, y: 10}
+  - {x: 18, y: 11}
+  - {x: 19, y: 9}
+  - {x: 19, y: 10}
+  - {x: 19, y: 11}
+  - {x: 20, y: 9}
+  - {x: 20, y: 10}
+  - {x: 20, y: 11}
+  - {x: 15, y: 6}
+  - {x: 16, y: 10}
+  - {x: 16, y: 11}
+  - {x: 17, y: 9}
+  - {x: 17, y: 10}
+  - {x: 17, y: 11}
+  - {x: 15, y: 9}
+  - {x: 15, y: 10}
+  - {x: 15, y: 11}
+  - {x: 14, y: 5}
+  - {x: 14, y: 6}
+  - {x: 15, y: 8}
+  - {x: 16, y: 9}
+  - {x: 13, y: 6}
+  - {x: 14, y: 7}
+  - {x: 16, y: 7}
+  - {x: 14, y: 8}
+  - {x: 11, y: 12}
+  - {x: 15, y: 7}
+  - {x: 16, y: 6}
+  - {x: 17, y: 6}
+  - {x: 15, y: 5}
+  - {x: 16, y: 5}
+  - {x: 17, y: 5}
+  - {x: 18, y: 5}
+  - {x: 14, y: 9}
+  - {x: 14, y: 4}
+  - {x: 15, y: 4}
+  - {x: 16, y: 4}
+  - {x: 13, y: 5}
+  - {x: 13, y: 7}
+  - {x: 15, y: 12}
+  - {x: 16, y: 12}
+  - {x: 16, y: 13}
+  - {x: 17, y: 12}
+  - {x: 17, y: 13}
+  - {x: 18, y: 12}
+  - {x: 11, y: 5}
+  - {x: 12, y: 4}
+  - {x: 12, y: 5}
+  - {x: 12, y: 6}
+  serializedWorldPositions:
+  - {x: 12, y: 13}
+  - {x: 11, y: 13}
+  - {x: 10, y: 14}
+  - {x: 9, y: 14}
+  - {x: 9, y: 15}
+  - {x: 9, y: 17}
+  - {x: 9, y: 16}
+  - {x: 10, y: 16}
+  - {x: 11, y: 16}
+  - {x: 11, y: 15}
+  - {x: 6, y: 12}
+  - {x: 6, y: 13}
+  - {x: 6, y: 14}
+  - {x: 7, y: 12}
+  - {x: 7, y: 13}
+  - {x: 8, y: 12}
+  - {x: 8, y: 13}
+  - {x: 8, y: 14}
+  - {x: 6, y: 11}
+  - {x: 7, y: 11}
+  - {x: 8, y: 11}
+  - {x: 6, y: 10}
+  - {x: 7, y: 10}
+  - {x: 8, y: 10}
+  - {x: 9, y: 10}
+  - {x: 9, y: 11}
+  - {x: 9, y: 12}
+  - {x: 10, y: 10}
+  - {x: 10, y: 11}
+  - {x: 10, y: 12}
+  - {x: 9, y: 13}
+  - {x: 10, y: 13}
+  - {x: 10, y: 15}
+  - {x: 10, y: 17}
+  - {x: 9, y: 18}
+  - {x: 5, y: 14}
+  - {x: 5, y: 15}
+  - {x: 5, y: 16}
+  - {x: 5, y: 13}
+  - {x: 4, y: 13}
+  - {x: 4, y: 14}
+  - {x: 4, y: 15}
+  - {x: 5, y: 12}
+  - {x: 11, y: 14}
+  - {x: 16, y: 8}
+  - {x: 18, y: 10}
+  - {x: 18, y: 11}
+  - {x: 19, y: 9}
+  - {x: 19, y: 10}
+  - {x: 19, y: 11}
+  - {x: 20, y: 9}
+  - {x: 20, y: 10}
+  - {x: 20, y: 11}
+  - {x: 15, y: 6}
+  - {x: 16, y: 10}
+  - {x: 16, y: 11}
+  - {x: 17, y: 9}
+  - {x: 17, y: 10}
+  - {x: 17, y: 11}
+  - {x: 15, y: 9}
+  - {x: 15, y: 10}
+  - {x: 15, y: 11}
+  - {x: 14, y: 5}
+  - {x: 14, y: 6}
+  - {x: 15, y: 8}
+  - {x: 16, y: 9}
+  - {x: 13, y: 6}
+  - {x: 14, y: 7}
+  - {x: 16, y: 7}
+  - {x: 14, y: 8}
+  - {x: 11, y: 12}
+  - {x: 15, y: 7}
+  - {x: 16, y: 6}
+  - {x: 17, y: 6}
+  - {x: 15, y: 5}
+  - {x: 16, y: 5}
+  - {x: 17, y: 5}
+  - {x: 18, y: 5}
+  - {x: 14, y: 9}
+  - {x: 14, y: 4}
+  - {x: 15, y: 4}
+  - {x: 16, y: 4}
+  - {x: 13, y: 5}
+  - {x: 13, y: 7}
+  - {x: 15, y: 12}
+  - {x: 16, y: 12}
+  - {x: 16, y: 13}
+  - {x: 17, y: 12}
+  - {x: 17, y: 13}
+  - {x: 18, y: 12}
+  - {x: 11, y: 5}
+  - {x: 12, y: 4}
+  - {x: 12, y: 5}
+  - {x: 12, y: 6}
+--- !u!28 &3820325810293436529
+Texture2D:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 50
+  m_Height: 50
+  m_CompleteImageSize: 13260
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 13260
+  _typelessdata: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff00000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007f7f7f7f7f7f7f7f7f7f7f7f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bfbfbfbf3f3f3f3f000000007f7f7f7f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f7f7f7f7f00000000000000007f7f7f7f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bfbfbfbf0000000000000000000000003f3f3f3f7f7f7f7f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007f7f7f7fbfbfbfbf0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007f7f7f7f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5f5f5f6e6e6e6e0000000000000000000000000000000000000000000000000000000000000000000000005e5e5e5e0a0a0a0a3f3f3f3f0b0b0b0b000000000000000000000000000000000000000000000000000000000000000010101010282828280000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033333333000000000000000000000000000000001b1b1b1b1c1c1c1c020202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001a1a1a1a000000000000000000000000000000000000000000000000000000000000000000000000
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!28 &5193858696395670386
+Texture2D:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 50
+  m_Height: 50
+  m_CompleteImageSize: 13260
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 6
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 13260
+  _typelessdata: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000ffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3fbfbfbfbfffffffffbfbfbfbf3f3f3f3f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bfbfbfbfffffffffbfbfbfbf0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffbfbfbfbf3f3f3f3f3f3f3f3f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff7f7f7f7f000000007f7f7f7fffffffffffffffff7f7f7f7f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bfbfbfbfffffffffffffffffffffffff3f3f3f3f3f3f3f3fffffffff3f3f3f3f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff3f3f3f3fbfbfbfbfffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f000000007f7f7f7fbfbfbfbf00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010101010f1f1f1f12c2c2c2c00000000000000000000000000000000000000000000000000000000000000006f6f6f6f7373737381818181cbcbcbcb04040404000000000000000000000000000000000000000000000000000000009b9b9b9bf0f0f0f00d0d0d0d121212120000000000000000000000000000000000000000000000000000000000000000020202022525252500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000404040400b0b0b0b000000000000000000000000424242427c7c7c7c383838380000000000000000000000000000000009090909000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003f3f3f3f101010100000000002020202000000000000000000000000000000000000000000000000
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &6235136083116652736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6d10c4aac2a4440a141c607b715097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random:
+    state: 1638179197
+  guid: 1fc780b1-9fad-4d6e-be61-729c83ec8c8b
+  layerName: Path
+  icon: {fileID: 0}
+  isEnabled: 1
+  layerColor: {r: 1, g: 1, b: 1, a: 1}
+  previewTexture: {fileID: 3820325810293436529}
+  randomSeedOverride: 0
+  customRandomSeed: 0
+  customSeed: 0
+  defaultLayerHeight: 0
+  lockFromPaint: 0
+  foldoutState: 0
+  tileMapModifiers: []
+  showDebugGrid: 0
+  configuration: {fileID: 11400000}
+  serializedPaintPositions:
+  - {x: 17, y: 10}
+  - {x: 16, y: 10}
+  - {x: 15, y: 10}
+  - {x: 15, y: 9}
+  - {x: 15, y: 8}
+  - {x: 15, y: 7}
+  - {x: 15, y: 6}
+  - {x: 15, y: 5}
+  - {x: 14, y: 5}
+  - {x: 13, y: 5}
+  - {x: 12, y: 5}
+  - {x: 11, y: 5}
+  - {x: 10, y: 5}
+  - {x: 10, y: 6}
+  - {x: 9, y: 6}
+  - {x: 9, y: 7}
+  - {x: 8, y: 7}
+  - {x: 8, y: 8}
+  - {x: 8, y: 9}
+  - {x: 7, y: 9}
+  - {x: 7, y: 10}
+  - {x: 7, y: 11}
+  - {x: 6, y: 11}
+  - {x: 6, y: 12}
+  - {x: 7, y: 12}
+  - {x: 8, y: 12}
+  - {x: 9, y: 12}
+  - {x: 9, y: 13}
+  - {x: 9, y: 14}
+  - {x: 9, y: 15}
+  serializedWorldPositions:
+  - {x: 17, y: 10}
+  - {x: 16, y: 10}
+  - {x: 15, y: 10}
+  - {x: 15, y: 9}
+  - {x: 15, y: 8}
+  - {x: 15, y: 7}
+  - {x: 15, y: 6}
+  - {x: 15, y: 5}
+  - {x: 14, y: 5}
+  - {x: 13, y: 5}
+  - {x: 12, y: 5}
+  - {x: 11, y: 5}
+  - {x: 10, y: 5}
+  - {x: 10, y: 6}
+  - {x: 9, y: 6}
+  - {x: 9, y: 7}
+  - {x: 8, y: 7}
+  - {x: 8, y: 8}
+  - {x: 8, y: 9}
+  - {x: 7, y: 9}
+  - {x: 7, y: 10}
+  - {x: 7, y: 11}
+  - {x: 6, y: 11}
+  - {x: 6, y: 12}
+  - {x: 7, y: 12}
+  - {x: 8, y: 12}
+  - {x: 9, y: 12}
+  - {x: 9, y: 13}
+  - {x: 9, y: 14}
+  - {x: 9, y: 15}

@@ -1,0 +1,24 @@
+{
+    "name": "GiantGrey.TileWorldCreator.Samples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:de0b06b6b7921bd409c283828e3c8e6b",
+        "GUID:80ecb87cae9c44d19824e70ea7229748"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.kyrylokuzyk.primetween",
+            "expression": "1.0.0",
+            "define": "TWC_PRIMETWEEN"
+        }
+    ],
+    "noEngineReferences": false
+}

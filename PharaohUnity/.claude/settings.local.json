@@ -13,7 +13,10 @@
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(cat:*)",
-      "Bash(git:*)"
-    ]
+      "Bash(git:*)",
+      "WebSearch",
+      "Bash(rm:*)"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }

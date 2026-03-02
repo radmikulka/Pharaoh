@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 23b46a5a930512848801f0b157b245b6
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315757
+  packageName: Stylized Sea of Clouds Environment VFX
+  packageVersion: 1.0.1
+  assetPath: Assets/TurishaderPackages/CloudsFloor/Shaders/CloudsOcean.shader
+  uploadId: 746799

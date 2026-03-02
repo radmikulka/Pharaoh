@@ -11,7 +11,7 @@ namespace Pharaoh.Building
 		private readonly CBuildingManager _buildingManager;
 		private readonly COwnedResources _ownedResources;
 		private readonly IMissionController _missionController;
-		private readonly CResourceConfigs _resourceConfigs;
+		private readonly CDesignBuildingsConfigs _buildingConfigs;
 
 		private float _timer;
 
@@ -19,12 +19,12 @@ namespace Pharaoh.Building
 			CBuildingManager buildingManager,
 			COwnedResources ownedResources,
 			IMissionController missionController,
-			CResourceConfigs resourceConfigs)
+			CDesignBuildingsConfigs buildingConfigs)
 		{
 			_buildingManager = buildingManager;
 			_ownedResources = ownedResources;
 			_missionController = missionController;
-			_resourceConfigs = resourceConfigs;
+			_buildingConfigs = buildingConfigs;
 		}
 
 		public void Tick()
@@ -51,7 +51,7 @@ namespace Pharaoh.Building
 				if (!building.IsActive)
 					continue;
 
-				CBuildingResourceConfig config = _resourceConfigs.Buildings.GetConfig(building.Id);
+				CBuildingConfig config = _buildingConfigs.GetBuilding(building.Id);
 
 				if (config == null)
 					continue;

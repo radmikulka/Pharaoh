@@ -7,6 +7,16 @@
       "dependencies": {},
       "hash": "052001cf62c44b1af3d8bd6339939f5f2c34966d"
     },
+    "com.coplaydev.unity-mcp": {
+      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.test-framework": "1.1.31"
+      },
+      "hash": "d76a8df311c48263872be0cd3e6a8ef1a0fa8e59"
+    },
     "com.google.android.appbundle": {
       "version": "file:../Assets/ServiceEngine/Packages/com.google.android.appbundle-1.9.0.tgz",
       "depth": 0,

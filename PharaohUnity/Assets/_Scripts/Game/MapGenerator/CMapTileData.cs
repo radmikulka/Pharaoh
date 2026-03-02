@@ -20,6 +20,8 @@ namespace Pharaoh.MapGenerator
         [SerializeField] private EDecorationType _decorationType;
         [SerializeField] private bool            _isObstacleBlocked;
         [SerializeField] private GameObject      _obstaclePrefab;
+        [SerializeField] private ECliffType      _cliffType;
+        [SerializeField] private int             _cliffRotationDeg;
 
         /// <summary>When true, Generate() will not overwrite this tile with pipeline output.</summary>
         [SerializeField] private bool _isOverridden;
@@ -37,6 +39,8 @@ namespace Pharaoh.MapGenerator
             _decorationType    = tile.DecorationType;
             _isObstacleBlocked = tile.IsObstacleBlocked;
             _obstaclePrefab    = tile.ObstaclePrefab;
+            _cliffType         = tile.CliffType;
+            _cliffRotationDeg  = tile.CliffRotationDeg;
             _isOverridden      = false;
             RefreshColor();
         }
@@ -52,6 +56,8 @@ namespace Pharaoh.MapGenerator
                 IsObstacleBlocked = _isObstacleBlocked,
                 ObstaclePrefab    = _obstaclePrefab,
                 ContentTag        = _contentTag,
+                CliffType         = _cliffType,
+                CliffRotationDeg  = _cliffRotationDeg,
             };
         }
 

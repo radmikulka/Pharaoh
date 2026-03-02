@@ -15,5 +15,7 @@ namespace Pharaoh.MapGenerator
         public EDecorationType DecorationType; // assigned by CDecorationPlacementStep
         public EContentTag ContentTag;         // assigned by CObstacleProximityTagStep
         public int VoronoiRegionId; // 0..N-1; 0 is default for unassigned tiles
+        public ECliffType CliffType;      // set by CCliffDetectionStep
+        public int CliffRotationDeg;      // 0 / 90 / 180 / 270
     }
 }

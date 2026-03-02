@@ -20,7 +20,7 @@ namespace Pharaoh
 	public class CMissionController : ICameraPlaneProvider, IMissionController
 	{
 		private readonly CRequiredBundlesDownloader _requiredBundlesDownloader;
-		private readonly CResourceConfigs _resourceConfigs;
+		private readonly CDesignMissionsConfigs _missionConfigs;
 		private readonly ILoadingScreen _loadingScreen;
 		private readonly ISceneManager _sceneManager;
 		private readonly IEventBus _eventBus;
@@ -30,16 +30,16 @@ namespace Pharaoh
 		public EMissionId ActiveMissionId => _activeMission.MissionId;
 
 		public CMissionController(
-			CRequiredBundlesDownloader requiredBundlesDownloader, 
-			CResourceConfigs resourceConfigs,
+			CRequiredBundlesDownloader requiredBundlesDownloader,
+			CDesignMissionsConfigs missionConfigs,
 			ILoadingScreen loadingScreen,
-			ISceneManager sceneManager, 
+			ISceneManager sceneManager,
 			IEventBus eventBus
 			)
-		
+
 		{
 			_requiredBundlesDownloader = requiredBundlesDownloader;
-			_resourceConfigs = resourceConfigs;
+			_missionConfigs = missionConfigs;
 			_loadingScreen = loadingScreen;
 			_sceneManager = sceneManager;
 			_eventBus = eventBus;
@@ -70,8 +70,8 @@ namespace Pharaoh
 
 		private async UniTask<CMission> LoadMissionScene(EMissionId mission, CancellationToken ct)
 		{
-			CMissionConfig missionConfig = _resourceConfigs.Missions.GetConfig(mission);
-			Scene scene = await _sceneManager.LoadSceneAsync(missionConfig.Scene, LoadSceneMode.Additive, ct);
+			ESceneId sceneId = _missionConfigs.GetMission(mission).SceneId;
+			Scene scene = await _sceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive, ct);
 			return scene.GetRootGameObjects()[0].GetComponentInChildren<CMission>();
 		}
 	}

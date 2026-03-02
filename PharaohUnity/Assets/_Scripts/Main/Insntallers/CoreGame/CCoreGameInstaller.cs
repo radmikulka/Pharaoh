@@ -21,6 +21,8 @@ namespace Pharaoh
         [SerializeField, Child] private CCameraMover _cameraMover;
         [SerializeField, Child] private CCullingGroupApi _cullingGroupApi;
         [SerializeField, Child] private CBuildingMenuPanel _buildingMenuPanel;
+        [SerializeField, Child] private CBuildingDetailPanel _buildingDetailPanel;
+        [SerializeField, Child] private CQuestHudPanel _questHudPanel;
 
         private void OnValidate()
         {
@@ -32,6 +34,7 @@ namespace Pharaoh
             InstallCamera();
             InstallCoreLogic();
             InstallBuilding();
+            InstallQuests();
             base.InstallBindings();
         }
 
@@ -55,6 +58,13 @@ namespace Pharaoh
             Container.AddSingleton<CBuildingManager>(true);
             Container.AddSingleton<CBuildingTickSystem>(true);
             Container.AddSingletonFromInstance(_buildingMenuPanel);
+            Container.AddSingletonFromInstance(_buildingDetailPanel);
+        }
+
+        private void InstallQuests()
+        {
+            Container.AddSingleton<CQuestManager>(true);
+            Container.AddSingletonFromInstance(_questHudPanel);
         }
     }
 }

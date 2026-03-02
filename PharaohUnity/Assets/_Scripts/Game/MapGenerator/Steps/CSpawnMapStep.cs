@@ -28,6 +28,12 @@ namespace Pharaoh.MapGenerator
         [SerializeField] private GameObject _sandTilePrefab;
         [SerializeField] private GameObject _waterPlanePrefab;
 
+        [Header("Cliff")]
+        [SerializeField] private GameObject[] _cliffStraightPrefabs;
+        [SerializeField] private GameObject[] _cliffOuterCornerPrefabs;
+        [SerializeField] private GameObject[] _cliffInnerCornerPrefabs;
+        [SerializeField] private GameObject[] _cliffStraitPrefabs;
+
         [Header("Decorations")]
         [SerializeField] private CDecorationEntry[] _decorations;
 
@@ -52,6 +58,22 @@ namespace Pharaoh.MapGenerator
             h = (h ^ (h >> 13)) * 1597334677;
             h ^= h >> 16;
             return (h & 0x7FFFFFFF) / (float)0x7FFFFFFF;
+        }
+
+        private GameObject PickCliffPrefab(ECliffType type, int x, int y)
+        {
+            GameObject[] variants = type switch
+            {
+                ECliffType.Straight    => _cliffStraightPrefabs,
+                ECliffType.OuterCorner => _cliffOuterCornerPrefabs,
+                ECliffType.InnerCorner => _cliffInnerCornerPrefabs,
+                ECliffType.Strait      => _cliffStraitPrefabs,
+                _                      => null,
+            };
+
+            if (variants == null || variants.Length == 0) return null;
+            int index = Mathf.FloorToInt(TileHash(x, y) * variants.Length);
+            return variants[index];
         }
 
         public override void Execute(CMapData mapData, int seed)
@@ -109,11 +131,24 @@ namespace Pharaoh.MapGenerator
                         var pos = new Vector3(x, 0f, y);
 
                         bool isSand = tile.ContentTag == EContentTag.Coast;
-                        var prefab = isSand && _sandTilePrefab != null ? _sandTilePrefab : _landTilePrefab;
+                        bool isCliff = tile.CliffType != ECliffType.None;
+
+                        GameObject prefab;
+                        Quaternion rotation;
+                        if (isCliff)
+                        {
+                            prefab   = PickCliffPrefab(tile.CliffType, x, y);
+                            rotation = Quaternion.Euler(0f, tile.CliffRotationDeg, 0f);
+                        }
+                        else
+                        {
+                            prefab   = isSand && _sandTilePrefab != null ? _sandTilePrefab : _landTilePrefab;
+                            rotation = Quaternion.identity;
+                        }
 
                         if (prefab != null)
                         {
-                            var tileGO = Instantiate(prefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                            var tileGO = Instantiate(prefab, pos, rotation, mapInstanceGO.transform);
                             tileGO.name = $"Tile_{x}_{y}";
                             cell.TileObject = tileGO;
                             tileCount++;

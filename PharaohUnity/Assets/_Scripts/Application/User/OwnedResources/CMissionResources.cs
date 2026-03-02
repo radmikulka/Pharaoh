@@ -11,7 +11,7 @@ namespace Pharaoh
 	{
 		private readonly Dictionary<EResource, COwnedResource> _resources = new();
 
-		public CMissionResources(EResource[] availableResources, COwnedResource sharedGold)
+		public CMissionResources(EResource[] availableResources, COwnedResource sharedGold, CGameplayConfig gameplayConfig = null)
 		{
 			_resources[EResource.Gold] = sharedGold;
 
@@ -20,7 +20,15 @@ namespace Pharaoh
 				if (resource == EResource.Gold || resource == EResource.None)
 					continue;
 
-				_resources[resource] = new COwnedResource(resource);
+				if (resource == EResource.KnowledgePoints && gameplayConfig != null)
+				{
+					int max = gameplayConfig.MaxKnowledgePoints;
+					_resources[resource] = new COwnedResource(resource, max, max);
+				}
+				else
+				{
+					_resources[resource] = new COwnedResource(resource);
+				}
 			}
 		}
 

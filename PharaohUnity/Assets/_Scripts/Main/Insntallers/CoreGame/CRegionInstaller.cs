@@ -29,6 +29,8 @@ namespace Pharaoh
 
 			Container.AddSingletonFromInstance(_mission);
 			Container.AddSingletonFromInstance(_mapInstance);
+			Container.AddSingleton<CKnowledgePointsRegenService>(true);
+			Container.AddSingleton<CResearchBonusProvider>(true);
 		}
 	}
 }

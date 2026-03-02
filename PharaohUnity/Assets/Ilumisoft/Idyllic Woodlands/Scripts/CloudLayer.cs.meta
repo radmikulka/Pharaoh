@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d25d0a067276f194c86ae4a9fb28adc2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263066
+  packageName: Dusty Canyon - Stylized Fantasy RPG Environment
+  packageVersion: 1.1
+  assetPath: Assets/Ilumisoft/Idyllic Woodlands/Scripts/CloudLayer.cs
+  uploadId: 681542

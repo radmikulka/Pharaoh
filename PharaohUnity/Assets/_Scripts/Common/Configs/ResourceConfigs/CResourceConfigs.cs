@@ -13,11 +13,14 @@ namespace Pharaoh
 	[CreateAssetMenu(menuName = "____Pharaoh/Configs/ResourceConfigs")]
 	public class CResourceConfigs : CResourceConfigsDb, IConstructable
 	{
+		[SerializeField] private CGameplayConfig _gameplay;
+
 		public CResourceConfigsSet<CValuableResourceConfig, EValuable> Valuables { get; private set; }
 		public CResourceConfigsSet<CResourceResourceConfig, EResource> Resources { get; private set; }
 		public CResourceConfigsSet<CSceneResourceConfig, ESceneId> Scenes { get; private set; }
 		public CResourceConfigsSet<CMissionConfig, EMissionId> Missions { get; private set; }
 		public CResourceConfigsSet<CBuildingResourceConfig, EBuildingId> Buildings { get; private set; }
+		public CGameplayConfig Gameplay => _gameplay;
 
 		public void Construct()
 		{
