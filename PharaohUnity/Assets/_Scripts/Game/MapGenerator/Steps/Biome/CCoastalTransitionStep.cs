@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -133,6 +134,8 @@ namespace Pharaoh.MapGenerator
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
+            if(Selection.activeGameObject != gameObject)
+                return;
             if (_cachedCoastalTiles == null || _cachedCoastalTiles.Count == 0) return;
             Gizmos.color = new Color(0.9f, 0.75f, 0.3f, 0.7f); // sandy yellow
             foreach (var p in _cachedCoastalTiles)

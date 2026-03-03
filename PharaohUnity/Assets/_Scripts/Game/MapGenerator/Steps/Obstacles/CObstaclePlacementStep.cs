@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -74,6 +75,7 @@ namespace Pharaoh.MapGenerator
                     STile tile = mapData.Get(x, y);
 
                     if (!tile.Type.IsBuildable())      continue;
+                    if (tile.CliffType != ECliffType.None) continue;
                     if (tile.ObstaclePrefab != null)   continue;
                     if (tile.IsObstacleBlocked)        continue;
 
@@ -154,6 +156,9 @@ namespace Pharaoh.MapGenerator
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
+            if(Selection.activeGameObject != gameObject)
+                return;
+            
             if (_placedTiles == null || _placedTiles.Count == 0) return;
             Gizmos.color = new Color(0.8f, 0.3f, 0.1f, 0.7f);
             foreach (var p in _placedTiles)

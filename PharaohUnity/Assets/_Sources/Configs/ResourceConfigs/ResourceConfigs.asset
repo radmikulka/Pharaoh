@@ -24,3 +24,4 @@ MonoBehaviour:
     - _objects:
       - {fileID: 11400000, guid: e0776bf95a70cbd4aa3a764c6c3519b1, type: 2}
       - {fileID: 11400000, guid: 6d60cf0982c6c06478e8a74a780b938a, type: 2}
+  _gameplay: {fileID: 0}

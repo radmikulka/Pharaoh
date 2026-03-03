@@ -130,10 +130,9 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TextureFade: 0.4
-    - _Tile: 0.14
+    - _Tile: 0.11
     - _Top_Texture_Fade: 0.37
     - _WorkflowMode: 1
-    - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -141,7 +140,7 @@ Material:
     - _Color: {r: 0.7169812, g: 0.45487723, b: 0.19277322, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Top_Color: {r: 0.31243324, g: 0.5566038, b: 0.32576042, a: 0}
+    - _Top_Color: {r: 0.8679245, g: 0.68447924, b: 0.38892844, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8437526787400562867

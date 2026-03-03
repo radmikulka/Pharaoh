@@ -7,6 +7,7 @@ using Pharaoh.Map;
 using ServerData;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Pharaoh.Building
 {
@@ -56,6 +57,7 @@ namespace Pharaoh.Building
 			_eventBus.Subscribe<CCellClickedSignal>(OnCellClicked);
 			_eventBus.Subscribe<CBuildingPlacementRequestSignal>(OnBuildingPlacementRequested);
 			_eventBus.Subscribe<CBuildingUpgradeRequestSignal>(OnBuildingUpgradeRequested);
+			_eventBus.Subscribe<CBuildingRemovalRequestSignal>(OnBuildingRemovalRequested);
 		}
 
 		public int GetBuildingCount(EBuildingId id)
@@ -68,6 +70,8 @@ namespace Pharaoh.Building
 			}
 			return count;
 		}
+
+		public bool TryGetView(CMapCell cell, out CBuildingView view) => _views.TryGetValue(cell, out view);
 
 		public CBuilding GetBuildingAtCell(SCellCoord coord)
 		{
@@ -125,6 +129,18 @@ namespace Pharaoh.Building
 			CBuildingView view = buildingGO.AddComponent<CBuildingView>();
 			view.Initialize(building);
 
+			if (buildingId == EBuildingId.Road)
+			{
+				var roadView = buildingGO.AddComponent<CRoadView>();
+				roadView.Initialize(
+					_bundleManager.LoadItem<GameObject>(config.RoadVariantDeadEnd,   EBundleCacheType.Persistent),
+					_bundleManager.LoadItem<GameObject>(config.RoadVariantCorner,    EBundleCacheType.Persistent),
+					_bundleManager.LoadItem<GameObject>(config.RoadVariantStraight,  EBundleCacheType.Persistent),
+					_bundleManager.LoadItem<GameObject>(config.RoadVariantTJunction, EBundleCacheType.Persistent),
+					_bundleManager.LoadItem<GameObject>(config.RoadVariantCross,     EBundleCacheType.Persistent)
+				);
+			}
+
 			cell.BuildingId = buildingId;
 
 			if (cell.ObstacleObject != null)
@@ -168,6 +184,28 @@ namespace Pharaoh.Building
 			building.Level++;
 
 			_eventBus.Send(new CBuildingUpgradedSignal(building.Id, signal.Cell, building.Level));
+		}
+
+		private void OnBuildingRemovalRequested(CBuildingRemovalRequestSignal signal)
+		{
+			CMapCell cell = _mapInstance.GetCell(signal.Cell.X, signal.Cell.Y);
+			if (cell == null || !cell.HasBuilding)
+				return;
+
+			CBuilding building = GetBuildingAtCell(new SCellCoord(cell.X, cell.Y));
+			if (building == null)
+				return;
+
+			if (_views.TryGetValue(cell, out CBuildingView view))
+			{
+				Object.Destroy(view.gameObject);
+				_views.Remove(cell);
+			}
+
+			_buildings.Remove(building);
+			cell.BuildingId = EBuildingId.None;
+
+			_eventBus.Send(new CBuildingRemovedSignal(building.Id, new SCellCoord(cell.X, cell.Y)));
 		}
 	}
 }

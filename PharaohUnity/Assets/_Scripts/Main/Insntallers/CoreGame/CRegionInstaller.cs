@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using AldaEngine;
 using KBCore.Refs;
+using Pharaoh.Building;
 using Pharaoh.Map;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ namespace Pharaoh
 			Container.AddSingletonFromInstance(_mapInstance);
 			Container.AddSingleton<CKnowledgePointsRegenService>(true);
 			Container.AddSingleton<CResearchBonusProvider>(true);
+			Container.AddSingleton<CRoadNetworkService>(true);
 		}
 	}
 }

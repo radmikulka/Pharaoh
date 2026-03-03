@@ -143,21 +143,20 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TextureFade: 0.58
-    - _Tile: 0.48
+    - _Tile: 0.14
     - _Tiling: 0.15
     - _Toon_Ramp_Offset_Point: 0.51
     - _Top_Texture_Fade: 0.5
     - _WorkflowMode: 1
-    - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
     - Toon_Ramp_Tint: {r: 0.23082057, g: 0.5377358, b: 0.2382891, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 0.47407117, g: 0.764151, b: 0.45056072, a: 0}
+    - _Base_Color: {r: 0.3508811, g: 0.7830189, b: 0.36755142, a: 0}
     - _Color: {r: 0.0541573, g: 0.066037714, b: 0.05326627, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Top_Color: {r: 0.26477396, g: 0.6603774, b: 0.31832594, a: 0}
+    - _Top_Color: {r: 0.48940903, g: 0.8867924, b: 0.5080364, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8437526787400562867

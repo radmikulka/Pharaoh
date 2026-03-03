@@ -7,5 +7,7 @@ namespace Pharaoh
 		Mining = 2,
 		Support = 3,
 		Residential = 4,
+		Road        = 5,
+		Hub         = 6,
 	}
 }

@@ -8,6 +8,8 @@ namespace ServerData
 		Farm = 3,
 		House = 4,
 		Quarry = 5,
-		Fishery = 6,
+		Fishery   = 6,
+		Townhall  = 7,
+		Road      = 8,
 	}
 }

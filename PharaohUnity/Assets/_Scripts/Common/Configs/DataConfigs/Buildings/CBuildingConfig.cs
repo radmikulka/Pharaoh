@@ -11,8 +11,9 @@ namespace Pharaoh
         public SBuildingLevelData[] Levels { get; }
         public float CostScalingFactor { get; }
         public IUnlockRequirement PlacementRequirement { get; }
+        public bool RequiresRoadAccess { get; }
 
-        public CBuildingConfig(EBuildingType buildingType, ECellTag requiredTags, string displayName, SBuildingLevelData[] levels, float costScalingFactor = 1.5f, IUnlockRequirement placementRequirement = null)
+        public CBuildingConfig(EBuildingType buildingType, ECellTag requiredTags, string displayName, SBuildingLevelData[] levels, float costScalingFactor = 1.5f, IUnlockRequirement placementRequirement = null, bool requiresRoadAccess = false)
         {
             BuildingType = buildingType;
             RequiredTags = requiredTags;
@@ -20,6 +21,7 @@ namespace Pharaoh
             Levels = levels;
             CostScalingFactor = costScalingFactor;
             PlacementRequirement = placementRequirement ?? IUnlockRequirement.Null();
+            RequiresRoadAccess = requiresRoadAccess;
         }
 
         public SBuildingLevelData GetLevelData(int level)

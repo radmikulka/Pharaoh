@@ -1,3 +1,4 @@
+using System;
 using ServerData;
 
 namespace Pharaoh
@@ -87,7 +88,8 @@ namespace Pharaoh
                     }
                 },
                 costScalingFactor: 1.5f,
-                placementRequirement: new CResearchUnlockRequirement(EResearchId.HouseUnlock)
+                placementRequirement: new CResearchUnlockRequirement(EResearchId.HouseUnlock),
+                requiresRoadAccess: true
             ));
 
             AddBuilding(EBuildingId.Quarry, () => new CBuildingConfig(
@@ -132,6 +134,30 @@ namespace Pharaoh
                     }
                 },
                 costScalingFactor: 1.5f
+            ));
+
+            AddBuilding(EBuildingId.Townhall, () => new CBuildingConfig(
+                EBuildingType.Hub, ECellTag.None, "Townhall",
+                new[]
+                {
+                    new SBuildingLevelData
+                    {
+                        LevelCost = Array.Empty<SResource>()
+                    }
+                },
+                costScalingFactor: 1f
+            ));
+
+            AddBuilding(EBuildingId.Road, () => new CBuildingConfig(
+                EBuildingType.Road, ECellTag.None, "Road",
+                new[]
+                {
+                    new SBuildingLevelData
+                    {
+                        LevelCost = new[] { new SResource(EResource.Stone, 2) }
+                    }
+                },
+                costScalingFactor: 1f
             ));
         }
     }

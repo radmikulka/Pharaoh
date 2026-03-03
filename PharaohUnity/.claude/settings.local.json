@@ -15,7 +15,12 @@
       "Bash(cat:*)",
       "Bash(git:*)",
       "WebSearch",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(xargs sh:*)",
+      "Bash(read f:*)",
+      "mcp__UnityMCP__manage_editor",
+      "Bash(do echo:*)",
+      "mcp__UnityMCP__manage_asset"
     ],
     "defaultMode": "acceptEdits"
   }

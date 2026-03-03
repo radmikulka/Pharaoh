@@ -103,6 +103,33 @@ namespace GiantGrey.TileWorldCreator
                 cellSizeOld = 0;
             }
         }
+        
+        private void OnEnable()
+        {
+            // Ensure duplicated assets keep correct back-references for serialization
+            try
+            {
+                if (blueprintLayerFolders != null)
+                {
+                    for (int i = 0; i < blueprintLayerFolders.Count; i++)
+                    {
+                        var folder = blueprintLayerFolders[i];
+                        if (folder == null || folder.blueprintLayers == null) continue;
+                        for (int j = 0; j < folder.blueprintLayers.Count; j++)
+                        {
+                            var layer = folder.blueprintLayers[j];
+                            if (layer == null) continue;
+                            // If the layer doesn't know its owner configuration or points to another configuration, fix it
+                            if (layer.GetAsset() != this)
+                            {
+                                layer.SetAsset(this);
+                            }
+                        }
+                    }
+                }
+            }
+            catch {}
+        }
 
         /// <summary>
         /// Execute specific blueprint layer

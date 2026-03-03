@@ -901,42 +901,77 @@ namespace GiantGrey.TileWorldCreator
 			// if (configuration == null)
 			// 	return;
 
-			var _clusterSize = configuration.clusterCellSize;
-
-			if (_clusterSize <= 0)
-			{
-				return;
-			}
-
-
-			var _x = Mathf.CeilToInt((configuration.width / _clusterSize) * configuration.cellSize - configuration.cellSize * 0.5f);
-			var _y = Mathf.CeilToInt((configuration.height / _clusterSize) * configuration.cellSize - configuration.cellSize * 0.5f);
-
-
-			for (int x = 0; x < _x + 1; x++)
-			{
-				for (int y = 0; y < _y + 1; y++)
-				{
-
-					Vector3 _pos = Vector3.zero;
-					_pos = new Vector3(transform.localPosition.x + (x * _clusterSize + (_clusterSize * 0.5f)) - 0.5f, transform.localPosition.y, transform.localPosition.z + (y * _clusterSize + (_clusterSize * 0.5f)) - 0.5f);
-					if (IsVisibleByCamera(_pos))
-					{
-						Gizmos.color = colorGrey;
-						Handles.Label(_pos, (Mathf.Floor(_pos.x / configuration.clusterCellSize) + (configuration.clusterYMultiplier * Mathf.Floor(_pos.z / configuration.clusterCellSize))).ToString());
-						Gizmos.DrawWireCube(_pos, new Vector3(_clusterSize, 0.001f, _clusterSize));
-						Gizmos.color = Color.white;
-					}
-
-				}
-			}
+			// var _clusterSize = configuration.clusterCellSize;
+			//
+			// if (_clusterSize <= 0)
+			// {
+			// 	return;
+			// }
+			//
+			//
+			// var _x = Mathf.CeilToInt((configuration.width / _clusterSize) * configuration.cellSize - configuration.cellSize * 0.5f);
+			// var _y = Mathf.CeilToInt((configuration.height / _clusterSize) * configuration.cellSize - configuration.cellSize * 0.5f);
+			//
+			//
+			// for (int x = 0; x < _x + 1; x++)
+			// {
+			// 	for (int y = 0; y < _y + 1; y++)
+			// 	{
+			//
+			// 		Vector3 _pos = Vector3.zero;
+			// 		_pos = new Vector3(transform.localPosition.x + (x * _clusterSize + (_clusterSize * 0.5f)) - 0.5f, transform.localPosition.y, transform.localPosition.z + (y * _clusterSize + (_clusterSize * 0.5f)) - 0.5f);
+			// 		if (IsVisibleByCamera(_pos))
+			// 		{
+			// 			Gizmos.color = colorGrey;
+			// 			Handles.Label(_pos, (Mathf.Floor(_pos.x / configuration.clusterCellSize) + (configuration.clusterYMultiplier * Mathf.Floor(_pos.z / configuration.clusterCellSize))).ToString());
+			// 			Gizmos.DrawWireCube(_pos, new Vector3(_clusterSize, 0.001f, _clusterSize));
+			// 			Gizmos.color = Color.white;
+			// 		}
+			//
+			// 	}
+			// }
+			// if (configuration == null)
+			// 	return;
+			//
+			// int clusterSize = configuration.clusterCellSize;
+			// float cellSize = configuration.cellSize;
+			//
+			// if (clusterSize <= 0 || cellSize <= 0)
+			// 	return;
+			//
+			// int clusterCountX = Mathf.CeilToInt((float)configuration.width / clusterSize);
+			// int clusterCountY = Mathf.CeilToInt((float)configuration.height / clusterSize);
+			//
+			// for (int cx = 0; cx < clusterCountX; cx++)
+			// {
+			// 	for (int cy = 0; cy < clusterCountY; cy++)
+			// 	{
+			// 		// Center of the cluster in world space
+			// 		float worldX = transform.localPosition.x - (configuration.cellSize * 0.5f) + ((cx * clusterSize + clusterSize / 2f) * cellSize);
+			// 		float worldZ = transform.localPosition.z - (configuration.cellSize * 0.5f) + ((cy * clusterSize + clusterSize / 2f) * cellSize);
+			// 		Vector3 pos = new Vector3(worldX, transform.localPosition.y, worldZ);
+			//
+			// 		if (IsVisibleByCamera(pos))
+			// 		{
+			// 			Gizmos.color = colorGrey;
+			//
+			// 			// Compute cluster ID using same logic but from cx/cy directly
+			// 			int clusterID = cx + (configuration.clusterYMultiplier * cy);
+			//
+			// 			Handles.Label(pos, clusterID.ToString());
+			// 			Gizmos.DrawWireCube(pos, new Vector3(clusterSize * cellSize, 0.001f, clusterSize * cellSize));
+			//
+			// 			Gizmos.color = Color.white;
+			// 		}
+			// 	}
+			// }
 			if (configuration == null)
 				return;
 
 			int clusterSize = configuration.clusterCellSize;
 			float cellSize = configuration.cellSize;
 
-			if (clusterSize <= 0 || cellSize <= 0)
+			if (clusterSize <= 0 || cellSize <= 0f)
 				return;
 
 			int clusterCountX = Mathf.CeilToInt((float)configuration.width / clusterSize);
@@ -965,7 +1000,6 @@ namespace GiantGrey.TileWorldCreator
 					}
 				}
 			}
-
 		}
 
 		bool IsVisibleByCamera(Vector3 _pos)

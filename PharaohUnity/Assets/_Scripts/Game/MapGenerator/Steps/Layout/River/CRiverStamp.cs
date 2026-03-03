@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AldaEngine;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -94,6 +95,9 @@ namespace Pharaoh.MapGenerator
 
         private void OnDrawGizmosSelected()
         {
+            if(Selection.activeGameObject != gameObject)
+                return;
+            
             if (_previewTiles == null || _previewTiles.Count == 0)
                 RefreshPreview();
 

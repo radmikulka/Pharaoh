@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -254,6 +255,9 @@ namespace Pharaoh.MapGenerator
 
         public void DrawRegionGizmos()
         {
+            if(Selection.activeGameObject != gameObject)
+                return;
+            
             if (_cachedRegionIds == null || _cachedWidth == 0) return;
 
             var seedPoints = GetComponentsInChildren<CVoronoiSeedPoint>();
