@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6f9e9f2532bba5e4083f89f743aaf3aa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Editor/FBXEditor.TextureLinker.cs
+  uploadId: 869270

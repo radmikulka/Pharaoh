@@ -1,0 +1,15 @@
+1.0.2
+----
+
+Fixed mask texture seam in Path_A_Corner.png mask image
+
+1.0.1
+----
+
+Fixed mask texture seam in Path_B_Corner.png mask image
+
+
+1.0
+----
+
+Initial release

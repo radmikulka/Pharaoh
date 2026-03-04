@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 648f58ee67bd6244fb04f6e6bb010eea
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Demo.unity
+  uploadId: 869270

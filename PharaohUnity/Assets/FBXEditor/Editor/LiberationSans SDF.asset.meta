@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eb0826babb5d09645944c26124f46ff4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Editor/LiberationSans SDF.asset
+  uploadId: 869270

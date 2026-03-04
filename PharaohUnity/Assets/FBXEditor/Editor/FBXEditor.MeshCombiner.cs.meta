@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 545311f13361e4c4f84b7879c670cc89
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Editor/FBXEditor.MeshCombiner.cs
+  uploadId: 869270

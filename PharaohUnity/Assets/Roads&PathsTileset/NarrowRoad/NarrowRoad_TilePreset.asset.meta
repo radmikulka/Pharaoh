@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3190027598be5e345baba414c508e5fe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 325827
+  packageName: Roads & Paths Tileset
+  packageVersion: 1.0.2
+  assetPath: Assets/Roads&PathsTileset/NarrowRoad/NarrowRoad_TilePreset.asset
+  uploadId: 796954

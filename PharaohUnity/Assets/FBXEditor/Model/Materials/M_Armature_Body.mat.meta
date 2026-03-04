@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 17eb355564d27ae40b2d66f2c480136d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Model/Materials/M_Armature_Body.mat
+  uploadId: 869270

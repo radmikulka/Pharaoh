@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 85306bd1b6dfa534a982a8027611e5eb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 325827
+  packageName: Roads & Paths Tileset
+  packageVersion: 1.0.2
+  assetPath: Assets/Roads&PathsTileset/Paths/Materials/matPath_B_Edge.mat
+  uploadId: 796954

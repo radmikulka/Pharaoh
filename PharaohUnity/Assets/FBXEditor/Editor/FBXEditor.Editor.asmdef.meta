@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8340d558d48a2884995641387e12b762
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Editor/FBXEditor.Editor.asmdef
+  uploadId: 869270

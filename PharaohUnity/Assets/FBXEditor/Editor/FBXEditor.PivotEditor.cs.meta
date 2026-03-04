@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 720bafa5c8190674da17cfe5f2b50b60
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 332318
+  packageName: FBX Editor
+  packageVersion: 1.2.3
+  assetPath: Assets/FBXEditor/Editor/FBXEditor.PivotEditor.cs
+  uploadId: 869270

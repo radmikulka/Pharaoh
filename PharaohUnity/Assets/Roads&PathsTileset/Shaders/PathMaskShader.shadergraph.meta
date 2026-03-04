@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 68f5b56e56fdde34da1f5fd6a314d484
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 325827
+  packageName: Roads & Paths Tileset
+  packageVersion: 1.0.2
+  assetPath: Assets/Roads&PathsTileset/Shaders/PathMaskShader.shadergraph
+  uploadId: 796954

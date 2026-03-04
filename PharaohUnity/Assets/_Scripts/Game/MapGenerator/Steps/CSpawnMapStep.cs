@@ -52,6 +52,17 @@ namespace Pharaoh.MapGenerator
         public override string StepDescription => "Spawní fyzické herní objekty z CMapData a sestavuje CMapInstance se všemi dlaždicemi, překážkami a dekoracemi.";
 
         // Deterministic hash [0,1] from tile position — same seed → same result every generate.
+        private static GameObject SpawnPrefab(GameObject prefab, Vector3 pos, Quaternion rot, Transform parent)
+        {
+#if UNITY_EDITOR
+            var go = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(prefab, parent);
+            go.transform.SetPositionAndRotation(pos, rot);
+            return go;
+#else
+            return Instantiate(prefab, pos, rot, parent);
+#endif
+        }
+
         private static float TileHash(int x, int y)
         {
             int h = x * 374761393 + y * 1099087573;
@@ -109,7 +120,7 @@ namespace Pharaoh.MapGenerator
             // ── Optional water plane ─────────────────────────────────────────
             if (_waterPlanePrefab != null)
             {
-                var water = Instantiate(_waterPlanePrefab, mapInstanceGO.transform);
+                var water = SpawnPrefab(_waterPlanePrefab, Vector3.zero, Quaternion.identity, mapInstanceGO.transform);
                 water.name = "WaterPlane";
                 water.transform.localPosition = new Vector3(mapData.Width * 0.5f - 0.5f, 0f, mapData.Height * 0.5f - 0.5f);
             }
@@ -148,7 +159,7 @@ namespace Pharaoh.MapGenerator
 
                         if (prefab != null)
                         {
-                            var tileGO = Instantiate(prefab, pos, rotation, mapInstanceGO.transform);
+                            var tileGO = SpawnPrefab(prefab, pos, rotation, mapInstanceGO.transform);
                             tileGO.name = $"Tile_{x}_{y}";
                             cell.TileObject = tileGO;
                             tileCount++;
@@ -166,7 +177,7 @@ namespace Pharaoh.MapGenerator
                         if (tile.DecorationType != EDecorationType.None &&
                             decorationMap.TryGetValue(tile.DecorationType, out var decorationPrefab))
                         {
-                            var decoGO = Instantiate(decorationPrefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                            var decoGO = SpawnPrefab(decorationPrefab, pos, Quaternion.identity, mapInstanceGO.transform);
                             decoGO.name = $"Decoration_{tile.DecorationType}_{x}_{y}";
                             cell.DecorationObject = decoGO;
                             decorationCount++;
@@ -189,7 +200,7 @@ namespace Pharaoh.MapGenerator
                     if (tile.ObstaclePrefab == null) continue;
 
                     var pos = new Vector3(x, 0f, y);
-                    var obstacleGO = Instantiate(tile.ObstaclePrefab, pos, Quaternion.identity, mapInstanceGO.transform);
+                    var obstacleGO = SpawnPrefab(tile.ObstaclePrefab, pos, Quaternion.identity, mapInstanceGO.transform);
                     obstacleGO.name = $"Obstacle_{x}_{y}";
                     obstacleCount++;
 
