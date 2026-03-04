@@ -39,14 +39,17 @@ namespace Pharaoh.MapGenerator
             _decorationType    = tile.DecorationType;
             _isObstacleBlocked = tile.IsObstacleBlocked;
             _obstaclePrefab    = tile.ObstaclePrefab;
+#pragma warning disable CS0612
             _cliffType         = tile.CliffType;
             _cliffRotationDeg  = tile.CliffRotationDeg;
+#pragma warning restore CS0612
             _isOverridden      = false;
             RefreshColor();
         }
 
         public STile ToSTile()
         {
+#pragma warning disable CS0612
             return new STile
             {
                 X                 = _x,
@@ -59,6 +62,7 @@ namespace Pharaoh.MapGenerator
                 CliffType         = _cliffType,
                 CliffRotationDeg  = _cliffRotationDeg,
             };
+#pragma warning restore CS0612
         }
 
         // ─── Unity callbacks ─────────────────────────────────────────────────

@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &20336595
+--- !u!1 &25411529
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,46 +127,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 20336596}
-  - component: {fileID: 20336597}
+  - component: {fileID: 25411530}
+  - component: {fileID: 25411531}
   m_Layer: 0
-  m_Name: VoronoiSeed_26
+  m_Name: VoronoiSeed_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &20336596
+--- !u!4 &25411530
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20336595}
+  m_GameObject: {fileID: 25411529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.89437, y: 0, z: 89.05962}
+  m_LocalPosition: {x: 10.584776, y: 0, z: 67.88077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &20336597
+--- !u!114 &25411531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20336595}
+  m_GameObject: {fileID: 25411529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 26
+  RegionId: 18
   TotalRegions: 30
---- !u!1 &59138968
+--- !u!1 &38329457
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,44 +174,217 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 59138969}
-  - component: {fileID: 59138970}
+  - component: {fileID: 38329458}
+  - component: {fileID: 38329459}
   m_Layer: 0
-  m_Name: VoronoiSeed_11
+  m_Name: VoronoiSeed_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &59138969
+--- !u!4 &38329458
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59138968}
+  m_GameObject: {fileID: 38329457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.26095, y: 0, z: 30.75935}
+  m_LocalPosition: {x: 44.47953, y: 0, z: 46.57556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &59138970
+--- !u!114 &38329459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59138968}
+  m_GameObject: {fileID: 38329457}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 11
+  RegionId: 14
+  TotalRegions: 30
+--- !u!1 &42160200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42160201}
+  - component: {fileID: 42160202}
+  m_Layer: 0
+  m_Name: VoronoiSeed_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42160201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42160200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.271313, y: 0, z: 51.908882}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &42160202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42160200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 12
+  TotalRegions: 30
+--- !u!1 &64017872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64017873}
+  m_Layer: 0
+  m_Name: Instance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64017873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64017872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 944743300}
+  m_Father: {fileID: 521537997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86430145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86430146}
+  - component: {fileID: 86430147}
+  m_Layer: 0
+  m_Name: VoronoiSeed_17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86430146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86430145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 90.35142, y: 0, z: 48.3777}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86430147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86430145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 17
+  TotalRegions: 30
+--- !u!1 &104905205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104905206}
+  - component: {fileID: 104905207}
+  m_Layer: 0
+  m_Name: VoronoiSeed_19
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104905206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104905205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.163273, y: 0, z: 68.4761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104905207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104905205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 19
   TotalRegions: 30
 --- !u!1 &174770599
 GameObject:
@@ -247,53 +420,6 @@ Transform:
   - {fileID: 1643157624}
   m_Father: {fileID: 521537997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &179346658
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 179346659}
-  - component: {fileID: 179346660}
-  m_Layer: 0
-  m_Name: VoronoiSeed_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &179346659
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179346658}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.038387, y: 0, z: 10.35676}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &179346660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179346658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 3
-  TotalRegions: 30
 --- !u!1 &182978491
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,56 +454,8 @@ Transform:
   - {fileID: 349254060}
   - {fileID: 1686067994}
   - {fileID: 1101697906}
-  - {fileID: 1912407827}
   m_Father: {fileID: 521537997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &191199183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 191199184}
-  - component: {fileID: 191199185}
-  m_Layer: 0
-  m_Name: VoronoiSeed_23
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &191199184
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191199183}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.27202, y: 0, z: 68.14917}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &191199185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191199183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 23
-  TotalRegions: 30
 --- !u!1 &238676341
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +569,100 @@ MonoBehaviour:
     Max: 4
   _widthNoiseFrequency: 0.001
   _localSeed: 477161501
+--- !u!1 &307508098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 307508099}
+  - component: {fileID: 307508100}
+  m_Layer: 0
+  m_Name: VoronoiSeed_29
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &307508099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307508098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 89.11437, y: 0, z: 87.56089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &307508100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307508098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 29
+  TotalRegions: 30
+--- !u!1 &314385912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314385913}
+  - component: {fileID: 314385914}
+  m_Layer: 0
+  m_Name: VoronoiSeed_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314385913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314385912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 73.50695, y: 0, z: 26.193447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314385914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314385912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 10
+  TotalRegions: 30
 --- !u!1 &349254059
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,53 +697,6 @@ Transform:
   - {fileID: 1677351024}
   m_Father: {fileID: 182978492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &395997210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 395997211}
-  - component: {fileID: 395997212}
-  m_Layer: 0
-  m_Name: VoronoiSeed_15
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &395997211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395997210}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.310352, y: 0, z: 51.279312}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &395997212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395997210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 15
-  TotalRegions: 30
 --- !u!1 &402595979
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +726,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1715468231}
+  - {fileID: 1849217971}
+  - {fileID: 726213353}
   m_Father: {fileID: 521537997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &453457136
@@ -720,7 +846,7 @@ MonoBehaviour:
   DomainWarpType: 0
   DomainWarpAmplitude: 30
   Amplitude: 1
---- !u!1 &483896217
+--- !u!1 &497408202
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -728,46 +854,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 483896218}
-  - component: {fileID: 483896219}
+  - component: {fileID: 497408203}
+  - component: {fileID: 497408204}
   m_Layer: 0
-  m_Name: VoronoiSeed_9
+  m_Name: VoronoiSeed_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &483896218
+--- !u!4 &497408203
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483896217}
+  m_GameObject: {fileID: 497408202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.446373, y: 0, z: 27.02469}
+  m_LocalPosition: {x: 69.77687, y: 0, z: 48.75438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &483896219
+--- !u!114 &497408204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483896217}
+  m_GameObject: {fileID: 497408202}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 9
+  RegionId: 16
   TotalRegions: 30
---- !u!1 &494987091
+--- !u!1 &499741519
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -775,44 +901,91 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 494987092}
-  - component: {fileID: 494987093}
+  - component: {fileID: 499741520}
+  - component: {fileID: 499741521}
   m_Layer: 0
-  m_Name: VoronoiSeed_8
+  m_Name: VoronoiSeed_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &494987092
+--- !u!4 &499741520
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494987091}
+  m_GameObject: {fileID: 499741519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.33161, y: 0, z: 29.734179}
+  m_LocalPosition: {x: 11.079008, y: 0, z: 30.681492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &494987093
+--- !u!114 &499741521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494987091}
+  m_GameObject: {fileID: 499741519}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 8
+  RegionId: 6
+  TotalRegions: 30
+--- !u!1 &514413978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514413979}
+  - component: {fileID: 514413980}
+  m_Layer: 0
+  m_Name: VoronoiSeed_15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514413979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514413978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 59.310352, y: 0, z: 51.279312}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514413980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514413978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 15
   TotalRegions: 30
 --- !u!1 &521537995
 GameObject:
@@ -865,6 +1038,7 @@ Transform:
   - {fileID: 1001527610}
   - {fileID: 1463909374}
   - {fileID: 402595980}
+  - {fileID: 64017873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527071202
@@ -912,13 +1086,250 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CNoiseConfig
   NoiseType: 1
-  Frequency: 0.0508
+  Frequency: 0.0307
   FractalType: 1
   Octaves: 1
   UseDomainWarp: 1
   DomainWarpType: 0
   DomainWarpAmplitude: 65.9
-  Amplitude: 2.38
+  Amplitude: 0.79
+--- !u!1 &529193272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529193273}
+  - component: {fileID: 529193274}
+  m_Layer: 0
+  m_Name: VoronoiSeed_23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529193273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529193272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 87.27202, y: 0, z: 68.14917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529193274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529193272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 23
+  TotalRegions: 30
+--- !u!1 &608020071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608020072}
+  - component: {fileID: 608020073}
+  m_Layer: 0
+  m_Name: VoronoiSeed_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608020072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608020071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.143995, y: 0, z: 5.521922}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &608020073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608020071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 1
+  TotalRegions: 30
+--- !u!1 &640820927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640820928}
+  - component: {fileID: 640820929}
+  m_Layer: 0
+  m_Name: VoronoiSeed_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640820928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640820927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.33161, y: 0, z: 29.734179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640820929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640820927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 8
+  TotalRegions: 30
+--- !u!1 &685105702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685105703}
+  - component: {fileID: 685105704}
+  m_Layer: 0
+  m_Name: VoronoiSeed_22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685105703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685105702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 75.47113, y: 0, z: 71.2497}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685105704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685105702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 22
+  TotalRegions: 30
+--- !u!1 &726213352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726213353}
+  - component: {fileID: 726213354}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726213353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726213352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 402595980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726213354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726213352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381121b3c87938f41a0543d6a45e0e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CDualGridLayerStep
+  _mapGenConfig: {fileID: 11400000, guid: 93718527798f7cd408de2078e79ab19f, type: 2}
+  _predicate: 0
+  _contentTagFilter: 0
+  _obstacleTypeFilter: 0
+  _yOffset: 0
 --- !u!1 &728979352
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1382,7 @@ MonoBehaviour:
   DomainWarpType: 0
   DomainWarpAmplitude: 1
   Amplitude: 1.33
---- !u!1 &766168536
+--- !u!1 &733145922
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -979,44 +1390,91 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 766168537}
-  - component: {fileID: 766168538}
+  - component: {fileID: 733145923}
+  - component: {fileID: 733145924}
   m_Layer: 0
-  m_Name: VoronoiSeed_7
+  m_Name: VoronoiSeed_24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &766168537
+--- !u!4 &733145923
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766168536}
+  m_GameObject: {fileID: 733145922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.021471, y: 0, z: 32.740067}
+  m_LocalPosition: {x: 7.1278934, y: 0, z: 94.89494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &766168538
+--- !u!114 &733145924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766168536}
+  m_GameObject: {fileID: 733145922}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 7
+  RegionId: 24
+  TotalRegions: 30
+--- !u!1 &733374813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733374814}
+  - component: {fileID: 733374815}
+  m_Layer: 0
+  m_Name: VoronoiSeed_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733374814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733374813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.038387, y: 0, z: 10.35676}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733374815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733374813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 3
   TotalRegions: 30
 --- !u!1 &780755494
 GameObject:
@@ -1197,7 +1655,7 @@ MonoBehaviour:
   DomainWarpType: 0
   DomainWarpAmplitude: 30
   Amplitude: 1
---- !u!1 &865877402
+--- !u!1 &827571488
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1205,46 +1663,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 865877403}
-  - component: {fileID: 865877404}
+  - component: {fileID: 827571489}
+  - component: {fileID: 827571490}
   m_Layer: 0
-  m_Name: VoronoiSeed_21
+  m_Name: VoronoiSeed_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &865877403
+--- !u!4 &827571489
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865877402}
+  m_GameObject: {fileID: 827571488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.26033, y: 0, z: 69.88395}
+  m_LocalPosition: {x: 24.98216, y: 0, z: 45.727966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &865877404
+--- !u!114 &827571490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865877402}
+  m_GameObject: {fileID: 827571488}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 21
+  RegionId: 13
   TotalRegions: 30
---- !u!1 &941549991
+--- !u!1 &944743299
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1252,92 +1710,77 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 941549992}
-  - component: {fileID: 941549993}
-  m_Layer: 0
-  m_Name: VoronoiSeed_22
+  - component: {fileID: 944743300}
+  - component: {fileID: 944743303}
+  - component: {fileID: 944743302}
+  - component: {fileID: 944743301}
+  m_Layer: 3
+  m_Name: MapInstance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &941549992
+--- !u!4 &944743300
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941549991}
+  m_GameObject: {fileID: 944743299}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.47113, y: 0, z: 71.2497}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2008670295}
+  m_Father: {fileID: 64017873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &941549993
+--- !u!114 &944743301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941549991}
+  m_GameObject: {fileID: 944743299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Script: {fileID: 11500000, guid: fc758812d103e784fa0e5e4300a36de5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 22
-  TotalRegions: 30
---- !u!1 &995034981
-GameObject:
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.Map.CMapClickDetector
+--- !u!65 &944743302
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 995034982}
-  - component: {fileID: 995034983}
-  m_Layer: 0
-  m_Name: VoronoiSeed_18
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &995034982
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995034981}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.584776, y: 0, z: 67.88077}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &995034983
+  m_GameObject: {fileID: 944743299}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 100, y: 0.2, z: 100}
+  m_Center: {x: 49.5, y: 0, z: 49.5}
+--- !u!114 &944743303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995034981}
+  m_GameObject: {fileID: 944743299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ce416a68258b8f4b94ee32f925b647e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 18
-  TotalRegions: 30
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.Map.CMapInstance
 --- !u!1 &1001527609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1814,7 @@ Transform:
   - {fileID: 1323904373}
   m_Father: {fileID: 521537997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1003449674
+--- !u!1 &1016136631
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1379,46 +1822,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1003449675}
-  - component: {fileID: 1003449676}
+  - component: {fileID: 1016136632}
+  - component: {fileID: 1016136633}
   m_Layer: 0
-  m_Name: VoronoiSeed_28
+  m_Name: VoronoiSeed_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1003449675
+--- !u!4 &1016136632
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003449674}
+  m_GameObject: {fileID: 1016136631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.140495, y: 0, z: 90.217064}
+  m_LocalPosition: {x: 53.64933, y: 0, z: 91.91017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1003449676
+--- !u!114 &1016136633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003449674}
+  m_GameObject: {fileID: 1016136631}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 28
+  RegionId: 27
   TotalRegions: 30
---- !u!1 &1010527496
+--- !u!1 &1051402290
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1426,91 +1869,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1010527497}
-  - component: {fileID: 1010527498}
+  - component: {fileID: 1051402291}
+  - component: {fileID: 1051402292}
   m_Layer: 0
-  m_Name: VoronoiSeed_24
+  m_Name: VoronoiSeed_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1010527497
+--- !u!4 &1051402291
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010527496}
+  m_GameObject: {fileID: 1051402290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1278934, y: 0, z: 94.89494}
+  m_LocalPosition: {x: 54.446373, y: 0, z: 27.02469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1010527498
+--- !u!114 &1051402292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010527496}
+  m_GameObject: {fileID: 1051402290}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 24
-  TotalRegions: 30
---- !u!1 &1046159994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1046159995}
-  - component: {fileID: 1046159996}
-  m_Layer: 0
-  m_Name: VoronoiSeed_10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1046159995
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046159994}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 73.50695, y: 0, z: 26.193447}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1046159996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046159994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 10
+  RegionId: 9
   TotalRegions: 30
 --- !u!1 &1053089251
 GameObject:
@@ -1574,7 +1970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1089630545
 Transform:
   m_ObjectHideFlags: 0
@@ -1584,7 +1980,7 @@ Transform:
   m_GameObject: {fileID: 1089630544}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 32.9, y: 0, z: 36.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1609,7 +2005,7 @@ MonoBehaviour:
   _densityNoise: {fileID: 728979354}
   _targetCount: 500
   _minSpacing: 1
-  _range: 0
+  _range: 23
 --- !u!1 &1101697905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +2022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1101697906
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,53 +2051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CPeninsulaPruningStep
   _minCardinalWaterNeighbors: 3
---- !u!1 &1197003209
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1197003210}
-  - component: {fileID: 1197003211}
-  m_Layer: 0
-  m_Name: VoronoiSeed_12
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1197003210
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197003209}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.271313, y: 0, z: 51.908882}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1197003211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197003209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 12
-  TotalRegions: 30
 --- !u!1 &1210777336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459ebc6c24113c348bc2094d841b7db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CLakeGenerationStep
---- !u!1 &1241871077
+--- !u!1 &1275293729
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1774,44 +2123,91 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1241871078}
-  - component: {fileID: 1241871079}
+  - component: {fileID: 1275293730}
+  - component: {fileID: 1275293731}
   m_Layer: 0
-  m_Name: VoronoiSeed_6
+  m_Name: VoronoiSeed_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1241871078
+--- !u!4 &1275293730
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241871077}
+  m_GameObject: {fileID: 1275293729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.079008, y: 0, z: 30.681492}
+  m_LocalPosition: {x: 13.04063, y: 0, z: 11.743454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241871079
+--- !u!114 &1275293731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241871077}
+  m_GameObject: {fileID: 1275293729}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 6
+  RegionId: 0
+  TotalRegions: 30
+--- !u!1 &1295297605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295297606}
+  - component: {fileID: 1295297607}
+  m_Layer: 0
+  m_Name: VoronoiSeed_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1295297606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295297605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 76.70384, y: 0, z: 6.6221066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1295297607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295297605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 4
   TotalRegions: 30
 --- !u!1 &1323904372
 GameObject:
@@ -1858,7 +2254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CObstacleProximityTagStep
   _obstacleType: 1
-  _contentTag: 1
+  _contentTag: 2
   _radius: 1
 --- !u!1 &1338594166
 GameObject:
@@ -1876,7 +2272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1338594167
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,7 +2302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CCoastalTransitionStep
   _coastTag: 1
   _sandDepth: 4
---- !u!1 &1370382344
+--- !u!1 &1338698285
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1914,167 +2310,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1370382345}
-  - component: {fileID: 1370382346}
-  m_Layer: 0
-  m_Name: VoronoiSeed_13
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1370382345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370382344}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.98216, y: 0, z: 45.727966}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370382346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370382344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 13
-  TotalRegions: 30
---- !u!1 &1395919656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1395919660}
-  - component: {fileID: 1395919659}
-  - component: {fileID: 1395919658}
-  - component: {fileID: 1395919657}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &1395919657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395919656}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1395919658
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395919656}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 3ca4b4ff56607a24d88b5d1ae6d62cc3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1395919659
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395919656}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1395919660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395919656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: 0}
-  m_LocalScale: {x: 500, y: 1, z: 500}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1411929548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1411929549}
-  - component: {fileID: 1411929550}
+  - component: {fileID: 1338698286}
+  - component: {fileID: 1338698287}
   m_Layer: 0
   m_Name: VoronoiSeed_20
   m_TagString: Untagged
@@ -2082,13 +2319,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1411929549
+--- !u!4 &1338698286
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411929548}
+  m_GameObject: {fileID: 1338698285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.645138, y: 0, z: 65.22554}
@@ -2097,13 +2334,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1411929550
+--- !u!114 &1338698287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411929548}
+  m_GameObject: {fileID: 1338698285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
@@ -2112,7 +2349,7 @@ MonoBehaviour:
   IsPersistent: 0
   RegionId: 20
   TotalRegions: 30
---- !u!1 &1412245923
+--- !u!1 &1456652295
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2120,44 +2357,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1412245924}
-  - component: {fileID: 1412245925}
+  - component: {fileID: 1456652296}
+  - component: {fileID: 1456652297}
   m_Layer: 0
-  m_Name: VoronoiSeed_14
+  m_Name: VoronoiSeed_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1412245924
+--- !u!4 &1456652296
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412245923}
+  m_GameObject: {fileID: 1456652295}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.47953, y: 0, z: 46.57556}
+  m_LocalPosition: {x: 91.26095, y: 0, z: 30.75935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1412245925
+--- !u!114 &1456652297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412245923}
+  m_GameObject: {fileID: 1456652295}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 14
+  RegionId: 11
   TotalRegions: 30
 --- !u!1 &1463909373
 GameObject:
@@ -2328,6 +2565,53 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1588410543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588410544}
+  - component: {fileID: 1588410545}
+  m_Layer: 0
+  m_Name: VoronoiSeed_26
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588410544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588410543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.89437, y: 0, z: 89.05962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008670295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588410545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588410543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 26
+  TotalRegions: 30
 --- !u!1 &1643157623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,7 +2628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1643157624
 Transform:
   m_ObjectHideFlags: 0
@@ -2374,13 +2658,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CObstacleClusterStep
   _prefabs:
-  - {fileID: 1395919656}
+  - {fileID: 0}
   _obstacleType: 1
   _densityNoise: {fileID: 527071204}
-  _densityThreshold: 1
-  _minSpacing: 1
+  _densityThreshold: 0.986
+  _minSpacing: 0
   _coreSpacing: 0
-  _edgeFactor: 0.579
+  _edgeFactor: 0.696
   _range: 0
 --- !u!1 &1677351023
 GameObject:
@@ -2409,7 +2693,7 @@ Transform:
   m_GameObject: {fileID: 1677351023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.46, y: 0, z: 38.7}
+  m_LocalPosition: {x: 60.64, y: 0.16, z: 38.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2432,7 +2716,7 @@ MonoBehaviour:
     Max: 66
   _irregularity: 0.5
   _noiseFrequency: 0.1
-  _localSeed: 158336779
+  _localSeed: 384746163
   _isIsland: 0
 --- !u!114 &1677351026
 MonoBehaviour:
@@ -2478,7 +2762,7 @@ Transform:
   - {fileID: 266116952}
   m_Father: {fileID: 182978492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1715468230
+--- !u!1 &1721763974
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2486,57 +2770,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1715468231}
-  - component: {fileID: 1715468232}
+  - component: {fileID: 1721763975}
+  - component: {fileID: 1721763976}
   m_Layer: 0
-  m_Name: SpawnMap
+  m_Name: VoronoiSeed_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1715468231
+--- !u!4 &1721763975
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715468230}
+  m_GameObject: {fileID: 1721763974}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.021471, y: 0, z: 32.740067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 402595980}
+  m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1715468232
+--- !u!114 &1721763976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715468230}
+  m_GameObject: {fileID: 1721763974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16e620e5d230ce54ca2bffc3ee42708e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CSpawnMapStep
-  _landTilePrefab: {fileID: 919132149155446097, guid: be72aab608d14ae41a91d4802320314c, type: 3}
-  _sandTilePrefab: {fileID: 0}
-  _waterPlanePrefab: {fileID: 0}
-  _cliffStraightPrefabs:
-  - {fileID: 919132149155446097, guid: fba3ca3c0c85cb94e81505d10cc0a6ff, type: 3}
-  _cliffOuterCornerPrefabs:
-  - {fileID: 919132149155446097, guid: f5b6f09553fe35f429b98595ba6ec372, type: 3}
-  _cliffInnerCornerPrefabs:
-  - {fileID: 919132149155446097, guid: e608585f68cbecd439d1684ebe36342b, type: 3}
-  _cliffStraitPrefabs:
-  - {fileID: 919132149155446097, guid: 4ceffe95114b2fd4f8f4add33d7d9a0e, type: 3}
-  _decorations: []
-  _mapRoot: {fileID: 0}
-  _sandTintA: {r: 0.9, g: 0.82, b: 0.55, a: 1}
-  _sandTintB: {r: 0.95, g: 0.88, b: 0.6, a: 1}
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
+  IsPersistent: 0
+  RegionId: 7
+  TotalRegions: 30
 --- !u!1 &1746597577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,7 +2825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1746597578
 Transform:
   m_ObjectHideFlags: 0
@@ -2589,7 +2861,7 @@ MonoBehaviour:
   _targetCount: 500
   _minSpacing: 1
   _range: 0
---- !u!1 &1768787323
+--- !u!1 &1842796763
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2597,46 +2869,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1768787324}
-  - component: {fileID: 1768787325}
+  - component: {fileID: 1842796764}
+  - component: {fileID: 1842796765}
   m_Layer: 0
-  m_Name: VoronoiSeed_17
+  m_Name: VoronoiSeed_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1768787324
+--- !u!4 &1842796764
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768787323}
+  m_GameObject: {fileID: 1842796763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90.35142, y: 0, z: 48.3777}
+  m_LocalPosition: {x: 20.300793, y: 0, z: 88.902435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1768787325
+--- !u!114 &1842796765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768787323}
+  m_GameObject: {fileID: 1842796763}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 17
+  RegionId: 25
   TotalRegions: 30
---- !u!1 &1798275935
+--- !u!1 &1849217970
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2644,231 +2916,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1798275936}
-  - component: {fileID: 1798275937}
+  - component: {fileID: 1849217971}
+  - component: {fileID: 1849217972}
   m_Layer: 0
-  m_Name: VoronoiSeed_5
+  m_Name: Setup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1798275936
+--- !u!4 &1849217971
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798275935}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.09465, y: 0, z: 11.355467}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1798275937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798275935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 5
-  TotalRegions: 30
---- !u!1 &1807959307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1807959308}
-  - component: {fileID: 1807959309}
-  m_Layer: 0
-  m_Name: VoronoiSeed_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1807959308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807959307}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.59543, y: 0, z: 12.684845}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1807959309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807959307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 2
-  TotalRegions: 30
---- !u!1 &1896827670
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1896827671}
-  - component: {fileID: 1896827672}
-  m_Layer: 0
-  m_Name: VoronoiSeed_4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1896827671
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896827670}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.70384, y: 0, z: 6.6221066}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1896827672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896827670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 4
-  TotalRegions: 30
---- !u!1 &1908986932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1908986933}
-  - component: {fileID: 1908986934}
-  m_Layer: 0
-  m_Name: VoronoiSeed_27
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1908986933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908986932}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.64933, y: 0, z: 91.91017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1908986934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908986932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 27
-  TotalRegions: 30
---- !u!1 &1912407826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1912407827}
-  - component: {fileID: 1912407828}
-  m_Layer: 0
-  m_Name: Clifs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1912407827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912407826}
+  m_GameObject: {fileID: 1849217970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 182978492}
+  m_Father: {fileID: 402595980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1912407828
+--- !u!114 &1849217972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912407826}
+  m_GameObject: {fileID: 1849217970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d12157e4505dbb45af99480021a32ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b1a56b3bb0f6c243b18a9cf4a1e728f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CCliffDetectionStep
---- !u!1 &1960020873
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CDualGridCellSetupStep
+  _mapRoot: {fileID: 64017873}
+--- !u!1 &1939793895
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2876,91 +2961,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1960020874}
-  - component: {fileID: 1960020875}
+  - component: {fileID: 1939793896}
+  - component: {fileID: 1939793897}
   m_Layer: 0
-  m_Name: VoronoiSeed_19
+  m_Name: VoronoiSeed_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1960020874
+--- !u!4 &1939793896
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960020873}
+  m_GameObject: {fileID: 1939793895}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.163273, y: 0, z: 68.4761}
+  m_LocalPosition: {x: 62.26033, y: 0, z: 69.88395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1960020875
+--- !u!114 &1939793897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960020873}
+  m_GameObject: {fileID: 1939793895}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 19
-  TotalRegions: 30
---- !u!1 &2000528678
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2000528679}
-  - component: {fileID: 2000528680}
-  m_Layer: 0
-  m_Name: VoronoiSeed_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2000528679
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000528678}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.04063, y: 0, z: 11.743454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2000528680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000528678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 0
+  RegionId: 21
   TotalRegions: 30
 --- !u!1 &2008670294
 GameObject:
@@ -2992,36 +3030,36 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2000528679}
-  - {fileID: 2095122008}
-  - {fileID: 1807959308}
-  - {fileID: 179346659}
-  - {fileID: 1896827671}
-  - {fileID: 1798275936}
-  - {fileID: 1241871078}
-  - {fileID: 766168537}
-  - {fileID: 494987092}
-  - {fileID: 483896218}
-  - {fileID: 1046159995}
-  - {fileID: 59138969}
-  - {fileID: 1197003210}
-  - {fileID: 1370382345}
-  - {fileID: 1412245924}
-  - {fileID: 395997211}
-  - {fileID: 2147296176}
-  - {fileID: 1768787324}
-  - {fileID: 995034982}
-  - {fileID: 1960020874}
-  - {fileID: 1411929549}
-  - {fileID: 865877403}
-  - {fileID: 941549992}
-  - {fileID: 191199184}
-  - {fileID: 1010527497}
-  - {fileID: 2094988005}
-  - {fileID: 20336596}
-  - {fileID: 1908986933}
-  - {fileID: 1003449675}
-  - {fileID: 2026944674}
+  - {fileID: 1275293730}
+  - {fileID: 608020072}
+  - {fileID: 2100503664}
+  - {fileID: 733374814}
+  - {fileID: 1295297606}
+  - {fileID: 2055502453}
+  - {fileID: 499741520}
+  - {fileID: 1721763975}
+  - {fileID: 640820928}
+  - {fileID: 1051402291}
+  - {fileID: 314385913}
+  - {fileID: 1456652296}
+  - {fileID: 42160201}
+  - {fileID: 827571489}
+  - {fileID: 38329458}
+  - {fileID: 514413979}
+  - {fileID: 497408203}
+  - {fileID: 86430146}
+  - {fileID: 25411530}
+  - {fileID: 104905206}
+  - {fileID: 1338698286}
+  - {fileID: 1939793896}
+  - {fileID: 685105703}
+  - {fileID: 529193273}
+  - {fileID: 733145923}
+  - {fileID: 1842796764}
+  - {fileID: 1588410544}
+  - {fileID: 1016136632}
+  - {fileID: 2030564528}
+  - {fileID: 307508099}
   m_Father: {fileID: 1463909374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2008670296
@@ -3039,7 +3077,7 @@ MonoBehaviour:
   _regionCount: 30
   _jitterAmount: 0.646
   _localSeed: 28
---- !u!1 &2026944673
+--- !u!1 &2030564527
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3047,46 +3085,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2026944674}
-  - component: {fileID: 2026944675}
+  - component: {fileID: 2030564528}
+  - component: {fileID: 2030564529}
   m_Layer: 0
-  m_Name: VoronoiSeed_29
+  m_Name: VoronoiSeed_28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2026944674
+--- !u!4 &2030564528
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026944673}
+  m_GameObject: {fileID: 2030564527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.11437, y: 0, z: 87.56089}
+  m_LocalPosition: {x: 79.140495, y: 0, z: 90.217064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2026944675
+--- !u!114 &2030564529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026944673}
+  m_GameObject: {fileID: 2030564527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 29
+  RegionId: 28
   TotalRegions: 30
---- !u!1 &2094988004
+--- !u!1 &2055502452
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3094,46 +3132,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2094988005}
-  - component: {fileID: 2094988006}
+  - component: {fileID: 2055502453}
+  - component: {fileID: 2055502454}
   m_Layer: 0
-  m_Name: VoronoiSeed_25
+  m_Name: VoronoiSeed_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2094988005
+--- !u!4 &2055502453
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094988004}
+  m_GameObject: {fileID: 2055502452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.300793, y: 0, z: 88.902435}
+  m_LocalPosition: {x: 87.09465, y: 0, z: 11.355467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094988006
+--- !u!114 &2055502454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094988004}
+  m_GameObject: {fileID: 2055502452}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 25
+  RegionId: 5
   TotalRegions: 30
---- !u!1 &2095122007
+--- !u!1 &2100503663
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3141,91 +3179,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2095122008}
-  - component: {fileID: 2095122009}
+  - component: {fileID: 2100503664}
+  - component: {fileID: 2100503665}
   m_Layer: 0
-  m_Name: VoronoiSeed_1
+  m_Name: VoronoiSeed_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2095122008
+--- !u!4 &2100503664
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095122007}
+  m_GameObject: {fileID: 2100503663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.143995, y: 0, z: 5.521922}
+  m_LocalPosition: {x: 42.59543, y: 0, z: 12.684845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2008670295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2095122009
+--- !u!114 &2100503665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095122007}
+  m_GameObject: {fileID: 2100503663}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
   IsPersistent: 0
-  RegionId: 1
-  TotalRegions: 30
---- !u!1 &2147296175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2147296176}
-  - component: {fileID: 2147296177}
-  m_Layer: 0
-  m_Name: VoronoiSeed_16
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2147296176
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147296175}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.77687, y: 0, z: 48.75438}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2008670295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2147296177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147296175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea39ce3f283edf4581fd2533077b39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CVoronoiSeedPoint
-  IsPersistent: 0
-  RegionId: 16
+  RegionId: 2
   TotalRegions: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3233,5 +3224,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 521537997}
   - {fileID: 780755496}
-  - {fileID: 1395919660}
   - {fileID: 1560440899}

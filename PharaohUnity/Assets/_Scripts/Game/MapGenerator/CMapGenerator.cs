@@ -20,7 +20,8 @@ namespace Pharaoh.MapGenerator
     ///   MapGenerator              ← this component
     ///   ├── BasicLayout           ← CBasicLayoutStep
     ///   ├── Obstacles_Rocks       ← CObstaclePlacementStep
-    ///   ├── SpawnMap              ← CSpawnMapStep
+    ///   ├── DualGridCellSetup     ← CDualGridCellSetupStep
+    ///   ├── DualGridTerrain       ← CDualGridTerrainStep
     ///   └── EditorTiles           ← managed by this class (CMapTileData children)
     /// </summary>
     public class CMapGenerator : MonoBehaviour
@@ -141,15 +142,24 @@ namespace Pharaoh.MapGenerator
                 mapData.Set(tile.X, tile.Y, tile);
             }
 
-            var spawnStep = GetComponentInChildren<CSpawnMapStep>();
-            if (spawnStep == null)
+            // Execute all visual steps starting from CDualGridCellSetupStep
+            var allSteps   = CollectSteps();
+            bool foundVisual = false;
+            foreach (var step in allSteps)
             {
-                Debug.LogWarning("[CMapGenerator] BakeMapInstance: CSpawnMapStep not found in children.");
+                if (!foundVisual && step is CDualGridCellSetupStep)
+                    foundVisual = true;
+
+                if (foundVisual)
+                    step.Execute(mapData, _seed);
+            }
+
+            if (!foundVisual)
+            {
+                Debug.LogWarning("[CMapGenerator] BakeMapInstance: CDualGridCellSetupStep not found — no visual steps executed.");
                 return;
             }
 
-            spawnStep.Execute(mapData, _seed);
-            
             _editorTilesRoot.gameObject.SetActive(false);
 
 #if UNITY_EDITOR

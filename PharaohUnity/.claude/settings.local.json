@@ -20,7 +20,11 @@
       "Bash(read f:*)",
       "mcp__UnityMCP__manage_editor",
       "Bash(do echo:*)",
-      "mcp__UnityMCP__manage_asset"
+      "mcp__UnityMCP__manage_asset",
+      "Bash(powershell:*)",
+      "Bash(read dir:*)",
+      "Bash(pip install:*)",
+      "Bash(edge-tts:*)"
     ],
     "defaultMode": "acceptEdits"
   }

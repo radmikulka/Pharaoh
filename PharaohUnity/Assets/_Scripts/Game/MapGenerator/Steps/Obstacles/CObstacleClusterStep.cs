@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -159,6 +160,9 @@ namespace Pharaoh.MapGenerator
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
+            if(Selection.activeGameObject != gameObject) 
+                return;
+            
             if (_placedTiles == null || _placedTiles.Count == 0) return;
             Gizmos.color = new Color(0.8f, 0.3f, 0.1f, 0.7f);
             foreach (var p in _placedTiles)
