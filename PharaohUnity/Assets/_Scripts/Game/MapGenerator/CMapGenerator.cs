@@ -149,6 +149,8 @@ namespace Pharaoh.MapGenerator
             }
 
             spawnStep.Execute(mapData, _seed);
+            
+            _editorTilesRoot.gameObject.SetActive(false);
 
 #if UNITY_EDITOR
             SceneView.RepaintAll();

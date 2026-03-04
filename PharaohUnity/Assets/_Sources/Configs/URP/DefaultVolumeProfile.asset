@@ -856,6 +856,159 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &5104990619789832978
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e725baf07381d40e9972f75d7670e54f, type: 3}
+  m_Name: EdgeFusion
+  m_EditorClassIdentifier: EdgeFusion::EdgeFusion.EdgeFusion
+  active: 1
+  <displayName>k__BackingField: 
+  blendLayers:
+    <fieldHash>k__BackingField: -1781210208
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 4294967295
+  renderingLayerFilter:
+    <fieldHash>k__BackingField: -1541859816
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 4294967295
+  blendWithOthers:
+    <fieldHash>k__BackingField: -1302509424
+    m_OverrideState: 1
+    m_Value: 1
+  doubleSidedLayers:
+    <fieldHash>k__BackingField: -1063159032
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 0
+  doubleSidedRenderingLayerFilter:
+    <fieldHash>k__BackingField: -823808640
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 4294967295
+  specialGroupLayers:
+    <fieldHash>k__BackingField: -584458248
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 0
+  specialGroupRenderingLayerFilter:
+    <fieldHash>k__BackingField: -345107856
+    m_OverrideState: 1
+    m_Value:
+      m_Bits: 4294967295
+  intensity:
+    <fieldHash>k__BackingField: -105757464
+    m_OverrideState: 1
+    m_Value: 0
+  radius:
+    <fieldHash>k__BackingField: 133592928
+    m_OverrideState: 1
+    m_Value: 0.035
+  enableIntraObjectFusion:
+    <fieldHash>k__BackingField: 612293712
+    m_OverrideState: 1
+    m_Value: 0
+  intraObjectFusionPerObject:
+    <fieldHash>k__BackingField: 851644104
+    m_OverrideState: 1
+    m_Value: 0
+  concavityTest:
+    <fieldHash>k__BackingField: 1090994496
+    m_OverrideState: 1
+    m_Value: 0
+  normalThreshold:
+    <fieldHash>k__BackingField: 1569695280
+    m_OverrideState: 1
+    m_Value: 0.6
+  sampleCount:
+    <fieldHash>k__BackingField: 1809045672
+    m_OverrideState: 1
+    m_Value: 24
+  jitter:
+    <fieldHash>k__BackingField: 2048396064
+    m_OverrideState: 1
+    m_Value: 0
+  maxBlendDistance:
+    <fieldHash>k__BackingField: -2007220840
+    m_OverrideState: 1
+    m_Value: 50
+  binarySearchSteps:
+    <fieldHash>k__BackingField: -1528520056
+    m_OverrideState: 1
+    m_Value: 7
+  earlyExitHits:
+    <fieldHash>k__BackingField: -1289169664
+    m_OverrideState: 1
+    m_Value: 5
+  debugMode:
+    <fieldHash>k__BackingField: -810468880
+    m_OverrideState: 1
+    m_Value: 0
+  depthDebugMultiplier:
+    <fieldHash>k__BackingField: -571118488
+    m_OverrideState: 1
+    m_Value: 1
+  msaaEdgeFixPower:
+    <fieldHash>k__BackingField: -331768096
+    m_OverrideState: 1
+    m_Value: 0
+  compareMode:
+    <fieldHash>k__BackingField: -92417704
+    m_OverrideState: 1
+    m_Value: 0
+  compareSameSide:
+    <fieldHash>k__BackingField: 386283080
+    m_OverrideState: 1
+    m_Value: 0
+  comparePanning:
+    <fieldHash>k__BackingField: 625633472
+    m_OverrideState: 1
+    m_Value: 0.25
+  compareLineAngle:
+    <fieldHash>k__BackingField: 864983864
+    m_OverrideState: 1
+    m_Value: 1.4
+  compareLineWidth:
+    <fieldHash>k__BackingField: 1104334256
+    m_OverrideState: 1
+    m_Value: 0.002
+  compareLineColor:
+    <fieldHash>k__BackingField: 1343684648
+    m_OverrideState: 1
+    m_Value:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+  maxScreenRadius:
+    <fieldHash>k__BackingField: 1583035040
+    m_OverrideState: 1
+    m_Value: 0.1
+  shadowProtection:
+    <fieldHash>k__BackingField: 2061735824
+    m_OverrideState: 1
+    m_Value: 0.0002
+  noiseIntensity:
+    <fieldHash>k__BackingField: -1993881080
+    m_OverrideState: 1
+    m_Value: 0
+  noiseScale:
+    <fieldHash>k__BackingField: -1754530688
+    m_OverrideState: 1
+    m_Value: 5
+  noiseContrast:
+    <fieldHash>k__BackingField: -1515180296
+    m_OverrideState: 1
+    m_Value: 0.75
+  idExclusionPairs: []
 --- !u!114 &6940869943325143175
 MonoBehaviour:
   m_ObjectHideFlags: 3

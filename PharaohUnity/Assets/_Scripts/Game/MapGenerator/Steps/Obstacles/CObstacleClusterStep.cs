@@ -27,7 +27,7 @@ namespace Pharaoh.MapGenerator
 
         [Header("Spacing")]
         [Tooltip("Minimum spacing between obstacles in the cluster fringe.")]
-        [SerializeField] [Min(1)] private int _minSpacing = 2;
+        [SerializeField] [Min(0)] private int _minSpacing = 2;
         [Tooltip("Minimum spacing between obstacles in the cluster core (tighter than MinSpacing).")]
         [SerializeField] [Min(0)] private int _coreSpacing = 0;
         [Tooltip("Multiplier on DensityThreshold for fringe candidates. Lower = wider fringe. At 1.0 only core tiles are placed.")]

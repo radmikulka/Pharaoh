@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -54,6 +55,10 @@ namespace Pharaoh.MapGenerator
         private void OnDrawGizmos()
         {
             if (TotalRegions <= 0) return;
+            
+            if(Selection.activeGameObject != gameObject && Selection.activeGameObject != transform.parent?.gameObject)
+                return;
+            
             float hue = RegionId / (float)TotalRegions;
             Gizmos.color = Color.HSVToRGB(hue, 0.7f, 0.9f);
             Gizmos.DrawWireSphere(transform.position, 0.6f);

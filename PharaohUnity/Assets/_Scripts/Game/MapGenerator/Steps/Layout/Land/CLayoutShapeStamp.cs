@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AldaEngine;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Pharaoh.MapGenerator
@@ -109,12 +110,15 @@ namespace Pharaoh.MapGenerator
 
         private void OnDrawGizmosSelected()
         {
+            if(Selection.activeGameObject != gameObject)
+                return;
+            
             if (_previewTiles == null || _previewTiles.Count == 0)
                 RefreshPreview();
 
             Gizmos.color = _isIsland
-                ? new Color(0.35f, 0.70f, 0.25f, 0.70f)   // zelená = ostrov
-                : new Color(0.20f, 0.45f, 0.85f, 0.70f);  // modrá = jezero
+                ? new Color(0.35f, 0.70f, 0.25f, 1f)   // zelená = ostrov
+                : new Color(0.20f, 0.45f, 0.85f, 1f);  // modrá = jezero
             foreach (var t in _previewTiles)
                 Gizmos.DrawCube(transform.position + new Vector3(t.x, 0f, t.y), new Vector3(0.9f, 0.05f, 0.9f));
         }

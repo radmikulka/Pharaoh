@@ -20,7 +20,7 @@ namespace Pharaoh.MapGenerator
     ///       ├── Tile_0_0
     ///       ├── Obstacle_3_7
     ///       └── WaterPlane
-    /// </summary>
+    /// </summary>Tak 
     public class CSpawnMapStep : CMapGenerationStepBase
     {
         [Header("Tile")]

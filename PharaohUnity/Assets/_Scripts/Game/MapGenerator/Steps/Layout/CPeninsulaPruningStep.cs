@@ -239,9 +239,9 @@ namespace Pharaoh.MapGenerator
             if(Selection.activeGameObject != gameObject)
                 return;
             if (_cachedPrunedTiles == null || _cachedPrunedTiles.Count == 0) return;
-            Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.7f); // red
+            Gizmos.color = new Color(1f, 0.2f, 0.2f, 1f); // red
             foreach (var p in _cachedPrunedTiles)
-                Gizmos.DrawCube(new Vector3(p.x, 0.2f, p.y), new Vector3(0.9f, 0.05f, 0.9f));
+                Gizmos.DrawCube(new Vector3(p.x, 0.2f, p.y), new Vector3(0.9f, 0.05f, 1f));
         }
 #endif
     }
