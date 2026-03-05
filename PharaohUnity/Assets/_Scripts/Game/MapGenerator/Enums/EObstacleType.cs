@@ -3,6 +3,7 @@ namespace Pharaoh.MapGenerator
     public enum EObstacleType
     {
         None = 0,
-        Tree,
+        Tree = 1,
+        Rock = 2,
     }
 }

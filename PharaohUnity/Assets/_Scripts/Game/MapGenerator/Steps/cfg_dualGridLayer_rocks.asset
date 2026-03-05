@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14350a1edb4b4f840aa1517babfb0cf5, type: 3}
+  m_Name: cfg_dualGridLayer_rocks
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.MapGenerator.CDualGridLayerConfig
+  LayerName: abc
+  Tiles:
+    _records:
+    - _key: 0
+      _value:
+        Prefabs:
+        - {fileID: 5632644819838621394, guid: 591dd2cc658f0884d9dcc7d3150a53f3, type: 3}
+    - _key: 1
+      _value:
+        Prefabs:
+        - {fileID: 7784699555164399172, guid: e427b79da3c76da4cac8f8d10b8c0a49, type: 3}
+    - _key: 2
+      _value:
+        Prefabs:
+        - {fileID: 2855797251504119680, guid: 36cc52852108a0641b0b33df0b809d24, type: 3}
+    - _key: 3
+      _value:
+        Prefabs:
+        - {fileID: 6017247796400383264, guid: 4e78349b09c18bf4dbe0ad739ec46638, type: 3}
+    - _key: 4
+      _value:
+        Prefabs:
+        - {fileID: 8543922991559484018, guid: f8d11850ba506614bab753521b046b76, type: 3}

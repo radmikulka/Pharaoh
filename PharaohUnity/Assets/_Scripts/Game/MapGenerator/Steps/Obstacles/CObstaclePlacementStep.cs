@@ -10,13 +10,10 @@ namespace Pharaoh.MapGenerator
     ///   Pass 2 — rejection sampling enforces a uniform minimum spacing; stops at _targetCount.
     ///
     /// Add multiple instances of this step for different obstacle types,
-    /// each with their own noise config and prefab array.
+    /// each with their own noise config.
     /// </summary>
     public class CObstaclePlacementStep : CMapGenerationStepBase, IHaveNoise
     {
-        [Header("Prefabs")]
-        [Tooltip("One or more obstacle prefabs. A random one is chosen per tile (seeded).")]
-        [SerializeField] private GameObject[] _prefabs;
         [SerializeField] private EObstacleType _obstacleType;
 
         [Header("Density Noise")]
@@ -29,7 +26,7 @@ namespace Pharaoh.MapGenerator
 
         [Header("Spacing")]
         [Tooltip("Minimum distance in tiles between any two obstacles of this type.")]
-        [SerializeField] [Min(1)] private int _minSpacing = 2;
+        [SerializeField] [Min(0)] private int _minSpacing = 2;
 
         [Header("Range")]
         [Tooltip("Radius in cells around this object's position. 0 = no restriction (full map).")]
@@ -49,12 +46,6 @@ namespace Pharaoh.MapGenerator
             if (_densityNoise == null)
             {
                 Debug.LogError($"[{StepName}] DensityNoise config is not assigned.", this);
-                return;
-            }
-
-            if (_prefabs == null || _prefabs.Length == 0)
-            {
-                Debug.LogError($"[{StepName}] Prefabs array is empty.", this);
                 return;
             }
 
@@ -129,8 +120,7 @@ namespace Pharaoh.MapGenerator
                 if (exclusion[pos.x, pos.y]) continue;
 
                 STile tile = mapData.Get(pos.x, pos.y);
-                tile.ObstaclePrefab = _prefabs[rng.Next(_prefabs.Length)];
-                tile.ObstacleType   = _obstacleType;
+                tile.ObstacleType = _obstacleType;
                 mapData.Set(pos.x, pos.y, tile);
                 placed++;
 #if UNITY_EDITOR

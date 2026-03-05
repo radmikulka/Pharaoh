@@ -11,13 +11,10 @@ namespace Pharaoh.MapGenerator
     ///   noise > DensityThreshold * EdgeFactor → fringe candidate (normal spacing)
     ///
     /// Add multiple instances of this step for different obstacle types,
-    /// each with their own noise config and prefab array.
+    /// each with their own noise config.
     /// </summary>
     public class CObstacleClusterStep : CMapGenerationStepBase, IHaveNoise
     {
-        [Header("Prefabs")]
-        [Tooltip("One or more obstacle prefabs. A random one is chosen per tile (seeded).")]
-        [SerializeField] private GameObject[] _prefabs;
         [SerializeField] private EObstacleType _obstacleType;
 
         [Header("Density Noise")]
@@ -52,12 +49,6 @@ namespace Pharaoh.MapGenerator
             if (_densityNoise == null)
             {
                 Debug.LogError($"[{StepName}] DensityNoise config is not assigned.", this);
-                return;
-            }
-
-            if (_prefabs == null || _prefabs.Length == 0)
-            {
-                Debug.LogError($"[{StepName}] Prefabs array is empty.", this);
                 return;
             }
 
@@ -127,8 +118,7 @@ namespace Pharaoh.MapGenerator
                 if (exclusion[pos.x, pos.y] > 0) continue;
 
                 STile tile = mapData.Get(pos.x, pos.y);
-                tile.ObstaclePrefab = _prefabs[rng.Next(_prefabs.Length)];
-                tile.ObstacleType   = _obstacleType;
+                tile.ObstacleType = _obstacleType;
                 mapData.Set(pos.x, pos.y, tile);
                 placed++;
 #if UNITY_EDITOR

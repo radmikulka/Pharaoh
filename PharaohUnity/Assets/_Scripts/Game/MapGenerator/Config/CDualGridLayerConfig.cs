@@ -16,8 +16,9 @@ namespace Pharaoh.MapGenerator
     {
         public string LayerName;
 
-        [Tooltip("Maps each EDualGridMask combination to the prefab variant to spawn at that corner.\n" +
-                 "Leave entries out (or set Prefabs empty) to skip spawning for that mask.")]
-        public CSerializableDictionary<EDualGridMask, CDualGridTileVariant> Tiles;
+        [Tooltip("Maps each tile shape to the prefab variant to spawn.\n" +
+                 "Rotation is applied automatically by CDualGridShapeResolver.\n" +
+                 "Leave an entry out (or set Prefabs empty) to skip spawning for that shape.")]
+        public CSerializableDictionary<EDualGridShape, CDualGridTileVariant> Tiles;
     }
 }

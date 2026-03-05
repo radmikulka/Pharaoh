@@ -262,6 +262,7 @@ namespace Pharaoh.MapGenerator
             var root = new GameObject("EditorTiles");
             root.transform.SetParent(transform, false);
             _editorTilesRoot = root.transform;
+            _editorTilesRoot.gameObject.SetActive(false);
 
             for (int x = 0; x < _mapData.Width; x++)
             {

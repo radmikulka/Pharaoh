@@ -50,7 +50,7 @@ namespace Pharaoh.MapGenerator
         /// Returns null if the variant is null, has no prefabs, or the selected prefab is null.
         /// </summary>
         public static GameObject SpawnCornerTile(CDualGridTileVariant variant, int cx, int cy,
-                                                  float yOffset, Transform parent)
+                                                  float yOffset, float rotationY, Transform parent)
         {
             if (variant?.Prefabs == null || variant.Prefabs.Length == 0)
                 return null;
@@ -60,13 +60,14 @@ namespace Pharaoh.MapGenerator
             if (prefab == null) return null;
 
             var worldPos = new Vector3(cx - 0.5f, yOffset, cy - 0.5f);
+            var rotation = rotationY == 0f ? Quaternion.identity : Quaternion.Euler(0f, rotationY, 0f);
 
 #if UNITY_EDITOR
             var go = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(prefab, parent);
-            go.transform.SetPositionAndRotation(worldPos, Quaternion.identity);
+            go.transform.SetPositionAndRotation(worldPos, rotation);
             return go;
 #else
-            return UnityEngine.Object.Instantiate(prefab, worldPos, Quaternion.identity, parent);
+            return UnityEngine.Object.Instantiate(prefab, worldPos, rotation, parent);
 #endif
         }
 

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Pharaoh;
 using Pharaoh.Map;
 using UnityEngine;
 
@@ -23,20 +22,20 @@ namespace Pharaoh.MapGenerator
     /// </summary>
     public class CSeabedMeshStep : CMapGenerationStepBase
     {
-        [SerializeField] private CMapGenConfig _mapGenConfig;
+        [SerializeField] private CSeabedConfig _seabed;
 
         public override string StepName        => "Seabed Mesh";
         public override string StepDescription => "Generuje procedurální mesh dna moře s interpolovanou hloubkou — vzdálenější voda je hlubší.";
 
         public override void Execute(CMapData mapData, int seed)
         {
-            if (_mapGenConfig == null || _mapGenConfig.Seabed == null)
+            if (_seabed == null)
             {
-                Debug.LogWarning($"[{StepName}] MapGenConfig or Seabed config is not assigned — skipping.");
+                Debug.LogWarning($"[{StepName}] Seabed config is not assigned — skipping.");
                 return;
             }
 
-            var _config = _mapGenConfig.Seabed;
+            var _config = _seabed;
 
             var mapInstance = GetMapInstance();
             if (mapInstance == null) return;
