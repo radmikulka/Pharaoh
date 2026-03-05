@@ -71,7 +71,6 @@ namespace Pharaoh.MapGenerator
                     STile tile = mapData.Get(x, y);
 
                     if (!tile.Type.IsBuildable())         continue;
-                    if (tile.CliffType != ECliffType.None) continue;
                     if (tile.ObstaclePrefab != null)      continue;
                     if (tile.IsObstacleBlocked)           continue;
 

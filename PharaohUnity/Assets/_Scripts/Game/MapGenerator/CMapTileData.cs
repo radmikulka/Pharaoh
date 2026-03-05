@@ -20,11 +20,11 @@ namespace Pharaoh.MapGenerator
         [SerializeField] private EDecorationType _decorationType;
         [SerializeField] private bool            _isObstacleBlocked;
         [SerializeField] private GameObject      _obstaclePrefab;
-        [SerializeField] private ECliffType      _cliffType;
-        [SerializeField] private int             _cliffRotationDeg;
 
         /// <summary>When true, Generate() will not overwrite this tile with pipeline output.</summary>
         [SerializeField] private bool _isOverridden;
+
+        private MaterialPropertyBlock _mpb;
 
         public bool IsOverridden => _isOverridden;
 
@@ -39,17 +39,12 @@ namespace Pharaoh.MapGenerator
             _decorationType    = tile.DecorationType;
             _isObstacleBlocked = tile.IsObstacleBlocked;
             _obstaclePrefab    = tile.ObstaclePrefab;
-#pragma warning disable CS0612
-            _cliffType         = tile.CliffType;
-            _cliffRotationDeg  = tile.CliffRotationDeg;
-#pragma warning restore CS0612
             _isOverridden      = false;
             RefreshColor();
         }
 
         public STile ToSTile()
         {
-#pragma warning disable CS0612
             return new STile
             {
                 X                 = _x,
@@ -59,10 +54,7 @@ namespace Pharaoh.MapGenerator
                 IsObstacleBlocked = _isObstacleBlocked,
                 ObstaclePrefab    = _obstaclePrefab,
                 ContentTag        = _contentTag,
-                CliffType         = _cliffType,
-                CliffRotationDeg  = _cliffRotationDeg,
             };
-#pragma warning restore CS0612
         }
 
         // ─── Unity callbacks ─────────────────────────────────────────────────
@@ -85,7 +77,8 @@ namespace Pharaoh.MapGenerator
                     ? new Color(0.92f, 0.84f, 0.50f)
                     : new Color(0.30f, 0.65f, 0.25f);
 
-            var mpb = new MaterialPropertyBlock();
+            _mpb ??= new MaterialPropertyBlock();
+            var mpb = _mpb;
             meshRenderer.GetPropertyBlock(mpb);
             mpb.SetColor("_BaseColor", color);
             meshRenderer.SetPropertyBlock(mpb);

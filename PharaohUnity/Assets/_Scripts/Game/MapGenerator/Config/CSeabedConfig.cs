@@ -11,9 +11,6 @@ namespace Pharaoh.MapGenerator
         [Tooltip("Maps normalized distance from shore (0 = coast, 1 = deep water) to depth fraction.")]
         public AnimationCurve DepthCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-        [Tooltip("Mesh subdivisions per tile. 1 = one quad per tile (no sub-tile smoothing).")]
-        public int MeshSubdivision = 1;
-
         [Tooltip("Material applied to the generated seabed MeshRenderer.")]
         public Material SeabedMaterial;
     }

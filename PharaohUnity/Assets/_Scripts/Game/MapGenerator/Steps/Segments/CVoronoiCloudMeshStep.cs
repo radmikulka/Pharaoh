@@ -5,6 +5,8 @@ namespace Pharaoh.MapGenerator
 {
     public class CVoronoiCloudMeshStep : CMapGenerationStepBase
     {
+        private const string RaycastLayerName = "RaycastTarget";
+
         [SerializeField] private float _cloudHeight = 2f;
         [SerializeField] private Material _cloudMaterial;
 
@@ -68,7 +70,7 @@ namespace Pharaoh.MapGenerator
 
                     var go = new GameObject(goName);
                     go.transform.SetParent(transform, worldPositionStays: false);
-                    go.layer = LayerMask.NameToLayer("RaycastTarget");
+                    go.layer = LayerMask.NameToLayer(RaycastLayerName);
 
                     go.AddComponent<MeshFilter>().sharedMesh = mesh;
                     go.AddComponent<MeshRenderer>().sharedMaterial = _cloudMaterial;
