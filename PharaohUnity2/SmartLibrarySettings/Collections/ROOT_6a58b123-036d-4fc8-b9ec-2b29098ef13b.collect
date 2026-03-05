@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d440d2d81dcb2b47a30a4bf1747c34f, type: 3}
+  m_Name: ROOT
+  m_EditorClassIdentifier: Bewildered.SmartLibrary::Bewildered.SmartLibrary.RootLibraryCollection
+  _parentID:
+    _serializedGuid: 
+  _subcollectionIDs: []
+  _collectionName: ROOT
+  _id:
+    _serializedGuid: 23b1586a6d03c84fb9ec2b29098ef13b
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList: []
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  _allIds: 
+  _allCollections: []
+  _itemCollectionIdPairs: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d674714615463298844984c0373c0a, type: 3}
+  m_Name: ValidateAssetsBatch
+  m_EditorClassIdentifier: 
+  _batchName: Validate Assets
+  _helpInfo: "Zvaliduje assety v\u016F\u010Di v\u0161em zn\xE1m\xFDm chyb\xE1m"
+  _steps:
+  - {fileID: 11400000, guid: 3306509ea0d16914ea5ad7159c96ab07, type: 2}
+  - {fileID: 11400000, guid: de2c832dde6943241b01563930de6b84, type: 2}
+  - {fileID: 11400000, guid: 278d67d3ab61b704eb8a4c97066cda23, type: 2}
+  - {fileID: 11400000, guid: 10cdc664b4480e24c8d79e4e3e779964, type: 2}
+  - {fileID: 11400000, guid: a6509ed7873d4f34e893b7f139e41757, type: 2}
+  - {fileID: 11400000, guid: f086e9364acf52b41b59c6e19bd14257, type: 2}
+  - {fileID: 11400000, guid: e934560a2fd555b4d88d9b4612ce575c, type: 2}
+  - {fileID: 11400000, guid: 77f32031dd8da9043bbc7aa1b6595af2, type: 2}
+  - {fileID: 11400000, guid: 730c96e21e8dcde40af37cd241fa8d48, type: 2}
+  - {fileID: 11400000, guid: c6a8a70610cd3e1459ef5d93f8bf5e3a, type: 2}
+  - {fileID: 11400000, guid: eb93eeaccda576b4f9585bdc23f8527e, type: 2}
+  - {fileID: 11400000, guid: 0f858cc7f900d8b4e8787b4e81120dc2, type: 2}

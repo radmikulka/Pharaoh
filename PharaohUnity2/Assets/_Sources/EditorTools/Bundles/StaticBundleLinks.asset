@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c90eb03d9e42b9b0f398e4f1cd6b10, type: 3}
+  m_Name: StaticBundleLinks
+  m_EditorClassIdentifier: AldaGames.Infrastructure::AldaEngine.CStaticBundleLinks
+  _staticBundleLinks: []
+  _sharedVehicleTrailers:
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Bulk_InGame.prefab
+    _assetGuid: 49d2a5403690a9344bd87db49baa8e54
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Liquid_InGame.prefab
+    _assetGuid: 835a1f1c58757d448be4bc549faa5ec7
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Flat_InGame.prefab
+    _assetGuid: da778bd21510eb34eb2d1277cd39f7d9
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Container_InGame.prefab
+    _assetGuid: 8bdd36eb94ef7364c80c4c097b538178
+  - _bundleId: 1000
+    _assetPath: Assets/_Prefabs/Vehicles/ReusableVehicleParts/Vagons/Vagon_Passenger_InGame.prefab
+    _assetGuid: 6f0ff8f9417657a44a69dfabf0988333

@@ -1,0 +1,68 @@
+﻿// =========================================
+// AUTHOR: Radek Mikulka
+// DATE:   06.11.2023
+// =========================================
+
+using System;
+using AldaEngine;
+using Cysharp.Threading.Tasks;
+using ServerData;
+using ServerData.Design;
+using ServerData.Hits;
+using ServiceEngine.Ads;
+using TycoonBuilder;
+using Zenject;
+
+namespace TycoonBuilder
+{
+	public class CAdsManager : CBaseAdsManager
+	{
+		private CHitBuilder _hitBuilder;
+
+		[Inject]
+		private void Inject(CHitBuilder hitBuilder)
+		{
+			_hitBuilder = hitBuilder;
+		}
+		
+		public override void Initialize()
+		{
+			base.Initialize();
+
+			EventBus.Subscribe<CAdSucceededSignal>(OnAdSuccess);
+			EventBus.Subscribe<CAdFailedSignal>(OnAdFailed);
+		}
+
+		private void OnAdSuccess(CAdSucceededSignal signal)
+		{
+			SendAdSeenHit(signal.AdInfo);
+		}
+		
+		private void OnAdFailed(CAdFailedSignal signal)
+		{
+			EventBus.ProcessTask(new CShowTooltipTask(signal.FailReason == EEditorFailReason.Closed ? "Generic.AdClosed" : "Generic.AdFailed", true));
+		}
+
+		public override bool CanPlayInterstitialAd()
+		{
+			bool isUserEligible = IsUserEligibleToPlayInterstitialAd();
+			return isUserEligible;
+		}
+		
+		private bool IsUserEligibleToPlayInterstitialAd()
+		{
+			return false;
+		}
+
+		private void SendAdSeenHit(IAdInfo adInfo)
+		{
+			double revenue = GetAdRevenue(adInfo);
+			_hitBuilder.GetBuilder(new CAdSeenRequest(revenue)).BuildAndSend();
+		}
+
+		private double GetAdRevenue(IAdInfo adInfo)
+		{
+			return adInfo.Revenue;
+		}
+	}
+}

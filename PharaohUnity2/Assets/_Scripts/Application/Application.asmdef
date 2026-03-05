@@ -1,0 +1,23 @@
+{
+    "name": "AldaGames.Application",
+    "rootNamespace": "",
+    "references": [
+        "EditorAttributes",
+        "Zenject",
+        "UniTask",
+        "AldaGames.ServerData",
+        "AldaGames.AldaEngine.Sharp",
+        "AldaGames.AldaEngine.Unity",
+        "AldaGames.Common",
+        "AldaGames.ServiceEngine"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

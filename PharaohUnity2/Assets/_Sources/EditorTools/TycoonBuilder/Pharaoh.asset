@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7fa30542114838991917d73513074a, type: 3}
+  m_Name: Pharaoh
+  m_EditorClassIdentifier: 
+  _bankName: Tycoon Builder
+  _items:
+  - {fileID: 11400000, guid: 7d130dc26261c894ebb4ba70a5fc943c, type: 2}
+  - {fileID: 11400000, guid: 4ef3164229f8e1944abb8604685b4b8f, type: 2}

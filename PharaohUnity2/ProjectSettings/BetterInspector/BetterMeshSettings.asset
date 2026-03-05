@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d10d8afe3ea15e459975516ca6d075c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TinyGiantStudio.BetterMesh.Editor::TinyGiantStudio.BetterInspector.BetterMesh.BetterMeshSettings
+  meshFieldOnTop: 1
+  _selectedUnit: 0
+  _overrideInspectorColor: 0
+  _inspectorColor: {r: 0, g: 0, b: 1, a: 0.025}
+  _overrideFoldoutColor: 0
+  _foldoutColor: {r: 0, g: 1, b: 0, a: 0.025}
+  _showMeshPreview: 1
+  _meshPreviewHeight: 200
+  _maxPreviewCount: 10
+  _previewBackgroundColor: {r: 0.1764, g: 0.1764, b: 0.1764, a: 1}
+  _showAssetLocationBelowMesh: 1
+  runtimeMemoryUsageUnderPreview: 1
+  showRunTimeMemoryUsageLabel: 1
+  _autoHideSettings: 1
+  _showInformationFoldout: 0
+  _showVertexInformation: 1
+  _showInformationOnPreview: 1
+  _showTriangleInformation: 1
+  _showEdgeInformation: 0
+  _showFaceInformation: 0
+  _showTangentInformation: 1
+  _showSizeFoldout: 0
+  _showAssetLocationInFoldout: 1
+  _showDebugGizmoFoldout: 1
+  useAntiAliasedGizmo: 0
+  maximumGizmoDrawTime: 50
+  _doNotApplyActionToAsset: 1
+  _showActionsFoldout: 1
+  _showOptimizeButton: 1
+  _showRecalculateNormalsButton: 1
+  _showRecalculateTangentsButton: 0
+  _showFlipNormalsButton: 1
+  _showGenerateSecondaryUVButton: 1
+  _showSaveMeshAsButton: 1
+  originalMaterials: []
+  showDefaultSkinnedMeshRendererInspector: 1
+  updateCacheEveryDashSeconds: 1
+  animatedFoldout: 1

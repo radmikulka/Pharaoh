@@ -1,0 +1,26 @@
+{
+    "name": "AldaGames.Common",
+    "rootNamespace": "",
+    "references": [
+        "EditorAttributes",
+        "Zenject",
+        "UniTask",
+        "Unity.Mathematics",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "AldaGames.ServiceEngine",
+        "AldaGames.ServerData",
+        "AldaGames.AldaEngine.Sharp",
+        "AldaGames.AldaEngine.Unity",
+        "Unity.Cinemachine"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

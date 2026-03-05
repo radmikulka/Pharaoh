@@ -1,0 +1,33 @@
+{
+    "name": "AldaGames.CoreGame",
+    "rootNamespace": "",
+    "references": [
+        "Zenject",
+        "UniTask",
+        "UniTask.DOTween",
+        "Unity.Cinemachine",
+        "AldaGames.ServerData",
+        "AldaGames.AldaEngine.Sharp",
+        "AldaGames.AldaEngine.Unity",
+        "AldaGames.Application",
+        "AldaGames.Infrastructure",
+        "AldaGames.Common",
+        "EditorAttributes",
+        "AldaGames.ServiceEngine",
+        "Unity.Splines",
+        "Unity.Mathematics",
+        "Unity.Burst",
+        "Unity.Collections",
+        "Unity.Splines.Editor",
+        "Unity.RenderPipelines.Universal.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

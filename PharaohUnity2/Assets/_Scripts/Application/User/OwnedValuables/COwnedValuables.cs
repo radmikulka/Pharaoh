@@ -1,0 +1,145 @@
+// =========================================
+// AUTHOR: Radek Mikulka
+// DATE:   09.12.2024
+// =========================================
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using AldaEngine;
+using AldaEngine.AldaFramework;
+using ServerData;
+using UnityEngine;
+
+namespace TycoonBuilder
+{
+	[ValidatableData]
+	public class COwnedValuables : CBaseUserComponent, IInitializable
+	{
+		[ValidatableData] private readonly Dictionary<EValuable, COwnedValuable> _valuables = new();
+		private readonly COwnedValuableFactory _valuableFactory = new();
+
+		private readonly CSpecialValuables _specialValuables;
+		private readonly IServerTime _serverTime;
+		private readonly IEventBus _eventBus;
+		private readonly IMapper _mapper;
+
+		public COwnedValuables(
+			CSpecialValuables specialValuables,
+			IServerTime serverTime,
+			IEventBus eventBus,
+			IMapper mapper
+		)
+		{
+			_specialValuables = specialValuables;
+			_serverTime = serverTime;
+			_eventBus = eventBus;
+			_mapper = mapper;
+		}
+
+		public void Initialize()
+		{
+			
+		}
+
+		public void InitialSync(COwnedValuablesDto dto)
+		{
+			COwnedValuableData[] valuables = _mapper.FromJson<COwnedValuableData>(dto.Valuables);
+			foreach(COwnedValuableData data in valuables)
+			{
+				COwnedValuable valuable = GetOrCrateValuable(data.Id);
+				valuable.InitialSync(data);
+			}
+		}
+
+		public void Sync(IOwnedValuableData valuableData)
+		{
+			COwnedValuable valuable = GetOrCrateValuable(valuableData.Id);
+			valuable.Sync(valuableData);
+		}
+
+		public T GetValuable<T>(EValuable id) where T : COwnedValuable
+		{
+			COwnedValuable ownedValuable = GetOrCrateValuable(id);
+			return (T)ownedValuable;
+		}
+
+		public CConsumableOwnedValuable GetConsumable(EValuable id)
+		{
+			return GetValuable<CConsumableOwnedValuable>(id);
+		}
+
+		public void ModifyValuableInternal(IValuable valuable, CValueModifyParams modifyParams = null)
+		{
+			long timestampInMs = _serverTime.GetTimestampInMs();
+			bool specialCaseHandled = _specialValuables.TryHandleSpecialValuable(valuable, User, timestampInMs, modifyParams);
+			if (specialCaseHandled)
+			{
+				_eventBus.Send(new COwnedValuableChangedSignal(valuable));
+				return;
+			}
+
+			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
+			ownedValuable.Modify(valuable, modifyParams);
+			_eventBus.Send(new COwnedValuableChangedSignal(valuable));
+		}
+
+		public bool HaveValuable(IValuable valuable)
+		{
+			long timestamp = _serverTime.GetTimestampInMs();
+			bool? specialCaseHandled = _specialValuables.HaveValuable(valuable, User, timestamp);
+			if (specialCaseHandled.HasValue)
+			{
+				return specialCaseHandled.Value;
+			}
+			
+			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
+			return ownedValuable.HaveValuable(valuable);
+		}
+
+		private COwnedValuable GetOrCrateValuable(EValuable valuableId)
+		{
+			if (_valuables.TryGetValue(valuableId, out var valuable)) 
+				return valuable;
+			
+			valuable = _valuableFactory.Create(valuableId);
+			_valuables.Add(valuableId, valuable);
+			return valuable;
+		}
+
+		public override void Dispose()
+		{
+			base.Dispose();
+
+			foreach (var ownedValuable in _valuables)
+			{
+				ownedValuable.Value.Dispose();
+			}
+		}
+
+		public void ForceToHaveAtLeastSomeValuables(IValuable valuable)
+		{
+			switch (valuable)
+			{
+				case CConsumableValuable consumable:
+				{
+					int currentAmount = GetConsumable(consumable.Id).Amount;
+					int neededAmount = consumable.Value - currentAmount;
+					if (neededAmount <= 0)
+						return;
+					ModifyValuableInternal(CValuableFactory.Consumable(consumable.Id, neededAmount));
+					break;
+				}
+				case CResourceValuable resource:
+				{
+					int currentAmount = User.Warehouse.GetResourceAmount(resource.Resource.Id);
+					int neededAmount = resource.Resource.Amount - currentAmount;
+					if (neededAmount <= 0)
+						return;
+					ModifyValuableInternal(CValuableFactory.Resource(resource.Resource.Id, neededAmount));
+					break;
+				}
+			}
+		}
+	}
+}

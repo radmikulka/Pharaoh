@@ -1,0 +1,31 @@
+{
+    "name": "AldaGames.Ui",
+    "rootNamespace": "",
+    "references": [
+        "Zenject",
+        "DOTween.Modules",
+        "UniTask.DOTween",
+        "UniTask",
+        "EditorAttributes",
+        "Unity.TextMeshPro",
+        "AldaGames.AldaEngine.Sharp",
+        "AldaGames.AldaEngine.Unity",
+        "AldaGames.Application",
+        "AldaGames.Infrastructure",
+        "AldaGames.Common",
+        "AldaGames.CoreGame",
+        "AldaGames.ServerData",
+        "AldaGames.ServiceEngine",
+        "Unity.Purchasing",
+        "Coffee.UIParticle"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
