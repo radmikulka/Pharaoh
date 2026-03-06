@@ -15,7 +15,7 @@ using AndroidArchitecture = UnityEditor.AndroidArchitecture;
 
 namespace AldaEngine
 {
-	[CreateAssetMenu(fileName = "PrepareDevelopmentBuild", menuName = "____TycoonBuilder/EditorTasks/Steps/BuildTools/PrepareDevelopmentBuild")]
+	[CreateAssetMenu(fileName = "PrepareDevelopmentBuild", menuName = "____Pharaoh/EditorTasks/Steps/BuildTools/PrepareDevelopmentBuild")]
 	public class CEditorTaskPrepareDevelopmentBuild : CBaseEditorTaskStep
 	{
 		public override Task Execute()

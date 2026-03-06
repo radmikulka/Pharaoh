@@ -36,7 +36,7 @@ namespace Pharaoh
         [SerializeField] private CFirebaseCrashlytics _crashlytics;
         [SerializeField] private CExitAppHandler _exitAppHandler;
         [SerializeField] private CServiceMaster _serviceMaster;
-        [SerializeField] private CPurchasingTB _purchasing;
+        [SerializeField] private CPurchasingPharaoh _purchasing;
         [SerializeField] private CAdsManager _adsManager;
 
         [Header("Systems")]
@@ -63,6 +63,9 @@ namespace Pharaoh
             BindLoadingScreenProxy();
             InstallAuth();
             InstallAds();
+            
+            Container.AddSingleton<ITranslation, CDummlyLocalizationProvider>();
+            Container.AddSingleton<ISettings, CSettings>();
         }
         
         private void InstallCoreLogic()
@@ -217,6 +220,39 @@ namespace Pharaoh
             CRootEventBus rootBus = new();
             Container.AddSingletonFromInstance<CRootEventBus>(rootBus);
             Container.AddSingletonFromInstance<IEventBus>(rootBus);
+        }
+        
+        private class CDummlyLocalizationProvider : ITranslation
+        {
+            public ELanguageCode SystemLanguage { get; }
+            public ELanguageCode CurrentLanguage { get; }
+            public CEvent<ITranslation> OnLanguageChanged { get; } = new("");
+            
+            public string GetText(string key)
+            {
+                return key;
+            }
+
+            public string GetText(string key, params object[] args)
+            {
+                return key;
+            }
+
+            public void SetLanguage(ELanguageCode language)
+            {
+               
+            }
+
+            public List<ELanguageCode> GetSupportedLanguages()
+            {
+                return new List<ELanguageCode>();
+            }
+        }
+        
+        private class CSettings : ISettings
+        {
+            public EGraphicsQuality Quality { get; }
+            public ELanguageCode Language { get; }
         }
     }
 }

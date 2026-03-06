@@ -111,7 +111,7 @@ namespace Pharaoh
             CResponseHit serverResponse = await serverThread;
             CConnectResponse connectResponse = serverResponse as CConnectResponse;
 
-            if (connectResponse is not null)
+            //if (connectResponse is not null)
             {
                 await _validServerConnectionPostprocess.PostprocessServerConnection(connectResponse, ct);
             }
@@ -139,17 +139,18 @@ namespace Pharaoh
             }
             _loadingTechFlow.Send(ELoadingTechFlow.NetworkStatusChecked);
 
-            if (connectResponse is null)
+            /*if (connectResponse is null)
             {
                 HandleBadServerResponse(serverResponse, ct).Forget();
                 return;
-            }
+            }*/
 
             _inAppUpdate.TryFlexibleUpdateAsync().Forget();
             
             await serviceThread;
             _loadingTechFlow.Send(ELoadingTechFlow.ServicesInited);
-            CCoreGameGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
+            //CCoreGameGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
+            CCoreGameGameModeData coreGameModeData = new(EMissionId.Mission1_1);
             _eventBus.ProcessTaskAsync(new CLoadGameModeTask(coreGameModeData), ct).Forget();
             
             await SceneManager.UnloadSceneAsync(gameObject.scene).ToUniTask(cancellationToken: ct);

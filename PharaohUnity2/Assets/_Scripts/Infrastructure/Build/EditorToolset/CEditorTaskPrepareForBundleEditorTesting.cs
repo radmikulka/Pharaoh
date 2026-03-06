@@ -14,7 +14,7 @@ using Pharaoh;
 
 namespace AldaEngine
 {
-	[CreateAssetMenu(fileName = "PrepareForBundleEditorTesting", menuName = "____TycoonBuilder/EditorTasks/Steps/Tools/PrepareForBundleEditorTesting")]
+	[CreateAssetMenu(fileName = "PrepareForBundleEditorTesting", menuName = "____Pharaoh/EditorTasks/Steps/Tools/PrepareForBundleEditorTesting")]
 	public class CEditorTaskPrepareForBundleEditorTesting : CBaseEditorTaskStep
 	{
 		public override string HelpBoxContent => "Prepares the project for testing offline AssetBundles in the editor.";

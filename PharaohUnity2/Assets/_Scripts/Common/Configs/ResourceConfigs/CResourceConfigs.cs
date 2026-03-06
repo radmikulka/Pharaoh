@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Pharaoh
 {
-	[CreateAssetMenu(menuName = "____TycoonBuilder/Configs/ResourceConfigs")]
+	[CreateAssetMenu(menuName = "____Pharaoh/Configs/ResourceConfigs")]
 	public class CResourceConfigs : CResourceConfigsDb, IConstructable
 	{
 		public CResourceConfigsSet<CValuableResourceConfig, EValuable> Valuables { get; private set; }

@@ -27,7 +27,7 @@ namespace Pharaoh
         public override async UniTask Load(IGameModeData taskData, CancellationToken ct)
         {
             await base.Load(taskData, ct);
-            await _missionController.LoadRegion(Data.Mission, ct);
+            await _missionController.LoadMission(Data.Mission, ct);
             _eventBus.Send(new CCoreGameLoadedSignal());
         }
     }

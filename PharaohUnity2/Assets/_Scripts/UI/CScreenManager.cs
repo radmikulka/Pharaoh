@@ -101,7 +101,7 @@ namespace Pharaoh
 				TryCloseTopmostMenu();
 			}
 
-			CTycoonBuilderScreen menu = GetMenu<CTycoonBuilderScreen>((int)task.ScreenId);
+			CPharaohScreen menu = GetMenu<CPharaohScreen>((int)task.ScreenId);
 			OpenMenu(menu.Id);
 			
 			await UniTask.WaitUntil(() => menu.State == EScreenState.Opened, cancellationToken: ct);

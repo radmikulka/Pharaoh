@@ -16,12 +16,8 @@ MonoBehaviour:
   _serverType: 1
   _deleteUser: 1
   _likeABoss: 1
-  _likeABossVehicles: 0
-  _overrideYear: 1935
-  _overrideContract: 100104
-  _overrideEvent: 2
   _overrideUid: 
-  _presetId: 10000
+  _presetId: 0
   _manualPresetId: 
   _fakeDelayInSecs: 0
   _ignoreHitTimeoutTime: 0

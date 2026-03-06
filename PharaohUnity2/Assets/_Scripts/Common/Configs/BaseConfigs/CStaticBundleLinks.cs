@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace AldaEngine
 {
-	[CreateAssetMenu(fileName = "StaticBundleLinks", menuName = "____TycoonBuilder/EditorTasks/StaticBundleLinks")]
+	[CreateAssetMenu(fileName = "StaticBundleLinks", menuName = "____Pharaoh/EditorTasks/StaticBundleLinks")]
 	public class CStaticBundleLinks : CScriptableSingletonEditorOnly<CStaticBundleLinks>, IIHaveBundleLinks
 	{
 		[SerializeField] [BundleLink(true, typeof(Object))] private CBundleLink[] _staticBundleLinks;

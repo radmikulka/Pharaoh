@@ -34,6 +34,7 @@ namespace Pharaoh
         private void InstallCoreLogic()
         {
             Container.AddSingleton<CAldaInstantiator>();
+            Container.AddSingleton<CUiParticleCounts>();
             Container.AddSingletonFromInstance<IScreenManager>(_screenManager);
             Container.AddSingleton<CUiPurchasingOverlay>(true);
         }

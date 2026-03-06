@@ -31,10 +31,10 @@ namespace Pharaoh
 
 		public void Initialize()
 		{
-			_eventBus.Subscribe<CMissionActivatedSignal>(OnRegionLoaded);
+			_eventBus.Subscribe<CMissionActivatedSignal>(OnMissionLoaded);
 		}
 
-		private void OnRegionLoaded(CMissionActivatedSignal signal)
+		private void OnMissionLoaded(CMissionActivatedSignal signal)
 		{
 			if(signal.Mission != _missionController.MissionId)
 				return;

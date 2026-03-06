@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Pharaoh
 {
-    [CreateAssetMenu(menuName = "____TycoonBuilder/Configs/Valuable")]
+    [CreateAssetMenu(menuName = "____Pharaoh/Configs/Valuable")]
     public class CValuableResourceConfig : ScriptableObject, IResourceConfigBase<EValuable>, IIHaveBundleLinks
     {
         [SerializeField] private EValuable _id;

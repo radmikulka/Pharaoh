@@ -24,7 +24,7 @@ namespace Pharaoh
 		public float DefaultGameSpeed => _defaultGameSpeed;
 
 #if UNITY_EDITOR
-		[MenuItem("TycoonBuilder/Select/Config Debug %#d", false, 0)]
+		[MenuItem("Pharaoh/Select/Config Debug %#d", false, 0)]
 		private static void SelectSettings()
 		{
 			Selection.activeObject = Instance;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Pharaoh
 {
-    [CreateAssetMenu(menuName = "____TycoonBuilder/Configs/Scene")]
+    [CreateAssetMenu(menuName = "____Pharaoh/Configs/Mission")]
     public class CMissionResourceConfig : ScriptableObject, IResourceConfigBase<EMissionId>
     {
         [SerializeField] [SearchableEnum] private EMissionId _id;

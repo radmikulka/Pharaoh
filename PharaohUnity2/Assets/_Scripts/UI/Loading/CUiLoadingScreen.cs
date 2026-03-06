@@ -47,17 +47,17 @@ namespace Pharaoh
         public void SetInfoText(string text, bool localized)
         {
             string content = localized ? _translation.GetText(text) : text;
-            _infoText.SetValue(content);
+            _infoText?.SetValue(content);
         }
 
         public void UpdateProgressBar(float progress)
         {
-            _progressBar.UpdateProgress(progress);
+            _progressBar?.UpdateProgress(progress);
         }
 
         public void SetActiveProgressBar(bool active)
         {
-            _progressBar.SetActive(active);
+            _progressBar?.SetActive(active);
         }
 
         public async UniTask Show(CancellationToken ct, float duration)

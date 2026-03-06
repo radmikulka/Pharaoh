@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace AldaEngine
 {
-	[CreateAssetMenu(fileName = "OrderedBundlesCollection", menuName = "____TycoonBuilder/EditorTasks/TycoonOrderedBundlesCollection")]
+	[CreateAssetMenu(fileName = "OrderedBundlesCollection", menuName = "____Pharaoh/EditorTasks/PharaohOrderedBundlesCollection")]
 	public class COrderedBundlesCollection : CBaseOrderedBundlesCollection
 	{
 		[SerializeField] private CAssetBundleToBuild[] _orderedLocalBundles;

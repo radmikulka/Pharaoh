@@ -12,7 +12,7 @@ namespace Pharaoh
 {
 	public class CRequiredBundlesProvider : IRequiredBundlesProvider
 	{
-		public int[] GetBundles(EMissionId region)
+		public int[] GetBundles(EMissionId missionId)
 		{
 			HashSet<EBundleId> bundles = new();
 			GetBaseBundles(bundles);

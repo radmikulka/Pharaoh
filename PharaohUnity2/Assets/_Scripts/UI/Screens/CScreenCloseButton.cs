@@ -13,7 +13,7 @@ namespace Pharaoh.Ui
 	public class CScreenCloseButton : ValidatedMonoBehaviour, IInitializable
 	{
 		[SerializeField, Self] private CUiButton _button;
-		[SerializeField, Parent] private CTycoonBuilderScreen _screen;
+		[SerializeField, Parent] private CPharaohScreen _screen;
 		
 		public void Initialize()
 		{

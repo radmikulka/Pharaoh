@@ -1,3 +1,4 @@
 - dialog system CErrorHandler
 - settings
 - IRewardQueue
+- lokalizace

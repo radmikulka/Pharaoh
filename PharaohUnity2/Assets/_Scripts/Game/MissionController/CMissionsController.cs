@@ -61,39 +61,39 @@ namespace Pharaoh
 			return _activeMission.GetCameraPlane();
 		}
 
-		public async UniTask LoadRegion(EMissionId region, CancellationToken ct)
+		public async UniTask LoadMission(EMissionId mission, CancellationToken ct)
 		{
 			await _loadingScreen.Show(ct);
-			await OpenRegion(region, ct);
+			await OpenMission(mission, ct);
 			await _loadingScreen.Hide(ct);
 		}
 
-		private async UniTask OpenRegion(EMissionId region, CancellationToken ct)
+		private async UniTask OpenMission(EMissionId mission, CancellationToken ct)
 		{
-			ActiveMission = region;
+			ActiveMission = mission;
 
-			await _requiredBundlesDownloader.DownloadBundlesAsync(region, ct);
+			await _requiredBundlesDownloader.DownloadBundlesAsync(mission, ct);
 			await _sceneManager.LoadSceneAsync(ESceneId.CoreGame, LoadSceneMode.Additive, ct);
-			_activeMission = await LoadRegionScene(region, ct);
+			_activeMission = await LoadMissionScene(mission, ct);
 
-			_eventBus.Send(new CMissionActivatedSignal(region));
+			_eventBus.Send(new CMissionActivatedSignal(mission));
 		}
 
-		private async UniTask<CMissionController> LoadRegionScene(EMissionId region, CancellationToken ct)
+		private async UniTask<CMissionController> LoadMissionScene(EMissionId mission, CancellationToken ct)
 		{
-			CMissionResourceConfig regionConfig = _resourceConfigs.Missions.GetConfig(region);
-			Scene scene = await _sceneManager.LoadSceneAsync(regionConfig.SceneId, LoadSceneMode.Additive, ct);
+			CMissionResourceConfig missionConfig = _resourceConfigs.Missions.GetConfig(mission);
+			Scene scene = await _sceneManager.LoadSceneAsync(missionConfig.SceneId, LoadSceneMode.Additive, ct);
 			return scene.GetRootGameObjects()[0].GetComponentInChildren<CMissionController>();
 		}
 
-		private async UniTask UnloadRegionScene(EMissionId mission, CancellationToken ct)
+		private async UniTask UnloadMissionScene(EMissionId mission, CancellationToken ct)
 		{
 			if(mission == EMissionId.None)
 				return;
-			
+
 			_eventBus.Send(new CMissionUnloadedStartedSignal(mission));
-			CMissionResourceConfig regionConfig = _resourceConfigs.Missions.GetConfig(mission);
-			await _sceneManager.UnloadSceneAsync(regionConfig.SceneId, ct);
+			CMissionResourceConfig missionConfig = _resourceConfigs.Missions.GetConfig(mission);
+			await _sceneManager.UnloadSceneAsync(missionConfig.SceneId, ct);
 		}
 	}
 }

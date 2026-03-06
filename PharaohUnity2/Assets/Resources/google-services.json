@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "842712092969",
+    "firebase_url": "https://tinyheroes-85a56-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tinyheroes-85a56",
+    "storage_bucket": "tinyheroes-85a56.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842712092969:android:7684f3751f5de3300ce738",
+        "android_client_info": {
+          "package_name": "com.rami.tiny.heroes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiK0_g6GqeBSeDBqcfP0Zx76EWolwqKsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -96,7 +96,7 @@ namespace Pharaoh
 		}
 
 #if UNITY_EDITOR
-		[MenuItem("TycoonBuilder/Select/Config Server %#t", false, 0)]
+		[MenuItem("Pharaoh/Select/Config Server %#t", false, 0)]
 		private static void SelectSettings()
 		{
 			Selection.activeObject = Instance;

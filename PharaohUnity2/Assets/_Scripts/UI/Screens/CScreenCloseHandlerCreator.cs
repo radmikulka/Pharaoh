@@ -14,7 +14,7 @@ namespace Pharaoh.Ui
 {
 	public class CScreenCloseHandlerCreator : ValidatedMonoBehaviour, IInitializable
 	{
-		[SerializeField, Self] private CTycoonBuilderScreen _screen;
+		[SerializeField, Self] private CPharaohScreen _screen;
 		
 		private IEventBus _eventBus;
 		

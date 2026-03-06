@@ -26,7 +26,7 @@ namespace Pharaoh
         public CBundleManagerSettings BundleConfig => _bundleConfig;
 		
 #if UNITY_EDITOR
-        [MenuItem("TycoonBuilder/Select/Config Build %#e", false, 0)]
+        [MenuItem("Pharaoh/Select/Config Build %#e", false, 0)]
         private static void SelectSettings()
         {
             Selection.activeObject = Instance;

@@ -31,10 +31,10 @@ namespace Pharaoh
 		{
 			WarpCamera();
 
-			_eventBus.Subscribe<CMissionActivatedSignal>(OnRegionActivated);
+			_eventBus.Subscribe<CMissionActivatedSignal>(OnMissionActivated);
 		}
 
-		private void OnRegionActivated(CMissionActivatedSignal signal)
+		private void OnMissionActivated(CMissionActivatedSignal signal)
 		{
 			if(!_missionController.IsActive)
 				return;

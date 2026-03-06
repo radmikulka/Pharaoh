@@ -13,5 +13,7 @@ namespace ServerData
         Blank = 3,
         Ui = 4,
         CoreGame = 5,
+        
+        Mission_1_1 = 1000,
     }
 }

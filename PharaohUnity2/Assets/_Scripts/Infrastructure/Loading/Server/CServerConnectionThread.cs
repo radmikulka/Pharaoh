@@ -46,6 +46,8 @@ namespace Pharaoh
 		public async UniTask<CResponseHit> ConnectAsync(CancellationToken ct)
 		{
 			await _serverEndpointProvider.Reload(ct);
+			return null;
+			
 			_hitsDispatcher.CreateNewTcpClient(_serverEndpointProvider.ActiveEndPoint);
 			
 			await TryConfigureServerAsync(ct);

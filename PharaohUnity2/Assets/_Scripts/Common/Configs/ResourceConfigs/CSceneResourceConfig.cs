@@ -12,7 +12,7 @@ using UnityEngine.Serialization;
 
 namespace Pharaoh
 {
-	[CreateAssetMenu(menuName = "____TycoonBuilder/Configs/Scene")]
+	[CreateAssetMenu(menuName = "____Pharaoh/Configs/Scene")]
 	public class CSceneResourceConfig : ScriptableObject, IResourceConfigBase<ESceneId>
 	{
 		[SerializeField] [SearchableEnum] private ESceneId _id;

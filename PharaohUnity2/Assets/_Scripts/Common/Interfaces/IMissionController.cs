@@ -13,6 +13,6 @@ namespace Pharaoh
 	public interface IMissionController
 	{
 		EMissionId ActiveMission { get; }
-		UniTask LoadRegion(EMissionId region, CancellationToken ct);
+		UniTask LoadMission(EMissionId mission, CancellationToken ct);
 	}
 }
