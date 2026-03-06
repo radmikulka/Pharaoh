@@ -22,15 +22,12 @@ namespace Pharaoh
 		private CResourceConfigs _resourceConfigs;
 		private IBundleManager _bundleManager;
 
-		protected IValuable Valuable;
+		private IValuable Valuable;
 		
 		public EValuable Id => Valuable?.Id ?? EValuable.None;
 
 		[Inject]
-		private void Inject(
-			CResourceConfigs resourceConfigs, 
-			IBundleManager bundleManager
-			)
+		private void Inject(CResourceConfigs resourceConfigs, IBundleManager bundleManager)
 		{
 			_resourceConfigs = resourceConfigs;
 			_bundleManager = bundleManager;

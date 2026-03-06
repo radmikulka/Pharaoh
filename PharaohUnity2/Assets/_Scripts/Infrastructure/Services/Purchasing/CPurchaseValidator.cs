@@ -63,8 +63,6 @@ namespace ServiceEngine.Purchasing
 					string.Empty, 
 					order.GetFirstProductId(), 
 					string.Empty,
-					0, 
-					EModificationSource.None,
 					new CPurchasePayloads()
 					);
 			}
@@ -107,8 +105,7 @@ namespace ServiceEngine.Purchasing
 				);
 			CHitRecordBuilder hitBuilder = _hitBuilder.GetBuilder(new CValidatePurchaseRequest(
 				purchaseDataDto, 
-				metaData.OfferId,
-				metaData.OverrideSource
+				metaData.OfferId
 			));
 
 			hitBuilder.SetExecuteImmediately();

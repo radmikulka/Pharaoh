@@ -18,7 +18,6 @@ namespace Pharaoh.Ui
         private CEscapeHandler _escapeHandler;
         
         private CancellationTokenSource _cts;
-        private CanvasGroup _canvasGroup;
         
         protected ICtsProvider CtsProvider;
         
@@ -34,7 +33,6 @@ namespace Pharaoh.Ui
         private void OnValidate()
         {
             this.ValidateRefs();
-            _canvasGroup = GetComponent<CanvasGroup>();
         }
 
         public void OnEscape()
@@ -57,35 +55,6 @@ namespace Pharaoh.Ui
                 return;
             }
             CloseThisScreen();
-        }
-        
-        public void SetAlpha(float alpha)
-        {
-            if (!_canvasGroup)
-            {
-                _canvasGroup = GetComponent<CanvasGroup>();
-            }
-            
-            _cts?.Cancel();
-            _cts = CancellationTokenSource.CreateLinkedTokenSource(CtsProvider.Token);
-            AnimateAlpha(alpha, _cts.Token).Forget();
-        }
-
-        private async UniTask AnimateAlpha(float alpha, CancellationToken ct)
-        {
-            float duration = 0.15f;
-            float initialAlpha = _canvasGroup.alpha;
-            float elapsed = 0f;
-            while (elapsed < duration)
-            {
-                ct.ThrowIfCancellationRequested();
-                
-                elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / duration);
-                _canvasGroup.alpha = Mathf.Lerp(initialAlpha, alpha, t);
-                await UniTask.Yield();
-            }
-            _canvasGroup.alpha = alpha;
         }
 
         public override void OnScreenOpenStart()

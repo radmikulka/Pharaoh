@@ -12,21 +12,15 @@ namespace ServerData.Dto
 	{
 		[JsonProperty] public string PublicId { get; set; }
 		[JsonProperty] public bool IsTestUser { get; set; }
-		[JsonProperty] public EPrivacyConsentStatus PrivacyConsent { get; set; }
 
 		public CAccountDto()
 		{
 		}
 
-		public CAccountDto(
-			string publicId, 
-			bool isTestUser,
-			EPrivacyConsentStatus privacyConsent
-			)
+		public CAccountDto(string publicId, bool isTestUser)
 		{
 			PublicId = publicId;
 			IsTestUser = isTestUser;
-			PrivacyConsent = privacyConsent;
 		}
 	}
 }

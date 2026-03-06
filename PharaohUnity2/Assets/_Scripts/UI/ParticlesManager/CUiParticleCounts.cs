@@ -10,50 +10,20 @@ namespace Pharaoh.Ui
 {
     public class CUiParticleCounts
     {
-        private readonly Dictionary<EValuable, CCurrencyCounts> _countsDb = new();
+        private readonly int[] _thresholds = { 5, 100, 500, 1000, 2500, 5000, 10000 };
+        private readonly int[] _counts = { 3, 7, 10, 15, 20, 35, 50 };
 
-        public CUiParticleCounts()
+        public int GetCount(int amount)
         {
-            AddCounts
-            (
-                EValuable.None,
-                new[] { 5, 100, 500, 1000, 2500, 5000, 10000 },
-                new[] { 3, 7, 10, 15, 20, 35, 50 }
-            );
-        }
-
-        private void AddCounts(EValuable id, int[] thresholds, int[] counts)
-        {
-            _countsDb[id] = new CCurrencyCounts(thresholds, counts);
-        }
-
-        public int GetCount(EValuable id, int amount)
-        {
-            if (!_countsDb.ContainsKey(id))
+            for (int i = _thresholds.Length-1; i >= 0 ; i--)
             {
-                id = EValuable.None;
-            }
-
-            CCurrencyCounts counts = _countsDb[id];
-            for (int i = counts.Thresholds.Length-1; i >= 0 ; i--)
-            {
-                if(amount >= counts.Thresholds[i])
-                    return counts.Counts[i];
+                if (amount >= _thresholds[i])
+                {
+                    return _counts[i];
+                }
             }
 			
             return amount;
-        }
-
-        private class CCurrencyCounts
-        {
-            public readonly int[] Thresholds;
-            public readonly int[] Counts;
-			
-            public CCurrencyCounts(int[] thresholds, int[] counts)
-            {
-                Thresholds = thresholds;
-                Counts = counts;
-            }
         }
     }
 }

@@ -16,22 +16,16 @@ namespace Pharaoh
 	{
 		public string ProductId { get; }
 		public string AnalyticsId { get; private set; }
-		public EModificationSource OverrideSource;
 		public CPurchasePayloads Payloads { get; private set; }
-		public long PurchaseTimeInMs;
 		public string OfferId;
 
 		public CPurchaseMetadata(
 			string offerId, 
 			string productId, 
 			string analyticsId,
-			long purchaseTimeInMs, 
-			EModificationSource overrideSource,
 			CPurchasePayloads payloads
 			)
 		{
-			PurchaseTimeInMs = purchaseTimeInMs;
-			OverrideSource = overrideSource;
 			AnalyticsId = analyticsId;
 			ProductId = productId;
 			Payloads = payloads;

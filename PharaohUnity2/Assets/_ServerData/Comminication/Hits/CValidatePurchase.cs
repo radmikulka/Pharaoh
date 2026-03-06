@@ -12,18 +12,16 @@ namespace ServerData.Hits
 	public class CValidatePurchaseRequest : CCommTokenBasedRequest
 	{
 		[JsonProperty] public CRealMoneyPurchaseDataDto RealMoneyPurchase { get; set; }
-		[JsonProperty] public EModificationSource OverrideSource { get; set; }
 		[JsonProperty] public string OfferId { get; set; }
 
 		public CValidatePurchaseRequest() : base(EHit.ValidatePurchaseRequest)
 		{
 		}
 		
-		public CValidatePurchaseRequest(CRealMoneyPurchaseDataDto realMoneyPurchase, string offerId, EModificationSource overrideSource) 
+		public CValidatePurchaseRequest(CRealMoneyPurchaseDataDto realMoneyPurchase, string offerId) 
 			: base(EHit.ValidatePurchaseRequest)
 		{
 			RealMoneyPurchase = realMoneyPurchase;
-			OverrideSource = overrideSource;
 			OfferId = offerId;
 		}
 	}

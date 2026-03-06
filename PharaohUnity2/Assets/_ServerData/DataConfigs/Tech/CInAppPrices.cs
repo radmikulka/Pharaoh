@@ -43,10 +43,6 @@ namespace ServerData
 			AddPrice(EInAppPrice.Usd70, "tycoonbuilder.specialpack24");
 			AddPrice(EInAppPrice.Usd80, "tycoonbuilder.specialpack25");
 			AddPrice(EInAppPrice.Usd100, "tycoonbuilder.specialpack26");
-			AddPrice(EInAppPrice.Usd120, "tycoonbuilder.specialpack27");
-			AddPrice(EInAppPrice.Usd140, "tycoonbuilder.specialpack28");
-			AddPrice(EInAppPrice.Usd160, "tycoonbuilder.specialpack29");
-			AddPrice(EInAppPrice.Usd200, "tycoonbuilder.specialpack30");
 
 			AddPrice(EInAppPrice.Usd55, "tycoonbuilder.specialpack31");
 		}

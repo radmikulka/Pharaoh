@@ -62,10 +62,8 @@ namespace Pharaoh
             CUiCurrencyParticlePoint uiCurrency = _uiCurrencies.GetCurrency(task.Currency.Id);
             RectTransform currencyPoint = uiCurrency.RectTransform;
             
-            int particlesCount = _particleCounts.GetCount(task.Currency.Id, task.Currency.Value);
+            int particlesCount = _particleCounts.GetCount(task.Currency.Value);
             int previousAmount = 0;
-
-            Guid guid = Guid.NewGuid();
 
             _audioManager.PlaySound2D(_particleStartSound);
                 

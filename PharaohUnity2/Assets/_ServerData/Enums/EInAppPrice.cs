@@ -30,15 +30,10 @@ namespace ServerData
 		Usd40 = 20,
 		Usd45 = 21,
 		Usd50 = 22,
-		Usd60 = 23,
-		Usd70 = 24,
-		Usd80 = 25,
-		Usd100 = 26,
-		Usd120 = 27,
-		Usd140 = 28,
-		Usd160 = 29,
-		Usd200 = 30,
-
-		Usd55 = 31,
+		Usd55 = 23,
+		Usd60 = 24,
+		Usd70 = 25,
+		Usd80 = 26,
+		Usd100 = 27,
 	}
 }

@@ -356,8 +356,6 @@ namespace Pharaoh
 		private void ProcessErrorResponse(CResponsePacket response)
 		{
 			Reset();
-
-			_eventBus.ProcessTask<CStopUserValidatorTask>();
 			
 			_mainThreadActions.Enqueue(() =>
 			{

@@ -14,10 +14,7 @@ namespace ServerData.Dto
 		[JsonProperty] public CValuableModificationDto[] ValuableModifications { get; set; }
 		[JsonProperty] public COffersDto NewOffers { get; set; }
 
-		public CModifiedUserDataDto(
-			CValuableModificationDto[] valuableModifications,
-			COffersDto newOffers
-			)
+		public CModifiedUserDataDto(CValuableModificationDto[] valuableModifications, COffersDto newOffers)
 		{
 			ValuableModifications = valuableModifications;
 			NewOffers = newOffers;

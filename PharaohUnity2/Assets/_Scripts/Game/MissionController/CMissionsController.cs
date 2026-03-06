@@ -91,7 +91,6 @@ namespace Pharaoh
 			if(mission == EMissionId.None)
 				return;
 
-			_eventBus.Send(new CMissionUnloadedStartedSignal(mission));
 			CMissionResourceConfig missionConfig = _resourceConfigs.Missions.GetConfig(mission);
 			await _sceneManager.UnloadSceneAsync(missionConfig.SceneId, ct);
 		}

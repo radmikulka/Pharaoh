@@ -7,7 +7,7 @@ namespace Pharaoh
 {
     public enum EUiParticleId
     {
-        None,
-        HardCurrency,
+        None = 0,
+        HardCurrency = 1,
     }
 }

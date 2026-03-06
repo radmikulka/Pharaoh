@@ -15,7 +15,7 @@ using Zenject;
 
 namespace ServiceEngine.Purchasing
 {
-	public class CPurchasingPharaoh : CPurchasing, IInitializable
+	public class CPurchasingPharaoh : CPurchasing
 	{
 		private CHitBuilder _hitBuilder;
 
@@ -33,12 +33,6 @@ namespace ServiceEngine.Purchasing
 		private void OnPurchaseFailedSignalled(CPurchaseFailedSignal signal)
 		{
 			TryShowFailedTooltip(signal.FailureReason);
-			
-			if(signal.MetaData is not CPurchaseMetadata metaData)
-				return;
-			_hitBuilder.GetBuilder(new CCancelPurchaseRequest(metaData.OfferId, metaData.ProductId))
-				.SetExecuteImmediately()
-				.BuildAndSend();
 		}
 
 		private void TryShowFailedTooltip(EPurchaseFailureReason reason)
@@ -61,19 +55,6 @@ namespace ServiceEngine.Purchasing
 				return currentState;
 			
 			EventBus.Send(new CPurchaseInitiatedSignal(metaData));
-			
-			CPurchaseMetadata tbMetaData = (CPurchaseMetadata)metaData;
-			var response = await _hitBuilder.GetBuilder(new CInitiatePurchaseRequest(
-					tbMetaData.OfferId, 
-					tbMetaData.ProductId, 
-					tbMetaData.Payloads
-					))
-				.SetExecuteImmediately()
-				.BuildAndSendAsync<CInitiatePurchaseResponse>(CancellationToken.None);
-
-			if (response.Response == null)
-				return EPurchaseState.Failed;
-			
 			return await base.PurchaseProduct(metaData);
 		}
 	}

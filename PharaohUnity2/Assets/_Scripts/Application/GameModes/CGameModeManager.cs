@@ -50,8 +50,6 @@ namespace Pharaoh
                 await ActiveGameMode.Load(task.Data, ct);
                 ActiveGameMode.Start();
 
-                _eventBus.Send(new CGameModeStartedSignal(task.Data));
-
                 if (task.OnLoadCompleted != null)
                 {
                     await task.OnLoadCompleted(ct);
