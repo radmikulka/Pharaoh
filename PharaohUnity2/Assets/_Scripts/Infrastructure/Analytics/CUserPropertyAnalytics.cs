@@ -17,37 +17,25 @@ namespace TycoonBuilder
 	public class CUserPropertyAnalytics : IInitializable
 	{
 		private readonly IDeviceIdProvider _deviceIdProvider;
-		private readonly CSettingsData _settingsData;
 		private readonly IAnalytics _analytics;
 		private readonly IEventBus _eventBus;
-		private readonly CUser _user;
 
 		public CUserPropertyAnalytics(
 			IDeviceIdProvider deviceIdProvider, 
-			CSettingsData settingsData, 
 			IAnalytics analytics, 
-			IEventBus eventBus, 
-			CUser user
+			IEventBus eventBus
 			)
 		{
 			_deviceIdProvider = deviceIdProvider;
-			_settingsData = settingsData;
 			_analytics = analytics;
 			_eventBus = eventBus;
-			_user = user;
 		}
 
 		public void Initialize()
 		{
 			_eventBus.Subscribe<CGraphicsQualityChangedSignal>(OnQualityChanged);
-			_eventBus.Subscribe<CXpIncreasedSignal>(OnXpIncreased);
-			_eventBus.Subscribe<CYearSeenSignal>(OnYearSeen);
 			
-
-			SetYear(_user.Progress.Year);
-			SetQuality((EGraphicsQuality)_settingsData.Graphics.Value);
 			RefreshResolution();
-			RefreshDecadePassTier();
 			RefreshSystemMemory();
 			RefreshAsid().Forget();
 		}
@@ -62,28 +50,7 @@ namespace TycoonBuilder
 		{
 			SetQuality(signal.Quality);
 		}
-
-		private void OnXpIncreased(CXpIncreasedSignal signal)
-		{
-			RefreshDecadePassTier();
-		}
-
-		private void OnYearSeen(CYearSeenSignal signal)
-		{
-			SetYear(signal.YearMilestone);
-		}
-
-		private void SetYear(EYearMilestone year)
-		{
-			_analytics.SetUserProperty("Year", (int)year);
-		}
-
-		private void RefreshDecadePassTier()
-		{
-			int maxClaimableIndex = _user.DecadePass.GetMaxClaimableIndex();
-			_analytics.SetUserProperty("DecadePassTier", maxClaimableIndex);
-		}
-
+		
 		private void SetQuality(EGraphicsQuality quality)
 		{
 			_analytics.SetUserProperty("GraphicsSetting", (int)quality);

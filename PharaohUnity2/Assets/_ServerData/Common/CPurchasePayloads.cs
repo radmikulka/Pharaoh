@@ -43,34 +43,4 @@ namespace ServerData
 	{
 		
 	}
-
-	public class CEventPassPayload : IPurchasePayload
-	{
-		[JsonProperty] public bool IsExtraPremium { get; set; }
-		[JsonProperty] public ELiveEvent LiveEventId { get; set; }
-
-		public CEventPassPayload()
-		{
-		}
-
-		public CEventPassPayload(bool isExtraPremium, ELiveEvent liveEventId)
-		{
-			IsExtraPremium = isExtraPremium;
-			LiveEventId = liveEventId;
-		}
-	}
-
-	public class CDecadePassPayload : IPurchasePayload
-	{
-		[JsonProperty] public bool IsExtraPremium { get; set; }
-
-		public CDecadePassPayload()
-		{
-		}
-
-		public CDecadePassPayload(bool isExtraPremium)
-		{
-			IsExtraPremium = isExtraPremium;
-		}
-	}
 }

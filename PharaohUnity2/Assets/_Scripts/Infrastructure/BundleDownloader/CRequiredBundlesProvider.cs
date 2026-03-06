@@ -90,7 +90,7 @@ namespace TycoonBuilder
 			{
 				AddContentRegionBundles(region.Id, target);
 				
-				if(region.Id == _user.Progress.Region)
+				if(region.Id == _user.Progress.Mission)
 					return;
 			}
 		}

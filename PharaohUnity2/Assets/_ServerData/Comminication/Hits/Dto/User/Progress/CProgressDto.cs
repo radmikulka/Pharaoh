@@ -10,26 +10,15 @@ namespace ServerData
 {
     public class CProgressDto : IMapAble
     {
-        [JsonProperty] public EYearMilestone SeenYear { get; set; }
-        [JsonProperty] public EYearMilestone Year { get; set; }
-        [JsonProperty] public int XpInCurrentYear { get; set; }
-        [JsonProperty] public ERegion Region { get; set; }
+        [JsonProperty] public EMissionId MissionId { get; set; }
 
         public CProgressDto()
         {
         }
 
-        public CProgressDto(
-            EYearMilestone year, 
-            ERegion region, 
-            EYearMilestone seenYear, 
-            int xpInCurrentYear
-            )
+        public CProgressDto(EMissionId missionId)
         {
-            XpInCurrentYear = xpInCurrentYear;
-            SeenYear = seenYear;
-            Year = year;
-            Region = region;
+            MissionId = missionId;
         }
     }
 }

@@ -26,16 +26,6 @@ namespace TycoonBuilder
 			_crashlytics.SetCustomKey("InstallMode", Application.installMode.ToString());
 			_crashlytics.SetCustomKey("InstallerName", Application.installerName);
 		}
-
-		public void SetYear(EYearMilestone level)
-		{
-			_crashlytics.SetCustomKey("Year", level.ToString());
-		}
-		
-		public void SetCountry(ECountryCode country)
-		{
-			_crashlytics.SetCustomKey("Country", country.ToString());
-		}
 		
 		public void SetLanguage(string language)
 		{

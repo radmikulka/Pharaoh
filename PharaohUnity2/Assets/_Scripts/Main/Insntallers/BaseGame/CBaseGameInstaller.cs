@@ -221,8 +221,8 @@ namespace TycoonBuilder
             Container.AddSingleton<CCoreGameGameMode>();
             Container.AddSingleton<CRegionLiveEventGameGameMode>();
             
-            Container.Bind(typeof(CRegionsController), typeof(ICameraPlaneProvider), typeof(IRegionsController))
-                .To<CRegionsController>()
+            Container.Bind(typeof(CMissionsController), typeof(ICameraPlaneProvider), typeof(IMissionController))
+                .To<CMissionsController>()
                 .AsSingle();
         }
 

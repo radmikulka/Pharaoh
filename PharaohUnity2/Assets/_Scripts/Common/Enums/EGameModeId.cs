@@ -9,6 +9,5 @@ namespace TycoonBuilder
     {
         None = 0,
         CoreGame = 1,
-        RegionLiveEvent = 2,
     }
 }

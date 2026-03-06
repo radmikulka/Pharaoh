@@ -13,9 +13,6 @@ namespace ServerData
 		None = 0,
 		Popup = 1 << 0,
 		Shop = 1 << 1,
-		FuelStation = 1 << 2,
-		City = 1 << 3,
-		SpecialBuildings = 1 << 4,
 		All = ~0
 	}
 }

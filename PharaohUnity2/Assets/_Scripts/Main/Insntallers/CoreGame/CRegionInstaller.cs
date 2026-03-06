@@ -14,7 +14,7 @@ namespace TycoonBuilder
 	[SuppressMessage("ReSharper", "RedundantTypeArgumentsOfMethod")]
 	public class CRegionInstaller : CSceneDiInstaller
 	{
-		[SerializeField, Child] private CRegionController _region;
+		[SerializeField, Child] private CMissionController mission;
 
 		private void OnValidate()
 		{
@@ -25,7 +25,7 @@ namespace TycoonBuilder
 		{
 			base.InstallBindings();
 			
-			Container.AddSingletonFromInstance(_region);
+			Container.AddSingletonFromInstance(mission);
 		}
 	}
 }

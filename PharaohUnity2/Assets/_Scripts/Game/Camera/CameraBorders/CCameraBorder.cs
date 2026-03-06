@@ -17,26 +17,26 @@ namespace TycoonBuilder
 		[SerializeField] private Bounds _bounds;
 		[SerializeField] private bool _drawGizmos = true;
 
-		private CRegionController _regionController;
+		private CMissionController _missionController;
 		private CCameraBorders _cameraBorders;
 		private IEventBus _eventBus;
 
 		[Inject]
-		private void Inject(IEventBus eventBus, CCameraBorders cameraBorders, CRegionController regionController)
+		private void Inject(IEventBus eventBus, CCameraBorders cameraBorders, CMissionController missionController)
 		{
-			_regionController = regionController;
+			_missionController = missionController;
 			_cameraBorders = cameraBorders;
 			_eventBus = eventBus;
 		}
 
 		public void Initialize()
 		{
-			_eventBus.Subscribe<CRegionActivatedSignal>(OnRegionLoaded);
+			_eventBus.Subscribe<CMissionActivatedSignal>(OnRegionLoaded);
 		}
 
-		private void OnRegionLoaded(CRegionActivatedSignal signal)
+		private void OnRegionLoaded(CMissionActivatedSignal signal)
 		{
-			if(signal.Region != _regionController.RegionId)
+			if(signal.Mission != _missionController.MissionId)
 				return;
 			_cameraBorders.SetBounds(_bounds);
 		}

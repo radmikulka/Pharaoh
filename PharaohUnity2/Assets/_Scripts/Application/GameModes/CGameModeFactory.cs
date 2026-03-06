@@ -24,8 +24,6 @@ namespace TycoonBuilder
             {
                 case EGameModeId.CoreGame:
                     return _diContainer.Resolve<CCoreGameGameMode>();
-                case EGameModeId.RegionLiveEvent:
-                    return _diContainer.Resolve<CRegionLiveEventGameGameMode>();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(id), id, null);
             }

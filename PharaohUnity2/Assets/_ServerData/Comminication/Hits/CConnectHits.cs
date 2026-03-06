@@ -34,7 +34,7 @@ namespace ServerData.Hits
 	
 	public class CConnectResponse : CResponseHit
 	{
-		[JsonProperty] public CAuthDataResponseDto AuthData { get; set; }
+		[JsonProperty] public string AuthUid { get; set; }
 		[JsonProperty] public string CommunicationToken { get; set; }
 		[JsonProperty] public long DayRefreshTimeInMs { get; set; }
 		[JsonProperty] public string DebugUserUid { get; set; }
@@ -47,7 +47,7 @@ namespace ServerData.Hits
 
 		public CConnectResponse(
 			CUserDto user, 
-			CAuthDataResponseDto authData, 
+			string authUid, 
 			long serverTimeInMs,
 			long dayRefreshTimeInMs,
 			string debugUserUid,
@@ -59,7 +59,7 @@ namespace ServerData.Hits
 			CommunicationToken = communicationToken;
 			ServerTimeInMs = serverTimeInMs;
 			DebugUserUid = debugUserUid;
-			AuthData = authData;
+			AuthUid = authUid;
 			User = user;
 		}
 	}

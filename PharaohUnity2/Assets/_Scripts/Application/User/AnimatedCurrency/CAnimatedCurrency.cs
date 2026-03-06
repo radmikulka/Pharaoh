@@ -81,7 +81,7 @@ namespace TycoonBuilder
             int previousValue = Value;
             Value = _currency.Value;
             
-            if (previousValue != Value || _currency is CAnimatedRecharger)
+            if (previousValue != Value)
             {
                 ValueChanged?.Invoke(Value);
             }

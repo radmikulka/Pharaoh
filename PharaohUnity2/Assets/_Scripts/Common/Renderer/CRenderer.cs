@@ -23,7 +23,6 @@ namespace TycoonBuilder
 		
 		private const float ShadowDistance = 1200f;
 		
-		private readonly HashSet<CShadowDistanceOverride> _overrides = new();
 		private readonly Dictionary<int, UniversalRenderPipelineAsset> _urpAssetsPerQuality = new();
 		private IGraphicsQualityProvider _graphicsQualityProvider;
 		private IEventBus _eventBus;
@@ -83,24 +82,6 @@ namespace TycoonBuilder
 			int currentQuality = QualitySettings.GetQualityLevel();
 			return _urpAssetsPerQuality[currentQuality];
 		}
-
-		public float GetRenderTextureDownsample()
-		{
-			UniversalRenderPipelineAsset urpAsset = GetActiveUrpAsset();
-			return CMath.Lerp(urpAsset.renderScale, 1f, 0.5f);
-		}
-		
-		public void AddShadowDistanceOverride(CShadowDistanceOverride distanceOverride)
-		{
-			_overrides.Add(distanceOverride);
-			UpdateShadowDistance();
-		}
-
-		public void ReleaseShadowDistanceOverride(CShadowDistanceOverride distanceOverride)
-		{
-			_overrides.Remove(distanceOverride);
-			UpdateShadowDistance();
-		}
 		
 		private void RefreshDownSample(EGraphicsQuality quality)
 		{
@@ -146,33 +127,11 @@ namespace TycoonBuilder
 			}
 		}
 
-		public void UpdateShadowDistance()
+		private void UpdateShadowDistance()
 		{
-			float targetDistance = GetTargetShadowDistance();
+			float targetDistance = ShadowDistance;
 			UniversalRenderPipelineAsset urpAsset = GetActiveUrpAsset();
 			urpAsset.shadowDistance = targetDistance;
-		}
-
-		private float GetTargetShadowDistance()
-		{
-			CShadowDistanceOverride activeOverride = GetHighestPriorityOverrideOrDefault();
-			if (activeOverride != null)
-				return activeOverride.ShadowDistance;
-			
-			return ShadowDistance;
-		}
-
-		private CShadowDistanceOverride GetHighestPriorityOverrideOrDefault()
-		{
-			CShadowDistanceOverride result = null;
-			foreach (CShadowDistanceOverride distanceOverride in _overrides)
-			{
-				if (result != null && result.Priority >= distanceOverride.Priority) 
-					continue;
-				result = distanceOverride;
-			}
-
-			return result;
 		}
 
 		public ScriptableRendererData GetRendererData()

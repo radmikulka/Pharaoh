@@ -11,13 +11,6 @@ namespace TycoonBuilder
 	public interface ICameraZoom
 	{
 		float TargetZoom { get; }
-		float GetMaxZoom();
-		float GetMinZoom();
-		float CurrentAbsoluteZoomValue { get; }
-		void AddMinMaxZoomOverride(IOverrideMinMaxZoomValue value);
-		void RemoveMinMaxZoomOverride(IOverrideMinMaxZoomValue value);
-		void AddZoomOverride(IOverrideZoomValue value);
-		void RemoveZoomOverride(IOverrideZoomValue value);
 		void SetAbsoluteCameraZoom(float absoluteZoomValue);
 		void SetTargetZoom(float zoomPercentage);
 	}

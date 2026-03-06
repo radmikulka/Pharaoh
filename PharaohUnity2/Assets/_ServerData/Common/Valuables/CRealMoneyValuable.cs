@@ -18,10 +18,5 @@ namespace ServerData
 		{
 			Price = price;
 		}
-
-		public EValuablePrice GetPriceType()
-		{
-			return EValuablePrice.RealMoney;
-		}
 	}
 }

@@ -53,7 +53,7 @@ namespace TycoonBuilder
 
 		private void OnYearSeen(CYearSeenSignal signal)
 		{
-			int[] requiredBundles = _requiredBundlesProvider.GetBundles(_user.Progress.Region);
+			int[] requiredBundles = _requiredBundlesProvider.GetBundles(_user.Progress.Mission);
 			_bundleManager.LoadBundlesAsync(requiredBundles, _ctsProvider.Token).Forget();
 		}
 

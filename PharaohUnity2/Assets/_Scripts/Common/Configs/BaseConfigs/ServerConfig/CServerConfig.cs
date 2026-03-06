@@ -27,10 +27,6 @@ namespace TycoonBuilder
 		
 		[Space(5)] [Header("PRESETS")] 
 		[SerializeField] private bool _likeABoss;
-		[SerializeField, ShowIf("_likeABoss")] private bool _likeABossVehicles;
-		[SerializeField, ShowIf("_likeABoss"), SearchableEnum] private EYearMilestone _overrideYear;
-		[SerializeField, ShowIf("_likeABoss"), SearchableEnum(true)] private EStaticContractId _overrideContract;
-		[SerializeField, ShowIf("_likeABoss"), SearchableEnum] private ELiveEvent _overrideEvent;
 		[SerializeField] private string _overrideUid;
 		[SerializeField] [SearchableEnum] private EUserPresetId _presetId;
 		[SerializeField] private string _manualPresetId;
@@ -75,18 +71,9 @@ namespace TycoonBuilder
 			set => _likeABoss = value;
 		}
 
-		public bool LikeABossVehicles
-		{
-			get => _likeABossVehicles;
-			set => _likeABossVehicles = value;
-		}
-
 		public bool IsLocal => CPlatform.IsEditor && _isLocal;
 		public string ManualPresetId => _manualPresetId;
 		public bool IgnoreHitTimeoutTime => _ignoreHitTimeoutTime;
-		public EYearMilestone OverrideYear => _overrideYear;
-		public EStaticContractId OverrideContract => _overrideContract;
-		public ELiveEvent OverrideEvent => _overrideEvent;
 
 		#if UNITY_EDITOR
 
@@ -100,22 +87,6 @@ namespace TycoonBuilder
 		private void ClearPrefs()
 		{
 			CPlayerPrefs.DeleteAll();
-		}
-
-		[Button(null, EButtonEnableMode.Editor)]
-		private void SetTutorialTesting()
-		{
-			CDebugConfig.Instance.SetTutorialTesting();
-			PresetId = EUserPresetId.None;
-			LikeABoss = false;
-		}
-
-		[Button(null, EButtonEnableMode.Editor)]
-		private void SetLikeABoss()
-		{
-			CDebugConfig.Instance.SetLikeABoss();
-			PresetId = EUserPresetId.None;
-			LikeABoss = true;
 		}
 		
 		[Button(null, EButtonEnableMode.Editor)]
@@ -149,11 +120,6 @@ namespace TycoonBuilder
 			_fakeDelayInSecs = 0;
 			_presetId = EUserPresetId.None;
 			_ignoreHitTimeoutTime = false;
-			
-			if (CPlatform.IsAndroidPlatform)
-			{
-				PlayerSettings.SetIl2CppCompilerConfiguration(NamedBuildTarget.Android, Il2CppCompilerConfiguration.Master);
-			}
 			
 			EditorUtility.SetDirty(this);
 			#endif

@@ -10,30 +10,29 @@ using ServerData;
 
 namespace TycoonBuilder
 {
-	[ValidatableData]
 	public class CConsumableOwnedValuable : COwnedValuable
 	{
-		[ValidatableData] public CUserDataInt Amount { get; private set; }
+		public int Amount { get; private set; }
 
 		public event Action<SValueChangeArgs> ValueChanged;
 
 		public CConsumableOwnedValuable(EValuable id, int amount) : base(id)
 		{
-			Amount = new CUserDataInt(amount);
+			Amount = amount;
 		}
 
 		public override void InitialSync(COwnedValuableData data)
 		{
 			base.InitialSync(data);
 			CConsumableOwnedValuableData consumable = (CConsumableOwnedValuableData)data;
-			Amount = new CUserDataInt(consumable.Amount);
+			Amount = consumable.Amount;
 			ValueChanged?.Invoke(new SValueChangeArgs(null, 0, Amount));
 		}
 
 		public override void Sync(IOwnedValuableData data)
 		{
 			CConsumableOwnedValuableData consumable = (CConsumableOwnedValuableData)data;
-			Amount.ServerValue = consumable.Amount;
+			Amount = consumable.Amount;
 		}
 
 		internal override void Modify(IValuable valuable, CValueModifyParams modifyParams)
@@ -54,10 +53,10 @@ namespace TycoonBuilder
 		{
 			int previousValue = Amount;
 			
-			Amount.LocalValue += valuable.Value;
+			Amount += valuable.Value;
 			if (Amount < 0)
 			{
-				Amount.LocalValue = 0;
+				Amount = 0;
 			}
 			
 			ValueChanged?.Invoke(new SValueChangeArgs(modifyParams, previousValue, Amount));

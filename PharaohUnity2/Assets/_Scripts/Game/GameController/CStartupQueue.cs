@@ -14,26 +14,17 @@ namespace TycoonBuilder
 {
 	public class CStartupQueue : IInitializable
 	{
-		private readonly CDispatchCenterTutorial _dispatchCenterTutorial;
-		private readonly CContractsMenuTutorial _contractsMenuTutorial;
 		private readonly CLazyActionQueue _lazyActionQueue;
-		private readonly CIntroTutorial _introTutorial;
 		private readonly ICtsProvider _ctsProvider;
 		private readonly IEventBus _eventBus;
 		
 		public CStartupQueue(
-			CDispatchCenterTutorial dispatchCenterTutorial, 
-			CContractsMenuTutorial contractsMenuTutorial, 
 			CLazyActionQueue lazyActionQueue, 
-			CIntroTutorial introTutorial, 
 			ICtsProvider ctsProvider, 
 			IEventBus eventBus
 			)
 		{
-			_dispatchCenterTutorial = dispatchCenterTutorial;
-			_contractsMenuTutorial = contractsMenuTutorial;
 			_lazyActionQueue = lazyActionQueue;
-			_introTutorial = introTutorial;
 			_ctsProvider = ctsProvider;
 			_eventBus = eventBus;
 		}
@@ -52,18 +43,9 @@ namespace TycoonBuilder
 		{
 			await UniTask.WaitForSeconds(0.5f, cancellationToken: ct);
 
-			await RunTutorials(ct);
-
 			_lazyActionQueue.Activate();
 
 			_eventBus.Send(new CCoreGameUnlockedSignal());
-		}
-
-		private async UniTask RunTutorials(CancellationToken ct)
-		{
-			await _introTutorial.TryRunAsync(ct);
-			_dispatchCenterTutorial.TryStartOnGameLoad();
-			_contractsMenuTutorial.TryStartOnGameLoad();
 		}
 	}
 }

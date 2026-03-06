@@ -12,8 +12,6 @@ namespace TycoonBuilder
 	{
 		public abstract void SavePreset();
 		public abstract void ForceInternalHitError();
-		public abstract void AddXp(float normalizedValue);
-		public abstract void CheatVehicle(EVehicle vehicle);
 		public abstract void RunMemoryDebug();
 	}
 }

@@ -10,16 +10,10 @@ namespace ServerData
     public interface IValuable : IJsonMapAble
     {
         EValuable Id { get; }
-        EValuablePrice GetPriceType() => EValuablePrice.None;
         string GetAnalyticsValue() => string.Empty;
     }
 
-    public interface IOfferAnalyticsValueProvider
-    {
-        string GetOfferRewardAnalyticsValue();
-    }
-
-    public interface ICountableValuable : IValuable, IOfferAnalyticsValueProvider
+    public interface ICountableValuable : IValuable
     {
         int Value { get; }
         ICountableValuable Multiply(int multiplier);

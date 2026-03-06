@@ -9,6 +9,6 @@ namespace TycoonBuilder
 {
 	public interface IRequiredBundlesProvider
 	{
-		int[] GetBundles(ERegion region);
+		int[] GetBundles(EMissionId mission);
 	}
 }

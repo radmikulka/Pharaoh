@@ -11,7 +11,7 @@ namespace ServerData
         
 		public static readonly CNullValuable Instance = new();
 
-		public CNullValuable()
+		private CNullValuable()
 		{
 		}
 	}

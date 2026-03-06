@@ -27,7 +27,6 @@ namespace TycoonBuilder
         private readonly CCameraMoverInput _input = new();
         private IMainCameraProvider _mainCamera;
         private CCameraBorders _cameraBorders;
-        private CRegionPoints _regionPoints;
         private CEventSystem _eventSystem;
         private Transform _followTarget;
         private IEventBus _eventBus;
@@ -43,14 +42,12 @@ namespace TycoonBuilder
             ICameraPlaneProvider cameraPlaneProvider, 
             IMainCameraProvider mainCamera, 
             CCameraBorders cameraBorders, 
-            CRegionPoints regionPoints, 
             CEventSystem eventSystem,
             IEventBus eventBus
             )
         {
             _cameraPlaneProvider = cameraPlaneProvider;
             _cameraBorders = cameraBorders;
-            _regionPoints = regionPoints;
             _eventSystem = eventSystem;
             _mainCamera = mainCamera;
             _eventBus = eventBus;
@@ -75,45 +72,8 @@ namespace TycoonBuilder
 
         public void Initialize()
         {
-            _eventBus.AddTaskHandler<CFocusCameraOnRegionPointInstantTask>(ProcessFocusCameraOnRegionPointInstantTask);
-            _eventBus.AddAsyncTaskHandler<CFocusCameraOnRegionPointTask>(ProcessFocusCameraOnRegionPointTask);
-            _eventBus.AddTaskHandler<CSetCameraFollowTargetTask>(ProcessSetCameraFollowTargetTask);
-            _eventBus.AddTaskHandler<CFocusCameraOnPointTask>(ProcessFocusCameraOnPointTask);
             _eventBus.Subscribe<CCoreGameLoadedSignal>(OnCoreGameLoaded);
             _eventBus.Subscribe<CPinchEndSignal>(OnPinchEnd);
-        }
-
-        private void ProcessSetCameraFollowTargetTask(CSetCameraFollowTargetTask task)
-        {
-            if (_followTarget && !task.Target)
-            {
-                _targetPos = transform.position;
-            }
-            
-            _followTarget = task.Target;
-        }
-
-        private void ProcessFocusCameraOnRegionPointInstantTask(CFocusCameraOnRegionPointInstantTask task)
-        {
-            CRegionPoint regionPoint = _regionPoints.GetPoint(task.TargetPoint, task.Region);
-            MoveTo(regionPoint.Position);
-            Vector3 targetPos = GetTargetPos();
-            Warp(targetPos);
-        }
-
-        private async Task ProcessFocusCameraOnRegionPointTask(CFocusCameraOnRegionPointTask task, CancellationToken ct)
-        {
-            CRegionPoint regionPoint = _regionPoints.GetPoint(task.TargetPoint, task.Region);
-            MoveTo(regionPoint.Position);
-            
-            Vector3 targetPos = GetTargetPos();
-            await UniTask.WaitUntil(() => Vector3.Distance(targetPos, transform.position) <= _closeEnoughDistance, cancellationToken: ct);
-        }
-        
-        private void ProcessFocusCameraOnPointTask(CFocusCameraOnPointTask task)
-        {
-            MoveTo(task.TargetPoint);
-            _cameraZoom.SetZoomValue(task.Zoom);
         }
 
         private void OnCoreGameLoaded(CCoreGameLoadedSignal signal)

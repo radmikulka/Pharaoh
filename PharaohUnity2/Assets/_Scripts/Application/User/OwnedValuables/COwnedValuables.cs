@@ -13,10 +13,9 @@ using UnityEngine;
 
 namespace TycoonBuilder
 {
-	[ValidatableData]
 	public class COwnedValuables : CBaseUserComponent, IInitializable
 	{
-		[ValidatableData] private readonly Dictionary<EValuable, COwnedValuable> _valuables = new();
+		private readonly Dictionary<EValuable, COwnedValuable> _valuables = new();
 		private readonly COwnedValuableFactory _valuableFactory = new();
 
 		private readonly CSpecialValuables _specialValuables;
@@ -114,31 +113,6 @@ namespace TycoonBuilder
 			foreach (var ownedValuable in _valuables)
 			{
 				ownedValuable.Value.Dispose();
-			}
-		}
-
-		public void ForceToHaveAtLeastSomeValuables(IValuable valuable)
-		{
-			switch (valuable)
-			{
-				case CConsumableValuable consumable:
-				{
-					int currentAmount = GetConsumable(consumable.Id).Amount;
-					int neededAmount = consumable.Value - currentAmount;
-					if (neededAmount <= 0)
-						return;
-					ModifyValuableInternal(CValuableFactory.Consumable(consumable.Id, neededAmount));
-					break;
-				}
-				case CResourceValuable resource:
-				{
-					int currentAmount = User.Warehouse.GetResourceAmount(resource.Resource.Id);
-					int neededAmount = resource.Resource.Amount - currentAmount;
-					if (neededAmount <= 0)
-						return;
-					ModifyValuableInternal(CValuableFactory.Resource(resource.Resource.Id, neededAmount));
-					break;
-				}
 			}
 		}
 	}

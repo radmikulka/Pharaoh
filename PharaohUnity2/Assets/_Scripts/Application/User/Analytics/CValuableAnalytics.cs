@@ -30,24 +30,7 @@ namespace TycoonBuilder
 
 		public void Initialize()
 		{
-			_eventBus.Subscribe<CSpecialBuildingBoughtSignal>(OnSpecialBuildingBought);
 			_eventBus.Subscribe<CServerHitsProcessedSignal>(OnHitsProcessed);
-			_eventBus.Subscribe<CVehicleAddedSignal>(OnVehicleAdded);
-		}
-
-		private void OnVehicleAdded(CVehicleAddedSignal signal)
-		{
-			_cachedParams.Clear();
-			_cachedParams.Add("Name", signal.VehicleId);
-			_cachedParams.Add("Source", signal.ObtainSource);
-			_analytics.SendData("VehicleChange", _cachedParams);
-		}
-
-		private void OnSpecialBuildingBought(CSpecialBuildingBoughtSignal signal)
-		{
-			_cachedParams.Clear();
-			_cachedParams.Add("Name", signal.BuildingId);
-			_analytics.SendData("BuildingChange", _cachedParams);
 		}
 
 		private void OnHitsProcessed(CServerHitsProcessedSignal signal)
@@ -61,7 +44,6 @@ namespace TycoonBuilder
 				if (modifiedData != null)
 				{
 					LogAnalytics(modifiedData.ValuableModifications);
-					LogAnalytics(modifiedData.ResourceModifications);
 				}
 			}
 		}
@@ -82,31 +64,9 @@ namespace TycoonBuilder
 			_cachedParams.Clear();
 			_cachedParams.Add("Name", valuable.Id);
 			_cachedParams.Add("Source", modifiedValuable.Source);
-			_cachedParams.Add("SourceDetail", modifiedValuable.SourceDetail);
-			_cachedParams.Add("Price", modifiedValuable.Price);
 			_cachedParams.Add("Value", valuable.GetAnalyticsValue());
 			_cachedParams.Add("ValueTotal", totalValue?.GetAnalyticsValue());
 			_analytics.SendData("ValuableChange", _cachedParams);
-		}
-
-		private void LogAnalytics(CResourceModificationDto[] modifications)
-		{
-			foreach (CResourceModificationDto resource in modifications)
-			{
-				LogValuableChange(resource);
-			}
-		}
-
-		private void LogValuableChange(CResourceModificationDto resource)
-		{
-			_cachedParams.Clear();
-            _cachedParams.Add("Name", resource.Resource.Id);
-            _cachedParams.Add("Source", resource.Source);
-            _cachedParams.Add("SourceDetail", resource.SourceDetail);
-            _cachedParams.Add("Price", resource.Price);
-            _cachedParams.Add("Value", resource.Resource.Amount);
-			_cachedParams.Add("ValueTotal", resource.OwnedValue.Amount);
-			_analytics.SendData("ResourceChange", _cachedParams);
 		}
 	}
 }

@@ -29,11 +29,6 @@ namespace ServerData
             return new CConsumableValuable(Id, -Value);
         }
 
-        public CConsumableValuable Double()
-        {
-            return new CConsumableValuable(Id, Value * 2);
-        }
-
         public ICountableValuable Multiply(int multiplier)
         {
             return new CConsumableValuable(Id, Value * multiplier);
@@ -42,23 +37,6 @@ namespace ServerData
         public string GetAnalyticsValue()
         {
             return Value.ToString();
-        }
-
-        public EValuablePrice GetPriceType()
-        {
-            switch (Id)
-            {
-                case EValuable.HardCurrency:
-                    return EValuablePrice.HardCurrency;
-                case EValuable.SoftCurrency:
-                    return EValuablePrice.SoftCurrency;
-            }
-            return EValuablePrice.None;
-        }
-
-        public string GetOfferRewardAnalyticsValue()
-        {
-            return $"va{(int)Id}:{Value}";
         }
 
         public override string ToString()

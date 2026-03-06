@@ -31,7 +31,6 @@ namespace ServerData.Hits
 	public class CValidatePurchaseResponse : CResponseHit, IIHaveModifiedData
 	{
 		[JsonProperty] public CModifiedUserDataDto ModifiedData { get; set; }
-		[JsonProperty] public CSpendInfoDto SpendInfo { get; set; }
 		[JsonProperty] public bool IsTestUser { get; set; }
 
 		public CModifiedUserDataDto GetModifiedData()
@@ -45,12 +44,10 @@ namespace ServerData.Hits
 		
 		public CValidatePurchaseResponse(
 			CModifiedUserDataDto modifiedData, 
-			CSpendInfoDto spendInfo,
 			bool isTestUser
 			) 
 			: base(EHit.ValidatePurchaseResponse)
 		{
-			SpendInfo = spendInfo;
 			ModifiedData = modifiedData;
 			IsTestUser = isTestUser;
 		}

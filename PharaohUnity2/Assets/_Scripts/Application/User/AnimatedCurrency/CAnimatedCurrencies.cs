@@ -16,7 +16,6 @@ namespace TycoonBuilder
     public class CAnimatedCurrencies : CBaseUserComponent, ITickable
     {
         private readonly Dictionary<EValuable, CAnimatedCurrency> _currencies = new();
-        private readonly Dictionary<EResource, CAnimatedCurrency> _resources = new();
 
         private readonly IServerTime _serverTime;
         private readonly IEventBus _eventBus;
@@ -30,19 +29,7 @@ namespace TycoonBuilder
         {
             base.Initialize(user);
             
-            AddCurrency(EValuable.SoftCurrency);
             AddCurrency(EValuable.HardCurrency);
-            AddRecharger(EValuable.Fuel, user.FuelStation.Recharger);
-            AddResourceRecharger(EResource.Passenger, user.City.GetPassengersGenerator(_serverTime.GetTimestampInMs()));
-            AddCurrency(EValuable.Wrenche);
-            AddCurrency(EValuable.MachineOil);
-            AddCurrency(EValuable.CityBlueprint);
-            AddCurrency(EValuable.FuelPart);
-            AddCurrency(EValuable.DurabilityPart);
-            AddCurrency(EValuable.CapacityPart);
-            AddCurrency(EValuable.AdvancedCapacityPart);
-            AddEventCoinCurrency(EValuable.EventCoin);
-            AddEventPointCurrency(EValuable.EventPoint);
         }
 
         public void Tick()
@@ -60,43 +47,11 @@ namespace TycoonBuilder
             _currencies.Add(valuableId, new CAnimatedCurrency(animatedValuable));
         }
 
-        private void AddEventCoinCurrency(EValuable valuableId)
-        {
-            CAnimatedEventCoin animatedValuable = new(User, _eventBus);
-            _currencies.Add(valuableId, new CAnimatedCurrency(animatedValuable));
-        }
-
-        private void AddEventPointCurrency(EValuable eventPoint)
-        {
-            CAnimatedEventPoint animatedValuable = new(User, _eventBus);
-            _currencies.Add(eventPoint, new CAnimatedCurrency(animatedValuable));
-        }
-
-        private void AddRecharger(EValuable valuable, CObservableRecharger recharger)
-        {
-            CAnimatedRecharger animatedRecharger = new(recharger);
-            _currencies.Add(valuable, new CAnimatedCurrency(animatedRecharger));
-        }
-        
-        private void AddResourceRecharger(EResource resource, CObservableRecharger recharger)
-        {
-            CAnimatedRecharger animatedRecharger = new(recharger);
-            _resources.Add(resource, new CAnimatedCurrency(animatedRecharger));
-        }
-
         public void AddCurrency(CConsumableValuable valuable)
         {
             GetCurrency(valuable.Id).AddValue(valuable.Value);
         }
         
-        public void AddResource(EResource resource, int value)
-        {
-            if(!_resources.ContainsKey(resource))
-                return;
-            
-            GetResource(resource).AddValue(value);
-        }
-
         public void StartAnimating(EValuable valuable, CLockObject lockObject)
         {
             GetCurrency(valuable).AddBidingLock(lockObject);
@@ -107,32 +62,11 @@ namespace TycoonBuilder
             GetCurrency(valuable).RemoveBidingLock(lockObject);
         }
         
-        public void StartAnimating(EResource resource, CLockObject lockObject)
-        {
-            if(!_resources.ContainsKey(resource))
-                return;
-            
-            GetResource(resource).AddBidingLock(lockObject);
-        }
-        
-        public void StopAnimating(EResource resource, CLockObject lockObject)
-        {
-            if(!_resources.ContainsKey(resource))
-                return;
-            
-            GetResource(resource).RemoveBidingLock(lockObject);
-        }
-        
         public CAnimatedCurrency GetCurrency(EValuable valuable)
         {
             return _currencies[valuable];
         }
         
-        public CAnimatedCurrency GetResource(EResource resource)
-        {
-            return _resources[resource];
-        }
-
         public override void Dispose()
         {
             base.Dispose();

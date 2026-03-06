@@ -1,20 +1,18 @@
 // =========================================
 // AUTHOR: Radek Mikulka
-// DATE:   30.05.2025
+// DATE:   30.10.2025
 // =========================================
 
+using AldaEngine;
 using ServerData;
-using TycoonBuilder;
 
 namespace TycoonBuilder
 {
-	public class CCoreGameGameModeData : IGameModeData
+	public class CMissionActivatedSignal : IEventBusSignal
 	{
-		public EGameModeId GameModeId => EGameModeId.CoreGame;
-
 		public readonly EMissionId Mission;
 
-		public CCoreGameGameModeData(EMissionId mission)
+		public CMissionActivatedSignal(EMissionId mission)
 		{
 			Mission = mission;
 		}

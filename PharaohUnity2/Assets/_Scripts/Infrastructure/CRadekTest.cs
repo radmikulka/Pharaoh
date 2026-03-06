@@ -18,17 +18,6 @@ namespace TycoonBuilder
 {
 	public class CRadekTest : MonoBehaviour, IAldaFrameworkComponent
 	{
-		private IEventBus _eventBus;
-
-		[Inject]
-		private void Inject(IEventBus eventBus)
-		{
-			_eventBus = eventBus;
-		}
-
-		public void button_TestR2()
-		{
-			_eventBus.ProcessTaskAsync(new CLoadGameModeTask(new CCoreGameGameModeData(ERegion.Region2)), CancellationToken.None);
-		}
+		
 	}
 }

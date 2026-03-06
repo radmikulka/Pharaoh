@@ -56,7 +56,7 @@ namespace TycoonBuilder
 		
 		protected virtual IValuable PreProcessInputValuable(IValuable valuable)
 		{
-			return ValuableRegionModifier.ModifyValuable(valuable, User.Progress.Region, _modificationSource);
+			return ValuableRegionModifier.ModifyValuable(valuable, User.Progress.Mission, _modificationSource);
 		}
 
 		private void SetIcon(IValuable valuable)

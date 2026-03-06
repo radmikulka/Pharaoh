@@ -15,14 +15,14 @@ namespace TycoonBuilder
 	{
 		[SerializeField, Self] private Transform _defaultPosition;
 
-		private CRegionController _regionController;
+		private CMissionController _missionController;
 		private CCameraMover _cameraMover;
 		private IEventBus _eventBus;
 
 		[Inject]
-		private void Inject(CCameraMover cameraMover, IEventBus eventBus, CRegionController regionController)
+		private void Inject(CCameraMover cameraMover, IEventBus eventBus, CMissionController missionController)
 		{
-			_regionController = regionController;
+			_missionController = missionController;
 			_cameraMover = cameraMover;
 			_eventBus = eventBus;
 		}
@@ -31,12 +31,12 @@ namespace TycoonBuilder
 		{
 			WarpCamera();
 
-			_eventBus.Subscribe<CRegionActivatedSignal>(OnRegionActivated);
+			_eventBus.Subscribe<CMissionActivatedSignal>(OnRegionActivated);
 		}
 
-		private void OnRegionActivated(CRegionActivatedSignal signal)
+		private void OnRegionActivated(CMissionActivatedSignal signal)
 		{
-			if(!_regionController.IsActive)
+			if(!_missionController.IsActive)
 				return;
 			
 			WarpCamera();

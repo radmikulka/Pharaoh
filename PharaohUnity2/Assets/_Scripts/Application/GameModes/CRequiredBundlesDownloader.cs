@@ -10,7 +10,6 @@ using System.Threading;
 using AldaEngine;
 using Cysharp.Threading.Tasks;
 using ServerData;
-using ServerData.Design;
 
 namespace TycoonBuilder
 {
@@ -34,9 +33,9 @@ namespace TycoonBuilder
 			_errorHandler = errorHandler;
 		}
 
-		public async UniTask DownloadBundlesAsync(ERegion region, CancellationToken ct)
+		public async UniTask DownloadBundlesAsync(EMissionId mission, CancellationToken ct)
 		{
-			int[] bundleIds = _requiredBundlesProvider.GetBundles(region);
+			int[] bundleIds = _requiredBundlesProvider.GetBundles(mission);
 			CBundleLoadResult bundleLoad = _bundleManager.LoadBundles(bundleIds, ct);
 			
 			while (!bundleLoad.IsDone())
