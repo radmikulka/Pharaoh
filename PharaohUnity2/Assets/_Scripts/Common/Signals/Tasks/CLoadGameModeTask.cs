@@ -7,9 +7,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CLoadGameModeTask
     {

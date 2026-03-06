@@ -3,7 +3,7 @@
 // DATE:   23.10.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CTryKillScreenTask
 	{

@@ -9,9 +9,9 @@ using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
 using ServerData;
 using UnityEngine.SceneManagement;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CCoreGameGameMode : CGameMode<CCoreGameGameModeData>
     {

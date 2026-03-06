@@ -3,7 +3,7 @@
 // DATE:   22.11.2023
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum EErrorCode
 	{

@@ -8,7 +8,7 @@ using AldaEngine;
 using ServerData;
 using ServerData.Hits;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CUserProgress : CBaseUserComponent
 	{

@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IGameMode
 	{

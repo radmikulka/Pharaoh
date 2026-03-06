@@ -10,7 +10,7 @@ using Unity.Android.Types;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 using AndroidArchitecture = UnityEditor.AndroidArchitecture;
 
 namespace AldaEngine

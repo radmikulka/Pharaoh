@@ -3,7 +3,7 @@
 // DATE:   09.07.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CBaseUserComponent
     {

@@ -3,9 +3,9 @@
 // DATE:   30.05.2025
 // =========================================
 
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IGameModeData
 	{

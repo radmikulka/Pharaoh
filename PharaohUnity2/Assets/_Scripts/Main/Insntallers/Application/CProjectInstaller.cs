@@ -11,9 +11,9 @@ using AldaEngine;
 using AldaEngine.AldaFramework;
 using AldaEngine.Localization;
 using AldaEngine.Tcp;
+using Pharaoh.Infrastructure;
 using ServerData;
-using ServerData.Design;
-using TycoonBuilder;
+using Pharaoh;
 using ServiceEngine;
 using ServiceEngine.Ads;
 using ServiceEngine.Analytics;
@@ -23,11 +23,10 @@ using ServiceEngine.GoogleSignIn;
 using ServiceEngine.Purchasing;
 using ServiceEngine.ServiceMaster;
 using ServiceEngine.Singular;
-using TycoonBuilder.Infrastructure;
 using UnityEngine;
 using ILogger = AldaEngine.ILogger;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     [SuppressMessage("ReSharper", "RedundantTypeArgumentsOfMethod")]
     public class CProjectInstaller : CBaseDiInstaller
@@ -87,15 +86,11 @@ namespace TycoonBuilder
         
         private void InstallCommonComponents()
         {
-            Container.InstallBundleRuntimeLocalizations();
             Container.InstallVersionProvider();
             Container.AddSingleton<ILogger, CUnityLogger>();
             Container.AddSingleton<CDoTween>(true);
             Container.AddSingleton<IRestartGameHandler, CRestartGameHandler>();
             Container.AddSingletonFromInstance<CMainThreadActionsQueue>(_mainThreadActionsQueue);
-            Container.AddSingleton<CSettingsData>(true);
-            Container.AddSingleton<CVehiclesFactory>();
-            Container.AddSingleton<CValuableRegionModifier>();
         }
 
         private void BindLoadingScreenProxy()
@@ -132,29 +127,6 @@ namespace TycoonBuilder
         {
             BindAndInjectNonComponent(_configs);
             Container.AddSingleton<CInAppPrices>();
-            Container.AddSingleton<CLiveEventBundles>();
-            Container.AddSingleton<CDesignMainCityConfigs>();
-            Container.AddSingleton<CDesignFactoryConfigs>();
-            Container.AddSingleton<CDesignRegionConfigs>();
-            Container.AddSingleton<CDesignFuelStationConfig>();
-            Container.AddSingleton<CDesignIndustryConfigs>();
-            Container.AddSingleton<CDesignStoryContractConfigs>();
-            Container.AddSingleton<CClientStaticOffers>(true);
-            Container.AddSingleton<CDesignVehicleConfigs>();
-            Container.AddSingleton<CStaticOffersStorage>();
-            Container.AddSingleton<CDesignResourceConfigs>();
-            Container.AddSingleton<CDesignProgressConfig>();
-            Container.AddSingleton<CDesignStandaloneRewardsConfig>();
-            Container.AddSingleton<CDesignSpecialBonusRewards>();
-            Container.AddSingleton<CDesignFrameConfigs>();
-            Container.AddSingleton<CDesignWarehouseConfig>();
-            Container.AddSingleton<CDesignDispatcherConfigs>();
-            Container.AddSingleton<CDesignSpecialBuildingConfigs>();
-            Container.AddSingleton<CDesignCityConfigs>();
-            Container.AddSingleton<CDesignVehicleDepoConfig>();
-            Container.AddSingleton<CDesignMinigameConfig>();
-            Container.AddSingleton<IVehicleBuilderFactory, CVehicleBuilderFactory>();
-            Container.AddTransient<CVehicleBuilder>();
         }
 
         private void InstallServices()
@@ -171,13 +143,11 @@ namespace TycoonBuilder
             Container.AddSingleton<CCrashlyticsKeys>();
             Container.AddSingleton<CServicesTechFlow>();
             Container.AddSingleton<CLoadingTechFlow>();
-            Container.AddSingleton<ICFtueFunnel, CFtueFunnel>();
             Container.AddSingleton<CAttHandler>();
             Container.InstallInAppUpdate();
             Container.AddSingleton<ISingular, CSingular>();
             Container.AddSingleton<IDeviceIdProvider, CMobileDeviceIdProvider>();
             Container.AddSingleton<IMessaging, CFirebaseMessaging>();
-            Container.AddSingleton<CFacebookAvatarGateway>();
             Container.AddSingletonFromInstance<IExitAppHandler>(_exitAppHandler);
             Container.InstallNativeRateUs();
             

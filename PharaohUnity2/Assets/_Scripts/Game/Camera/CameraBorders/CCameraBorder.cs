@@ -7,10 +7,10 @@ using System;
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCameraBorder : MonoBehaviour, IInitializable
 	{

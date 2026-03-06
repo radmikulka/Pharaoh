@@ -13,7 +13,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     [AssetPath("Configs/BuildConfig", "BuildConfig")]
     public class CBuildConfig : CScriptableSingleton<CBuildConfig>

@@ -6,7 +6,7 @@
 using AldaEngine;
 using ServiceEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CNotificationFactory
 	{

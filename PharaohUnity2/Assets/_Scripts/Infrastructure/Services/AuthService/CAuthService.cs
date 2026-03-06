@@ -16,29 +16,20 @@ using ServiceEngine;
 using UnityEngine;
 using ILogger = AldaEngine.ILogger;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CAuthService : IAuthService
 	{
-		private readonly CLoggedAuthServices _loggedServices = new();
 		private readonly CAuthUidStorage _authUidStorage;
-
-		public CEvent OnAuthChanged => _loggedServices.OnAuthChanged;
 
 		public CAuthService(IActiveAuth authUidStorage)
 		{
 			_authUidStorage = (CAuthUidStorage) authUidStorage;
 		}
 
-		public bool IsSignedIn(EAuthType authType)
-		{
-			return _loggedServices.Contains(authType);
-		}
-
-		public void InitAuth(string authUid, EAuthType[] loggedServices)
+		public void InitAuth(string authUid)
 		{
 			_authUidStorage.SetAuthUid(authUid);
-			_loggedServices.Replace(loggedServices);
 		}
 
 		public string GetAuthUidOrDefault()

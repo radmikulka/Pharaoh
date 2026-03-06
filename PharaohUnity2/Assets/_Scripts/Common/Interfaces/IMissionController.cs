@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IMissionController
 	{

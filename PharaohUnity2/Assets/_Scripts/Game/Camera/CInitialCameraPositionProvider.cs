@@ -9,7 +9,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CInitialCameraPositionProvider : ValidatedMonoBehaviour, IInitializable
 	{

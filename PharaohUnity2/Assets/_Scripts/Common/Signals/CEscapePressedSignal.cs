@@ -9,7 +9,7 @@ using System;
 using AldaEngine;
 using Random = UnityEngine.Random;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CEscapePressedSignal : IEventBusSignal
 	{

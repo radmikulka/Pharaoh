@@ -12,7 +12,7 @@ using UnityEngine.EventSystems;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CTouchInput : 
 		MonoBehaviour, 

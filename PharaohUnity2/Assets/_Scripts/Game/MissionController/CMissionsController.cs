@@ -15,7 +15,7 @@ using ServerData.Hits;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CMissionsController : ICameraPlaneProvider, IMissionController
 	{
@@ -61,80 +61,39 @@ namespace TycoonBuilder
 			return _activeMission.GetCameraPlane();
 		}
 
-		public UniTask LoadRegion(EMissionId region, CancellationToken ct)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public async UniTask LoadRegion(ERegion region, CancellationToken ct)
+		public async UniTask LoadRegion(EMissionId region, CancellationToken ct)
 		{
 			await _loadingScreen.Show(ct);
 			await OpenRegion(region, ct);
 			await _loadingScreen.Hide(ct);
 		}
 
-		public async UniTask LoadCurrentRegion(ERegion region, CancellationToken ct)
-		{
-			if (_activeCoreGameRegion != region)
-				await UnloadRegionScene(_activeCoreGameRegion, ct);
-
-			_activeCoreGameRegion = region;
-			await OpenRegion(region, ct);
-		}
-
-		public async UniTask LoadLiveEvent(ELiveEvent liveEventId, CancellationToken ct)
-		{
-			ILiveEventContent liveEvent = _user.LiveEvents.GetEventContent<ILiveEventContent>(liveEventId);
-			ERegion region = liveEvent switch
-			{
-				CNormalEventContent normalEventContent => normalEventContent.Region,
-				_ => ERegion.None
-			};
-			await OpenRegion(region, ct);
-		}
-
-		private async UniTask OpenRegion(ERegion region, CancellationToken ct)
+		private async UniTask OpenRegion(EMissionId region, CancellationToken ct)
 		{
 			ActiveMission = region;
-			
-			_sceneLightingHandler.RemoveSceneLightingLock(_activeSceneLightingLock);
-			if (_activeMission)
-			{
-				_activeMission.SetActive(false);
-			}
-			
+
 			await _requiredBundlesDownloader.DownloadBundlesAsync(region, ct);
 			await _sceneManager.LoadSceneAsync(ESceneId.CoreGame, LoadSceneMode.Additive, ct);
-
-			if (!_loadedRegions.TryGetValue(region, out CMissionController regionObj))
-			{
-				regionObj = await LoadRegionScene(region, ct);
-				_loadedRegions.Add(region, regionObj);
-			}
-
-			_activeMission = regionObj;
-			_activeMission.SetActive(true);
-			
-			ActivateActiveRegionLighting(region);
+			_activeMission = await LoadRegionScene(region, ct);
 
 			_eventBus.Send(new CMissionActivatedSignal(region));
 		}
 
-		private async UniTask<CMissionController> LoadRegionScene(ERegion region, CancellationToken ct)
+		private async UniTask<CMissionController> LoadRegionScene(EMissionId region, CancellationToken ct)
 		{
-			CRegionResourceConfig regionConfig = _resourceConfigs.Regions.GetConfig(region);
-			Scene scene = await _sceneManager.LoadSceneAsync(regionConfig.MainScene, LoadSceneMode.Additive, ct);
+			CMissionResourceConfig regionConfig = _resourceConfigs.Missions.GetConfig(region);
+			Scene scene = await _sceneManager.LoadSceneAsync(regionConfig.SceneId, LoadSceneMode.Additive, ct);
 			return scene.GetRootGameObjects()[0].GetComponentInChildren<CMissionController>();
 		}
 
-		private async UniTask UnloadRegionScene(ERegion region, CancellationToken ct)
+		private async UniTask UnloadRegionScene(EMissionId mission, CancellationToken ct)
 		{
-			if(region == ERegion.None)
+			if(mission == EMissionId.None)
 				return;
 			
-			_eventBus.Send(new CMissionUnloadedStartedSignal(region));
-			CRegionResourceConfig regionConfig = _resourceConfigs.Regions.GetConfig(region);
-			await _sceneManager.UnloadSceneAsync(regionConfig.MainScene, ct);
+			_eventBus.Send(new CMissionUnloadedStartedSignal(mission));
+			CMissionResourceConfig regionConfig = _resourceConfigs.Missions.GetConfig(mission);
+			await _sceneManager.UnloadSceneAsync(regionConfig.SceneId, ct);
 		}
 	}
 }

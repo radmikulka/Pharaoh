@@ -16,7 +16,7 @@ using ServiceEngine;
 using Random = UnityEngine.Random;
 // ReSharper disable UnassignedReadonlyField
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	internal class CServerConfigFetch
 	{

@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TycoonBuilder.Ui
+namespace Pharaoh.Ui
 {
 	public class CScreenCloseHandler : MonoBehaviour, IPointerClickHandler
 	{

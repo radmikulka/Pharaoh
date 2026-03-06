@@ -6,7 +6,7 @@
 using KBCore.Refs;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CMainCameraProvider : IMainCameraProvider
     {

@@ -18,7 +18,7 @@ using UnityEngine.Rendering.Universal;
 using ShadowQuality = UnityEngine.ShadowQuality;
 using ShadowResolution = UnityEngine.Rendering.Universal.ShadowResolution;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CSrDebugger
 	{
@@ -72,21 +72,7 @@ namespace TycoonBuilder
 				_advancedFpsCounter.OperationMode = OperationMode.Disabled;
 				Object.DontDestroyOnLoad(go);
 			}
-
-			[Category(LauncherCategory)]
-			public ETutorialSkip TutorialSkip
-			{
-				get => CDebugConfig.Instance.TutorialSkip;
-				set => CDebugConfig.Instance.TutorialSkip = value;
-			}
-
-			[Category(LauncherCategory)]
-			public EEditorSkips EditorSkips
-			{
-				get => CDebugConfig.Instance.EditorSkips;
-				set => CDebugConfig.Instance.EditorSkips = value;
-			}
-
+			
 			[Category(LauncherCategory)]
 			public EServerType ServerType
 			{

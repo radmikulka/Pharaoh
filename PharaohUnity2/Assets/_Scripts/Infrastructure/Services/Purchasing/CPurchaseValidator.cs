@@ -11,7 +11,7 @@ using Cysharp.Threading.Tasks;
 using ServerData;
 using ServerData.Hits;
 using ServiceEngine.Purchasing;
-using TycoonBuilder;
+using Pharaoh;
 using UnityEngine;
 using UnityEngine.Purchasing;
 

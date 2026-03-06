@@ -12,11 +12,11 @@ using Cysharp.Threading.Tasks;
 using KBCore.Refs;
 using ServerData;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 using Unity.Cinemachine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCameraZoom : ValidatedMonoBehaviour, 
 		IConstructable, IInitializable, ICameraZoom

@@ -10,7 +10,7 @@ using AldaEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCameraMoverInput
 	{

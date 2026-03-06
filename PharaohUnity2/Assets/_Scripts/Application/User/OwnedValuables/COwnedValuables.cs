@@ -11,7 +11,7 @@ using AldaEngine.AldaFramework;
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class COwnedValuables : CBaseUserComponent, IInitializable
 	{

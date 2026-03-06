@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CUiWaitingScreen : ValidatedMonoBehaviour, IWaitingScreen, IInitializable
 	{

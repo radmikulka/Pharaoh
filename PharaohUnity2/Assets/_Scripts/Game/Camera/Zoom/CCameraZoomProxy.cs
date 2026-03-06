@@ -6,7 +6,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCameraZoomProxy : ICameraZoom
 	{

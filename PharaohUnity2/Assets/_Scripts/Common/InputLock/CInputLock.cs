@@ -9,7 +9,7 @@ using AldaEngine;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CInputLock : IInputLock
 	{

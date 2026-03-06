@@ -11,7 +11,7 @@ using AldaEngine.AldaFramework;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CKeysInput : MonoBehaviour, IConstructable
 	{

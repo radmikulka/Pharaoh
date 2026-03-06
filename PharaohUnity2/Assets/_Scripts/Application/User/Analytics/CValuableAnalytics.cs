@@ -9,10 +9,10 @@ using AldaEngine.AldaFramework;
 using AldaEngine.Tcp;
 using ServerData;
 using ServerData.Dto;
-using TycoonBuilder.Signal;
+using Pharaoh.Signal;
 // ReSharper disable SuspiciousTypeConversion.Global
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CValuableAnalytics : IInitializable
 	{

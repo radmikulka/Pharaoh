@@ -6,7 +6,7 @@
 using System.Numerics;
 using JetBrains.Annotations;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public struct SValueChangeArgs
     {

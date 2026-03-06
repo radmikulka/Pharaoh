@@ -12,7 +12,7 @@ using UnityEngine.Assertions;
 using UnityEngine.Rendering.Universal;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CFreezeRenderer : MonoBehaviour, IInitializable
 	{

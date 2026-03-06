@@ -16,7 +16,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CSceneManager : IInitializable, IDestroyable, ISceneManager
     {

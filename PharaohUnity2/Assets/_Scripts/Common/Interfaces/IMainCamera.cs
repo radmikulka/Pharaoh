@@ -6,7 +6,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IMainCamera
 	{

@@ -9,7 +9,7 @@ using ServerData.Dto;
 using ServerData.Hits;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CDebugUserDeletionHandler
 	{

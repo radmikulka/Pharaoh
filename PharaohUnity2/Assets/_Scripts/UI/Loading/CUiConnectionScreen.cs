@@ -10,7 +10,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CUiConnectionScreen : MonoBehaviour
     {

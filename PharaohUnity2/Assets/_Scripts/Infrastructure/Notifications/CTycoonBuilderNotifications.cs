@@ -6,17 +6,15 @@
 using System;
 using AldaEngine;
 using AldaEngine.AldaFramework;
-using ServerData.Design;
 using ServiceEngine;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CTycoonBuilderNotifications : MonoBehaviour, IInitializable
 	{
 		private INotifications<CUnityNotification> _notifications;
-		private CLiveEventNotifications _liveEventNotifications;
 		private CSaviourNotifications _saviourNotifications;
 		private CNotificationFactory _notificationFactory;
 
@@ -30,7 +28,6 @@ namespace TycoonBuilder
 			CUser user
 			)
 		{
-			_liveEventNotifications = new CLiveEventNotifications(notifications, notificationFactory, translation, serverTime, user);
 			_saviourNotifications = new CSaviourNotifications(notifications, notificationFactory);
 			_notificationFactory = notificationFactory;
 			_notifications = notifications;
@@ -39,8 +36,6 @@ namespace TycoonBuilder
 		public void Initialize()
 		{
 			SetTestNotification();
-
-			_liveEventNotifications.Set();
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

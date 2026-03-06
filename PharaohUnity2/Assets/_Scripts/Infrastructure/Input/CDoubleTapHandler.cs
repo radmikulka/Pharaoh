@@ -8,7 +8,7 @@ using AldaEngine;
 using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CDoubleTapHandler : IInitializable
 	{

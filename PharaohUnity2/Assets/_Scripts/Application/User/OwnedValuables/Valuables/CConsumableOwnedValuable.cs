@@ -8,7 +8,7 @@ using System.Numerics;
 using AldaEngine;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CConsumableOwnedValuable : COwnedValuable
 	{

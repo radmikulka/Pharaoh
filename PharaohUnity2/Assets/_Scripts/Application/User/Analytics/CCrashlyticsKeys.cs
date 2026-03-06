@@ -10,7 +10,7 @@ using ServerData;
 using ServiceEngine;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCrashlyticsKeys
 	{

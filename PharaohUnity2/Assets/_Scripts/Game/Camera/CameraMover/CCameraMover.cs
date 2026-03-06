@@ -12,10 +12,10 @@ using Cysharp.Threading.Tasks;
 using KBCore.Refs;
 using ServerData;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     [DefaultExecutionOrder(CScriptExecutionOrder.CameraMover)]
     public class CCameraMover : ValidatedMonoBehaviour, IInitializable, IConstructable, IDestroyable

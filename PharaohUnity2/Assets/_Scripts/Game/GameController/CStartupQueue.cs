@@ -10,7 +10,7 @@ using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CStartupQueue : IInitializable
 	{

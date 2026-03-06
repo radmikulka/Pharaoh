@@ -7,7 +7,7 @@ using System;
 using AldaEngine;
 using UnityEngine;
 
-namespace TycoonBuilder.Infrastructure
+namespace Pharaoh.Infrastructure
 {
 	[CreateAssetMenu(menuName = "____TycoonBuilder/Others/AssetBundleConfig", fileName = "AssetBundleConfig")]
 	public class CTycoonBuilderAssetBundle : CAssetBundleConfig

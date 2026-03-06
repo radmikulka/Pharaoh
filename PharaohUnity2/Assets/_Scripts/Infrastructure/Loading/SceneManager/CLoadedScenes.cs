@@ -9,7 +9,7 @@ using System.Linq;
 using ServerData;
 using UnityEngine.SceneManagement;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CLoadedScenes
 	{

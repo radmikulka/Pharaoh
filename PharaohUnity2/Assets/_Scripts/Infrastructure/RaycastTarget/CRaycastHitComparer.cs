@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CRaycastHitComparer : IComparer<RaycastHit>
 	{

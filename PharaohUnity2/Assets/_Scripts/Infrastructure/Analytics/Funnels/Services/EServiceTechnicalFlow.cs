@@ -3,7 +3,7 @@
 // DATE:   12.11.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum EServiceTechnicalFlow
 	{

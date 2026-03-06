@@ -6,8 +6,8 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
-using TycoonBuilder;
-using TycoonBuilder.Infrastructure;
+using Pharaoh;
+using Pharaoh.Infrastructure;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;

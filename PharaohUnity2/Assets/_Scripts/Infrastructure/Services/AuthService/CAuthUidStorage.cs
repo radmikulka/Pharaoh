@@ -5,13 +5,13 @@
 
 using System.Collections.Generic;
 using AldaEngine;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CAuthUidStorage : IActiveAuth
 	{
-		private const string PrefsStorageKey = "TB_auid";
+		private const string PrefsStorageKey = "PHARA_auid";
 		
 		public string AuthUid { get; private set; }
 

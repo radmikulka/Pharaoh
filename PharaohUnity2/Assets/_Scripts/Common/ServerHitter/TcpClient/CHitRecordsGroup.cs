@@ -5,7 +5,7 @@
 
 using AldaEngine.Tcp;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	internal class CHitRecordsGroup
 	{

@@ -3,7 +3,7 @@
 // DATE:   21.12.2023
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum ERemoteConfigKey
 	{

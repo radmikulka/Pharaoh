@@ -6,7 +6,7 @@
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	#if UNITY_EDITOR
 	public static class CStaticConfigs

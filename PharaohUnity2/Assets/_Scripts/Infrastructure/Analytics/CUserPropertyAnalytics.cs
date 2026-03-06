@@ -12,7 +12,7 @@ using ServerData;
 using UnityEngine.Analytics;
 using UnityEngine.Device;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CUserPropertyAnalytics : IInitializable
 	{

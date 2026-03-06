@@ -8,7 +8,7 @@ using Cysharp.Threading.Tasks;
 using ServerData;
 using UnityEngine.SceneManagement;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public interface ISceneManager
     {

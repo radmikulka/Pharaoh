@@ -8,7 +8,7 @@ using AldaEngine;
 using AldaEngine.Tcp;
 using ServerData.Hits;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CServerHitsProcessedSignal : IEventBusSignal
 	{

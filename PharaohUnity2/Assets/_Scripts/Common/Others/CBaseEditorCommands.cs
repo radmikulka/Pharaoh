@@ -6,7 +6,7 @@
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public abstract class CBaseEditorCommands : MonoBehaviour
 	{

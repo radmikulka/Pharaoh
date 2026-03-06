@@ -11,9 +11,9 @@ using AldaEngine;
 using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CGameModeManager : IInitializable
     {

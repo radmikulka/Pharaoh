@@ -14,7 +14,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CFullScreenOverlay : ValidatedMonoBehaviour, IConstructable, IInitializable
 	{

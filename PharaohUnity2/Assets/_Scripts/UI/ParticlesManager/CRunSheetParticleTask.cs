@@ -6,7 +6,7 @@
 using System;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CRunSheetParticleTask
     {

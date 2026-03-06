@@ -13,14 +13,5 @@ namespace ServerData
         Blank = 3,
         Ui = 4,
         CoreGame = 5,
-        VehicleShowcase = 6,
-        Intro = 7,
-        VehicleDetail = 9,
-        ShopDetailScene = 10,
-        
-        Region1 = 1_001,
-        Region2 = 1_002,
-        
-        EarthAndFireEvent = 10_000
     }
 }

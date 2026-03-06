@@ -4,9 +4,9 @@
 // =========================================
 
 using ServerData;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCoreGameGameModeData : IGameModeData
 	{

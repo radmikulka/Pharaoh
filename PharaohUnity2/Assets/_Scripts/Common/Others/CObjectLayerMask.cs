@@ -5,7 +5,7 @@
 
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public static class CObjectLayerMask
 	{

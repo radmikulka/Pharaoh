@@ -9,7 +9,7 @@ using AldaEngine;
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CBaseBundledPoolCollection<TEnum, TType> : CBundledPoolsCollection<TEnum, TType> 
         where TEnum : Enum 

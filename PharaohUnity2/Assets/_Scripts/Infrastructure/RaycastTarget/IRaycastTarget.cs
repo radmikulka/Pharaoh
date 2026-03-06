@@ -3,7 +3,7 @@
 // DATE:   03.07.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IRaycastTarget
 	{

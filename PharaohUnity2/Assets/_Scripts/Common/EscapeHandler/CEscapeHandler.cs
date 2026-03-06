@@ -8,7 +8,7 @@ using System.Linq;
 using AldaEngine;
 using AldaEngine.AldaFramework;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CEscapeHandler : IInitializable
     {

@@ -7,13 +7,12 @@ using System;
 using AldaEngine;
 using Cysharp.Threading.Tasks;
 using ServerData;
-using ServerData.Design;
 using ServerData.Hits;
 using ServiceEngine.Ads;
-using TycoonBuilder;
+using Pharaoh;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CAdsManager : CBaseAdsManager
 	{
@@ -29,13 +28,7 @@ namespace TycoonBuilder
 		{
 			base.Initialize();
 
-			EventBus.Subscribe<CAdSucceededSignal>(OnAdSuccess);
 			EventBus.Subscribe<CAdFailedSignal>(OnAdFailed);
-		}
-
-		private void OnAdSuccess(CAdSucceededSignal signal)
-		{
-			SendAdSeenHit(signal.AdInfo);
 		}
 		
 		private void OnAdFailed(CAdFailedSignal signal)
@@ -52,12 +45,6 @@ namespace TycoonBuilder
 		private bool IsUserEligibleToPlayInterstitialAd()
 		{
 			return false;
-		}
-
-		private void SendAdSeenHit(IAdInfo adInfo)
-		{
-			double revenue = GetAdRevenue(adInfo);
-			_hitBuilder.GetBuilder(new CAdSeenRequest(revenue)).BuildAndSend();
 		}
 
 		private double GetAdRevenue(IAdInfo adInfo)

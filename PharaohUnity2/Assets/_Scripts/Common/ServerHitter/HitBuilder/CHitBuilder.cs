@@ -11,7 +11,7 @@ using Cysharp.Threading.Tasks;
 using ServerData;
 using ServerData.Hits;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CHitBuilder
 	{

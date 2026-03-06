@@ -3,7 +3,7 @@
 // DATE:   15.09.2023
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCommunicationTokenProvider
 	{

@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CValueModifyParams
     {

@@ -10,7 +10,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder.Ui
+namespace Pharaoh.Ui
 {
 	public class CScreenCloseHandlerCreator : ValidatedMonoBehaviour, IInitializable
 	{

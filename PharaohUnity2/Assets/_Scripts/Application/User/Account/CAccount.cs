@@ -9,7 +9,7 @@ using ServerData.Dto;
 using ServerData.Hits;
 using ServiceEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CAccount : CBaseUserComponent
 	{

@@ -63,19 +63,4 @@ namespace ServerData.Hits
 			User = user;
 		}
 	}
-
-	public class CAccountDeletionPendingResponse : CResponseHit
-	{
-		[JsonProperty] public long TimeToDeleteAccountInMs { get; set; }
-
-		public CAccountDeletionPendingResponse() : base(EHit.AccountDeletionPending)
-		{
-			
-		}
-		
-		public CAccountDeletionPendingResponse(long timeToDeleteAccountInMs) : base(EHit.AccountDeletionPending)
-		{
-			TimeToDeleteAccountInMs = timeToDeleteAccountInMs;
-		}
-	}
 }

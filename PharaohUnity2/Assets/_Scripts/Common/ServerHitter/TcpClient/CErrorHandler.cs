@@ -6,14 +6,14 @@
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
-using TycoonBuilder.Signal;
+using Pharaoh.Signal;
 using ServerData;
 using ServerData.Hits;
 using ServiceEngine.Purchasing;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CErrorHandler : IInitializable
 	{
@@ -85,32 +85,9 @@ namespace TycoonBuilder
 			ShowServerErrorDialog(errorCode);
 		}
 
-		public async UniTask<bool> ShowAccountDeletionPending(long timeToDeleteAccountInMs)
-		{
-			string timeLeftString = SAldaTimeSpan.GetTime(CMath.CeilToLong(timeToDeleteAccountInMs / 1000f), new CAldaTimeSpawnProviderDefault(2, 1));
-			bool choice = false;
-			CShowDialogTask task = new CShowDialogTask()
-					.SetHeaderLocalized("Dialog.DeleteAccount.Title")
-					.SetContentLocalized("Dialog.DeleteAccount.DeletionInProgress.Content", timeLeftString)
-					.SetCanBeClosed(true)
-					.SetOverlay()
-					.SetAnalyticsId("AccountDeletionInProgressDialog")
-					.SetTwoButtons
-					(
-						new CDialogButtonData("Dialog.DeleteAccount.Restore", () => choice = true, EDialogButtonColor.Red, true),
-						new CDialogButtonData("Dialog.DeleteAccount.Cancel", null, EDialogButtonColor.Green, true)
-					)
-					;
-			
-			_eventBus.ProcessTask(task);
-
-			await CWaitForSignal.WaitForSignalAsync<CDialogClosedSignal>(_eventBus, _ctsProvider.Token);
-			return choice;
-		}
-
 		public void ShowNoInternetConnectionDialog()
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.ClientOffline.Title")
 					.SetContentLocalized("Server.Dialog.ClientOffline.Content")
 					.SetSubContentTitleLocalized("Generic.Warning")
@@ -120,13 +97,13 @@ namespace TycoonBuilder
 					.SetAnalyticsId("ClientOfflineDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 				;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 		
 
 		public void ShowPlanedMaintenanceDialog()
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.PlannedMaintenance.Title")
 					.SetContentLocalized("Server.Dialog.PlannedMaintenance.Content")
 					.SetOverlay()
@@ -134,12 +111,12 @@ namespace TycoonBuilder
 					.SetAnalyticsId("PlannedMaintenanceDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 
 		public void ShowInvalidAppVersionDialog()
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Dialog.InvalidAppVersion.Title")
 					.SetContentLocalized("Dialog.InvalidAppVersion.Content")
 					.SetOverlay()
@@ -147,12 +124,12 @@ namespace TycoonBuilder
 					.SetAnalyticsId("InvalidAppVersionDialog")
 					.SetOneButton(new CDialogButtonData("Dialog.InvalidAppVersion.Button", RestartGame, EDialogButtonColor.Green, true))
 					;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 
 		private void ShowDataServerErrorDialog()
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.DataServerDown.Title")
 					.SetContentLocalized("Server.Dialog.DataServerDown.Content")
 					.SetOverlay()
@@ -160,12 +137,12 @@ namespace TycoonBuilder
 					.SetAnalyticsId("DataServerUnreachableDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 
 		private void ShowTooManyRequestsErrorDialog()
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.TooManyRequests.Title")
 					.SetContentLocalized("Server.Dialog.TooManyRequests.Content")
 					.SetOverlay()
@@ -173,7 +150,7 @@ namespace TycoonBuilder
 					.SetAnalyticsId("TooManyRequestsDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 
 		private void ShowBadGameVersionDialog(float timeToPublishedState)
@@ -184,7 +161,7 @@ namespace TycoonBuilder
 
 		private void ShowUnknownErrorDialog(string error)
 		{
-			CShowDialogTask task = new CShowDialogTask()
+			/*CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.UnknownError.Title")
 					.SetContentLocalized("Server.Dialog.UnknownError.Content", error)
 					.SetOverlay()
@@ -192,12 +169,12 @@ namespace TycoonBuilder
 					.SetAnalyticsId("UnknownErrorDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);
+			_eventBus.ProcessTask(task);*/
 		}
 		
 		private void ShowServerErrorDialog(EErrorCode errorCode)
 		{
-			switch (errorCode)
+			/*switch (errorCode)
 			{
 				case EErrorCode.Internal:
 				{
@@ -225,7 +202,7 @@ namespace TycoonBuilder
 					_eventBus.ProcessTask(task);
 					return;
 				}
-			}
+			}*/
 		}
 
 		private void RestartGame()

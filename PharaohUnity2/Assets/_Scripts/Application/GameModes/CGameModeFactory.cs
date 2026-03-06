@@ -4,10 +4,10 @@
 // // =========================================
 
 using System;
-using TycoonBuilder;
+using Pharaoh;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CGameModeFactory
     {

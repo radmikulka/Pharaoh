@@ -9,13 +9,12 @@ using ServerData;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CUiCurrencyParticlePoint : ValidatedMonoBehaviour, IInitializable
     {
         [SerializeField, Self] private RectTransform _rectTransform;
         [SerializeField] private EValuable _currencyId;
-        [SerializeField] private EResource _resourceId;
         [SerializeField] private EUiParticleId _particleId;
 
         private CUiCurrencyParticles _currencyParticles;
@@ -23,7 +22,6 @@ namespace TycoonBuilder
         public RectTransform RectTransform => _rectTransform;
         public EUiParticleId ParticleId => _particleId;
         public EValuable CurrencyId => _currencyId;
-        public EResource ResourceId => _resourceId;
 
         [Inject]
         private void Inject(CUiCurrencyParticles currencyParticles)

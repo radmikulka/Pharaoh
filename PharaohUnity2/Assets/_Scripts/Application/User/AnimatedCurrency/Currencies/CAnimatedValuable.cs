@@ -6,7 +6,7 @@
 using System;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CAnimatedValuable : IAnimatedCurrency
 	{

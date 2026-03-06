@@ -10,7 +10,7 @@ using AldaEngine.Tcp;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CUiSessionInfo : MonoBehaviour, IInitializable
 	{
@@ -38,7 +38,7 @@ namespace TycoonBuilder
 		{
 			if(!_user.IsValid)
 				return;
-			CPlayerPrefs.Set(LastKnownShortUserIdKey, _user.Account.PublicIdShort);
+			CPlayerPrefs.Set(LastKnownShortUserIdKey, _user.Account.PublicId);
 		}
 
 		private string GetServerType()

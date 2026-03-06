@@ -14,7 +14,7 @@ using UnityEngine.Rendering.Universal;
 using Zenject;
 using ShadowResolution = UnityEngine.Rendering.Universal.ShadowResolution;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CRenderer : MonoBehaviour, IConstructable, IInitializable
 	{

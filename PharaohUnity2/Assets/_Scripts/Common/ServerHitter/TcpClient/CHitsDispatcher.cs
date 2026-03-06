@@ -13,15 +13,15 @@ using AldaEngine;
 using AldaEngine.AldaFramework;
 using AldaEngine.Tcp;
 using Newtonsoft.Json;
+using Pharaoh.Signal;
 using ServerData;
 using ServerData.Hits;
 using ServiceEngine;
-using TycoonBuilder.Signal;
 using UnityEngine;
 using Zenject;
 using ILogger = AldaEngine.ILogger;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CHitsDispatcher : MonoBehaviour, IConstructable
 	{

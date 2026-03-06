@@ -8,10 +8,10 @@ using System.Numerics;
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using ServerData;
-using TycoonBuilder;
+using Pharaoh;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CAnimatedCurrencies : CBaseUserComponent, ITickable
     {

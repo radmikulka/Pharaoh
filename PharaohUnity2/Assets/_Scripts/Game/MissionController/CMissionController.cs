@@ -11,7 +11,7 @@ using ServerData;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CMissionController : MonoBehaviour, IConstructable
 	{

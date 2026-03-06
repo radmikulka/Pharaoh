@@ -7,7 +7,7 @@ using AldaEngine;
 using AldaEngine.Tcp;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CTcpClientFactory
 	{

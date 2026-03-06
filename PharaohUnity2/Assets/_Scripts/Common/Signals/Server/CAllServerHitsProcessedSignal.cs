@@ -5,7 +5,7 @@
 
 using AldaEngine;
 
-namespace TycoonBuilder.Signal
+namespace Pharaoh.Signal
 {
 	public class CAllServerHitsProcessedSignal : IEventBusSignal
 	{

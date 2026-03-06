@@ -11,7 +11,7 @@ using ServiceEngine;
 using ServiceEngine.Ads;
 using ServiceEngine.ServiceMaster;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CValidServerConnectionPostprocess
 	{
@@ -60,8 +60,6 @@ namespace TycoonBuilder
 
 			await InitAds(ct);
 			
-			_crashlyticsKeys.SetCountry(response.User.Account.CountryCode);
-			_crashlyticsKeys.SetYear(response.User.Progress.Year);
 			_crashlyticsKeys.SetLanguage(_translation.CurrentLanguage.ToString());
 			
 			_crashlytics.SetUserId(response.User.Account.PublicId);
@@ -73,10 +71,8 @@ namespace TycoonBuilder
 			}
 			
 			_analytics.SetUserId(response.User.Account.PublicId);
-			_analytics.SetUserProperty("StoreVersion", response.User.Account.StoreVersion.ToString());
 			
 			_singular.Initialize(response.User.Account.PublicId, response.User.Account.IsTestUser);
-			_authService.InitAuth(response.AuthData.UserAuthUid, response.AuthData.LoggedServices);
 			_serverTime.Init(response.ServerTimeInMs, response.DayRefreshTimeInMs);
 			
 			_communicationTokenProvider.SetCommunicationToken(response.CommunicationToken);

@@ -9,13 +9,13 @@ using RoboRyanTron.SearchableEnum;
 using ServerData;
 using UnityEngine;
 using UnityEngine.Serialization;
-using TycoonBuilder;
+using Pharaoh;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Build;
 #endif
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[AssetPath("Configs/ServerConfig", "ServerConfig")]
 	public class CServerConfig : CScriptableSingleton<CServerConfig>

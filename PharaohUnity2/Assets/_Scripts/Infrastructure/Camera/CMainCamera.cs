@@ -9,7 +9,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CMainCamera : ValidatedMonoBehaviour, 
         IConstructable, IInitializable, IMainCamera

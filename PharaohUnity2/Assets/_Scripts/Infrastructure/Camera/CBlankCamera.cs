@@ -10,7 +10,7 @@ using ServerData;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CBlankCamera : ValidatedMonoBehaviour, IInitializable
 	{

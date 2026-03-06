@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Numerics;
 using AldaEngine;
 using ServerData;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CAnimatedCurrency
     {

@@ -6,7 +6,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CDefaultBlitMaterial
 	{

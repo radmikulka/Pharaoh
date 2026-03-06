@@ -8,7 +8,7 @@ using System.Threading;
 using AldaEngine;
 using Cysharp.Threading.Tasks;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CPingPongFullScreenOverlayTask
 	{

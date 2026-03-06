@@ -10,7 +10,7 @@ using System.Net;
 using System.Threading;
 using AldaEngine;
 using Cysharp.Threading.Tasks;
-using TycoonBuilder.Infrastructure;
+using Pharaoh.Infrastructure;
 using ServerData;
 using ServiceEngine;
 using ServiceEngine.Ads;
@@ -18,7 +18,7 @@ using ServiceEngine.Firebase;
 using UnityEngine.Networking;
 using Debug = UnityEngine.Debug;
 
-namespace TycoonBuilder.Loading
+namespace Pharaoh.Loading
 {
 	public class CServiceConnectionThread
 	{

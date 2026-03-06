@@ -12,7 +12,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CQualityBasedVolume : ValidatedMonoBehaviour, IInitializable
 	{

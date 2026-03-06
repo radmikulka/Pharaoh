@@ -9,13 +9,13 @@ using AldaEngine;
 using AldaEngine.Tcp;
 using System.Net;
 using Cysharp.Threading.Tasks;
-using TycoonBuilder;
-using TycoonBuilder.Loading;
+using Pharaoh;
+using Pharaoh.Loading;
 using ServerData;
 using UnityEngine;
 using ILogger = AldaEngine.ILogger;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CServerEndpointProvider
 	{

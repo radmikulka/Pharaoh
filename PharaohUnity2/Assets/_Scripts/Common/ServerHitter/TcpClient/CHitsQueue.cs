@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using AldaEngine;
 using ServerData.Hits;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CHitsQueue
 	{

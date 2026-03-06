@@ -3,7 +3,7 @@
 // DATE:   19.12.2023
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum EInputLockLayer
 	{

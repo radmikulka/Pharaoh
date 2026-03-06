@@ -10,24 +10,14 @@ using UnityEngine;
 using Zenject;
 using Screen = UnityEngine.Device.Screen;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CTargetFrameRateHandler : MonoBehaviour, IInitializable
 	{
 		private const int EditorFpsLimit = 3333;
 		private const int FpsLimit = 60;
-		//private const int HighEndPhoneFpsLimit = 60;
-		private const int BatterySaverFpsLimit = 40;
 
 		private int _lastKnownDeviceRefreshRate;
-
-		private CSettingsData _settingsData;
-		
-		[Inject]
-		private void Inject(CSettingsData settingsData)
-		{
-			_settingsData = settingsData;
-		}
 		
 		public void Initialize()
 		{
@@ -53,26 +43,11 @@ namespace TycoonBuilder
 
 		private int GetMaxFps()
 		{
-			if (_settingsData.BatterySaverEnabled.Value)
-			{
-				int limit = GetBatterySaverLimit();
-				return limit;
-			}
-			
 			if (CPlatform.IsEditor)
 				return EditorFpsLimit;
 			
 			int screenRefreshRate = GetScreenRefreshRate();
 			return CMath.Min(FpsLimit, screenRefreshRate);
-		}
-		
-		private int GetBatterySaverLimit()
-		{
-			/*int screenRefreshRate = GetScreenRefreshRate();
-			if (screenRefreshRate >= 90)
-				return HighEndPhoneFpsLimit;
-			*/
-			return BatterySaverFpsLimit;
 		}
 
 		private int GetScreenRefreshRate()

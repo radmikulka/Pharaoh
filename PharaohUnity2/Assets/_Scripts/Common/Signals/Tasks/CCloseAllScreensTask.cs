@@ -3,7 +3,7 @@
 // DATE:   22.01.2026
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CCloseAllScreensTask
 	{

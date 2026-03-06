@@ -9,7 +9,7 @@ using AldaEngine;
 using KBCore.Refs;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[SuppressMessage("ReSharper", "RedundantTypeArgumentsOfMethod")]
 	public class CRegionInstaller : CSceneDiInstaller

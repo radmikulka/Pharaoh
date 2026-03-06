@@ -3,7 +3,7 @@
 // DATE:   28.10.2024
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CShowScreenTask
 	{

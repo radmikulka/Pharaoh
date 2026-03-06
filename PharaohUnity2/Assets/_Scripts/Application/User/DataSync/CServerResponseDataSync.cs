@@ -9,9 +9,9 @@ using ServerData;
 using ServerData.Dto;
 using ServerData.Hits;
 using UnityEngine;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	internal class CServerResponseDataSync
 	{

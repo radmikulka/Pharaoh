@@ -10,7 +10,7 @@ using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
 using ServerData.Hits;
 using ServiceEngine.Purchasing;
-using TycoonBuilder;
+using Pharaoh;
 using Zenject;
 
 namespace ServiceEngine.Purchasing

@@ -10,7 +10,7 @@ using ServerData;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[CreateAssetMenu(menuName = "____TycoonBuilder/Configs/Scene")]
 	public class CSceneResourceConfig : ScriptableObject, IResourceConfigBase<ESceneId>

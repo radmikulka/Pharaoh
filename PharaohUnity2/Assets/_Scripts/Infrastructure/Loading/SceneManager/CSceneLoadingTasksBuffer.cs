@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	internal class CSceneLoadingTasksBuffer
 	{

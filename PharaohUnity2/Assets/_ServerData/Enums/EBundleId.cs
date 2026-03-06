@@ -16,5 +16,7 @@ namespace ServerData
 	{
         None = 0,
         BaseGame = 1,
+        BaseGameScene = 2,
+        CoreGameScenes = 3,
     }
 }

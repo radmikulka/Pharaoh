@@ -11,7 +11,7 @@ using AldaEngine;
 using Cysharp.Threading.Tasks;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CRequiredBundlesDownloader
 	{

@@ -12,10 +12,10 @@ using Cysharp.Threading.Tasks;
 using ServerData;
 using ServerData.Dto;
 using ServerData.Hits;
-using TycoonBuilder;
+using Pharaoh;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CServerConnectionThread
 	{
@@ -65,7 +65,7 @@ namespace TycoonBuilder
 			
 			bool? connectionFailed = null;
 			
-			CConfigureServerRequest configureServerRequest = new(CServerConfig.Instance.FakeDelayInSecs, CServerConfig.Instance.OverrideEvent);
+			CConfigureServerRequest configureServerRequest = new(CServerConfig.Instance.FakeDelayInSecs);
 			
 			CHitRecordBuilder hitRecordBuilder = _hitBuilder.GetBuilder(configureServerRequest)
 				.SetOnSuccess<CConfigureServerResponse>(_ => connectionFailed = false)
@@ -84,7 +84,7 @@ namespace TycoonBuilder
 			if (!CPlatform.IsDebug)
 				return false;
 			
-			return CServerConfig.Instance.FakeDelayInSecs > 0 || CServerConfig.Instance.OverrideEvent != ELiveEvent.None;
+			return CServerConfig.Instance.FakeDelayInSecs > 0;
 		}
 
 		private CDebugAuthDataDto GetDebugAuthDataOrDefault()
@@ -109,11 +109,7 @@ namespace TycoonBuilder
 			return new CDebugAuthDataDto(
 				debug.OverrideUid, 
 				presetName, 
-				debug.LikeABoss, 
-				debug.OverrideYear,
-				CDebugConfig.Instance.TutorialSkip,
-				debug.OverrideContract,
-				debug.LikeABossVehicles
+				debug.LikeABoss
 				);
 		}
 		

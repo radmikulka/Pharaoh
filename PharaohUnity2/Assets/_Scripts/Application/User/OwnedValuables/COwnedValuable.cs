@@ -6,7 +6,7 @@
 using JetBrains.Annotations;
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public abstract class COwnedValuable
 	{

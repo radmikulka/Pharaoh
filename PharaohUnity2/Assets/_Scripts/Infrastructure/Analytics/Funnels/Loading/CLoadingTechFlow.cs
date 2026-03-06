@@ -6,7 +6,7 @@
 using AldaEngine;
 using AldaEngine.Analytics;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CLoadingTechFlow
 	{

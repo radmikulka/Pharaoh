@@ -6,11 +6,10 @@
 using System.Collections.Generic;
 using System.Reflection;
 using ServerData;
-using ServerData.Design;
 using ServiceEngine.Purchasing;
 using UnityEngine.Purchasing;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CPurchasingProductsProvider : IPurchasingProductsProvider
 	{

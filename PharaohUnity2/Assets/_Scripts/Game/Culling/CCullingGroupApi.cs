@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using AldaEngine.AldaFramework;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CCullingGroupApi : MonoBehaviour, IInitializable
     {

@@ -10,7 +10,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[DefaultExecutionOrder(CScriptExecutionOrder.CameraMover + 1)]
 	public class CAudioListener : ValidatedMonoBehaviour, IAldaFrameworkComponent

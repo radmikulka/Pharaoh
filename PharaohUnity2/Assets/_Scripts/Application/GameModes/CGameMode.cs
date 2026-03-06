@@ -6,9 +6,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using TycoonBuilder;
+using Pharaoh;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public abstract class CGameMode<T> : IGameMode where T : IGameModeData
     {

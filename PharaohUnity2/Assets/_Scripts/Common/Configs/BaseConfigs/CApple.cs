@@ -3,7 +3,7 @@
 // DATE:   29.08.2024
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CApple
 	{

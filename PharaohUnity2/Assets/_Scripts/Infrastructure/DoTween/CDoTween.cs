@@ -6,7 +6,7 @@
 using AldaEngine;
 using DG.Tweening;
 
-namespace TycoonBuilder.Infrastructure
+namespace Pharaoh.Infrastructure
 {
 	[NonLazy]
 	public class CDoTween

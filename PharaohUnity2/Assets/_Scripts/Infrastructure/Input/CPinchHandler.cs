@@ -7,7 +7,7 @@ using AldaEngine.AldaFramework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CPinchHandler
 	{

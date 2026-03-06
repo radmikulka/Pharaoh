@@ -3,7 +3,7 @@
 // DATE:   1.1.2024
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum ENotificationId
 	{

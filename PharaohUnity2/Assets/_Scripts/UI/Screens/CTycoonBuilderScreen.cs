@@ -11,7 +11,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder.Ui
+namespace Pharaoh.Ui
 {
     public abstract class CTycoonBuilderScreen : CBaseScreen<CTycoonBuilderScreen>, IUiScreen
     {

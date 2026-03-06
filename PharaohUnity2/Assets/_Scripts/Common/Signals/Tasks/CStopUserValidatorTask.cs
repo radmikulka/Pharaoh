@@ -3,7 +3,7 @@
 // DATE:   03.09.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CStopUserValidatorTask
 	{

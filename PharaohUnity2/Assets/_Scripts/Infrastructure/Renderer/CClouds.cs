@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CClouds : MonoBehaviour, IInitializable
 	{

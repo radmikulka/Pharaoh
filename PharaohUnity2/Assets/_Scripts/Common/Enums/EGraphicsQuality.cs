@@ -3,7 +3,7 @@
 // DATE:   12.09.2024
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum EGraphicsQuality
 	{

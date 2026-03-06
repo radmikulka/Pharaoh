@@ -7,6 +7,6 @@ namespace ServerData
 {
     public enum EMissionId
     {
-		
+		None = 0,
     }
 }

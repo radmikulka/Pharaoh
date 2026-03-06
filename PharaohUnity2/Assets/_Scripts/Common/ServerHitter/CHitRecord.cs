@@ -8,7 +8,7 @@ using AldaEngine.Tcp;
 using ServerData;
 using ServerData.Hits;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CHitRecord
 	{

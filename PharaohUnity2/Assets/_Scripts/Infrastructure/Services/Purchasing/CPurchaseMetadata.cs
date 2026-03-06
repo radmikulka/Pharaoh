@@ -9,7 +9,7 @@ using ServerData;
 
 // ReSharper disable InconsistentNaming
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[Serializable]
 	public class CPurchaseMetadata : IPurchaseMetaData

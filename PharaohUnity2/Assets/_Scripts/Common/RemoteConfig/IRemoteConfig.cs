@@ -7,7 +7,7 @@ using AldaEngine;
 using Cysharp.Threading.Tasks;
 using ServiceEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IRemoteConfig
 	{

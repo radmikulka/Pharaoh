@@ -5,7 +5,7 @@
 
 using ServerData;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public interface IRequiredBundlesProvider
 	{

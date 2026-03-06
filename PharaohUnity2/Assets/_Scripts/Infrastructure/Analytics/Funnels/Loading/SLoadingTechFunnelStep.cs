@@ -5,7 +5,7 @@
 
 using AldaEngine.Analytics;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public struct SLoadingTechFunnelStep : IFunnelStep
 	{

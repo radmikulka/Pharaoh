@@ -5,7 +5,7 @@
 
 using System;
 using AldaEngine;
-using TycoonBuilder;
+using Pharaoh;
 using NaughtyAttributes;
 using RoboRyanTron.SearchableEnum;
 using ServerData;
@@ -14,7 +14,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[AssetPath("Configs/DebugConfig", "DebugConfig")]
 	public class CDebugConfig : CScriptableSingleton<CDebugConfig>

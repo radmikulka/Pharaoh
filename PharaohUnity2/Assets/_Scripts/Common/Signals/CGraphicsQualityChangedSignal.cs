@@ -5,7 +5,7 @@
 
 using AldaEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CGraphicsQualityChangedSignal : IEventBusSignal
 	{

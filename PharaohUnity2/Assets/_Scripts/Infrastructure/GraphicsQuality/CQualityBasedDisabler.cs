@@ -5,11 +5,11 @@
 
 using AldaEngine;
 using AldaEngine.AldaFramework;
-using TycoonBuilder.Infrastructure;
+using Pharaoh.Infrastructure;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CQualityBasedDisabler : MonoBehaviour, IConstructable, IInitializable
 	{

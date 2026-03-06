@@ -3,7 +3,7 @@
 // DATE:   24.07.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CMenuManagerStateResponse
 	{

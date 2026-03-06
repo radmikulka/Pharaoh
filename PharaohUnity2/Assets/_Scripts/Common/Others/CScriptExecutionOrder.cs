@@ -3,7 +3,7 @@
 // DATE:   29.08.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public static class CScriptExecutionOrder
 	{

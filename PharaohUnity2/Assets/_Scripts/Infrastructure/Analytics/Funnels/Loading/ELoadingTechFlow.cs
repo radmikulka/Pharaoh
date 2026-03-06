@@ -3,7 +3,7 @@
 // DATE:   12.11.2025
 // =========================================
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public enum ELoadingTechFlow
 	{
@@ -16,9 +16,6 @@ namespace TycoonBuilder
 		UiSceneActivated,
 		OfflineServicesInited,
 		NetworkStatusChecked,
-		ServerResponseParsed,
-		PrivacyAccepted,
-		IntroSeen,
 		ServicesInited,
 		Completed
 	}

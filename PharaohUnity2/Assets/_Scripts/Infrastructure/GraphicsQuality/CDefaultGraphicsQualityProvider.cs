@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.iOS;
 #endif
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CDefaultGraphicsQualityProvider
 	{

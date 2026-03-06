@@ -8,18 +8,20 @@ using AldaEngine.AldaFramework;
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	[CreateAssetMenu(menuName = "____TycoonBuilder/Configs/ResourceConfigs")]
 	public class CResourceConfigs : CResourceConfigsDb, IConstructable
 	{
 		public CResourceConfigsSet<CValuableResourceConfig, EValuable> Valuables { get; private set; }
 		public CResourceConfigsSet<CSceneResourceConfig, ESceneId> Scenes { get; private set; }
+		public CResourceConfigsSet<CMissionResourceConfig, EMissionId> Missions { get; private set; }
 		
 		public void Construct()
 		{
 			Scenes = GetConfigs<CResourceConfigsSet<CSceneResourceConfig, ESceneId>, CSceneResourceConfig>();
 			Valuables = GetConfigs<CResourceConfigsSet<CValuableResourceConfig, EValuable>, CValuableResourceConfig>();
+			Missions = GetConfigs<CResourceConfigsSet<CMissionResourceConfig, EMissionId>, CMissionResourceConfig>();
 		}
 	}
 }

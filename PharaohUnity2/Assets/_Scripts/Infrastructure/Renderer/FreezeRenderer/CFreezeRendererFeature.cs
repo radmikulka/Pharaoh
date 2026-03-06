@@ -13,7 +13,7 @@ using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 using BlitMaterialParameters = UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtils.BlitMaterialParameters;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CFreezeRendererFeature : ScriptableRendererFeature
 	{

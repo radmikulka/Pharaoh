@@ -5,7 +5,7 @@
 
 using System;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class COpenBadGameVersionScreenTask
 	{

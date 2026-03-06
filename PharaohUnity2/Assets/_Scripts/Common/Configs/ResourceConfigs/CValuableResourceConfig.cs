@@ -8,7 +8,7 @@ using AldaEngine;
 using ServerData;
 using UnityEngine;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     [CreateAssetMenu(menuName = "____TycoonBuilder/Configs/Valuable")]
     public class CValuableResourceConfig : ScriptableObject, IResourceConfigBase<EValuable>, IIHaveBundleLinks

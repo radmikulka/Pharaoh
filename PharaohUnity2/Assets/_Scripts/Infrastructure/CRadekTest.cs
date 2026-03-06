@@ -14,7 +14,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CRadekTest : MonoBehaviour, IAldaFrameworkComponent
 	{

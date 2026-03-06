@@ -8,7 +8,7 @@ using AldaEngine.AldaFramework;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CMenuBackgroundBlurTrigger : 
 		MonoBehaviour, 

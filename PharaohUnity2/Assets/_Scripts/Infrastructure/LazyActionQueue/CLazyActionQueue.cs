@@ -12,14 +12,13 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
 	public class CLazyActionQueue : MonoBehaviour, IAldaFrameworkComponent
 	{
 		private readonly List<ILazyAction> _actionsToExecute = new();
 		private readonly HashSet<CLockObject> _lockObjects = new();
 
-		private IRewardQueue _rewardQueue;
 		private ICtsProvider _ctsProvider;
 		private IEventBus _eventBus;
 		private bool _isActivated;
@@ -27,9 +26,8 @@ namespace TycoonBuilder
 		public bool IsProcessing { get; private set; }
 
 		[Inject]
-		private void Inject(ICtsProvider ctsProvider, IEventBus eventBus, IRewardQueue rewardQueue)
+		private void Inject(ICtsProvider ctsProvider, IEventBus eventBus)
 		{
-			_rewardQueue = rewardQueue;
 			_ctsProvider = ctsProvider;
 			_eventBus = eventBus;
 		}
@@ -87,10 +85,6 @@ namespace TycoonBuilder
 			if (_ctsProvider.Token.IsCancellationRequested)
 				return false;
 
-			bool rewardQueueRunning = _rewardQueue.IsRunning();
-			if (rewardQueueRunning)
-				return false;
-			
 			bool isAnyMenuOpened = IsAnyMenuOpened();
 			if (isAnyMenuOpened)
 				return false;

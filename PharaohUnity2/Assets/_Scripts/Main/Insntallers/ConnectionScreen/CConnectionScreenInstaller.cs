@@ -6,9 +6,9 @@
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using KBCore.Refs;
-using TycoonBuilder.Loading;
+using Pharaoh.Loading;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CConnectionScreenInstaller : CSceneDiInstaller
     {

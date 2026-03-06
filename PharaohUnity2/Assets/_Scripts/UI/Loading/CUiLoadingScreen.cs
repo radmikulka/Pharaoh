@@ -13,7 +13,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-namespace TycoonBuilder
+namespace Pharaoh
 {
     public class CUiLoadingScreen : MonoBehaviour, IConstructable, IInitializable, ILoadingScreen
     {
