@@ -9,7 +9,7 @@ namespace Pharaoh
 	{
 		None = 0,
 		PauseCoreGame = 1,
-		CCoreGameOverlay = 2,
+		CoreGameOverlay = 2,
 		Dialog = 3,
 		DialogOverlay = 4,
 		DialogueWindow = 5,

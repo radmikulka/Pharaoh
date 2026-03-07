@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraZoom: {fileID: 845584743}
-  _closeEnoughDistance: 100
 --- !u!1 &503163732
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +174,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503163733}
-  - component: {fileID: 503163734}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -202,18 +200,6 @@ Transform:
   - {fileID: 838534806}
   m_Father: {fileID: 721670891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &503163734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503163732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c44a72a1f045ecb8cba3d672ad6224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &721670889
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1392865538}
   - component: {fileID: 1392865537}
-  - component: {fileID: 1392865539}
   m_Layer: 0
   m_Name: PostProcess_Volume
   m_TagString: Untagged
@@ -529,19 +514,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 503163733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1392865539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392865536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d05d44edc54c14a9b94480af14ca02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AldaGames.Common::TycoonBuilder.CQualityBasedVolume
-  _volume: {fileID: 1392865537}
 --- !u!1 &1524899793
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +544,7 @@ Transform:
   m_GameObject: {fileID: 1524899793}
   serializedVersion: 2
   m_LocalRotation: {x: -0.059391133, y: 0.92541665, z: -0.33682406, w: -0.16317584}
-  m_LocalPosition: {x: 157, y: 14, z: -27}
+  m_LocalPosition: {x: 288.00128, y: 335.39377, z: 332.92328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

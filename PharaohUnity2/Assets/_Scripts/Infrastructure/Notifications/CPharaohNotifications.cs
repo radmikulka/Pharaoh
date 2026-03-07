@@ -15,7 +15,7 @@ namespace Pharaoh
 	public class CPharaohNotifications : MonoBehaviour, IInitializable
 	{
 		private INotifications<CUnityNotification> _notifications;
-		private CSaviorNotifications _saviourNotifications;
+		private CSaviorNotifications _saviorNotifications;
 		private CNotificationFactory _notificationFactory;
 
 		[Inject]
@@ -28,7 +28,7 @@ namespace Pharaoh
 			CUser user
 			)
 		{
-			_saviourNotifications = new CSaviorNotifications(notifications, notificationFactory);
+			_saviorNotifications = new CSaviorNotifications(notifications, notificationFactory);
 			_notificationFactory = notificationFactory;
 			_notifications = notifications;
 		}
@@ -43,7 +43,7 @@ namespace Pharaoh
 			if(hasFocus)
 				return;
 
-			_saviourNotifications.Set();
+			_saviorNotifications.Set();
 		}
 
 		private void SetTestNotification()

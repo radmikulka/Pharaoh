@@ -64,7 +64,7 @@ namespace Pharaoh
             InstallAuth();
             InstallAds();
             
-            Container.AddSingleton<ITranslation, CDummlyLocalizationProvider>();
+            Container.AddSingleton<ITranslation, CDummyLocalizationProvider>();
             Container.AddSingleton<ISettings, CSettings>();
         }
         
@@ -222,7 +222,7 @@ namespace Pharaoh
             Container.AddSingletonFromInstance<IEventBus>(rootBus);
         }
         
-        private class CDummlyLocalizationProvider : ITranslation
+        private class CDummyLocalizationProvider : ITranslation
         {
             public ELanguageCode SystemLanguage { get; }
             public ELanguageCode CurrentLanguage { get; }

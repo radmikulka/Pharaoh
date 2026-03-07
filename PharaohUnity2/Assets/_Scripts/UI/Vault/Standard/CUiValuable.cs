@@ -22,9 +22,9 @@ namespace Pharaoh
 		private CResourceConfigs _resourceConfigs;
 		private IBundleManager _bundleManager;
 
-		private IValuable Valuable;
+		private IValuable _valuable;
 		
-		public EValuable Id => Valuable?.Id ?? EValuable.None;
+		public EValuable Id => _valuable?.Id ?? EValuable.None;
 
 		[Inject]
 		private void Inject(CResourceConfigs resourceConfigs, IBundleManager bundleManager)
@@ -40,9 +40,9 @@ namespace Pharaoh
 
 		public void SetValue(IValuable valuable)
 		{
-			Valuable = valuable;
-			SetIcon(Valuable);
-			SendToComponents(Valuable);
+			_valuable = valuable;
+			SetIcon(_valuable);
+			SendToComponents(_valuable);
 		}
 
 		private void SetIcon(IValuable valuable)

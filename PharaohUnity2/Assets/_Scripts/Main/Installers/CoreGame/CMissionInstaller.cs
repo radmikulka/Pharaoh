@@ -12,9 +12,9 @@ using UnityEngine;
 namespace Pharaoh
 {
 	[SuppressMessage("ReSharper", "RedundantTypeArgumentsOfMethod")]
-	public class CRegionInstaller : CSceneDiInstaller
+	public class CMissionInstaller : CSceneDiInstaller
 	{
-		[SerializeField, Child] private CMissionController mission;
+		[SerializeField, Child] private CMissionController _mission;
 
 		private void OnValidate()
 		{
@@ -25,7 +25,7 @@ namespace Pharaoh
 		{
 			base.InstallBindings();
 			
-			Container.AddSingletonFromInstance(mission);
+			Container.AddSingletonFromInstance(_mission);
 		}
 	}
 }
