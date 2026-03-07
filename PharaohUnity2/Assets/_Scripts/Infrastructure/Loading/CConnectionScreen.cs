@@ -23,11 +23,11 @@ namespace Pharaoh
 {
     public class CConnectionScreen : MonoBehaviour, IInitializable
     {
-        private CServerConnectionInitializer _validServerConnectionPostprocess;
+        private CServerConnectionInitializer _serverConnectionInitializer;
         private CInternetReachabilityChecker _internetReachabilityChecker;
         private CServiceConnectionThread _serviceConnectionThread;
         private CServerConnectionThread _serverConnectionThread;
-        private CLoadingFunnelTracker _loadingTechFlow;
+        private CLoadingFunnelTracker _loadingFunnelTracker;
         private IRemoteDatabase _remoteDatabase;
         private IBundleManager _bundleManager;
         private ILoadingScreen _loadingScreen;
@@ -40,12 +40,12 @@ namespace Pharaoh
 
         [Inject]
         private void Inject(
-            CServerConnectionInitializer validServerConnectionPostprocess,
+            CServerConnectionInitializer serverConnectionInitializer,
             CInternetReachabilityChecker internetReachabilityChecker,
             CServiceConnectionThread serviceConnectionThread,
             CServerConnectionThread serverConnectionThread,
             IRestartGameHandler restartGameHandler,
-            CLoadingFunnelTracker loadingTechFlow,
+            CLoadingFunnelTracker loadingFunnelTracker,
             IExitAppHandler exitAppHandler,
             IRemoteDatabase remoteDatabase,
             ILoadingScreen loadingScreen, 
@@ -61,11 +61,11 @@ namespace Pharaoh
             IEventBus eventBus
             )
         {
-            _validServerConnectionPostprocess = validServerConnectionPostprocess;
+            _serverConnectionInitializer = serverConnectionInitializer;
             _internetReachabilityChecker = internetReachabilityChecker;
             _serviceConnectionThread = serviceConnectionThread;
             _serverConnectionThread = serverConnectionThread;
-            _loadingTechFlow = loadingTechFlow;
+            _loadingFunnelTracker = loadingFunnelTracker;
             _remoteDatabase = remoteDatabase;
             _loadingScreen = loadingScreen;
             _bundleManager = bundleManager;
@@ -89,55 +89,55 @@ namespace Pharaoh
 
         private async UniTask LoadGame(CancellationToken ct)
         {
-            _loadingTechFlow.Send(ELoadingFunnelStep.Start);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.Start);
             
             CSrDebugger srDebugger = new();
             await srDebugger.TryActivate(ct);
             
             await LoadBundles(ct, EBundleId.BaseGameScene);
-            _loadingTechFlow.Send(ELoadingFunnelStep.BaseGameBundlesLoaded);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.BaseGameBundlesLoaded);
 
             UniTask baseSceneLoadTask = _sceneManager.StartBaseSceneLoadingAsync(ct);
 
             UniTask serviceThread = _serviceConnectionThread.InitOnlineServicesAsync();
             UniTask<CResponseHit> serverThread = _serverConnectionThread.ConnectAsync(ct);
             
-            _loadingTechFlow.Send(ELoadingFunnelStep.WaitingForServer);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.WaitingForServer);
 
             await serverThread;
             
-            _loadingTechFlow.Send(ELoadingFunnelStep.ServerResponseReceived);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.ServerResponseReceived);
 
             CResponseHit serverResponse = await serverThread;
             CConnectResponse connectResponse = serverResponse as CConnectResponse;
 
             //if (connectResponse is not null)
             {
-                await _validServerConnectionPostprocess.InitializeServerConnection(connectResponse, ct);
+                await _serverConnectionInitializer.InitializeServerConnection(connectResponse, ct);
             }
             
             _sceneManager.AllowBaseSceneActivation();
             await baseSceneLoadTask;
             
-            _loadingTechFlow.Send(ELoadingFunnelStep.BaseGameSceneActivated);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.BaseGameSceneActivated);
             
             await LoadBundles(ct, EBundleId.CoreGameScenes);
             await _sceneManager.LoadSceneAsync(ESceneId.Ui, LoadSceneMode.Additive, ct);
             
-            _loadingTechFlow.Send(ELoadingFunnelStep.UiSceneActivated);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.UiSceneActivated);
             
             _loadingScreen.Show(ct, 0f).Forget();
             _loadingScreen.SetInfoText("Loading.LoadingGame", true);
             
             _serviceConnectionThread.InitOfflineServices();
-            _loadingTechFlow.Send(ELoadingFunnelStep.OfflineServicesInited);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.OfflineServicesInited);
             bool isOnline = await _internetReachabilityChecker.CheckForInternetConnection(ct);
             if (!isOnline)
             {
                 ShowNoInternetError();
                 return;
             }
-            _loadingTechFlow.Send(ELoadingFunnelStep.NetworkStatusChecked);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.NetworkStatusChecked);
 
             /*if (connectResponse is null)
             {
@@ -148,13 +148,13 @@ namespace Pharaoh
             _inAppUpdate.TryFlexibleUpdateAsync().Forget();
             
             await serviceThread;
-            _loadingTechFlow.Send(ELoadingFunnelStep.ServicesInited);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.ServicesInited);
             //CCoreGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
             CCoreGameModeData coreGameModeData = new(EMissionId.Mission1_1);
             _eventBus.ProcessTaskAsync(new CLoadGameModeTask(coreGameModeData), ct).Forget();
             
             await SceneManager.UnloadSceneAsync(gameObject.scene).ToUniTask(cancellationToken: ct);
-            _loadingTechFlow.Send(ELoadingFunnelStep.Completed);
+            _loadingFunnelTracker.Send(ELoadingFunnelStep.Completed);
         }
 
         private async UniTaskVoid HandleBadServerResponse(CResponseHit response, CancellationToken ct)
