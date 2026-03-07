@@ -18,7 +18,6 @@ namespace Pharaoh
 		private void InitializeDefaults()
 		{
 			//AddKey(ERemoteConfigKey.Test, "test", "test");		
-			AddKey(ERemoteConfigKey.ShowStoryDialogs, "abtest_show_storydialogs", "1");
 		}
 	}
 }

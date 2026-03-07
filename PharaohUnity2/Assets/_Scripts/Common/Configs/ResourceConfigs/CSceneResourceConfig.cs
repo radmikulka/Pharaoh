@@ -21,7 +21,6 @@ namespace Pharaoh
 
 		public EBundleId[] BundleIds => _bundleIds;
 		public string SceneName => Path.GetFileName(_scenePath);
-		public string ScenePath => _scenePath;
 		public ESceneId Id => _id;
 	}
 }

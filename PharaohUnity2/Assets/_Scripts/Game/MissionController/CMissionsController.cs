@@ -23,10 +23,7 @@ namespace Pharaoh
 		private readonly CResourceConfigs _resourceConfigs;
 		private readonly ILoadingScreen _loadingScreen;
 		private readonly ISceneManager _sceneManager;
-		private readonly ICtsProvider _ctsProvider;
-		private readonly CHitBuilder _hitBuilder;
 		private readonly IEventBus _eventBus;
-		private readonly CUser _user;
 
 		private CMissionController _activeMission;
 		
@@ -37,10 +34,7 @@ namespace Pharaoh
 			CResourceConfigs resourceConfigs,
 			ILoadingScreen loadingScreen,
 			ISceneManager sceneManager, 
-			ICtsProvider ctsProvider, 
-			CHitBuilder hitBuilder, 
-			IEventBus eventBus, 
-			CUser user
+			IEventBus eventBus
 			)
 		
 		{
@@ -48,10 +42,7 @@ namespace Pharaoh
 			_resourceConfigs = resourceConfigs;
 			_loadingScreen = loadingScreen;
 			_sceneManager = sceneManager;
-			_ctsProvider = ctsProvider;
-			_hitBuilder = hitBuilder;
 			_eventBus = eventBus;
-			_user = user;
 		}
 
 		public Plane GetCameraPlane()

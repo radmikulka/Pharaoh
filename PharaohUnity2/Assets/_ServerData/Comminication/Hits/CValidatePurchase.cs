@@ -26,27 +26,16 @@ namespace ServerData.Hits
 		}
 	}
 	
-	public class CValidatePurchaseResponse : CResponseHit, IIHaveModifiedData
+	public class CValidatePurchaseResponse : CResponseHit
 	{
-		[JsonProperty] public CModifiedUserDataDto ModifiedData { get; set; }
 		[JsonProperty] public bool IsTestUser { get; set; }
-
-		public CModifiedUserDataDto GetModifiedData()
-		{
-			return ModifiedData;
-		}
 
 		public CValidatePurchaseResponse() : base(EHit.ValidatePurchaseResponse)
 		{
 		}
 		
-		public CValidatePurchaseResponse(
-			CModifiedUserDataDto modifiedData, 
-			bool isTestUser
-			) 
-			: base(EHit.ValidatePurchaseResponse)
+		public CValidatePurchaseResponse(bool isTestUser) : base(EHit.ValidatePurchaseResponse)
 		{
-			ModifiedData = modifiedData;
 			IsTestUser = isTestUser;
 		}
 	}

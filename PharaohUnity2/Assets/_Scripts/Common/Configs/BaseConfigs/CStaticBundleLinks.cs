@@ -5,10 +5,11 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using AldaEngine;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace AldaEngine
+namespace Pharaoh
 {
 	[CreateAssetMenu(fileName = "StaticBundleLinks", menuName = "____Pharaoh/EditorTasks/StaticBundleLinks")]
 	public class CStaticBundleLinks : CScriptableSingletonEditorOnly<CStaticBundleLinks>, IIHaveBundleLinks

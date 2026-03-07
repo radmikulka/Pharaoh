@@ -13,7 +13,6 @@ using AldaEngine;
 using AldaEngine.AldaFramework;
 using AldaEngine.Tcp;
 using Newtonsoft.Json;
-using Pharaoh.Signal;
 using ServerData;
 using ServerData.Hits;
 using ServiceEngine;
@@ -149,14 +148,6 @@ namespace Pharaoh
 				string json = JsonConvert.SerializeObject(response.Hits[i], Formatting.Indented);
 				Debug.Log($"SERVER OUT {(EHit)response.Hits[i].HitId} {Environment.NewLine}{json}");
 			}
-		}
-
-		public bool IsProcessingAnyData()
-		{
-			if(_processingPacketsCount > 0)
-				return true;
-			
-			return !_hitsQueue.IsEmpty;
 		}
 
 		private void OnApplicationPause(bool pauseStatus)
@@ -337,12 +328,6 @@ namespace Pharaoh
 				}
 			}
 			
-			bool isProcessing = IsProcessingAnyData();
-			if (!isProcessing)
-			{
-				_eventBus.Send(new CAllServerHitsProcessedSignal());
-			}
-			
 			return;
 			
 			bool ContainsAnyError(CResponsePacket response)
@@ -375,8 +360,6 @@ namespace Pharaoh
 					IHit responseHit = response.Hits[i];
 					recordsGroup.Records[i].OnSuccess?.Invoke((CResponseHit) responseHit);
 				}
-				
-				_eventBus.Send(new CServerHitsProcessedSignal(response.Hits));
 			});
 		}
 

@@ -13,31 +13,15 @@ using UnityEngine;
 
 namespace Pharaoh
 {
-    public class CAnimatedCurrencies : CBaseUserComponent, ITickable
+    public class CAnimatedCurrencies : CBaseUserComponent
     {
         private readonly Dictionary<EValuable, CAnimatedCurrency> _currencies = new();
-
-        private readonly IServerTime _serverTime;
-        private readonly IEventBus _eventBus;
-        public CAnimatedCurrencies(IServerTime serverTime, IEventBus eventBus)
-        {
-            _serverTime = serverTime;
-            _eventBus = eventBus;
-        }
         
         public override void Initialize(CUser user)
         {
             base.Initialize(user);
             
             AddCurrency(EValuable.HardCurrency);
-        }
-
-        public void Tick()
-        {
-            foreach (CAnimatedCurrency currency in _currencies.Values)
-            {
-                currency.Tick(_serverTime.GetTimestampInMs());
-            }
         }
 
         private void AddCurrency(EValuable valuableId)

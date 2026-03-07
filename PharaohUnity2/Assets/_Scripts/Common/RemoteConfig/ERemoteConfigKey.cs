@@ -8,6 +8,5 @@ namespace Pharaoh
 	public enum ERemoteConfigKey
 	{
 		None = 0,
-		ShowStoryDialogs = 1,
 	}
 }

@@ -10,7 +10,7 @@ using ServerData;
 
 namespace Pharaoh
 {
-    public class CUser : IDestroyable, IInitializable
+    public class CUser : IDestroyable
     {
         public readonly CAnimatedCurrencies AnimatedCurrencies;
         public readonly COwnedValuables OwnedValuables;
@@ -19,8 +19,6 @@ namespace Pharaoh
 
         public bool IsValid { get; private set; }
 
-        private readonly IEventBus _eventBus;
-        private readonly CServerResponseDataSync _dataSync = new();
         private readonly List<CBaseUserComponent> _allComponents = new();
 
         public CUser(
@@ -28,13 +26,11 @@ namespace Pharaoh
             CInitialUserDtoProvider dtoProvider,
             COwnedValuables ownedValuables,
             CUserProgress progress,
-            IEventBus eventBus,
             CAccount account
             )
         {
             AnimatedCurrencies = animatedCurrencies;
             OwnedValuables = ownedValuables;
-            _eventBus = eventBus;
             Progress = progress;
             Account = account;
 
@@ -47,16 +43,6 @@ namespace Pharaoh
             InitialSync(dtoProvider.Dto);
         }
 
-        public void Initialize()
-        {
-            _eventBus.Subscribe<CServerHitsProcessedSignal>(OnHitsProcessed);
-        }
-
-        private void OnHitsProcessed(CServerHitsProcessedSignal signal)
-        {
-            _dataSync.SyncHits(signal.Hits, this);
-        }
-
         private void InitComponents()
         {
             foreach (CBaseUserComponent component in _allComponents)
@@ -64,6 +50,7 @@ namespace Pharaoh
                 component.Initialize(this);
             }
         }
+        
         private void InitialSync(CUserDto dto)
         {
             IsValid = dto != null;

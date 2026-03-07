@@ -21,7 +21,6 @@ namespace Pharaoh
     public class CCameraMover : ValidatedMonoBehaviour, IInitializable, IConstructable, IDestroyable
     {
         [SerializeField, Child] private CCameraZoom _cameraZoom;
-        [SerializeField] private float _closeEnoughDistance = 10f;
         
         private ICameraPlaneProvider _cameraPlaneProvider;
         private readonly CCameraMoverInput _input = new();

@@ -18,19 +18,16 @@ namespace Pharaoh
 		private readonly Dictionary<EValuable, COwnedValuable> _valuables = new();
 		private readonly COwnedValuableFactory _valuableFactory = new();
 
-		private readonly CSpecialValuables _specialValuables;
 		private readonly IServerTime _serverTime;
 		private readonly IEventBus _eventBus;
 		private readonly IMapper _mapper;
 
 		public COwnedValuables(
-			CSpecialValuables specialValuables,
 			IServerTime serverTime,
 			IEventBus eventBus,
 			IMapper mapper
 		)
 		{
-			_specialValuables = specialValuables;
 			_serverTime = serverTime;
 			_eventBus = eventBus;
 			_mapper = mapper;
@@ -51,12 +48,6 @@ namespace Pharaoh
 			}
 		}
 
-		public void Sync(IOwnedValuableData valuableData)
-		{
-			COwnedValuable valuable = GetOrCrateValuable(valuableData.Id);
-			valuable.Sync(valuableData);
-		}
-
 		public T GetValuable<T>(EValuable id) where T : COwnedValuable
 		{
 			COwnedValuable ownedValuable = GetOrCrateValuable(id);
@@ -70,14 +61,6 @@ namespace Pharaoh
 
 		public void ModifyValuableInternal(IValuable valuable, CValueModifyParams modifyParams = null)
 		{
-			long timestampInMs = _serverTime.GetTimestampInMs();
-			bool specialCaseHandled = _specialValuables.TryHandleSpecialValuable(valuable, User, timestampInMs, modifyParams);
-			if (specialCaseHandled)
-			{
-				_eventBus.Send(new COwnedValuableChangedSignal(valuable));
-				return;
-			}
-
 			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
 			ownedValuable.Modify(valuable, modifyParams);
 			_eventBus.Send(new COwnedValuableChangedSignal(valuable));
@@ -85,13 +68,6 @@ namespace Pharaoh
 
 		public bool HaveValuable(IValuable valuable)
 		{
-			long timestamp = _serverTime.GetTimestampInMs();
-			bool? specialCaseHandled = _specialValuables.HaveValuable(valuable, User, timestamp);
-			if (specialCaseHandled.HasValue)
-			{
-				return specialCaseHandled.Value;
-			}
-			
 			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
 			return ownedValuable.HaveValuable(valuable);
 		}

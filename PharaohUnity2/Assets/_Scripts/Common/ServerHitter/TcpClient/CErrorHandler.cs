@@ -6,7 +6,6 @@
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
-using Pharaoh.Signal;
 using ServerData;
 using ServerData.Hits;
 using ServiceEngine.Purchasing;

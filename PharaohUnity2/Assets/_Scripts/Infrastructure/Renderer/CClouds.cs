@@ -47,20 +47,7 @@ namespace Pharaoh
 
 		private void RefreshRenderTexture()
 		{
-			if (_renderer.GraphicsQuality == EGraphicsQuality.Low)
-			{
-				if (!_renderTexture) 
-					return;
-				
-				Destroy(_renderTexture);
-				_renderTexture = null;
-				return;
-			}
-
-			if (!_renderTexture)
-			{
-				CreateRt();
-			}
+			CreateRt();
 		}
 
 		private void CreateRt()
@@ -84,8 +71,6 @@ namespace Pharaoh
 
 		private void Blit()
 		{
-			if(_renderer.GraphicsQuality == EGraphicsQuality.Low)
-				return;
 			Graphics.Blit(null, _renderTexture, _combineMaterial);
 		}
 

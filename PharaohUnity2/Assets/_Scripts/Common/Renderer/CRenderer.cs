@@ -19,7 +19,6 @@ namespace Pharaoh
 	public class CRenderer : MonoBehaviour, IConstructable, IInitializable
 	{
 		public const string LowQualityShaderKeyword = "_LOW_QUALITY";
-		public const string MediumQualityShaderKeyword = "_MEDIUM_QUALITY";
 		
 		private const float ShadowDistance = 1200f;
 		
@@ -88,11 +87,8 @@ namespace Pharaoh
 			float maxScreenHeight;
 			switch (quality)
 			{
-				case EGraphicsQuality.Low:
-					maxScreenHeight = CMath.Min(550, Screen.height * 0.6f);
-					break;
 				case EGraphicsQuality.Medium:
-					maxScreenHeight = CMath.Min(600, Screen.height * 0.7f);
+					maxScreenHeight = CMath.Min(570, Screen.height * 0.65f);
 					break;
 				case EGraphicsQuality.High:
 					maxScreenHeight = CMath.Min(720, Screen.height * 0.75f);
@@ -114,15 +110,11 @@ namespace Pharaoh
 		private void SetShaderQuality(EGraphicsQuality quality)
 		{
 			Shader.DisableKeyword(LowQualityShaderKeyword);
-			Shader.DisableKeyword(MediumQualityShaderKeyword);
 
 			switch (quality)
 			{
-				case EGraphicsQuality.Low:
-					Shader.EnableKeyword(LowQualityShaderKeyword);
-					return;
 				case EGraphicsQuality.Medium:
-					Shader.EnableKeyword(MediumQualityShaderKeyword);
+					Shader.EnableKeyword(LowQualityShaderKeyword);
 					return;
 			}
 		}
@@ -138,11 +130,6 @@ namespace Pharaoh
 		{
 			UniversalRenderPipelineAsset urpAsset = GetActiveUrpAsset();
 			return urpAsset.rendererDataList[0];
-		}
-
-		public void SetScreenshotModeGraphics(EGraphicsQuality quality)
-		{
-			SetQuality(quality);
 		}
 	}
 }

@@ -23,13 +23,9 @@ namespace Pharaoh
 
 		public void SetDeviceInfo()
 		{
+			_crashlytics.SetCustomKey("SystemLanguage", Application.systemLanguage.ToString());
 			_crashlytics.SetCustomKey("InstallMode", Application.installMode.ToString());
 			_crashlytics.SetCustomKey("InstallerName", Application.installerName);
-		}
-		
-		public void SetLanguage(string language)
-		{
-			_crashlytics.SetCustomKey("Language", language);
 		}
 	}
 }

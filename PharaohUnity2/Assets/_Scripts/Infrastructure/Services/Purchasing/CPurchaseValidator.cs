@@ -101,7 +101,7 @@ namespace ServiceEngine.Purchasing
 			string productId = order.GetFirstProductId();
 			CPurchaseReceiptUnpacker.SPurchaseInfo purchaseData = _receiptUnpacker.GetPurchaseData(order);
 			CRealMoneyPurchaseDataDto purchaseDataDto = new(
-				purchaseData.Token, productId, store, purchaseData.PurchaseTimestampMs, isPurchaseInitiatedByUser
+				purchaseData.Token, productId, store, purchaseData.PurchaseTimestampMs
 				);
 			CHitRecordBuilder hitBuilder = _hitBuilder.GetBuilder(new CValidatePurchaseRequest(
 				purchaseDataDto, 

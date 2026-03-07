@@ -9,13 +9,6 @@ namespace Pharaoh
 	{
 		Default,
 		Menu,
-		Dropdown,
-		TutorialCommentator,
-		Tutorial,
-		Cinematic,
-		RewardHandler,
-		VehicleShowcase,
-		SkipButton,
 		FullscreenOverlay,
 		ErrorDialog
 	}

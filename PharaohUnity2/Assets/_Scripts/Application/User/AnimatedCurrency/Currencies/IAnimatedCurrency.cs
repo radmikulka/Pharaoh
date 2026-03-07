@@ -12,6 +12,5 @@ namespace Pharaoh
 	{
 		event Action<SValueChangeArgs> ValueChanged;
 		int Value { get; }
-		public void Tick(long timestamp);
 	}
 }

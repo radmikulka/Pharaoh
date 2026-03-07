@@ -39,11 +39,7 @@ namespace Pharaoh
 			if (useHigh)
 				return EGraphicsQuality.High;
 			
-			bool useMedium = UseMediumSettings();
-			if (useMedium)
-				return EGraphicsQuality.Medium;
-
-			return EGraphicsQuality.Low;
+			return EGraphicsQuality.Medium;
 		}
 		
 		private bool UseHighSettings()
@@ -54,13 +50,6 @@ namespace Pharaoh
 				return false;
 
 			if (SystemInfo.systemMemorySize > 1024 * 8)
-				return true;
-			return false;
-		}
-
-		private bool UseMediumSettings()
-		{
-			if (SystemInfo.systemMemorySize > 1024 * 4)
 				return true;
 			return false;
 		}

@@ -7,7 +7,6 @@ namespace Pharaoh
 {
 	public enum EGraphicsQuality
 	{
-		Low,
 		Medium,
 		High
 	}

@@ -21,7 +21,6 @@ namespace Pharaoh.Infrastructure
 	public enum EAssetBundleFlag
 	{
 		None = 0,
-		PremiumOffer = 1 << 0,
 		Temp = 1 << 1
 	}
 }

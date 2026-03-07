@@ -38,11 +38,6 @@ namespace Pharaoh
             TryRecalculate();
         }
 
-        public void Tick(long timestamp)
-        {
-            _currency.Tick(timestamp);
-        }
-
         private void OnValueChanged(SValueChangeArgs args)
         {
             if (!BidingLocked)

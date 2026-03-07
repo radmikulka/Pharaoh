@@ -46,10 +46,8 @@ namespace Pharaoh
 			
 			bool isBackButtonBlocked = _eventSystem.IsBackButtonBlocked();
 			if (isBackButtonBlocked)
-			{
-				_eventBus.Send(new CBlockedEscapePressedSignal());
 				return;
-			}
+			
 			_eventBus.Send(new CEscapePressedSignal());
 		}
 		

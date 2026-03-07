@@ -29,12 +29,6 @@ namespace Pharaoh
 			ValueChanged?.Invoke(new SValueChangeArgs(null, 0, Amount));
 		}
 
-		public override void Sync(IOwnedValuableData data)
-		{
-			CConsumableOwnedValuableData consumable = (CConsumableOwnedValuableData)data;
-			Amount = consumable.Amount;
-		}
-
 		internal override void Modify(IValuable valuable, CValueModifyParams modifyParams)
 		{
 			if(valuable is not CConsumableValuable consumableValuable)

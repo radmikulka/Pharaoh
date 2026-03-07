@@ -26,10 +26,6 @@ namespace Pharaoh
             return UniTask.CompletedTask;
         }
         
-        public virtual UniTask Unload(CancellationToken ct) { return UniTask.CompletedTask; }
-        
-        public UniTask Preload() { return UniTask.CompletedTask; }
-        
         public virtual void Start()
         {
             

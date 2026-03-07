@@ -1,9 +1,4 @@
-﻿// // =========================================
-// // AUTHOR: Radek Mikulka
-// // DATE:   06.09.2023
-// // =========================================
-
-using System.Threading;
+﻿using System.Threading;
 using AldaEngine;
 using AldaEngine.AldaFramework;
 using Cysharp.Threading.Tasks;
@@ -18,7 +13,8 @@ namespace Pharaoh
         private readonly IMissionController _missionController;
         private readonly IEventBus _eventBus;
 
-        public CCoreGameGameMode(IMissionController missionController, IEventBus eventBus) : base(EGameModeId.CoreGame)
+        public CCoreGameGameMode(IMissionController missionController, IEventBus eventBus) 
+            : base(EGameModeId.CoreGame)
         {
             _missionController = missionController;
             _eventBus = eventBus;

@@ -80,7 +80,6 @@ namespace Pharaoh
             Container.AddSingletonFromInstance(_lazyActionQueue);
             Container.AddSingleton<IMainCameraProvider, CMainCameraProvider>();
             Container.AddSingleton<IRequiredBundlesProvider, CRequiredBundlesProvider>();
-            Container.AddSingleton<CValuableAnalytics>(true);
             Container.AddSingleton<CEscapeHandler>();
             Container.AddSingleton<IGraphicsQualityProvider, CGraphicsQualityProvider>();
             Container.AddSingleton<CDoubleTapHandler>(true);
@@ -91,7 +90,6 @@ namespace Pharaoh
            Container.AddSingleton<CUser>(true);
            Container.AddSingleton<CAnimatedCurrencies>();
            Container.AddSingleton<CUserProgress>();
-           Container.AddSingleton<CSpecialValuables>();
            Container.AddSingleton<COwnedValuables>();
            Container.AddSingleton<CAccount>();
         }

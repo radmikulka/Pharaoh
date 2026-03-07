@@ -16,8 +16,6 @@ namespace Pharaoh
 
 		public int Value => _valuable.Amount;
 
-		public void Tick(long timestamp) { }
-
 		public CAnimatedValuable(CConsumableOwnedValuable valuable)
 		{
 			_valuable = valuable;

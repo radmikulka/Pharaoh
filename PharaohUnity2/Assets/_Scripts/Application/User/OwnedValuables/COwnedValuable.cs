@@ -22,11 +22,6 @@ namespace Pharaoh
 			
 		}
 
-		public virtual void Sync(IOwnedValuableData data)
-		{
-			
-		}
-
 		internal abstract void Modify(IValuable valuable, [CanBeNull] CValueModifyParams modifyParams);
 
 		public abstract bool HaveValuable(IValuable valuable);

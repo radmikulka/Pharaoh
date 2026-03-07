@@ -56,15 +56,11 @@ namespace Pharaoh
 		
 		public async UniTask PostprocessServerConnection(CConnectResponse response, CancellationToken ct)
 		{
-			
-			
 			return;
 			
 			_initialUserDtoProvider.Dto = response.User;
 
 			await InitAds(ct);
-			
-			_crashlyticsKeys.SetLanguage(_translation.CurrentLanguage.ToString());
 			
 			_crashlytics.SetUserId(response.User.Account.PublicId);
 
