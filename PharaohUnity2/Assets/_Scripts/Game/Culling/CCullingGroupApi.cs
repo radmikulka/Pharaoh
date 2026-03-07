@@ -17,9 +17,9 @@ namespace Pharaoh
        {
           public BoundingSphere BoundingSphere;
           public int Index;
-          public readonly IIHaveCullingGroup Group;
+          public readonly ICullingGroupOwner Group;
 
-          public CCullingGroup(BoundingSphere pBoundingSphere, int pIndex, IIHaveCullingGroup pGroup)
+          public CCullingGroup(BoundingSphere pBoundingSphere, int pIndex, ICullingGroupOwner pGroup)
           {
              BoundingSphere = pBoundingSphere;
              Index = pIndex;
@@ -29,7 +29,7 @@ namespace Pharaoh
 
        private const int MaxItemsCount = 500;
 
-       private readonly Dictionary<IIHaveCullingGroup, CCullingGroup> _db = new();
+       private readonly Dictionary<ICullingGroupOwner, CCullingGroup> _db = new();
        private readonly Dictionary<int, CCullingGroup> _dbByIndexes = new(); 
        private readonly BoundingSphere[] _spheres = new BoundingSphere[MaxItemsCount];
 
@@ -54,12 +54,12 @@ namespace Pharaoh
           _cullingGroup.onStateChanged += OnStateChanged;
        }
 
-       public bool IsVisible(IIHaveCullingGroup haveCullingGroup)
+       public bool IsVisible(ICullingGroupOwner haveCullingGroup)
        {
           return _db.TryGetValue(haveCullingGroup, out CCullingGroup group) && _cullingGroup.IsVisible(group.Index);
        }
 
-       public void RegisterCullingGroup(IIHaveCullingGroup owner)
+       public void RegisterCullingGroup(ICullingGroupOwner owner)
        {
           if (_activeCount >= MaxItemsCount)
           {
@@ -83,7 +83,7 @@ namespace Pharaoh
           _cullingGroup?.SetBoundingSphereCount(_activeCount);
        }
 
-       public void UnregisterCullingGroup(IIHaveCullingGroup owner)
+       public void UnregisterCullingGroup(ICullingGroupOwner owner)
        {
           if (!_db.TryGetValue(owner, out CCullingGroup groupToRemove)) 
              return;
@@ -121,7 +121,7 @@ namespace Pharaoh
        {
           foreach (var record in _db)
           {
-             IIHaveCullingGroup owner = record.Key;
+             ICullingGroupOwner owner = record.Key;
              CCullingGroup wrapper = record.Value;
 
              if (!owner.UpdatePosition) 

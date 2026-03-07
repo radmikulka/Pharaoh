@@ -29,7 +29,7 @@ namespace Pharaoh
 
 		public void Initialize()
 		{
-			_eventBus.AddTaskHandler<CMenuManagerStateRequest, CMenuManagerStateResponse>(OnStateRequest);
+			_eventBus.AddTaskHandler<CMenuStateRequest, CMenuStateResponse>(OnStateRequest);
 			_eventBus.AddTaskHandler<CCloseTopmostScreenTask>(ProcessCloseTopmostScreenCommand);
 		}
 		
@@ -38,9 +38,9 @@ namespace Pharaoh
 			TryCloseTopmostMenu();
 		}
 
-		private CMenuManagerStateResponse OnStateRequest(CMenuManagerStateRequest request)
+		private CMenuStateResponse OnStateRequest(CMenuStateRequest request)
 		{
-			CMenuManagerStateResponse response = new(IsActive, ActiveMenus.Count);
+			CMenuStateResponse response = new(IsActive, ActiveMenus.Count);
 			return response;
 		}
 	}

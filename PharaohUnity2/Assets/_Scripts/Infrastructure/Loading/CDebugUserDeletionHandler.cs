@@ -16,7 +16,7 @@ namespace Pharaoh
 		private static bool _userDeleted;
 
 		private readonly ICtsProvider _ctsProvider;
-		private readonly CHitBuilder _hitBuilder;
+		private readonly CRequestSender _hitBuilder;
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
 		private static void OnBeforeSceneLoadRuntimeMethod()
@@ -30,7 +30,7 @@ namespace Pharaoh
 			return CServerConfig.Instance.DeleteUser && !_userDeleted;
 		}
 
-		public CDebugUserDeletionHandler(CHitBuilder hitBuilder, ICtsProvider ctsProvider)
+		public CDebugUserDeletionHandler(CRequestSender hitBuilder, ICtsProvider ctsProvider)
 		{
 			_ctsProvider = ctsProvider;
 			_hitBuilder = hitBuilder;
@@ -58,7 +58,7 @@ namespace Pharaoh
 			
 			CDeleteUserRequest deleteUserRequest = new(auth);
 			
-			CHitRecordBuilder hitRecordBuilder = _hitBuilder.GetBuilder(deleteUserRequest)
+			CRequestBuilder hitRecordBuilder = _hitBuilder.GetBuilder(deleteUserRequest)
 				.SetOnSuccess<CDeleteUserResponse>(_ => connectionFailed = false)
 				.SetOnFail(_ => connectionFailed = true)
 				.SetSuppressAutomaticErrorHandling()

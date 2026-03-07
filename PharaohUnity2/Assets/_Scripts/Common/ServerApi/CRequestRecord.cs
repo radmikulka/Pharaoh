@@ -1,0 +1,40 @@
+// =========================================
+// AUTHOR: Radek Mikulka
+// DATE:   06.09.2023
+// =========================================
+
+using System;
+using AldaEngine.Tcp;
+using ServerData;
+using ServerData.Hits;
+
+namespace Pharaoh
+{
+	public class CRequestRecord
+	{
+		public readonly CRequestHit Hit;
+		public readonly Action<EErrorCode> OnFail;
+		public readonly Action<CResponseHit> OnSuccess;
+		public readonly DateTime CreationTime;
+		public readonly bool ExecuteImmediately;
+		public readonly bool SendAsSingleHit;
+		public readonly bool SuppressCommunicationErrorThrow;
+
+		public CRequestRecord(
+			bool suppressCommunicationErrorThrow, 
+			Action<CResponseHit> onSuccess, 
+			bool executeImmediately, 
+			bool sendAsSingleHit, 
+			CRequestHit hit, 
+			Action<EErrorCode> onFail)
+		{
+			SuppressCommunicationErrorThrow = suppressCommunicationErrorThrow;
+			ExecuteImmediately = executeImmediately;
+			SendAsSingleHit = sendAsSingleHit || suppressCommunicationErrorThrow;
+			CreationTime = DateTime.UtcNow;
+			OnSuccess = onSuccess;
+			OnFail = onFail;
+			Hit = hit;
+		}
+	}
+}

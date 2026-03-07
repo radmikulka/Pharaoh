@@ -43,14 +43,14 @@ namespace Pharaoh
 			COwnedValuableData[] valuables = _mapper.FromJson<COwnedValuableData>(dto.Valuables);
 			foreach(COwnedValuableData data in valuables)
 			{
-				COwnedValuable valuable = GetOrCrateValuable(data.Id);
+				COwnedValuable valuable = GetOrCreateValuable(data.Id);
 				valuable.InitialSync(data);
 			}
 		}
 
 		public T GetValuable<T>(EValuable id) where T : COwnedValuable
 		{
-			COwnedValuable ownedValuable = GetOrCrateValuable(id);
+			COwnedValuable ownedValuable = GetOrCreateValuable(id);
 			return (T)ownedValuable;
 		}
 
@@ -61,18 +61,18 @@ namespace Pharaoh
 
 		public void ModifyValuableInternal(IValuable valuable, CValueModifyParams modifyParams = null)
 		{
-			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
+			COwnedValuable ownedValuable = GetOrCreateValuable(valuable.Id);
 			ownedValuable.Modify(valuable, modifyParams);
 			_eventBus.Send(new COwnedValuableChangedSignal(valuable));
 		}
 
 		public bool HaveValuable(IValuable valuable)
 		{
-			COwnedValuable ownedValuable = GetOrCrateValuable(valuable.Id);
+			COwnedValuable ownedValuable = GetOrCreateValuable(valuable.Id);
 			return ownedValuable.HaveValuable(valuable);
 		}
 
-		private COwnedValuable GetOrCrateValuable(EValuable valuableId)
+		private COwnedValuable GetOrCreateValuable(EValuable valuableId)
 		{
 			if (_valuables.TryGetValue(valuableId, out var valuable)) 
 				return valuable;

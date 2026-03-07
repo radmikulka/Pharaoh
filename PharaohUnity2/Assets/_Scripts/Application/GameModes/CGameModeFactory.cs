@@ -23,7 +23,7 @@ namespace Pharaoh
             switch (id)
             {
                 case EGameModeId.CoreGame:
-                    return _diContainer.Resolve<CCoreGameGameMode>();
+                    return _diContainer.Resolve<CCoreGameMode>();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(id), id, null);
             }

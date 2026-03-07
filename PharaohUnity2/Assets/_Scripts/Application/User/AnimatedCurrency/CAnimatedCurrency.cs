@@ -15,24 +15,24 @@ namespace Pharaoh
     public class CAnimatedCurrency
     {
         private readonly HashSet<CLockObject> _animationLocks = new();
-        private readonly IAnimatedCurrency _currency;
-        private bool BidingLocked => _animationLocks.Count > 0;
+        private readonly IAnimatedValuable _currency;
+        private bool IsAnimationLocked => _animationLocks.Count > 0;
         public int Value { get; private set; }
         public event Action<int> ValueChanged;
 
-        public CAnimatedCurrency(IAnimatedCurrency currency)
+        public CAnimatedCurrency(IAnimatedValuable currency)
         {
             _currency = currency;
             _currency.ValueChanged += OnValueChanged;
             Value = _currency.Value;
         }
 
-        public void AddBidingLock(CLockObject lockObject)
+        public void AddAnimationLock(CLockObject lockObject)
         {
             _animationLocks.Add(lockObject);
         }
 
-        public void RemoveBidingLock(CLockObject lockObject)
+        public void RemoveAnimationLock(CLockObject lockObject)
         {
             _animationLocks.Remove(lockObject);
             TryRecalculate();
@@ -40,7 +40,7 @@ namespace Pharaoh
 
         private void OnValueChanged(SValueChangeArgs args)
         {
-            if (!BidingLocked)
+            if (!IsAnimationLocked)
             {
                 Recalculate();
                 return;
@@ -66,7 +66,7 @@ namespace Pharaoh
         
         private void TryRecalculate()
         {
-            if(BidingLocked)
+            if(IsAnimationLocked)
                 return;
             Recalculate();
         }

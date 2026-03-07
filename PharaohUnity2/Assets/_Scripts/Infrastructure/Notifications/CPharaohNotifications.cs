@@ -15,7 +15,7 @@ namespace Pharaoh
 	public class CPharaohNotifications : MonoBehaviour, IInitializable
 	{
 		private INotifications<CUnityNotification> _notifications;
-		private CSaviourNotifications _saviourNotifications;
+		private CSaviorNotifications _saviourNotifications;
 		private CNotificationFactory _notificationFactory;
 
 		[Inject]
@@ -28,7 +28,7 @@ namespace Pharaoh
 			CUser user
 			)
 		{
-			_saviourNotifications = new CSaviourNotifications(notifications, notificationFactory);
+			_saviourNotifications = new CSaviorNotifications(notifications, notificationFactory);
 			_notificationFactory = notificationFactory;
 			_notifications = notifications;
 		}

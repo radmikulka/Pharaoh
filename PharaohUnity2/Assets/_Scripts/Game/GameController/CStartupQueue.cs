@@ -14,12 +14,12 @@ namespace Pharaoh
 {
 	public class CStartupQueue : IInitializable
 	{
-		private readonly CLazyActionQueue _lazyActionQueue;
+		private readonly CDeferredActionQueue _lazyActionQueue;
 		private readonly ICtsProvider _ctsProvider;
 		private readonly IEventBus _eventBus;
 		
 		public CStartupQueue(
-			CLazyActionQueue lazyActionQueue, 
+			CDeferredActionQueue lazyActionQueue, 
 			ICtsProvider ctsProvider, 
 			IEventBus eventBus
 			)

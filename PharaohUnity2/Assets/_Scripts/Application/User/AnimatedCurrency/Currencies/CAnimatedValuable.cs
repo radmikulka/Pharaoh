@@ -8,7 +8,7 @@ using ServerData;
 
 namespace Pharaoh
 {
-	public class CAnimatedValuable : IAnimatedCurrency
+	public class CAnimatedValuable : IAnimatedValuable
 	{
 		private readonly CConsumableOwnedValuable _valuable;
 

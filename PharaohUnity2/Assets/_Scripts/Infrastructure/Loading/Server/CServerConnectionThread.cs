@@ -21,18 +21,18 @@ namespace Pharaoh
 	{
 		private readonly CDebugUserDeletionHandler _debugUserDeletionHandler;
 		private readonly CServerEndpointProvider _serverEndpointProvider;
-		private readonly CHitsDispatcher _hitsDispatcher;
+		private readonly CRequestDispatcher _hitsDispatcher;
 		private readonly ITranslation _translation;
 		private readonly IActiveAuth _activeAuth;
-		private readonly CHitBuilder _hitBuilder;
+		private readonly CRequestSender _hitBuilder;
 
 		public CServerConnectionThread(
-			CDebugUserDeletionHandler debugUserDeletionHandler, 
+			CDebugUserDeletionHandler debugUserDeletionHandler,
 			CServerEndpointProvider serverEndpointProvider,
-			CHitsDispatcher hitsDispatcher, 
-			ITranslation translation, 
-			IActiveAuth activeAuth,  
-			CHitBuilder hitBuilder
+			CRequestDispatcher hitsDispatcher,
+			ITranslation translation,
+			IActiveAuth activeAuth,
+			CRequestSender hitBuilder
 			)
 		{
 			_debugUserDeletionHandler = debugUserDeletionHandler;
@@ -69,7 +69,7 @@ namespace Pharaoh
 			
 			CConfigureServerRequest configureServerRequest = new(CServerConfig.Instance.FakeDelayInSecs);
 			
-			CHitRecordBuilder hitRecordBuilder = _hitBuilder.GetBuilder(configureServerRequest)
+			CRequestBuilder hitRecordBuilder = _hitBuilder.GetBuilder(configureServerRequest)
 				.SetOnSuccess<CConfigureServerResponse>(_ => connectionFailed = false)
 				.SetOnFail(_ => connectionFailed = true)
 				.SetSuppressAutomaticErrorHandling()
@@ -127,7 +127,7 @@ namespace Pharaoh
 				deviceData
 				);
 			
-			CAsyncHitResponse<CResponseHit> response = await _hitBuilder.GetBuilder(connectRequest)
+			CServerResponse<CResponseHit> response = await _hitBuilder.GetBuilder(connectRequest)
 				.SetSuppressAutomaticErrorHandling()
 				.SetSendAsSingleHit()
 				.BuildAndSendAsync<CResponseHit>(ct);

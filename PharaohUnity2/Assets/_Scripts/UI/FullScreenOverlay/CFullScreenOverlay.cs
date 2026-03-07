@@ -42,15 +42,15 @@ namespace Pharaoh
 
 		public void Initialize()
 		{
-			_eventBus.AddAsyncTaskHandler<CPingPongFullScreenOverlayTask>(OnPingPongFullScreenOverlay);
+			_eventBus.AddAsyncTaskHandler<CFadeFullScreenOverlayTask>(OnFadeInAndOutFullScreenOverlay);
 		}
 
-		private async Task OnPingPongFullScreenOverlay(CPingPongFullScreenOverlayTask task, CancellationToken ct)
+		private async Task OnFadeInAndOutFullScreenOverlay(CFadeFullScreenOverlayTask task, CancellationToken ct)
 		{
-			await PingPong(task.OnComplete, task.OverrideBlendInDuration ?? BlendDuration, task.OverrideBlendOutDuration ?? BlendDuration, ct);
+			await FadeInAndOut(task.OnComplete, task.OverrideBlendInDuration ?? BlendDuration, task.OverrideBlendOutDuration ?? BlendDuration, ct);
 		}
 
-		private async UniTask PingPong(Func<CancellationToken, UniTask> onComplete, float blendInDuration, float blendOutDuration, CancellationToken ct)
+		private async UniTask FadeInAndOut(Func<CancellationToken, UniTask> onComplete, float blendInDuration, float blendOutDuration, CancellationToken ct)
 		{
 			_eventSystem.AddInputLocker(_lockObject);
 			_canvas.SetActiveBehaviour(true);

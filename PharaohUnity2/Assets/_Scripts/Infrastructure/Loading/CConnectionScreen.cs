@@ -23,11 +23,11 @@ namespace Pharaoh
 {
     public class CConnectionScreen : MonoBehaviour, IInitializable
     {
-        private CValidServerConnectionPostprocess _validServerConnectionPostprocess;
+        private CServerConnectionInitializer _validServerConnectionPostprocess;
         private CInternetReachabilityChecker _internetReachabilityChecker;
         private CServiceConnectionThread _serviceConnectionThread;
         private CServerConnectionThread _serverConnectionThread;
-        private CLoadingTechFlow _loadingTechFlow;
+        private CLoadingFunnelTracker _loadingTechFlow;
         private IRemoteDatabase _remoteDatabase;
         private IBundleManager _bundleManager;
         private ILoadingScreen _loadingScreen;
@@ -40,12 +40,12 @@ namespace Pharaoh
 
         [Inject]
         private void Inject(
-            CValidServerConnectionPostprocess validServerConnectionPostprocess,
+            CServerConnectionInitializer validServerConnectionPostprocess,
             CInternetReachabilityChecker internetReachabilityChecker,
             CServiceConnectionThread serviceConnectionThread,
             CServerConnectionThread serverConnectionThread,
             IRestartGameHandler restartGameHandler,
-            CLoadingTechFlow loadingTechFlow,
+            CLoadingFunnelTracker loadingTechFlow,
             IExitAppHandler exitAppHandler,
             IRemoteDatabase remoteDatabase,
             ILoadingScreen loadingScreen, 
@@ -56,7 +56,7 @@ namespace Pharaoh
             IInAppUpdate inAppUpdate, 
             ICtsProvider ctsProvider, 
             ITranslation translation, 
-            CHitBuilder hitBuilder,
+            CRequestSender hitBuilder,
             ISettings settingsData,
             IEventBus eventBus
             )
@@ -89,55 +89,55 @@ namespace Pharaoh
 
         private async UniTask LoadGame(CancellationToken ct)
         {
-            _loadingTechFlow.Send(ELoadingTechFlow.Start);
+            _loadingTechFlow.Send(ELoadingFunnelStep.Start);
             
             CSrDebugger srDebugger = new();
             await srDebugger.TryActivate(ct);
             
             await LoadBundles(ct, EBundleId.BaseGameScene);
-            _loadingTechFlow.Send(ELoadingTechFlow.BaseGameBundlesLoaded);
+            _loadingTechFlow.Send(ELoadingFunnelStep.BaseGameBundlesLoaded);
 
             UniTask baseSceneLoadTask = _sceneManager.StartBaseSceneLoadingAsync(ct);
 
             UniTask serviceThread = _serviceConnectionThread.InitOnlineServicesAsync();
             UniTask<CResponseHit> serverThread = _serverConnectionThread.ConnectAsync(ct);
             
-            _loadingTechFlow.Send(ELoadingTechFlow.WaitingForServer);
+            _loadingTechFlow.Send(ELoadingFunnelStep.WaitingForServer);
 
             await serverThread;
             
-            _loadingTechFlow.Send(ELoadingTechFlow.ServerResponseReceived);
+            _loadingTechFlow.Send(ELoadingFunnelStep.ServerResponseReceived);
 
             CResponseHit serverResponse = await serverThread;
             CConnectResponse connectResponse = serverResponse as CConnectResponse;
 
             //if (connectResponse is not null)
             {
-                await _validServerConnectionPostprocess.PostprocessServerConnection(connectResponse, ct);
+                await _validServerConnectionPostprocess.InitializeServerConnection(connectResponse, ct);
             }
             
             _sceneManager.AllowBaseSceneActivation();
             await baseSceneLoadTask;
             
-            _loadingTechFlow.Send(ELoadingTechFlow.BaseGameSceneActivated);
+            _loadingTechFlow.Send(ELoadingFunnelStep.BaseGameSceneActivated);
             
             await LoadBundles(ct, EBundleId.CoreGameScenes);
             await _sceneManager.LoadSceneAsync(ESceneId.Ui, LoadSceneMode.Additive, ct);
             
-            _loadingTechFlow.Send(ELoadingTechFlow.UiSceneActivated);
+            _loadingTechFlow.Send(ELoadingFunnelStep.UiSceneActivated);
             
             _loadingScreen.Show(ct, 0f).Forget();
             _loadingScreen.SetInfoText("Loading.LoadingGame", true);
             
             _serviceConnectionThread.InitOfflineServices();
-            _loadingTechFlow.Send(ELoadingTechFlow.OfflineServicesInited);
+            _loadingTechFlow.Send(ELoadingFunnelStep.OfflineServicesInited);
             bool isOnline = await _internetReachabilityChecker.CheckForInternetConnection(ct);
             if (!isOnline)
             {
                 ShowNoInternetError();
                 return;
             }
-            _loadingTechFlow.Send(ELoadingTechFlow.NetworkStatusChecked);
+            _loadingTechFlow.Send(ELoadingFunnelStep.NetworkStatusChecked);
 
             /*if (connectResponse is null)
             {
@@ -148,13 +148,13 @@ namespace Pharaoh
             _inAppUpdate.TryFlexibleUpdateAsync().Forget();
             
             await serviceThread;
-            _loadingTechFlow.Send(ELoadingTechFlow.ServicesInited);
-            //CCoreGameGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
-            CCoreGameGameModeData coreGameModeData = new(EMissionId.Mission1_1);
+            _loadingTechFlow.Send(ELoadingFunnelStep.ServicesInited);
+            //CCoreGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
+            CCoreGameModeData coreGameModeData = new(EMissionId.Mission1_1);
             _eventBus.ProcessTaskAsync(new CLoadGameModeTask(coreGameModeData), ct).Forget();
             
             await SceneManager.UnloadSceneAsync(gameObject.scene).ToUniTask(cancellationToken: ct);
-            _loadingTechFlow.Send(ELoadingTechFlow.Completed);
+            _loadingTechFlow.Send(ELoadingFunnelStep.Completed);
         }
 
         private async UniTaskVoid HandleBadServerResponse(CResponseHit response, CancellationToken ct)

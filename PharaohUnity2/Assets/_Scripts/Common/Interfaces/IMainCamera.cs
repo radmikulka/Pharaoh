@@ -12,7 +12,7 @@ namespace Pharaoh
 	{
 		Camera Camera { get; }
 		
-		void FreezeRender(bool state);
+		void CaptureFrame(bool state);
 		void SetCameraBlendMode(bool allowBlend);
 		bool IsLiveCamera(CinemachineCamera cam);
 		Vector3 WorldToScreenPoint(Vector3 point);

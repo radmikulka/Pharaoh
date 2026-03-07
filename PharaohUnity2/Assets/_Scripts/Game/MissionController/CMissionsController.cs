@@ -19,7 +19,7 @@ namespace Pharaoh
 {
 	public class CMissionsController : ICameraPlaneProvider, IMissionController
 	{
-		private readonly CRequiredBundlesDownloader _requiredBundlesDownloader;
+		private readonly CMissionBundleDownloader _requiredBundlesDownloader;
 		private readonly CResourceConfigs _resourceConfigs;
 		private readonly ILoadingScreen _loadingScreen;
 		private readonly ISceneManager _sceneManager;
@@ -30,7 +30,7 @@ namespace Pharaoh
 		public EMissionId ActiveMission { get; private set; }
 
 		public CMissionsController(
-			CRequiredBundlesDownloader requiredBundlesDownloader, 
+			CMissionBundleDownloader requiredBundlesDownloader,
 			CResourceConfigs resourceConfigs,
 			ILoadingScreen loadingScreen,
 			ISceneManager sceneManager, 

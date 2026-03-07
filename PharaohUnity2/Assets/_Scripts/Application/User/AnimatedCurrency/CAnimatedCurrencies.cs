@@ -38,12 +38,12 @@ namespace Pharaoh
         
         public void StartAnimating(EValuable valuable, CLockObject lockObject)
         {
-            GetCurrency(valuable).AddBidingLock(lockObject);
+            GetCurrency(valuable).AddAnimationLock(lockObject);
         }
         
         public void StopAnimating(EValuable valuable, CLockObject lockObject)
         {
-            GetCurrency(valuable).RemoveBidingLock(lockObject);
+            GetCurrency(valuable).RemoveAnimationLock(lockObject);
         }
         
         public CAnimatedCurrency GetCurrency(EValuable valuable)

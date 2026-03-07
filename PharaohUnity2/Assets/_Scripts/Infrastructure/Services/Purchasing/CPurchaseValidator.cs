@@ -21,15 +21,15 @@ namespace ServiceEngine.Purchasing
 	{
 		private readonly CPurchaseReceiptUnpacker _receiptUnpacker;
 		private readonly ICrashlytics _crashlytics;
-		private readonly CHitBuilder _hitBuilder;
+		private readonly CRequestSender _hitBuilder;
 		private readonly IAnalytics _analytics;
 		private readonly ISingular _singular;
 		private readonly IEventBus _eventBus;
 
 		public CPurchaseValidator(
-			CPurchaseReceiptUnpacker receiptUnpacker, 
-			ICrashlytics crashlytics, 
-			CHitBuilder hitBuilder, 
+			CPurchaseReceiptUnpacker receiptUnpacker,
+			ICrashlytics crashlytics,
+			CRequestSender hitBuilder,
 			IAnalytics analytics, 
 			IEventBus eventBus, 
 			ISingular singular
@@ -103,7 +103,7 @@ namespace ServiceEngine.Purchasing
 			CRealMoneyPurchaseDataDto purchaseDataDto = new(
 				purchaseData.Token, productId, store, purchaseData.PurchaseTimestampMs
 				);
-			CHitRecordBuilder hitBuilder = _hitBuilder.GetBuilder(new CValidatePurchaseRequest(
+			CRequestBuilder hitBuilder = _hitBuilder.GetBuilder(new CValidatePurchaseRequest(
 				purchaseDataDto, 
 				metaData.OfferId
 			));

@@ -55,7 +55,7 @@ namespace Pharaoh
             _cinemachineBrain.DefaultBlend = newBlend;
         }
 
-        public void FreezeRender(bool state)
+        public void CaptureFrame(bool state)
         {
             if (state)
             {

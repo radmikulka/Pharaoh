@@ -17,10 +17,10 @@ namespace ServiceEngine.Purchasing
 {
 	public class CPurchasingPharaoh : CPurchasing
 	{
-		private CHitBuilder _hitBuilder;
+		private CRequestSender _hitBuilder;
 
 		[Inject]
-		private void Inject(CHitBuilder hitBuilder)
+		private void Inject(CRequestSender hitBuilder)
 		{
 			_hitBuilder = hitBuilder;
 		}

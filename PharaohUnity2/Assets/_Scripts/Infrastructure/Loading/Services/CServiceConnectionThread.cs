@@ -23,7 +23,7 @@ namespace Pharaoh.Loading
 	public class CServiceConnectionThread
 	{
 		private readonly INotificationPermissionHandler _notificationPermissionHandler;
-		private readonly CServicesTechFlow _servicesTechFlow;
+		private readonly CServiceFunnelTracker _servicesTechFlow;
 		private readonly IFacebookService _facebookService;
 		private readonly CCrashlyticsKeys _crashlyticsKeys;
 		private readonly IRemoteDatabase _remoteDatabase;
@@ -36,7 +36,7 @@ namespace Pharaoh.Loading
 
 		public CServiceConnectionThread(
 			INotificationPermissionHandler notificationPermissionHandler,
-			CServicesTechFlow servicesTechFlow,
+			CServiceFunnelTracker servicesTechFlow,
 			CCrashlyticsKeys crashlyticsKeys,
 			IFacebookService facebookService,
 			IRemoteDatabase remoteDatabase,
@@ -70,7 +70,7 @@ namespace Pharaoh.Loading
 
 		public async UniTask InitOnlineServicesAsync()
 		{
-			_servicesTechFlow.Send(EServiceTechnicalFlow.OnlineStart);
+			_servicesTechFlow.Send(EServiceFunnelStep.OnlineStart);
 			UniTask remoteConfigFetch = _remoteConfig.TryFetchAsync(1f);
 			
 			_remoteDatabase.InitializeAsync().Forget();
@@ -78,17 +78,17 @@ namespace Pharaoh.Loading
 			_facebookService.Initialize();
 			_purchasing.InitializeAsync().Forget();
 			
-			_servicesTechFlow.Send(EServiceTechnicalFlow.MainThreadServicesPassed);
+			_servicesTechFlow.Send(EServiceFunnelStep.MainThreadServicesPassed);
 			
 			await _notificationPermissionHandler.RequestPermission();
-			_servicesTechFlow.Send(EServiceTechnicalFlow.NotificationsPassed);
+			_servicesTechFlow.Send(EServiceFunnelStep.NotificationsPassed);
 			await _attHandler.TryShowRequest();
-			_servicesTechFlow.Send(EServiceTechnicalFlow.AttPassed);
+			_servicesTechFlow.Send(EServiceFunnelStep.AttPassed);
 			
 			await remoteConfigFetch;
-			_servicesTechFlow.Send(EServiceTechnicalFlow.RemoteConfigFetched);
+			_servicesTechFlow.Send(EServiceFunnelStep.RemoteConfigFetched);
 			await _remoteConfig.TryActivateFetchedDataAsync();
-			_servicesTechFlow.Send(EServiceTechnicalFlow.RemoteConfigActivated);
+			_servicesTechFlow.Send(EServiceFunnelStep.RemoteConfigActivated);
 		}
 	}
 }
