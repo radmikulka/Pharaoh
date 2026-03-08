@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 9a3a07f651ea4f63b715df8dd98e80d4
+timeCreated: 1759218473
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Runtime/Curve/Jobs/CurveToMesh.cs
+  uploadId: 873584

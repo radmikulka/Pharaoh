@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8c67515fa0c832b4a81ee438a6b158e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Editor/Tools/VertexColorTool.cs
+  uploadId: 873584

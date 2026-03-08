@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9474da23865ef174487caecfecb76d97
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Editor/Tools/RollTool.cs
+  uploadId: 873584

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: c65956a68e5b44f09bdd2bc9da112268
+timeCreated: 1759838212
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Runtime/Fill/Jobs/Triangulate.cs
+  uploadId: 873584

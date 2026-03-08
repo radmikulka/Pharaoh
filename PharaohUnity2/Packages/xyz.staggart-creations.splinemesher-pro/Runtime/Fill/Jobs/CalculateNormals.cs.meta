@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 79b506ba20534befa804b4de130ece94
+timeCreated: 1759843372
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Runtime/Fill/Jobs/CalculateNormals.cs
+  uploadId: 873584

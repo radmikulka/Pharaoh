@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using AldaEngine;
 using KBCore.Refs;
+using Pharaoh.CoreGame;
 using UnityEngine;
 
 namespace Pharaoh
@@ -24,8 +25,9 @@ namespace Pharaoh
 		public override void InstallBindings()
 		{
 			base.InstallBindings();
-			
+
 			Container.AddSingletonFromInstance(_mission);
+			Container.AddSingleton<CWorkerManager>(true);
 		}
 	}
 }

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c02aeca155e585544bbb62da1fbf3942
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Demo/Prefabs/ConveyorCap.prefab
+  uploadId: 873584

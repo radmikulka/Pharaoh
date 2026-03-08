@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dc4a70b73c5c9bd4cb890c58d49e7caa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Runtime/Curve/Jobs/ProceduralMesh.cs
+  uploadId: 873584

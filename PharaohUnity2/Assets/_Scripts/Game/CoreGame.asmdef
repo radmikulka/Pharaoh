@@ -19,7 +19,10 @@
         "Unity.Burst",
         "Unity.Collections",
         "Unity.Splines.Editor",
-        "Unity.RenderPipelines.Universal.Runtime"
+        "Unity.RenderPipelines.Universal.Runtime",
+        "AstarPathfindingProject",
+        "PackageTools",
+        "Drawing"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

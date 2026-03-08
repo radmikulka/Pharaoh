@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6129349e381b51e4cb48fd5a5097d8fb
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Demo/Prefabs/Guardrail_End.prefab
+  uploadId: 873584

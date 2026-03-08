@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 736c5c157926c144b838051570b7b4e6
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Runtime/Curve/SplineCurveMesher.cs
+  uploadId: 873584

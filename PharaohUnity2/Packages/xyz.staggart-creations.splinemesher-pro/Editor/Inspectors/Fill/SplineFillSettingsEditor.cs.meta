@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: acd72659c232949479114e51a37cf368
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Editor/Inspectors/Fill/SplineFillSettingsEditor.cs
+  uploadId: 873584

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e129b741427579e4ea0c0cf4339882a5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Demo/Prefabs/BridgeAnchors.prefab
+  uploadId: 873584

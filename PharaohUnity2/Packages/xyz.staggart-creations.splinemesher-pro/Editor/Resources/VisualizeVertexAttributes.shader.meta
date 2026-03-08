@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e5338e70049e52e4d815c2c64c81c03e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Editor/Resources/VisualizeVertexAttributes.shader
+  uploadId: 873584

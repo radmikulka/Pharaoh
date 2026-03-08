@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6ca7d9b03e6fc3b41a881eb49496959f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/Demo/Prefabs/RopeKnot.prefab
+  uploadId: 873584

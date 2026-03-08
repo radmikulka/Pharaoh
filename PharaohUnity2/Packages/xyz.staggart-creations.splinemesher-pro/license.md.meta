@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2888f5a2099b03048829316b04c773dd
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338468
+  packageName: Spline Mesher | Pro
+  packageVersion: 1.0.2
+  assetPath: Packages/xyz.staggart-creations.splinemesher-pro/license.md
+  uploadId: 873584
