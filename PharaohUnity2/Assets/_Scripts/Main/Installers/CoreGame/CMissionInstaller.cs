@@ -7,7 +7,6 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using AldaEngine;
 using KBCore.Refs;
-using Pharaoh.CoreGame;
 using UnityEngine;
 
 namespace Pharaoh
@@ -15,7 +14,10 @@ namespace Pharaoh
 	[SuppressMessage("ReSharper", "RedundantTypeArgumentsOfMethod")]
 	public class CMissionInstaller : CSceneDiInstaller
 	{
-		[SerializeField, Child] private CMissionController _mission;
+		[SerializeField, Child] private CMissionController  _mission;
+		[SerializeField, Child] private CMonumentProvider   _monumentProvider;
+		[SerializeField, Child] private CWorkerPath         _workerPath;
+		[SerializeField, Child] private CWorkerManager      _workerManager;
 
 		private void OnValidate()
 		{
@@ -27,7 +29,12 @@ namespace Pharaoh
 			base.InstallBindings();
 
 			Container.AddSingletonFromInstance(_mission);
-			Container.AddSingleton<CWorkerManager>(true);
+			Container.AddSingletonFromInstance(_monumentProvider);
+			Container.AddSingletonFromInstance(_workerPath);
+			Container.AddSingletonFromInstance(_workerManager);
+			Container.AddSingleton<IWorkerConfig, CDummyWorkerConfig>();
+			Container.AddSingleton<IMissionStatLimitsProvider, CDummyMissionStatLimitsProvider>();
+			Container.AddSingleton<CMissionStats>(true);
 		}
 	}
 }

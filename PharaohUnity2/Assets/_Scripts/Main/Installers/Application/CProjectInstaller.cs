@@ -130,6 +130,7 @@ namespace Pharaoh
         {
             BindAndInjectNonComponent(_configs);
             Container.AddSingleton<CInAppPrices>();
+            Container.AddSingleton<CDesignMissionConfigs>();
         }
 
         private void InstallServices()
