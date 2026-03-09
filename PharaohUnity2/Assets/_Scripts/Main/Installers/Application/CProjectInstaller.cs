@@ -47,6 +47,7 @@ namespace Pharaoh
         [SerializeField] private CEventSystem _eventSystem;
         [SerializeField] private CResourceConfigs _configs;
         [SerializeField] private CAudioManager _audioManager;
+        [SerializeField] private CTranslationConfig _translationConfig;
 
         public override void InstallBindings()
         {
@@ -64,8 +65,9 @@ namespace Pharaoh
             InstallAuth();
             InstallAds();
             
-            Container.AddSingleton<ITranslation, CDummyLocalizationProvider>();
-            Container.AddSingleton<ISettings, CSettings>();
+            Container.AddSingletonFromInstance(_translationConfig);
+            Container.AddSingleton<ITranslation, CTranslation>(true);
+            Container.Bind(typeof(ISettings), typeof(CSettings)).To<CSettings>().AsSingle();
         }
         
         private void InstallCoreLogic()
@@ -223,37 +225,5 @@ namespace Pharaoh
             Container.AddSingletonFromInstance<IEventBus>(rootBus);
         }
         
-        private class CDummyLocalizationProvider : ITranslation
-        {
-            public ELanguageCode SystemLanguage { get; }
-            public ELanguageCode CurrentLanguage { get; }
-            public CEvent<ITranslation> OnLanguageChanged { get; } = new("");
-            
-            public string GetText(string key)
-            {
-                return key;
-            }
-
-            public string GetText(string key, params object[] args)
-            {
-                return key;
-            }
-
-            public void SetLanguage(ELanguageCode language)
-            {
-               
-            }
-
-            public List<ELanguageCode> GetSupportedLanguages()
-            {
-                return new List<ELanguageCode>();
-            }
-        }
-        
-        private class CSettings : ISettings
-        {
-            public EGraphicsQuality Quality { get; }
-            public ELanguageCode Language { get; }
-        }
     }
 }

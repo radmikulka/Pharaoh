@@ -64,5 +64,6 @@ namespace Pharaoh
 		CompanyProfile = 54,
 		RawMaterials = 55,
 		CompanyGrowth = 56,
+		LanguageSelect = 57,
 	}
 }

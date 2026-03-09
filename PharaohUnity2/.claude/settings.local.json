@@ -24,7 +24,8 @@
       "Bash(powershell:*)",
       "Bash(read dir:*)",
       "Bash(pip install:*)",
-      "Bash(edge-tts:*)"
+      "Bash(edge-tts:*)",
+      "Bash(mv:*)"
     ],
     "defaultMode": "acceptEdits"
   }

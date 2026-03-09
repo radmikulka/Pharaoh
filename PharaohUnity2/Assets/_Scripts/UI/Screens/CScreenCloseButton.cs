@@ -8,7 +8,7 @@ using AldaEngine.AldaFramework;
 using KBCore.Refs;
 using UnityEngine;
 
-namespace Pharaoh.Ui
+namespace Pharaoh
 {
 	public class CScreenCloseButton : ValidatedMonoBehaviour, IInitializable
 	{

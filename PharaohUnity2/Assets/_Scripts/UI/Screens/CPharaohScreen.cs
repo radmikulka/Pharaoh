@@ -11,7 +11,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Zenject;
 
-namespace Pharaoh.Ui
+namespace Pharaoh
 {
     public abstract class CPharaohScreen : CBaseScreen<CPharaohScreen>, IUiScreen
     {

@@ -10,7 +10,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Pharaoh.Ui
+namespace Pharaoh
 {
 	public class CScreenCloseHandlerCreator : ValidatedMonoBehaviour, IInitializable
 	{

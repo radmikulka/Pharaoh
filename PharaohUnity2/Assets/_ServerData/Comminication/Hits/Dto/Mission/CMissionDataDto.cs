@@ -7,10 +7,11 @@ using Newtonsoft.Json;
 
 namespace ServerData.Dto
 {
-    public class CMissionStatsDto
+    public class CMissionDataDto
     {
         [JsonProperty] public int WorkerCountLevel { get; set; }
         [JsonProperty] public int WorkerSpeedLevel { get; set; }
         [JsonProperty] public int ProfitLevel      { get; set; }
+        [JsonProperty] public int SoftCurrency     { get; set; }
     }
 }

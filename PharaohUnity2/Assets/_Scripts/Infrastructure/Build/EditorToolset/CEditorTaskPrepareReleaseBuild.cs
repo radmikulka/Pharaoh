@@ -23,6 +23,7 @@ namespace AldaEngine
 	{
 		public override Task Execute()
 		{
+			CTranslationFileGenerator.GenerateRuntimeFiles();
 			CEditorTaskRefreshAllBundles.RefreshBundles();
 			CEditorTaskDeleteRemoteBundles.DeleteRemoteBundles();
 

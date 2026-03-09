@@ -24,6 +24,7 @@ namespace AldaEngine
 		public override Task Execute()
 		{
 			CopyBundlesFolder();
+			CTranslationFileGenerator.GenerateRuntimeFiles();
 			CEditorTaskRefreshAllBundles.RefreshBundles();
 			CBuildConfig.Instance.SetBundleEditorTesting();
 			Debug.Log($"{DisplayName} completed");

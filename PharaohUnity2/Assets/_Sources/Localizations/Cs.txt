@@ -1,0 +1,2 @@
+loading.connecting;Připojování...;Text načítací obrazovky
+loading.downloading;Stahování...;Text stahování bundlů

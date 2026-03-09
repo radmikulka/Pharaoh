@@ -34,7 +34,7 @@ namespace Pharaoh
 			Container.AddSingletonFromInstance(_workerManager);
 			Container.AddSingleton<IWorkerConfig, CDummyWorkerConfig>();
 			Container.AddSingleton<IMissionStatLimitsProvider, CDummyMissionStatLimitsProvider>();
-			Container.AddSingleton<CMissionStats>(true);
+			Container.AddSingleton<IRewardQueue, CRewardQueue>();
 		}
 	}
 }

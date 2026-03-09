@@ -15,6 +15,7 @@ using ServerData;
 using Pharaoh;
 using UnityEngine;
 using Zenject;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Pharaoh
 {
@@ -52,6 +53,7 @@ namespace Pharaoh
         {
             _eventBus.AddAsyncTaskHandler<CRunSheetParticleTask>(RunParticle);
             _eventBus.AddAsyncTaskHandler<CRunConsumableSheetParticleTask>(RunConsumableParticle);
+            _eventBus.AddAsyncTaskHandler<CRunWorldConsumableParticleTask>(RunWorldConsumableParticle);
         }
 
         private async Task RunConsumableParticle(CRunConsumableSheetParticleTask task, CancellationToken ct)
@@ -79,6 +81,34 @@ namespace Pharaoh
 
             }, ct);
             
+            _user.AnimatedCurrencies.StopAnimating(task.Currency.Id, lockObject);
+        }
+
+        private async Task RunWorldConsumableParticle(CRunWorldConsumableParticleTask task, CancellationToken ct)
+        {
+            CLockObject lockObject = new ("RunWorldCurrencyParticle");
+            _user.AnimatedCurrencies.StartAnimating(task.Currency.Id, lockObject);
+
+            CUiCurrencyParticlePoint uiCurrency = _uiCurrencies.GetCurrency(task.Currency.Id);
+            RectTransform currencyPoint = uiCurrency.RectTransform;
+
+            int particlesCount = _particleCounts.GetCount(task.Currency.Value);
+            int previousAmount = 0;
+
+            _audioManager.PlaySound2D(_particleStartSound);
+
+            await RunParticle(uiCurrency.ParticleId, task.StartWorldPosition, currencyPoint, particlesCount, step =>
+            {
+                float progress = (float)step / particlesCount;
+                int currencyAmount = CMath.CeilToInt(task.Currency.Value * progress);
+                int diff = currencyAmount - previousAmount;
+                previousAmount = currencyAmount;
+                _user.AnimatedCurrencies.AddCurrency(CValuableFactory.Consumable(task.Currency.Id, diff));
+
+                _audioManager.PlaySound2D(_particleFinishSound);
+
+            }, ct);
+
             _user.AnimatedCurrencies.StopAnimating(task.Currency.Id, lockObject);
         }
 
@@ -119,6 +149,32 @@ namespace Pharaoh
             ReturnParticle(particleId, particle);
         }
         
+        private async UniTask RunParticle(
+            EUiParticleId particleId,
+            Vector3 startPosition,
+            RectTransform end,
+            int count,
+            Action<int> onParticleStepCompleted,
+            CancellationToken ct
+            )
+        {
+            CUiSheetParticleModule particle = GetModule(particleId);
+
+            bool isRunning = true;
+
+            particle.Emit(count, 0.1f, startPosition, end, data =>
+            {
+                onParticleStepCompleted.Invoke(data.Step);
+            }, _ =>
+            {
+                isRunning = false;
+            });
+
+            await UniTask.WaitUntil(() => !isRunning, cancellationToken: ct);
+
+            ReturnParticle(particleId, particle);
+        }
+
         private void ReturnParticle(EUiParticleId particleId, CUiSheetParticleModule particle)
         {
             _gainPool.Return(particleId, particle);

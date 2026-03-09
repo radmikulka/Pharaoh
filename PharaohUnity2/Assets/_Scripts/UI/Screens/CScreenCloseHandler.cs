@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Pharaoh.Ui
+namespace Pharaoh
 {
 	public class CScreenCloseHandler : MonoBehaviour, IPointerClickHandler
 	{

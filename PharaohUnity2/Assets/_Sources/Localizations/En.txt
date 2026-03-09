@@ -1,0 +1,2 @@
+loading.connecting;Connecting...;Loading screen text
+loading.downloading;Downloading...;Bundle download text

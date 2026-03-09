@@ -10,6 +10,7 @@ namespace ServerData
         None = 0,
         HardCurrency = 1,
         RealMoney = 2,
-        Null = 3
+        Null = 3,
+        SoftCurrency = 4
     }
 }

@@ -11,6 +11,7 @@ namespace ServerData
     {
         public static CConsumableValuable Consumable(EValuable currencyId, int amount) => new(currencyId, amount);
         public static CConsumableValuable HardCurrency(int count) => new(EValuable.HardCurrency, count);
+        public static CConsumableValuable SoftCurrency(int count) => new(EValuable.SoftCurrency, count);
         public static CNullValuable Null => CNullValuable.Instance;
     }
 }
