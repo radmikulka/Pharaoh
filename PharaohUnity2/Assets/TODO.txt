@@ -1,4 +1,2 @@
 - dialog system CErrorHandler
-- settings
-- IRewardQueue
-- lokalizace
+- remote config

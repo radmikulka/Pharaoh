@@ -13,6 +13,7 @@
     "com.google.play.common": "file:../Assets/ServiceEngine/Packages/com.google.play.common-1.9.1.tgz",
     "com.google.play.core": "file:../Assets/ServiceEngine/Packages/com.google.play.core-1.8.4.tgz",
     "com.google.play.review": "file:../Assets/ServiceEngine/Packages/com.google.play.review-1.8.2.tgz",
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.burst": "1.8.28",
     "com.unity.cinemachine": "3.1.6",
     "com.unity.collab-proxy": "2.11.3",

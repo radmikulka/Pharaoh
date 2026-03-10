@@ -1,4 +1,4 @@
-﻿// =========================================
+// =========================================
 // AUTHOR: Radek Mikulka
 // DATE:   22.11.2023
 // =========================================
@@ -24,7 +24,7 @@ namespace Pharaoh
 		public CErrorHandler(
 			IRestartGameHandler restartGameHandler,
 			IInAppUpdate inAppUpdate,
-			ICtsProvider ctsProvider, 
+			ICtsProvider ctsProvider,
 			IEventBus eventBus
 			)
 		{
@@ -65,8 +65,8 @@ namespace Pharaoh
 					ShowInvalidAppVersionDialog();
 					return;
 			}
-			
-			ShowServerErrorDialog((int)EErrorCode.Internal);
+
+			ShowServerErrorDialog(EErrorCode.Internal);
 		}
 
 		private async UniTaskVoid HandleBadGameVersionAsync(float timeToPublishedState)
@@ -86,23 +86,21 @@ namespace Pharaoh
 
 		public void ShowNoInternetConnectionDialog()
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.ClientOffline.Title")
 					.SetContentLocalized("Server.Dialog.ClientOffline.Content")
-					.SetSubContentTitleLocalized("Generic.Warning")
-					.SetSubContentLocalized("Server.Dialog.ClientOffline.SubContent")
 					.SetOverlay()
 					.SetCanBeClosed(false)
 					.SetAnalyticsId("ClientOfflineDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 				;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
-		
+
 
 		public void ShowPlanedMaintenanceDialog()
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.PlannedMaintenance.Title")
 					.SetContentLocalized("Server.Dialog.PlannedMaintenance.Content")
 					.SetOverlay()
@@ -110,12 +108,12 @@ namespace Pharaoh
 					.SetAnalyticsId("PlannedMaintenanceDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
 
 		public void ShowInvalidAppVersionDialog()
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Dialog.InvalidAppVersion.Title")
 					.SetContentLocalized("Dialog.InvalidAppVersion.Content")
 					.SetOverlay()
@@ -123,12 +121,12 @@ namespace Pharaoh
 					.SetAnalyticsId("InvalidAppVersionDialog")
 					.SetOneButton(new CDialogButtonData("Dialog.InvalidAppVersion.Button", RestartGame, EDialogButtonColor.Green, true))
 					;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
 
 		private void ShowDataServerErrorDialog()
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.DataServerDown.Title")
 					.SetContentLocalized("Server.Dialog.DataServerDown.Content")
 					.SetOverlay()
@@ -136,12 +134,12 @@ namespace Pharaoh
 					.SetAnalyticsId("DataServerUnreachableDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
 
 		private void ShowTooManyRequestsErrorDialog()
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.TooManyRequests.Title")
 					.SetContentLocalized("Server.Dialog.TooManyRequests.Content")
 					.SetOverlay()
@@ -149,7 +147,7 @@ namespace Pharaoh
 					.SetAnalyticsId("TooManyRequestsDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
 
 		private void ShowBadGameVersionDialog(float timeToPublishedState)
@@ -160,7 +158,7 @@ namespace Pharaoh
 
 		private void ShowUnknownErrorDialog(string error)
 		{
-			/*CShowDialogTask task = new CShowDialogTask()
+			CShowDialogTask task = new CShowDialogTask()
 					.SetHeaderLocalized("Server.Dialog.UnknownError.Title")
 					.SetContentLocalized("Server.Dialog.UnknownError.Content", error)
 					.SetOverlay()
@@ -168,12 +166,12 @@ namespace Pharaoh
 					.SetAnalyticsId("UnknownErrorDialog")
 					.SetOneButton(new CDialogButtonData("Generic.Restart", RestartGame, EDialogButtonColor.Blue, true))
 					;
-			_eventBus.ProcessTask(task);*/
+			_eventBus.ProcessTask(task);
 		}
-		
+
 		private void ShowServerErrorDialog(EErrorCode errorCode)
 		{
-			/*switch (errorCode)
+			switch (errorCode)
 			{
 				case EErrorCode.Internal:
 				{
@@ -201,7 +199,7 @@ namespace Pharaoh
 					_eventBus.ProcessTask(task);
 					return;
 				}
-			}*/
+			}
 		}
 
 		private void RestartGame()

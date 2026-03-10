@@ -37,6 +37,7 @@ namespace Pharaoh
             Container.AddSingleton<CUiParticleCounts>();
             Container.AddSingletonFromInstance<IScreenManager>(_screenManager);
             Container.AddSingleton<CUiPurchasingOverlay>(true);
+            Container.AddSingleton<CDialogTaskHandler>(true);
         }
 
         private void InstallParticles()

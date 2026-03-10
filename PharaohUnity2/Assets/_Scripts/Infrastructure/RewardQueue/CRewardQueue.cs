@@ -37,7 +37,7 @@ namespace Pharaoh
         {
             CParticleSourceRewardParams particleSource = data?
                 .OfType<CParticleSourceRewardParams>()
-                .FirstOrDefault()
+                .FirstOrDefault();
 
             if (particleSource != null)
             {
