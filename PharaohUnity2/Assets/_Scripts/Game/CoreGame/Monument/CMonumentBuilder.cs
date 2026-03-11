@@ -174,7 +174,7 @@ namespace Pharaoh
                 return;
 
             // Sort bottom-to-top (by world Y), then by X, then by Z
-            /*allCells.Sort((a, b) =>
+            allCells.Sort((a, b) =>
             {
                 int cmp = a.position.y.CompareTo(b.position.y);
                 if (cmp != 0)
@@ -185,7 +185,7 @@ namespace Pharaoh
                     return cmp;
 
                 return a.position.z.CompareTo(b.position.z);
-            });*/
+            });
 
             int visibleCount = Mathf.RoundToInt(_buildProgress * allCells.Count);
 
