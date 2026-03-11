@@ -14,7 +14,6 @@ using Pharaoh.Infrastructure;
 using ServerData;
 using ServiceEngine;
 using ServiceEngine.Ads;
-using ServiceEngine.Firebase;
 using UnityEngine.Networking;
 using Debug = UnityEngine.Debug;
 
@@ -27,7 +26,6 @@ namespace Pharaoh.Loading
 		private readonly IFacebookService _facebookService;
 		private readonly CCrashlyticsKeys _crashlyticsKeys;
 		private readonly IRemoteDatabase _remoteDatabase;
-		private readonly IRemoteConfig _remoteConfig;
 		private readonly ICrashlytics _crashlytics;
 		private readonly IPurchasing _purchasing;
 		private readonly CAttHandler _attHandler;
@@ -40,11 +38,10 @@ namespace Pharaoh.Loading
 			CCrashlyticsKeys crashlyticsKeys,
 			IFacebookService facebookService,
 			IRemoteDatabase remoteDatabase,
-			IRemoteConfig remoteConfig,
 			ICrashlytics crashlytics,
 			IPurchasing purchasing,
-			CAttHandler attHandler, 
-			IMessaging messaging, 
+			CAttHandler attHandler,
+			IMessaging messaging,
 			IAnalytics analytics
 			)
 		{
@@ -53,7 +50,6 @@ namespace Pharaoh.Loading
 			_crashlyticsKeys = crashlyticsKeys;
 			_facebookService = facebookService;
 			_remoteDatabase = remoteDatabase;
-			_remoteConfig = remoteConfig;
 			_crashlytics = crashlytics;
 			_purchasing = purchasing;
 			_attHandler = attHandler;
@@ -71,24 +67,18 @@ namespace Pharaoh.Loading
 		public async UniTask InitOnlineServicesAsync()
 		{
 			_servicesFunnelTracker.Send(EServiceFunnelStep.OnlineStart);
-			UniTask remoteConfigFetch = _remoteConfig.TryFetchAsync(1f);
-			
+
 			_remoteDatabase.InitializeAsync().Forget();
 			_messaging.Initialize().Forget();
 			_facebookService.Initialize();
 			_purchasing.InitializeAsync().Forget();
-			
+
 			_servicesFunnelTracker.Send(EServiceFunnelStep.MainThreadServicesPassed);
-			
+
 			await _notificationPermissionHandler.RequestPermission();
 			_servicesFunnelTracker.Send(EServiceFunnelStep.NotificationsPassed);
 			await _attHandler.TryShowRequest();
 			_servicesFunnelTracker.Send(EServiceFunnelStep.AttPassed);
-			
-			await remoteConfigFetch;
-			_servicesFunnelTracker.Send(EServiceFunnelStep.RemoteConfigFetched);
-			await _remoteConfig.TryActivateFetchedDataAsync();
-			_servicesFunnelTracker.Send(EServiceFunnelStep.RemoteConfigActivated);
 		}
 	}
 }

@@ -40,25 +40,28 @@ namespace ServerData.Hits
 		[JsonProperty] public string DebugUserUid { get; set; }
 		[JsonProperty] public long ServerTimeInMs { get; set; }
 		[JsonProperty] public CUserDto User { get; set; }
+		[JsonProperty] public CRemoteConfigDto RemoteConfig { get; set; }
 
 		public CConnectResponse() : base(EHit.ConnectResponse)
 		{
 		}
 
 		public CConnectResponse(
-			CUserDto user, 
-			string authUid, 
+			CUserDto user,
+			string authUid,
 			long serverTimeInMs,
 			long dayRefreshTimeInMs,
 			string debugUserUid,
-			string communicationToken
-			) 
+			string communicationToken,
+			CRemoteConfigDto remoteConfig
+			)
 			: base(EHit.ConnectResponse)
 		{
 			DayRefreshTimeInMs = dayRefreshTimeInMs;
 			CommunicationToken = communicationToken;
 			ServerTimeInMs = serverTimeInMs;
 			DebugUserUid = debugUserUid;
+			RemoteConfig = remoteConfig;
 			AuthUid = authUid;
 			User = user;
 		}

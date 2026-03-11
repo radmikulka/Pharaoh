@@ -142,7 +142,7 @@ namespace Pharaoh
             Container.InstallUnityNotifications(_unityNotifications, new CNullNotificationNameParser(), new Color(0.1f, 0.58f, 1f));
             Container.AddSingletonFromInstance<IAnalytics>(GetAnalytics());
             Container.AddSingleton<IRemoteDatabase, CFirebaseDatabase>();
-            Container.AddSingleton<IRemoteConfig, CFirebaseRemoteConfig>();
+            Container.AddSingleton<IServerRemoteConfig, CServerRemoteConfig>();
             Container.AddSingletonFromInstance<ICrashlytics>(_crashlytics);
             Container.AddSingletonFromInstance(_serviceMaster);
             Container.AddSingleton<CInternetReachabilityChecker>();

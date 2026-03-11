@@ -17,6 +17,7 @@ namespace Pharaoh
 	{
 		private readonly CCommunicationTokenProvider _communicationTokenProvider;
 		private readonly CInitialUserDtoProvider _initialUserDtoProvider;
+		private readonly CServerRemoteConfig _serverRemoteConfig;
 		private readonly CCrashlyticsKeys _crashlyticsKeys;
 		private readonly CServiceMaster _serviceMaster;
 		private readonly ICrashlytics _crashlytics;
@@ -29,20 +30,22 @@ namespace Pharaoh
 
 		public CServerConnectionInitializer(
 			CCommunicationTokenProvider communicationTokenProvider,
-			CInitialUserDtoProvider initialUserDtoProvider, 
+			CInitialUserDtoProvider initialUserDtoProvider,
+			CServerRemoteConfig serverRemoteConfig,
 			CCrashlyticsKeys crashlyticsKeys,
-			CServiceMaster serviceMaster, 
-			ITranslation translation, 
-			ICrashlytics crashlytics, 
-			IAuthService authService, 
-			IServerTime serverTime, 
-			IAdsManager adsManager, 
-			IAnalytics analytics, 
+			CServiceMaster serviceMaster,
+			ITranslation translation,
+			ICrashlytics crashlytics,
+			IAuthService authService,
+			IServerTime serverTime,
+			IAdsManager adsManager,
+			IAnalytics analytics,
 			ISingular singular
 			)
 		{
 			_communicationTokenProvider = communicationTokenProvider;
 			_initialUserDtoProvider = initialUserDtoProvider;
+			_serverRemoteConfig = serverRemoteConfig;
 			_crashlyticsKeys = crashlyticsKeys;
 			_serviceMaster = serviceMaster;
 			_translation = translation;
@@ -56,8 +59,10 @@ namespace Pharaoh
 		
 		public async UniTask InitializeServerConnection(CConnectResponse response, CancellationToken ct)
 		{
+			_serverRemoteConfig.Initialize(response.RemoteConfig);
+
 			return;
-			
+
 			_initialUserDtoProvider.Dto = response.User;
 
 			await InitAds(ct);
