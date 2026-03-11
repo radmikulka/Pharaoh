@@ -11,11 +11,12 @@ namespace Pharaoh
 
         [SerializeField] private GameObject _sourceAsset;
         [SerializeField] private bool _drawGizmos = true;
+        [SerializeField] [Range(0f, 1f)] private float _buildProgress = 1f;
 
         // ───────── Entry points ─────────
 
-        [Button]
-        private void Generate()
+        [Button("Generate Parts")]
+        private void GenerateParts()
         {
             if (!ValidateSetup(out MeshFilter filter, out List<CMonumentPart> parts))
                 return;
@@ -38,7 +39,92 @@ namespace Pharaoh
             }
 
             Debug.Log($"{Tag} Remaining tris after all parts: {remaining.Count} (discarded)");
-            Debug.Log($"{Tag} ═══ GENERATE COMPLETE ═══");
+            Debug.Log($"{Tag} ═══ GENERATE PARTS COMPLETE ═══");
+
+            _sourceAsset.SetActive(false);
+        }
+
+        [Button("Generate All")]
+        private void GenerateAll()
+        {
+            if (!ValidateSetup(out MeshFilter filter, out List<CMonumentPart> parts))
+                return;
+
+            // Step 1: Generate parts
+            Debug.Log($"{Tag} ═══ GENERATE ALL: STEP 1 — PARTS ═══");
+
+            Mesh sourceMesh = filter.sharedMesh;
+            LogGenerateStart(sourceMesh, parts.Count);
+
+            List<CMeshSlicer.Tri> remaining = CMeshSlicer.ExtractTriangles(filter);
+            Debug.Log($"{Tag} Extracted {remaining.Count} triangles (world space)");
+            LogBounds(remaining, "Source mesh");
+
+            float snapEps = CMeshSlicer.ComputeSnapEpsilon(remaining);
+            Debug.Log($"{Tag} Snap epsilon: {snapEps:E3}");
+
+            List<CMeshSlicer.BoxPlanes> allPlanes = new List<CMeshSlicer.BoxPlanes>();
+
+            for (int i = parts.Count - 1; i >= 0; i--)
+            {
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+            }
+
+            Debug.Log($"{Tag} Remaining tris after all parts: {remaining.Count} (discarded)");
+            Debug.Log($"{Tag} ═══ STEP 1 COMPLETE ═══");
+
+            // Step 2: Grid subdivision
+            Debug.Log($"{Tag} ═══ GENERATE ALL: STEP 2 — GRID SUBDIVISION ═══");
+
+            int subdividedCount = 0;
+            int skippedCount = 0;
+
+            foreach (CMonumentPart part in parts)
+            {
+                if (part.CellSize == Vector3.zero)
+                {
+                    Debug.Log($"{Tag}   Part '{part.name}': CellSize is zero → skipping subdivision");
+                    skippedCount++;
+                    continue;
+                }
+
+                if (part.GeneratedMesh == null)
+                {
+                    Debug.Log($"{Tag}   Part '{part.name}': no generated mesh → skipping subdivision");
+                    skippedCount++;
+                    continue;
+                }
+
+                Debug.Log($"{Tag}   Part '{part.name}': CellSize={part.CellSize} → subdividing...");
+
+                // Re-extract the part's tris from GeneratedMesh (in world space)
+                Transform partTransform = part.transform;
+                Transform generatedChild = null;
+                for (int i = 0; i < partTransform.childCount; i++)
+                {
+                    if (partTransform.GetChild(i).name == "_Generated")
+                    {
+                        generatedChild = partTransform.GetChild(i);
+                        break;
+                    }
+                }
+
+                if (generatedChild == null)
+                {
+                    Debug.LogWarning($"{Tag}   Part '{part.name}': _Generated child not found → skipping");
+                    skippedCount++;
+                    continue;
+                }
+
+                MeshFilter partFilter = generatedChild.GetComponent<MeshFilter>();
+                List<CMeshSlicer.Tri> partTris = CMeshSlicer.ExtractTriangles(partFilter);
+                Debug.Log($"{Tag}   Part '{part.name}': extracted {partTris.Count} tris from generated mesh");
+
+                SubdivideIntoGrid(partTris, part, snapEps);
+                subdividedCount++;
+            }
+
+            Debug.Log($"{Tag} ═══ GENERATE ALL COMPLETE: {subdividedCount} subdivided, {skippedCount} skipped ═══");
 
             _sourceAsset.SetActive(false);
         }
@@ -65,6 +151,50 @@ namespace Pharaoh
             Debug.Log($"{Tag} Cleaned {parts.Count} parts, source asset re-enabled.");
         }
 
+        // ───────── Progress preview ─────────
+
+        private void OnValidate()
+        {
+            List<CMonumentPart> parts = CollectParts();
+            var allCells = new List<Transform>();
+
+            foreach (CMonumentPart part in parts)
+            {
+                for (int i = 0; i < part.transform.childCount; i++)
+                {
+                    Transform child = part.transform.GetChild(i);
+                    if (child.name.StartsWith("_Cell_"))
+                    {
+                        allCells.Add(child);
+                    }
+                }
+            }
+
+            if (allCells.Count == 0)
+                return;
+
+            // Sort bottom-to-top (by world Y), then by X, then by Z
+            /*allCells.Sort((a, b) =>
+            {
+                int cmp = a.position.y.CompareTo(b.position.y);
+                if (cmp != 0)
+                    return cmp;
+
+                cmp = a.position.x.CompareTo(b.position.x);
+                if (cmp != 0)
+                    return cmp;
+
+                return a.position.z.CompareTo(b.position.z);
+            });*/
+
+            int visibleCount = Mathf.RoundToInt(_buildProgress * allCells.Count);
+
+            for (int i = 0; i < allCells.Count; i++)
+            {
+                allCells[i].gameObject.SetActive(i < visibleCount);
+            }
+        }
+
         // ───────── Per-part processing ─────────
 
         private List<CMeshSlicer.Tri> ProcessPart(
@@ -86,16 +216,54 @@ namespace Pharaoh
             List<CMeshSlicer.Tri> clipped = CMeshSlicer.ClipToBox(remaining, planes);
             Debug.Log($"{Tag}   ClipToBox: {remainingBefore} input tris → {clipped.Count} clipped tris");
 
-            remaining = CMeshSlicer.SubtractBox(remaining, planes);
-            Debug.Log($"{Tag}   SubtractBox: {remainingBefore} input tris → {remaining.Count} remaining tris");
-
             if (clipped.Count == 0)
             {
-                Debug.LogWarning($"{Tag}   Part '{partName}' got 0 clipped tris → no mesh generated");
-                part.GeneratedMesh = null;
+                // No surface geometry inside the box.
+                // Check if the box is inside the source mesh (interior part).
+                Vector3 boxCenter = box.transform.TransformPoint(box.center);
+                bool isInside = CMeshSlicer.IsPointInsideMesh(boxCenter, remaining);
+                Debug.Log($"{Tag}   Box center {boxCenter} is {(isInside ? "INSIDE" : "OUTSIDE")} the mesh " +
+                          $"(ray-cast test on {remaining.Count} tris)");
+
+                if (!isInside)
+                {
+                    Debug.LogWarning($"{Tag}   Part '{partName}' got 0 clipped tris and box is outside mesh → no mesh generated");
+                    part.GeneratedMesh = null;
+                    allPlanes.Add(planes);
+                    return remaining;
+                }
+
+                // Interior box: generate box faces as geometry
+                Debug.Log($"{Tag}   Part '{partName}': box is INSIDE mesh → generating box face geometry");
+
+                List<CMeshSlicer.Tri> boxTris = CMeshSlicer.GenerateBoxTris(box, false);
+                Debug.Log($"{Tag}   Generated {boxTris.Count} box face tris (outward normals) for part");
+
+                Mesh mesh = CMeshSlicer.BuildMesh(boxTris, part.transform);
+                Debug.Log($"{Tag}   Mesh built: verts={mesh.vertexCount}, " +
+                          $"tris={mesh.triangles.Length / 3}, bounds={mesh.bounds}");
+                ApplyMesh(part, mesh);
+
+                // Add flipped (inward-facing) box faces to remaining.
+                // Outer parts will pick these up as the walls of the carved hole.
+                List<CMeshSlicer.Tri> flippedTris = CMeshSlicer.GenerateBoxTris(box, true);
+                remaining.AddRange(flippedTris);
+                Debug.Log($"{Tag}   Added {flippedTris.Count} inverted box tris to remaining " +
+                          $"(hole walls for outer parts). Remaining now: {remaining.Count}");
+
+                // Skip SubtractBox — no surface geometry is inside the box,
+                // so SubtractBox would only split tris at box planes without removing anything.
                 allPlanes.Add(planes);
+
+#if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(part);
+#endif
+
                 return remaining;
             }
+
+            remaining = CMeshSlicer.SubtractBox(remaining, planes);
+            Debug.Log($"{Tag}   SubtractBox: {remainingBefore} input tris → {remaining.Count} remaining tris");
 
             LogBounds(clipped, $"Part '{partName}' clipped");
 
@@ -108,16 +276,107 @@ namespace Pharaoh
             Debug.Log($"{Tag}   Total tris for '{partName}': {clipped.Count} " +
                       $"(geometry={geometryCount} + caps={caps.Count})");
 
-            Mesh mesh = CMeshSlicer.BuildMesh(clipped, part.transform);
-            Debug.Log($"{Tag}   Mesh built: verts={mesh.vertexCount}, " +
-                      $"tris={mesh.triangles.Length / 3}, bounds={mesh.bounds}");
-            ApplyMesh(part, mesh);
+            Mesh mesh2 = CMeshSlicer.BuildMesh(clipped, part.transform);
+            Debug.Log($"{Tag}   Mesh built: verts={mesh2.vertexCount}, " +
+                      $"tris={mesh2.triangles.Length / 3}, bounds={mesh2.bounds}");
+            ApplyMesh(part, mesh2);
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(part);
 #endif
 
             return remaining;
+        }
+
+        // ───────── Grid subdivision ─────────
+
+        private void SubdivideIntoGrid(
+            List<CMeshSlicer.Tri> partTris, CMonumentPart part, float snapEps)
+        {
+            BoxCollider box = part.GetComponent<BoxCollider>();
+            Vector3 boxMin = box.center - box.size * 0.5f;
+            Vector3 boxMax = box.center + box.size * 0.5f;
+            Vector3 cellSize = part.CellSize;
+            Transform t = part.transform;
+
+            int countX = cellSize.x > 0f ? Mathf.CeilToInt((boxMax.x - boxMin.x) / cellSize.x) : 1;
+            int countY = cellSize.y > 0f ? Mathf.CeilToInt((boxMax.y - boxMin.y) / cellSize.y) : 1;
+            int countZ = cellSize.z > 0f ? Mathf.CeilToInt((boxMax.z - boxMin.z) / cellSize.z) : 1;
+
+            Debug.Log($"{Tag}   Grid subdivision: {countX}x{countY}x{countZ} = {countX * countY * countZ} cells");
+
+            CleanPartChild(part);
+            int cellCount = 0;
+            int interiorCount = 0;
+            int emptyCells = 0;
+
+            Material sharedMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+
+            for (int ix = 0; ix < countX; ix++)
+            {
+                for (int iy = 0; iy < countY; iy++)
+                {
+                    for (int iz = 0; iz < countZ; iz++)
+                    {
+                        Vector3 cellMin = new Vector3(
+                            boxMin.x + ix * (cellSize.x > 0f ? cellSize.x : boxMax.x - boxMin.x),
+                            boxMin.y + iy * (cellSize.y > 0f ? cellSize.y : boxMax.y - boxMin.y),
+                            boxMin.z + iz * (cellSize.z > 0f ? cellSize.z : boxMax.z - boxMin.z));
+
+                        Vector3 cellMax = new Vector3(
+                            Mathf.Min(cellMin.x + (cellSize.x > 0f ? cellSize.x : boxMax.x - boxMin.x), boxMax.x),
+                            Mathf.Min(cellMin.y + (cellSize.y > 0f ? cellSize.y : boxMax.y - boxMin.y), boxMax.y),
+                            Mathf.Min(cellMin.z + (cellSize.z > 0f ? cellSize.z : boxMax.z - boxMin.z), boxMax.z));
+
+                        string cellName = $"_Cell_{ix}_{iy}_{iz}";
+                        CMeshSlicer.BoxPlanes cellPlanes = CMeshSlicer.GetCellPlanes(t, cellMin, cellMax);
+                        List<CMeshSlicer.Tri> cellTris = CMeshSlicer.ClipToBox(partTris, cellPlanes);
+                        CMeshSlicer.SnapVerticesToPlanes(cellTris, cellPlanes, snapEps);
+
+                        if (cellTris.Count == 0)
+                        {
+                            Vector3 cellCenter = t.TransformPoint((cellMin + cellMax) / 2f);
+                            if (CMeshSlicer.IsPointInsideMesh(cellCenter, partTris))
+                            {
+                                cellTris = CMeshSlicer.GenerateBoxTris(t, cellMin, cellMax, false);
+                                Debug.Log($"{Tag}     {cellName}: INTERIOR cell, generated {cellTris.Count} box face tris");
+                                interiorCount++;
+                            }
+                            else
+                            {
+                                emptyCells++;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log($"{Tag}     {cellName}: localMin={cellMin}, localMax={cellMax}, " +
+                                      $"clipped={cellTris.Count} tris");
+
+                            List<CMeshSlicer.Tri> caps = CMeshSlicer.BuildCellCaps(
+                                cellTris, snapEps, cellPlanes, t, cellMin, cellMax, partTris, cellName);
+                            cellTris.AddRange(caps);
+
+                            Debug.Log($"{Tag}     {cellName}: +{caps.Count} cap tris → total={cellTris.Count}");
+                        }
+
+                        Mesh mesh = CMeshSlicer.BuildMesh(cellTris, t, 60f);
+
+                        GameObject child = new GameObject(cellName);
+                        child.transform.SetParent(t, false);
+
+                        MeshFilter filter = child.AddComponent<MeshFilter>();
+                        filter.sharedMesh = mesh;
+
+                        MeshRenderer renderer = child.AddComponent<MeshRenderer>();
+                        renderer.sharedMaterial = sharedMat;
+
+                        cellCount++;
+                    }
+                }
+            }
+
+            Debug.Log($"{Tag}   Grid subdivision complete: {cellCount} cells ({interiorCount} interior), {emptyCells} empty cells skipped");
         }
 
         // ───────── Validation ─────────
@@ -188,7 +447,7 @@ namespace Pharaoh
             for (int i = part.transform.childCount - 1; i >= 0; i--)
             {
                 Transform child = part.transform.GetChild(i);
-                if (child.name == "_Generated")
+                if (child.name == "_Generated" || child.name.StartsWith("_Cell_"))
                 {
                     DestroyImmediate(child.gameObject);
                 }
@@ -277,6 +536,15 @@ namespace Pharaoh
                 Gizmos.color = Palette[p % Palette.Length];
                 CMeshSlicer.BoxPlanes planes = CMeshSlicer.GetBoxPlanes(box);
                 DrawCutEdges(sourceTris, planes);
+
+                Vector3 cellSize = parts[p].CellSize;
+                if (cellSize != Vector3.zero)
+                {
+                    Color gridColor = Palette[p % Palette.Length];
+                    gridColor.a = 0.3f;
+                    Gizmos.color = gridColor;
+                    DrawGridCutEdges(sourceTris, box, cellSize);
+                }
             }
         }
 
@@ -342,6 +610,91 @@ namespace Pharaoh
                     if (IsInsideBox(i0, planes) && IsInsideBox(i1, planes))
                     {
                         Gizmos.DrawLine(i0, i1);
+                    }
+                }
+            }
+        }
+
+        private static void DrawGridCutEdges(
+            List<CMeshSlicer.Tri> tris, BoxCollider box, Vector3 cellSize)
+        {
+            Vector3 boxMin = box.center - box.size * 0.5f;
+            Vector3 boxMax = box.center + box.size * 0.5f;
+            Transform t = box.transform;
+            CMeshSlicer.BoxPlanes outerPlanes = CMeshSlicer.GetBoxPlanes(box);
+
+            for (int axis = 0; axis < 3; axis++)
+            {
+                if (cellSize[axis] <= 0f)
+                    continue;
+
+                int count = Mathf.CeilToInt((boxMax[axis] - boxMin[axis]) / cellSize[axis]);
+
+                for (int i = 1; i < count; i++)
+                {
+                    float offset = boxMin[axis] + i * cellSize[axis];
+                    if (offset >= boxMax[axis])
+                        break;
+
+                    var localN = Vector3.zero;
+                    localN[axis] = 1f;
+                    var worldN = t.TransformDirection(localN).normalized;
+
+                    var pointOnPlane = Vector3.zero;
+                    pointOnPlane[axis] = offset;
+                    float dist = Vector3.Dot(worldN, t.TransformPoint(pointOnPlane));
+
+                    // Draw intersections with the single slice plane, clipped to box
+                    foreach (CMeshSlicer.Tri tri in tris)
+                    {
+                        float dA = Vector3.Dot(worldN, tri.A) - dist;
+                        float dB = Vector3.Dot(worldN, tri.B) - dist;
+                        float dC = Vector3.Dot(worldN, tri.C) - dist;
+
+                        bool aIn = dA <= 0f;
+                        bool bIn = dB <= 0f;
+                        bool cIn = dC <= 0f;
+
+                        if (aIn == bIn && bIn == cIn)
+                            continue;
+
+                        Vector3 i0 = Vector3.zero, i1 = Vector3.zero;
+                        int cnt = 0;
+
+                        if (aIn != bIn)
+                        {
+                            float k = dA / (dA - dB);
+                            if (cnt == 0)
+                                i0 = tri.A + k * (tri.B - tri.A);
+                            else
+                                i1 = tri.A + k * (tri.B - tri.A);
+                            cnt++;
+                        }
+
+                        if (bIn != cIn)
+                        {
+                            float k = dB / (dB - dC);
+                            if (cnt == 0)
+                                i0 = tri.B + k * (tri.C - tri.B);
+                            else
+                                i1 = tri.B + k * (tri.C - tri.B);
+                            cnt++;
+                        }
+
+                        if (cnt < 2 && cIn != aIn)
+                        {
+                            float k = dC / (dC - dA);
+                            i1 = tri.C + k * (tri.A - tri.C);
+                            cnt++;
+                        }
+
+                        if (cnt < 2)
+                            continue;
+
+                        if (IsInsideBox(i0, outerPlanes) && IsInsideBox(i1, outerPlanes))
+                        {
+                            Gizmos.DrawLine(i0, i1);
+                        }
                     }
                 }
             }

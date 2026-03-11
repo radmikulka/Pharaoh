@@ -119,6 +119,215 @@ namespace Pharaoh
             return new BoxPlanes { Normals = normals, Dists = dists };
         }
 
+        // ───────── Cell planes (grid subdivision) ─────────
+
+        public static BoxPlanes GetCellPlanes(Transform t, Vector3 localMin, Vector3 localMax)
+        {
+            var normals = new Vector3[6];
+            var dists = new float[6];
+
+            for (int axis = 0; axis < 3; axis++)
+            {
+                var localN = Vector3.zero;
+                localN[axis] = 1f;
+                var worldN = t.TransformDirection(localN).normalized;
+
+                var posLocal = localMax;
+                var negLocal = localMin;
+
+                normals[axis * 2] = worldN;
+                dists[axis * 2] = Vector3.Dot(worldN, t.TransformPoint(posLocal));
+                normals[axis * 2 + 1] = -worldN;
+                dists[axis * 2 + 1] = Vector3.Dot(-worldN, t.TransformPoint(negLocal));
+            }
+
+            return new BoxPlanes { Normals = normals, Dists = dists };
+        }
+
+        // ───────── Point-in-mesh test ─────────
+
+        /// <summary>
+        /// Ray-cast test: fires rays from point, counts triangle intersections.
+        /// Odd count = inside closed mesh. Uses 3 non-axis-aligned directions
+        /// to avoid edge/vertex precision issues, takes majority vote.
+        /// </summary>
+        public static bool IsPointInsideMesh(Vector3 point, List<Tri> tris)
+        {
+            // Non-axis-aligned directions to avoid hitting edges/vertices of regular meshes
+            Vector3[] dirs =
+            {
+                new Vector3(0.31f, 0.95f, 0.07f).normalized,
+                new Vector3(-0.17f, 0.43f, 0.89f).normalized,
+                new Vector3(0.73f, -0.21f, 0.65f).normalized,
+            };
+
+            int insideVotes = 0;
+
+            for (int d = 0; d < dirs.Length; d++)
+            {
+                int intersections = 0;
+
+                foreach (var tri in tris)
+                {
+                    if (RayHitsTriangle(point, dirs[d], tri))
+                    {
+                        intersections++;
+                    }
+                }
+
+                bool inside = (intersections % 2) == 1;
+                Debug.Log($"[MeshSlicer]   Ray #{d} dir={dirs[d]:F3}: {intersections} hits → {(inside ? "INSIDE" : "OUTSIDE")}");
+
+                if (inside)
+                {
+                    insideVotes++;
+                }
+            }
+
+            return insideVotes >= 2;
+        }
+
+        private static bool RayHitsTriangle(Vector3 origin, Vector3 dir, Tri tri)
+        {
+            // Möller–Trumbore
+            Vector3 e1 = tri.B - tri.A;
+            Vector3 e2 = tri.C - tri.A;
+            Vector3 h = Vector3.Cross(dir, e2);
+            float a = Vector3.Dot(e1, h);
+
+            if (Mathf.Abs(a) < 1e-7f)
+                return false;
+
+            float f = 1f / a;
+            Vector3 s = origin - tri.A;
+            float u = f * Vector3.Dot(s, h);
+
+            if (u < 0f || u > 1f)
+                return false;
+
+            Vector3 q = Vector3.Cross(s, e1);
+            float v = f * Vector3.Dot(dir, q);
+
+            if (v < 0f || u + v > 1f)
+                return false;
+
+            float t = f * Vector3.Dot(e2, q);
+            return t > 1e-7f;
+        }
+
+        // ───────── Box face generation ─────────
+
+        /// <summary>
+        /// Generates 12 world-space triangles forming the 6 faces of a BoxCollider.
+        /// flipNormals=false → outward normals; flipNormals=true → inward normals.
+        /// </summary>
+        public static List<Tri> GenerateBoxTris(BoxCollider box, bool flipNormals)
+        {
+            Transform t = box.transform;
+            Vector3 c = box.center;
+            Vector3 e = box.size * 0.5f;
+
+            // 8 corners in world space
+            // Bit layout: bit0=X sign, bit1=Y sign, bit2=Z sign
+            // 0:(-,-,-) 1:(+,-,-) 2:(-,+,-) 3:(+,+,-) 4:(-,-,+) 5:(+,-,+) 6:(-,+,+) 7:(+,+,+)
+            var corners = new Vector3[8];
+            for (int i = 0; i < 8; i++)
+            {
+                corners[i] = t.TransformPoint(new Vector3(
+                    c.x + ((i & 1) == 0 ? -e.x : e.x),
+                    c.y + ((i & 2) == 0 ? -e.y : e.y),
+                    c.z + ((i & 4) == 0 ? -e.z : e.z)));
+            }
+
+            // 6 face quads, CCW winding → outward normals
+            int[,] faces =
+            {
+                { 1, 3, 7, 5 }, // +X
+                { 0, 4, 6, 2 }, // -X
+                { 2, 6, 7, 3 }, // +Y
+                { 0, 1, 5, 4 }, // -Y
+                { 4, 5, 7, 6 }, // +Z
+                { 0, 2, 3, 1 }, // -Z
+            };
+
+            var tris = new List<Tri>(12);
+
+            for (int f = 0; f < 6; f++)
+            {
+                Vector3 a = corners[faces[f, 0]];
+                Vector3 b = corners[faces[f, 1]];
+                Vector3 cc = corners[faces[f, 2]];
+                Vector3 d = corners[faces[f, 3]];
+
+                if (flipNormals)
+                {
+                    tris.Add(new Tri(a, cc, b));
+                    tris.Add(new Tri(a, d, cc));
+                }
+                else
+                {
+                    tris.Add(new Tri(a, b, cc));
+                    tris.Add(new Tri(a, cc, d));
+                }
+            }
+
+            return tris;
+        }
+
+        /// <summary>
+        /// Generates 12 world-space triangles forming the 6 faces of an axis-aligned box
+        /// defined by localMin/localMax in the given Transform's local space.
+        /// </summary>
+        public static List<Tri> GenerateBoxTris(Transform t, Vector3 localMin, Vector3 localMax, bool flipNormals)
+        {
+            // 8 corners in world space
+            // Bit layout: bit0=X sign, bit1=Y sign, bit2=Z sign
+            // 0:(min,min,min) 1:(max,min,min) 2:(min,max,min) 3:(max,max,min)
+            // 4:(min,min,max) 5:(max,min,max) 6:(min,max,max) 7:(max,max,max)
+            var corners = new Vector3[8];
+            for (int i = 0; i < 8; i++)
+            {
+                corners[i] = t.TransformPoint(new Vector3(
+                    (i & 1) == 0 ? localMin.x : localMax.x,
+                    (i & 2) == 0 ? localMin.y : localMax.y,
+                    (i & 4) == 0 ? localMin.z : localMax.z));
+            }
+
+            // 6 face quads, CCW winding → outward normals
+            int[,] faces =
+            {
+                { 1, 3, 7, 5 }, // +X
+                { 0, 4, 6, 2 }, // -X
+                { 2, 6, 7, 3 }, // +Y
+                { 0, 1, 5, 4 }, // -Y
+                { 4, 5, 7, 6 }, // +Z
+                { 0, 2, 3, 1 }, // -Z
+            };
+
+            var tris = new List<Tri>(12);
+
+            for (int f = 0; f < 6; f++)
+            {
+                Vector3 a = corners[faces[f, 0]];
+                Vector3 b = corners[faces[f, 1]];
+                Vector3 cc = corners[faces[f, 2]];
+                Vector3 d = corners[faces[f, 3]];
+
+                if (flipNormals)
+                {
+                    tris.Add(new Tri(a, cc, b));
+                    tris.Add(new Tri(a, d, cc));
+                }
+                else
+                {
+                    tris.Add(new Tri(a, b, cc));
+                    tris.Add(new Tri(a, cc, d));
+                }
+            }
+
+            return tris;
+        }
+
         // ───────── Epsilon ─────────
 
         public static float ComputeSnapEpsilon(List<Tri> tris)
@@ -139,6 +348,37 @@ namespace Pharaoh
         private static float MaxAbs(Vector3 v)
         {
             return Mathf.Max(Mathf.Abs(v.x), Mathf.Max(Mathf.Abs(v.y), Mathf.Abs(v.z)));
+        }
+
+        // ───────── Vertex snapping ─────────
+
+        /// <summary>
+        /// Snaps vertices that are within tolerance of a box plane to lie exactly on that plane.
+        /// Eliminates floating-point gaps between clipped surface tris and cap tris.
+        /// </summary>
+        public static void SnapVerticesToPlanes(List<Tri> tris, BoxPlanes planes, float tolerance)
+        {
+            for (int i = 0; i < tris.Count; i++)
+            {
+                tris[i] = new Tri(
+                    SnapVertex(tris[i].A, planes, tolerance),
+                    SnapVertex(tris[i].B, planes, tolerance),
+                    SnapVertex(tris[i].C, planes, tolerance));
+            }
+        }
+
+        private static Vector3 SnapVertex(Vector3 v, BoxPlanes planes, float tolerance)
+        {
+            for (int p = 0; p < 6; p++)
+            {
+                float d = Vector3.Dot(planes.Normals[p], v) - planes.Dists[p];
+                if (Mathf.Abs(d) < tolerance)
+                {
+                    v -= d * planes.Normals[p];
+                }
+            }
+
+            return v;
         }
 
         // ───────── Clip to box (intersection) ─────────
@@ -263,12 +503,160 @@ namespace Pharaoh
             return caps;
         }
 
+        // ───────── Cell cap generation (grid subdivision) ─────────
+
+        /// <summary>
+        /// Builds caps for a grid cell. Unlike BuildCaps, also adds cell face corners
+        /// that are inside the part mesh — producing solid "brick" walls, not just
+        /// boundary-loop patches.
+        /// </summary>
+        public static List<Tri> BuildCellCaps(
+            List<Tri> clippedTris, float snapEps,
+            BoxPlanes cellPlanes, Transform t, Vector3 cellMin, Vector3 cellMax,
+            List<Tri> partTris, string cellName)
+        {
+            var caps = new List<Tri>();
+            var vmap = new VertexMap(snapEps);
+
+            // Find boundary half-edges via cancellation
+            var boundaryHalfEdges = new HashSet<(int from, int to)>();
+
+            foreach (var tri in clippedTris)
+            {
+                int ia = vmap.GetIndex(tri.A);
+                int ib = vmap.GetIndex(tri.B);
+                int ic = vmap.GetIndex(tri.C);
+
+                ProcessHalfEdge(boundaryHalfEdges, ia, ib);
+                ProcessHalfEdge(boundaryHalfEdges, ib, ic);
+                ProcessHalfEdge(boundaryHalfEdges, ic, ia);
+            }
+
+            Debug.Log($"[MeshSlicer]   BuildCellCaps '{cellName}': {boundaryHalfEdges.Count} boundary half-edges");
+
+            if (boundaryHalfEdges.Count == 0)
+            {
+                Debug.Log($"[MeshSlicer]   BuildCellCaps '{cellName}': mesh is closed → no caps needed");
+                return caps;
+            }
+
+            var boundaryVertIndices = new HashSet<int>();
+            foreach (var he in boundaryHalfEdges)
+            {
+                boundaryVertIndices.Add(he.from);
+                boundaryVertIndices.Add(he.to);
+            }
+
+            float planeTol = snapEps * 2f;
+
+            // 8 cell corners in world space (bit layout: bit0=X, bit1=Y, bit2=Z)
+            var worldCorners = new Vector3[8];
+            var cornerInside = new bool[8];
+            for (int i = 0; i < 8; i++)
+            {
+                worldCorners[i] = t.TransformPoint(new Vector3(
+                    (i & 1) == 0 ? cellMin.x : cellMax.x,
+                    (i & 2) == 0 ? cellMin.y : cellMax.y,
+                    (i & 4) == 0 ? cellMin.z : cellMax.z));
+                cornerInside[i] = IsPointInsideMesh(worldCorners[i], partTris);
+            }
+
+            // Which corners belong to which face (same layout as GenerateBoxTris)
+            int[][] faceCornerIndices =
+            {
+                new[] { 1, 3, 5, 7 }, // +X
+                new[] { 0, 2, 4, 6 }, // -X
+                new[] { 2, 3, 6, 7 }, // +Y
+                new[] { 0, 1, 4, 5 }, // -Y
+                new[] { 4, 5, 6, 7 }, // +Z
+                new[] { 0, 1, 2, 3 }, // -Z
+            };
+
+            for (int p = 0; p < 6; p++)
+            {
+                var faceNormal = cellPlanes.Normals[p];
+                var dist = cellPlanes.Dists[p];
+
+                // Collect boundary vertices on this face
+                var faceVerts = new List<Vector3>();
+                foreach (int vi in boundaryVertIndices)
+                {
+                    var pos = vmap.GetPosition(vi);
+                    if (Mathf.Abs(Vector3.Dot(faceNormal, pos) - dist) < planeTol)
+                    {
+                        float d = Vector3.Dot(faceNormal, pos) - dist;
+                        faceVerts.Add(pos - d * faceNormal);
+                    }
+                }
+
+                // Add cell face corners that are inside the part mesh
+                int cornersInsideCount = 0;
+                for (int c = 0; c < 4; c++)
+                {
+                    int ci = faceCornerIndices[p][c];
+                    if (cornerInside[ci])
+                    {
+                        Vector3 corner = worldCorners[ci];
+                        float d = Vector3.Dot(faceNormal, corner) - dist;
+                        faceVerts.Add(corner - d * faceNormal);
+                        cornersInsideCount++;
+                    }
+                }
+
+                if (faceVerts.Count < 3)
+                    continue;
+
+                // Build 2D tangent basis for the plane
+                var tangent = Vector3.Cross(faceNormal,
+                    Mathf.Abs(faceNormal.y) < 0.9f ? Vector3.up : Vector3.right).normalized;
+                var bitangent = Vector3.Cross(faceNormal, tangent);
+
+                // Compute centroid
+                var centroid = Vector3.zero;
+                foreach (var v in faceVerts)
+                {
+                    centroid += v;
+                }
+                centroid /= faceVerts.Count;
+
+                // Sort vertices by angle around centroid (2D projection on face plane)
+                faceVerts.Sort((a, b) =>
+                {
+                    float angleA = Mathf.Atan2(
+                        Vector3.Dot(a - centroid, bitangent),
+                        Vector3.Dot(a - centroid, tangent));
+                    float angleB = Mathf.Atan2(
+                        Vector3.Dot(b - centroid, bitangent),
+                        Vector3.Dot(b - centroid, tangent));
+                    return angleA.CompareTo(angleB);
+                });
+
+                Debug.Log($"[MeshSlicer]     CellCap plane {p} (n={faceNormal:F3}): " +
+                          $"{faceVerts.Count} verts ({cornersInsideCount} corners inside)");
+
+                // Fan triangulate — CCW from +faceNormal → outward facing
+                for (int i = 1; i < faceVerts.Count - 1; i++)
+                {
+                    caps.Add(new Tri(faceVerts[0], faceVerts[i], faceVerts[i + 1]));
+                }
+            }
+
+            return caps;
+        }
+
         // ───────── Mesh building ─────────
 
-        public static Mesh BuildMesh(List<Tri> tris, Transform partTransform)
+        /// <summary>
+        /// Builds a Unity Mesh from world-space triangles.
+        /// smoothingAngleDeg = 0 → per-face normals (RecalculateNormals).
+        /// smoothingAngleDeg > 0 → smooth normals: face normals are averaged at shared
+        /// vertex positions when the angle between them is below the threshold.
+        /// </summary>
+        public static Mesh BuildMesh(List<Tri> tris, Transform partTransform, float smoothingAngleDeg = 0f)
         {
-            var verts = new Vector3[tris.Count * 3];
-            var indices = new int[tris.Count * 3];
+            int vertCount = tris.Count * 3;
+            var verts = new Vector3[vertCount];
+            var indices = new int[vertCount];
 
             for (int i = 0; i < tris.Count; i++)
             {
@@ -284,9 +672,82 @@ namespace Pharaoh
             var mesh = new Mesh { name = partTransform.name + "_generated" };
             mesh.vertices = verts;
             mesh.SetTriangles(indices, 0);
-            mesh.RecalculateNormals();
+
+            if (smoothingAngleDeg > 0f)
+            {
+                ComputeSmoothNormals(mesh, verts, tris.Count, smoothingAngleDeg);
+            }
+            else
+            {
+                mesh.RecalculateNormals();
+            }
+
             mesh.RecalculateBounds();
             return mesh;
+        }
+
+        private static void ComputeSmoothNormals(Mesh mesh, Vector3[] verts, int triCount, float smoothingAngleDeg)
+        {
+            float cosThreshold = Mathf.Cos(smoothingAngleDeg * Mathf.Deg2Rad);
+
+            // Compute face normals
+            var faceNormals = new Vector3[triCount];
+            for (int i = 0; i < triCount; i++)
+            {
+                int idx = i * 3;
+                Vector3 e1 = verts[idx + 1] - verts[idx];
+                Vector3 e2 = verts[idx + 2] - verts[idx];
+                faceNormals[i] = Vector3.Cross(e1, e2).normalized;
+            }
+
+            // Group vertices by position using VertexMap
+            var vmap = new VertexMap(1e-5f);
+            int vertCount = verts.Length;
+            var vertGroup = new int[vertCount]; // maps vertex index → group id
+
+            var groups = new Dictionary<int, List<int>>();
+
+            for (int i = 0; i < vertCount; i++)
+            {
+                int groupId = vmap.GetIndex(verts[i]);
+                vertGroup[i] = groupId;
+
+                if (!groups.TryGetValue(groupId, out var list))
+                {
+                    list = new List<int>();
+                    groups[groupId] = list;
+                }
+
+                list.Add(i);
+            }
+
+            // For each vertex, average face normals of co-located vertices within angle threshold
+            var normals = new Vector3[vertCount];
+
+            foreach (var group in groups.Values)
+            {
+                foreach (int vi in group)
+                {
+                    Vector3 myNormal = faceNormals[vi / 3];
+                    Vector3 smooth = myNormal;
+
+                    foreach (int vj in group)
+                    {
+                        if (vj / 3 == vi / 3)
+                            continue;
+
+                        Vector3 otherNormal = faceNormals[vj / 3];
+                        if (Vector3.Dot(myNormal, otherNormal) >= cosThreshold)
+                        {
+                            smooth += otherNormal;
+                        }
+                    }
+
+                    normals[vi] = smooth.normalized;
+                }
+            }
+
+            mesh.normals = normals;
         }
 
         // ───────── Bounds utility ─────────
