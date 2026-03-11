@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d67823680f6332e498a5701c8f3c2a0c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315035
+  packageName: Summer Forest - Stylized Nature Environment
+  packageVersion: 1.0
+  assetPath: Assets/Ilumisoft/Summer Forest/Shaders/Sub Graphs/Face Normals.shadersubgraph
+  uploadId: 743553

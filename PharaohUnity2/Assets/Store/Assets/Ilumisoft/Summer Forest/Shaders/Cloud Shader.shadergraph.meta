@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bc5233937ae181e4eb688050b9febd05
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315035
+  packageName: Summer Forest - Stylized Nature Environment
+  packageVersion: 1.0
+  assetPath: Assets/Ilumisoft/Summer Forest/Shaders/Cloud Shader.shadergraph
+  uploadId: 743553

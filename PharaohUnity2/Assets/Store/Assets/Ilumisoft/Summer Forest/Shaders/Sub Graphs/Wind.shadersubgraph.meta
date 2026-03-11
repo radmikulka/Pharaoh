@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c0c35f5e052f8cc498346e4ad8f12a98
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315035
+  packageName: Summer Forest - Stylized Nature Environment
+  packageVersion: 1.0
+  assetPath: Assets/Ilumisoft/Summer Forest/Shaders/Sub Graphs/Wind.shadersubgraph
+  uploadId: 743553
