@@ -362,8 +362,19 @@ namespace Pharaoh
 
                         Mesh mesh = CMeshSlicer.BuildMesh(cellTris, t, 60f);
 
+                        // Center pivot: move GO to mesh center, offset vertices
+                        Vector3 meshCenter = mesh.bounds.center;
+                        Vector3[] verts = mesh.vertices;
+                        for (int v = 0; v < verts.Length; v++)
+                        {
+                            verts[v] -= meshCenter;
+                        }
+                        mesh.vertices = verts;
+                        mesh.RecalculateBounds();
+
                         GameObject child = new GameObject(cellName);
                         child.transform.SetParent(t, false);
+                        child.transform.localPosition = meshCenter;
 
                         MeshFilter filter = child.AddComponent<MeshFilter>();
                         filter.sharedMesh = mesh;
@@ -432,8 +443,19 @@ namespace Pharaoh
             part.GeneratedMesh = mesh;
             CleanPartChild(part);
 
+            // Center pivot: move GO to mesh center, offset vertices
+            Vector3 meshCenter = mesh.bounds.center;
+            Vector3[] verts = mesh.vertices;
+            for (int v = 0; v < verts.Length; v++)
+            {
+                verts[v] -= meshCenter;
+            }
+            mesh.vertices = verts;
+            mesh.RecalculateBounds();
+
             GameObject child = new GameObject("_Generated");
             child.transform.SetParent(part.transform, false);
+            child.transform.localPosition = meshCenter;
 
             MeshFilter filter = child.AddComponent<MeshFilter>();
             filter.sharedMesh = mesh;
