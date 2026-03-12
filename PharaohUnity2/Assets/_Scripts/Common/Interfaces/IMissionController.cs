@@ -13,6 +13,7 @@ namespace Pharaoh
 	public interface IMissionController
 	{
 		EMissionId ActiveMission { get; }
-		UniTask LoadMission(EMissionId mission, CancellationToken ct);
+		EMonumentId ActiveMonument { get; }
+		UniTask LoadMission(EMissionId mission, EMonumentId monument, CancellationToken ct);
 	}
 }

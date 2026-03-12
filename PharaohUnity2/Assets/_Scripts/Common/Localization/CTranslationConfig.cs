@@ -1,4 +1,5 @@
 using AldaEngine;
+using RoboRyanTron.SearchableEnum;
 using UnityEngine;
 
 namespace Pharaoh
@@ -9,8 +10,8 @@ namespace Pharaoh
 		[SerializeField] [BundleId] private int _bundleId;
 		[SerializeField] private string _sourceFilesPath = "Assets/_Sources/Localizations";
 		[SerializeField] private string _runtimeFilesPath = "Assets/_Sources/Localizations/Generated";
-		[SerializeField] private ELanguageCode _defaultLanguage = ELanguageCode.En;
-		[SerializeField] private ELanguageCode[] _supportedLanguages = { ELanguageCode.En };
+		[SerializeField, SearchableEnum] private ELanguageCode _defaultLanguage = ELanguageCode.En;
+		[SerializeField, SearchableEnum] private ELanguageCode[] _supportedLanguages = { ELanguageCode.En };
 
 		public int BundleId => _bundleId;
 		public string SourceFilesPath => _sourceFilesPath;

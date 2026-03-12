@@ -6,7 +6,10 @@ namespace Pharaoh
         {
             CWorkerMovement.MoveAlongPath(worker, worker.Route.ToMonument, dt, speed);
             if (worker.WaypointIndex >= worker.Route.ToMonument.Length)
-                return new CWorkerDeliveringState();
+            {
+                worker.WaypointIndex = 0;
+                return new CWorkerWalkingToTargetState(worker.CurrentTask.Value.Target);
+            }
             return this;
         }
     }

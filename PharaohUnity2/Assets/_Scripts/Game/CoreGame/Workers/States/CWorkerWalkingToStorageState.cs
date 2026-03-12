@@ -8,7 +8,7 @@ namespace Pharaoh
             if (worker.WaypointIndex >= worker.Route.ToStorage.Length)
             {
                 worker.WaypointIndex = 0;
-                return new CWorkerWalkingToMonumentState();
+                return new CWorkerIdleState();
             }
             return this;
         }

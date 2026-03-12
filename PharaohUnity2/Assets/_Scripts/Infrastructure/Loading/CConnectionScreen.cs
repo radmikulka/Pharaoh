@@ -150,7 +150,7 @@ namespace Pharaoh
             await serviceThread;
             _loadingFunnelTracker.Send(ELoadingFunnelStep.ServicesInited);
             //CCoreGameModeData coreGameModeData = new(connectResponse.User.Progress.MissionId);
-            CCoreGameModeData coreGameModeData = new(EMissionId.Mission1_1);
+            CCoreGameModeData coreGameModeData = new(EMissionId.Mission1_1, EMonumentId.Pyramid);
             _eventBus.ProcessTaskAsync(new CLoadGameModeTask(coreGameModeData), ct).Forget();
             
             await SceneManager.UnloadSceneAsync(gameObject.scene).ToUniTask(cancellationToken: ct);

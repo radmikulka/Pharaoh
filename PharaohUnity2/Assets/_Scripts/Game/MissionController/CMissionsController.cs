@@ -28,6 +28,7 @@ namespace Pharaoh
 		private CMissionController _activeMission;
 		
 		public EMissionId ActiveMission { get; private set; }
+		public EMonumentId ActiveMonument { get; private set; }
 
 		public CMissionsController(
 			CMissionBundleDownloader requiredBundlesDownloader,
@@ -52,16 +53,17 @@ namespace Pharaoh
 			return _activeMission.GetCameraPlane();
 		}
 
-		public async UniTask LoadMission(EMissionId mission, CancellationToken ct)
+		public async UniTask LoadMission(EMissionId mission, EMonumentId monument, CancellationToken ct)
 		{
 			await _loadingScreen.Show(ct);
-			await OpenMission(mission, ct);
+			await OpenMission(mission, monument, ct);
 			await _loadingScreen.Hide(ct);
 		}
 
-		private async UniTask OpenMission(EMissionId mission, CancellationToken ct)
+		private async UniTask OpenMission(EMissionId mission, EMonumentId monument, CancellationToken ct)
 		{
 			ActiveMission = mission;
+			ActiveMonument = monument;
 
 			await _requiredBundlesDownloader.DownloadBundlesAsync(mission, ct);
 			await _sceneManager.LoadSceneAsync(ESceneId.CoreGame, LoadSceneMode.Additive, ct);

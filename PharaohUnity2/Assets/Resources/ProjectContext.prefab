@@ -424,6 +424,7 @@ MonoBehaviour:
   _eventSystem: {fileID: 9124183158910552014}
   _configs: {fileID: 11400000, guid: 8755d4392da16464aa075e73a754a43d, type: 2}
   _audioManager: {fileID: 5270686013271181404}
+  _translationConfig: {fileID: 11400000, guid: 1d946110ed1ee044fbc22a35c82aee95, type: 2}
 --- !u!114 &87342119158217380
 MonoBehaviour:
   m_ObjectHideFlags: 0

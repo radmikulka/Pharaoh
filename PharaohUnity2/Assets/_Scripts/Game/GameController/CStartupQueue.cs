@@ -41,6 +41,8 @@ namespace Pharaoh
 
 		private async UniTask RunAsync(CancellationToken ct)
 		{
+			await CWaitForSignal.WaitForSignalAsync<CCoreGameStartedSignal>(_eventBus, ct);
+			
 			await UniTask.WaitForSeconds(0.5f, cancellationToken: ct);
 
 			_lazyActionQueue.Activate();

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,8 +8,19 @@ namespace Pharaoh
     [RequireComponent(typeof(BoxCollider))]
     public class CMonumentPart : MonoBehaviour
     {
+        public enum EPartMode
+        {
+            Default,
+            CutoutOnly
+        }
+        
         [HideInInspector] [SerializeField] private Mesh _generatedMesh;
+        [HideInInspector] [SerializeField] private List<GameObject> _cells;
+        [SerializeField] private EPartMode _mode;
         [SerializeField] private Vector3 _cellSize;
+        [SerializeField] private CWorkerPath _pathToMonument;
+        [SerializeField] private CWorkerPath _pathFromMonument;
+        [SerializeField] private GameObject[] _visuals;
 
         public Mesh GeneratedMesh
         {
@@ -16,7 +28,24 @@ namespace Pharaoh
             set => _generatedMesh = value;
         }
 
+        public List<GameObject> Cells
+        {
+            get => _cells;
+            set => _cells = value;
+        }
+
+        public EPartMode Mode => _mode;
         public Vector3 CellSize => _cellSize;
+        public CWorkerPath PathToMonument => _pathToMonument;
+        public CWorkerPath PathFromMonument => _pathFromMonument;
+
+        public void SetVisualsActive(bool active)
+        {
+            for (int i = 0; i < _visuals.Length; i++)
+            {
+                _visuals[i].SetActive(active);
+            }
+        }
 
         private void OnDrawGizmosSelected()
         {

@@ -15,8 +15,7 @@ namespace Pharaoh
 	public class CMissionInstaller : CSceneDiInstaller
 	{
 		[SerializeField, Child] private CMissionController  _mission;
-		[SerializeField, Child] private CMonumentProvider   _monumentProvider;
-		[SerializeField, Child] private CWorkerPath         _workerPath;
+		[SerializeField, Child] private CMonumentProvider   monumentProvider;
 		[SerializeField, Child] private CWorkerManager      _workerManager;
 
 		private void OnValidate()
@@ -29,9 +28,9 @@ namespace Pharaoh
 			base.InstallBindings();
 
 			Container.AddSingletonFromInstance(_mission);
-			Container.AddSingletonFromInstance(_monumentProvider);
-			Container.AddSingletonFromInstance(_workerPath);
+			Container.AddSingletonFromInstance(monumentProvider);
 			Container.AddSingletonFromInstance(_workerManager);
+			Container.AddSingleton<CMonumentTaskHandler>();
 			Container.AddSingleton<IWorkerConfig, CDummyWorkerConfig>();
 			Container.AddSingleton<IMissionStatLimitsProvider, CDummyMissionStatLimitsProvider>();
 			Container.AddSingleton<IRewardQueue, CRewardQueue>();

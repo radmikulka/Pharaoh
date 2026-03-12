@@ -33,8 +33,19 @@ namespace Pharaoh
 
             List<CMeshSlicer.BoxPlanes> allPlanes = new List<CMeshSlicer.BoxPlanes>();
 
+            // Pass 1: CutoutOnly parts (carve the mesh)
             for (int i = parts.Count - 1; i >= 0; i--)
             {
+                if (parts[i].Mode != CMonumentPart.EPartMode.CutoutOnly)
+                    continue;
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+            }
+
+            // Pass 2: Default parts (generate geometry from carved mesh)
+            for (int i = parts.Count - 1; i >= 0; i--)
+            {
+                if (parts[i].Mode == CMonumentPart.EPartMode.CutoutOnly)
+                    continue;
                 remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
             }
 
@@ -65,8 +76,19 @@ namespace Pharaoh
 
             List<CMeshSlicer.BoxPlanes> allPlanes = new List<CMeshSlicer.BoxPlanes>();
 
+            // Pass 1: CutoutOnly parts (carve the mesh)
             for (int i = parts.Count - 1; i >= 0; i--)
             {
+                if (parts[i].Mode != CMonumentPart.EPartMode.CutoutOnly)
+                    continue;
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+            }
+
+            // Pass 2: Default parts (generate geometry from carved mesh)
+            for (int i = parts.Count - 1; i >= 0; i--)
+            {
+                if (parts[i].Mode == CMonumentPart.EPartMode.CutoutOnly)
+                    continue;
                 remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
             }
 
@@ -81,6 +103,13 @@ namespace Pharaoh
 
             foreach (CMonumentPart part in parts)
             {
+                if (part.Mode == CMonumentPart.EPartMode.CutoutOnly)
+                {
+                    Debug.Log($"{Tag}   Part '{part.name}': CutoutOnly → skipping subdivision");
+                    skippedCount++;
+                    continue;
+                }
+
                 if (part.CellSize == Vector3.zero)
                 {
                     Debug.Log($"{Tag}   Part '{part.name}': CellSize is zero → skipping subdivision");
@@ -136,6 +165,7 @@ namespace Pharaoh
             foreach (CMonumentPart part in parts)
             {
                 part.GeneratedMesh = null;
+                part.Cells = null;
                 CleanPartChild(part);
 
 #if UNITY_EDITOR
@@ -156,42 +186,37 @@ namespace Pharaoh
         private void OnValidate()
         {
             List<CMonumentPart> parts = CollectParts();
-            var allCells = new List<Transform>();
+            var allCells = new List<GameObject>();
 
             foreach (CMonumentPart part in parts)
             {
-                for (int i = 0; i < part.transform.childCount; i++)
-                {
-                    Transform child = part.transform.GetChild(i);
-                    if (child.name.StartsWith("_Cell_"))
-                    {
-                        allCells.Add(child);
-                    }
-                }
+                if (part.Cells == null)
+                    continue;
+                allCells.AddRange(part.Cells);
             }
 
             if (allCells.Count == 0)
                 return;
 
-            // Sort bottom-to-top (by world Y), then by X, then by Z
+            // Cross-part merge sort: Y (primary), X (secondary), Z (tertiary)
             allCells.Sort((a, b) =>
             {
-                int cmp = a.position.y.CompareTo(b.position.y);
+                int cmp = a.transform.position.y.CompareTo(b.transform.position.y);
                 if (cmp != 0)
                     return cmp;
 
-                cmp = a.position.x.CompareTo(b.position.x);
+                cmp = a.transform.position.x.CompareTo(b.transform.position.x);
                 if (cmp != 0)
                     return cmp;
 
-                return a.position.z.CompareTo(b.position.z);
+                return a.transform.position.z.CompareTo(b.transform.position.z);
             });
 
             int visibleCount = Mathf.RoundToInt(_buildProgress * allCells.Count);
 
             for (int i = 0; i < allCells.Count; i++)
             {
-                allCells[i].gameObject.SetActive(i < visibleCount);
+                allCells[i].SetActive(i < visibleCount);
             }
         }
 
@@ -212,6 +237,17 @@ namespace Pharaoh
             CMeshSlicer.BoxPlanes planes = CMeshSlicer.GetBoxPlanes(box);
             LogBoxPlanes(planes, partName);
 
+            if (part.Mode == CMonumentPart.EPartMode.CutoutOnly)
+            {
+                remaining = CMeshSlicer.SubtractBox(remaining, planes);
+                Debug.Log($"{Tag}   CutoutOnly: subtracted box, remaining={remaining.Count}");
+                allPlanes.Add(planes);
+                part.GeneratedMesh = null;
+                part.Cells = null;
+                CleanPartChild(part);
+                return remaining;
+            }
+
             int remainingBefore = remaining.Count;
             List<CMeshSlicer.Tri> clipped = CMeshSlicer.ClipToBox(remaining, planes);
             Debug.Log($"{Tag}   ClipToBox: {remainingBefore} input tris → {clipped.Count} clipped tris");
@@ -229,6 +265,7 @@ namespace Pharaoh
                 {
                     Debug.LogWarning($"{Tag}   Part '{partName}' got 0 clipped tris and box is outside mesh → no mesh generated");
                     part.GeneratedMesh = null;
+                    part.Cells = null;
                     allPlanes.Add(planes);
                     return remaining;
                 }
@@ -243,6 +280,7 @@ namespace Pharaoh
                 Debug.Log($"{Tag}   Mesh built: verts={mesh.vertexCount}, " +
                           $"tris={mesh.triangles.Length / 3}, bounds={mesh.bounds}");
                 ApplyMesh(part, mesh);
+                part.Cells = null;
 
                 // Add flipped (inward-facing) box faces to remaining.
                 // Outer parts will pick these up as the walls of the carved hole.
@@ -280,6 +318,7 @@ namespace Pharaoh
             Debug.Log($"{Tag}   Mesh built: verts={mesh2.vertexCount}, " +
                       $"tris={mesh2.triangles.Length / 3}, bounds={mesh2.bounds}");
             ApplyMesh(part, mesh2);
+            part.Cells = null;
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(part);
@@ -386,6 +425,30 @@ namespace Pharaoh
                     }
                 }
             }
+
+            // Collect and sort cells: Y (primary), X (secondary), Z (tertiary)
+            List<GameObject> sortedCells = new List<GameObject>();
+            for (int c = 0; c < t.childCount; c++)
+            {
+                Transform child = t.GetChild(c);
+                if (child.name.StartsWith("_Cell_"))
+                {
+                    sortedCells.Add(child.gameObject);
+                }
+            }
+
+            sortedCells.Sort((a, b) =>
+            {
+                int cmp = a.transform.position.y.CompareTo(b.transform.position.y);
+                if (cmp != 0)
+                    return cmp;
+                cmp = a.transform.position.x.CompareTo(b.transform.position.x);
+                if (cmp != 0)
+                    return cmp;
+                return a.transform.position.z.CompareTo(b.transform.position.z);
+            });
+
+            part.Cells = sortedCells;
 
             Debug.Log($"{Tag}   Grid subdivision complete: {cellCount} cells ({interiorCount} interior), {emptyCells} empty cells skipped");
         }

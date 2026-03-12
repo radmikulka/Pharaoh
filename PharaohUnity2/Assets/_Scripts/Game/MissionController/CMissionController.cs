@@ -25,7 +25,7 @@ namespace Pharaoh
 
         public EMissionId MissionId        => _missionId;
         public bool       IsActive         { get; private set; }
-        public int        WorkerCountLevel => _data.WorkerCountLevel;
+        public int        WorkerCountLevel => _data.WorkersCount;
         public int        WorkerSpeedLevel => _data.WorkerSpeedLevel;
         public int        ProfitLevel      => _data.ProfitLevel;
         public int        SoftCurrency     => _data.SoftCurrency;
@@ -101,7 +101,7 @@ namespace Pharaoh
 
             switch (signal.Stat)
             {
-                case EMissionStatId.WorkerCount: _data.WorkerCountLevel++; break;
+                case EMissionStatId.WorkerCount: _data.WorkersCount++; break;
                 case EMissionStatId.WorkerSpeed: _data.WorkerSpeedLevel++; break;
                 case EMissionStatId.Profit:      _data.ProfitLevel++;      break;
             }

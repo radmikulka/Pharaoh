@@ -12,7 +12,7 @@ namespace Pharaoh
 {
     public sealed class CMissionData
     {
-        public int   WorkerCountLevel  { get; internal set; }
+        public int   WorkersCount  { get; internal set; }
         public int   WorkerSpeedLevel  { get; internal set; }
         public int   ProfitLevel       { get; internal set; }
         public int   SoftCurrency      { get; internal set; }
@@ -22,7 +22,7 @@ namespace Pharaoh
 
         public int GetLevel(EMissionStatId stat) => stat switch
         {
-            EMissionStatId.WorkerCount => WorkerCountLevel,
+            EMissionStatId.WorkerCount => WorkersCount,
             EMissionStatId.WorkerSpeed => WorkerSpeedLevel,
             EMissionStatId.Profit      => ProfitLevel,
             _                          => throw new ArgumentOutOfRangeException(nameof(stat))
@@ -30,7 +30,7 @@ namespace Pharaoh
 
         public CMissionDataDto ToDto() => new()
         {
-            WorkerCountLevel = WorkerCountLevel,
+            WorkerCountLevel = WorkersCount,
             WorkerSpeedLevel = WorkerSpeedLevel,
             ProfitLevel      = ProfitLevel,
             SoftCurrency     = SoftCurrency,

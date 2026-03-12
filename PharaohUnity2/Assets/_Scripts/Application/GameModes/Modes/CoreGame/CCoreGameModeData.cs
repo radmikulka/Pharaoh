@@ -13,10 +13,12 @@ namespace Pharaoh
 		public EGameModeId GameModeId => EGameModeId.CoreGame;
 
 		public readonly EMissionId Mission;
+		public readonly EMonumentId Monument;
 
-		public CCoreGameModeData(EMissionId mission)
+		public CCoreGameModeData(EMissionId mission, EMonumentId monument)
 		{
 			Mission = mission;
+			Monument = monument;
 		}
 	}
 }
