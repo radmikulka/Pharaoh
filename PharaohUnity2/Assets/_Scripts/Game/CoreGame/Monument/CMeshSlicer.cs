@@ -14,12 +14,41 @@ namespace Pharaoh
         public struct Tri
         {
             public Vector3 A, B, C;
+            public Vector2 UvA, UvB, UvC;
+            public Color ColA, ColB, ColC;
 
             public Tri(Vector3 a, Vector3 b, Vector3 c)
             {
                 A = a;
                 B = b;
                 C = c;
+                UvA = UvB = UvC = Vector2.zero;
+                ColA = ColB = ColC = Color.white;
+            }
+
+            public Tri(Vector3 a, Vector3 b, Vector3 c, Vector2 uvA, Vector2 uvB, Vector2 uvC)
+            {
+                A = a;
+                B = b;
+                C = c;
+                UvA = uvA;
+                UvB = uvB;
+                UvC = uvC;
+                ColA = ColB = ColC = Color.white;
+            }
+
+            public Tri(Vector3 a, Vector3 b, Vector3 c, Vector2 uvA, Vector2 uvB, Vector2 uvC,
+                Color colA, Color colB, Color colC)
+            {
+                A = a;
+                B = b;
+                C = c;
+                UvA = uvA;
+                UvB = uvB;
+                UvC = uvC;
+                ColA = colA;
+                ColB = colB;
+                ColC = colC;
             }
         }
 
@@ -75,15 +104,24 @@ namespace Pharaoh
             var mesh = filter.sharedMesh;
             var verts = mesh.vertices;
             var tris = mesh.triangles;
+            var uvs = mesh.uv;
             var t = filter.transform;
+            bool hasUvs = uvs != null && uvs.Length == verts.Length;
             var result = new List<Tri>(tris.Length / 3);
 
             for (int i = 0; i < tris.Length; i += 3)
             {
+                int i0 = tris[i];
+                int i1 = tris[i + 1];
+                int i2 = tris[i + 2];
+
                 result.Add(new Tri(
-                    t.TransformPoint(verts[tris[i]]),
-                    t.TransformPoint(verts[tris[i + 1]]),
-                    t.TransformPoint(verts[tris[i + 2]])));
+                    t.TransformPoint(verts[i0]),
+                    t.TransformPoint(verts[i1]),
+                    t.TransformPoint(verts[i2]),
+                    hasUvs ? uvs[i0] : Vector2.zero,
+                    hasUvs ? uvs[i1] : Vector2.zero,
+                    hasUvs ? uvs[i2] : Vector2.zero));
             }
 
             return result;
@@ -215,31 +253,82 @@ namespace Pharaoh
             return t > 1e-7f;
         }
 
+        // ───────── Nearest UV lookup (XZ distance) ─────────
+
+        /// <summary>
+        /// Finds the UV of the nearest source vertex measured in XZ distance only.
+        /// Used for cap/box faces that have no original UV data.
+        /// </summary>
+        public static Vector2 FindNearestUvXZ(Vector3 worldPos, List<Tri> sourceTris)
+        {
+            float bestDistSq = float.MaxValue;
+            Vector2 bestUv = Vector2.zero;
+
+            foreach (var tri in sourceTris)
+            {
+                CheckVertexXZ(worldPos, tri.A, tri.UvA, ref bestDistSq, ref bestUv);
+                CheckVertexXZ(worldPos, tri.B, tri.UvB, ref bestDistSq, ref bestUv);
+                CheckVertexXZ(worldPos, tri.C, tri.UvC, ref bestDistSq, ref bestUv);
+            }
+
+            return bestUv;
+        }
+
+        private static void CheckVertexXZ(
+            Vector3 pos, Vector3 vert, Vector2 uv,
+            ref float bestDistSq, ref Vector2 bestUv)
+        {
+            float dx = pos.x - vert.x;
+            float dz = pos.z - vert.z;
+            float distSq = dx * dx + dz * dz;
+
+            if (distSq < bestDistSq)
+            {
+                bestDistSq = distSq;
+                bestUv = uv;
+            }
+        }
+
+        // ───────── Nearest color lookup (XZ distance) ─────────
+
+        public static Color FindNearestColorXZ(Vector3 worldPos, List<Tri> sourceTris, Texture2D sourceTexture)
+        {
+            if (sourceTexture == null)
+                return Color.white;
+
+            Vector2 uv = FindNearestUvXZ(worldPos, sourceTris);
+            Color color = sourceTexture.GetPixelBilinear(uv.x, uv.y);
+            color.a = 0f;
+            return color;
+        }
+
         // ───────── Box face generation ─────────
 
         /// <summary>
         /// Generates 12 world-space triangles forming the 6 faces of a BoxCollider.
         /// flipNormals=false → outward normals; flipNormals=true → inward normals.
+        /// UVs are assigned from the nearest source vertex in XZ.
         /// </summary>
-        public static List<Tri> GenerateBoxTris(BoxCollider box, bool flipNormals)
+        public static List<Tri> GenerateBoxTris(
+            BoxCollider box, bool flipNormals, List<Tri> sourceTris, Texture2D sourceTexture = null)
         {
             Transform t = box.transform;
             Vector3 c = box.center;
             Vector3 e = box.size * 0.5f;
 
-            // 8 corners in world space
-            // Bit layout: bit0=X sign, bit1=Y sign, bit2=Z sign
-            // 0:(-,-,-) 1:(+,-,-) 2:(-,+,-) 3:(+,+,-) 4:(-,-,+) 5:(+,-,+) 6:(-,+,+) 7:(+,+,+)
             var corners = new Vector3[8];
+            var cornerUvs = new Vector2[8];
+            var cornerColors = new Color[8];
             for (int i = 0; i < 8; i++)
             {
                 corners[i] = t.TransformPoint(new Vector3(
                     c.x + ((i & 1) == 0 ? -e.x : e.x),
                     c.y + ((i & 2) == 0 ? -e.y : e.y),
                     c.z + ((i & 4) == 0 ? -e.z : e.z)));
+                cornerUvs[i] = FindNearestUvXZ(corners[i], sourceTris);
+                cornerColors[i] = FindNearestColorXZ(corners[i], sourceTris, sourceTexture);
             }
 
-            // 6 face quads, CCW winding → outward normals
             int[,] faces =
             {
                 { 1, 3, 7, 5 }, // +X
@@ -254,20 +343,20 @@ namespace Pharaoh
 
             for (int f = 0; f < 6; f++)
             {
-                Vector3 a = corners[faces[f, 0]];
-                Vector3 b = corners[faces[f, 1]];
-                Vector3 cc = corners[faces[f, 2]];
-                Vector3 d = corners[faces[f, 3]];
+                int fi0 = faces[f, 0], fi1 = faces[f, 1], fi2 = faces[f, 2], fi3 = faces[f, 3];
+                Vector3 a = corners[fi0], b = corners[fi1], cc = corners[fi2], d = corners[fi3];
+                Vector2 uvA = cornerUvs[fi0], uvB = cornerUvs[fi1], uvC = cornerUvs[fi2], uvD = cornerUvs[fi3];
+                Color colA = cornerColors[fi0], colB = cornerColors[fi1], colC = cornerColors[fi2], colD = cornerColors[fi3];
 
                 if (flipNormals)
                 {
-                    tris.Add(new Tri(a, cc, b));
-                    tris.Add(new Tri(a, d, cc));
+                    tris.Add(new Tri(a, cc, b, uvA, uvC, uvB, colA, colC, colB));
+                    tris.Add(new Tri(a, d, cc, uvA, uvD, uvC, colA, colD, colC));
                 }
                 else
                 {
-                    tris.Add(new Tri(a, b, cc));
-                    tris.Add(new Tri(a, cc, d));
+                    tris.Add(new Tri(a, b, cc, uvA, uvB, uvC, colA, colB, colC));
+                    tris.Add(new Tri(a, cc, d, uvA, uvC, uvD, colA, colC, colD));
                 }
             }
 
@@ -277,23 +366,25 @@ namespace Pharaoh
         /// <summary>
         /// Generates 12 world-space triangles forming the 6 faces of an axis-aligned box
         /// defined by localMin/localMax in the given Transform's local space.
+        /// UVs are assigned from the nearest source vertex in XZ.
         /// </summary>
-        public static List<Tri> GenerateBoxTris(Transform t, Vector3 localMin, Vector3 localMax, bool flipNormals)
+        public static List<Tri> GenerateBoxTris(
+            Transform t, Vector3 localMin, Vector3 localMax, bool flipNormals, List<Tri> sourceTris,
+            Texture2D sourceTexture = null)
         {
-            // 8 corners in world space
-            // Bit layout: bit0=X sign, bit1=Y sign, bit2=Z sign
-            // 0:(min,min,min) 1:(max,min,min) 2:(min,max,min) 3:(max,max,min)
-            // 4:(min,min,max) 5:(max,min,max) 6:(min,max,max) 7:(max,max,max)
             var corners = new Vector3[8];
+            var cornerUvs = new Vector2[8];
+            var cornerColors = new Color[8];
             for (int i = 0; i < 8; i++)
             {
                 corners[i] = t.TransformPoint(new Vector3(
                     (i & 1) == 0 ? localMin.x : localMax.x,
                     (i & 2) == 0 ? localMin.y : localMax.y,
                     (i & 4) == 0 ? localMin.z : localMax.z));
+                cornerUvs[i] = FindNearestUvXZ(corners[i], sourceTris);
+                cornerColors[i] = FindNearestColorXZ(corners[i], sourceTris, sourceTexture);
             }
 
-            // 6 face quads, CCW winding → outward normals
             int[,] faces =
             {
                 { 1, 3, 7, 5 }, // +X
@@ -308,20 +399,20 @@ namespace Pharaoh
 
             for (int f = 0; f < 6; f++)
             {
-                Vector3 a = corners[faces[f, 0]];
-                Vector3 b = corners[faces[f, 1]];
-                Vector3 cc = corners[faces[f, 2]];
-                Vector3 d = corners[faces[f, 3]];
+                int fi0 = faces[f, 0], fi1 = faces[f, 1], fi2 = faces[f, 2], fi3 = faces[f, 3];
+                Vector3 a = corners[fi0], b = corners[fi1], cc = corners[fi2], d = corners[fi3];
+                Vector2 uvA = cornerUvs[fi0], uvB = cornerUvs[fi1], uvC = cornerUvs[fi2], uvD = cornerUvs[fi3];
+                Color colA = cornerColors[fi0], colB = cornerColors[fi1], colC = cornerColors[fi2], colD = cornerColors[fi3];
 
                 if (flipNormals)
                 {
-                    tris.Add(new Tri(a, cc, b));
-                    tris.Add(new Tri(a, d, cc));
+                    tris.Add(new Tri(a, cc, b, uvA, uvC, uvB, colA, colC, colB));
+                    tris.Add(new Tri(a, d, cc, uvA, uvD, uvC, colA, colD, colC));
                 }
                 else
                 {
-                    tris.Add(new Tri(a, b, cc));
-                    tris.Add(new Tri(a, cc, d));
+                    tris.Add(new Tri(a, b, cc, uvA, uvB, uvC, colA, colB, colC));
+                    tris.Add(new Tri(a, cc, d, uvA, uvC, uvD, colA, colC, colD));
                 }
             }
 
@@ -355,6 +446,7 @@ namespace Pharaoh
         /// <summary>
         /// Snaps vertices that are within tolerance of a box plane to lie exactly on that plane.
         /// Eliminates floating-point gaps between clipped surface tris and cap tris.
+        /// UVs are preserved unchanged.
         /// </summary>
         public static void SnapVerticesToPlanes(List<Tri> tris, BoxPlanes planes, float tolerance)
         {
@@ -363,7 +455,9 @@ namespace Pharaoh
                 tris[i] = new Tri(
                     SnapVertex(tris[i].A, planes, tolerance),
                     SnapVertex(tris[i].B, planes, tolerance),
-                    SnapVertex(tris[i].C, planes, tolerance));
+                    SnapVertex(tris[i].C, planes, tolerance),
+                    tris[i].UvA, tris[i].UvB, tris[i].UvC,
+                    tris[i].ColA, tris[i].ColB, tris[i].ColC);
             }
         }
 
@@ -387,23 +481,33 @@ namespace Pharaoh
         {
             var result = new List<Tri>();
             var polygon = new List<Vector3>(9);
+            var polyUvs = new List<Vector2>(9);
+            var polyColors = new List<Color>(9);
 
             for (int t = 0; t < tris.Count; t++)
             {
                 polygon.Clear();
+                polyUvs.Clear();
+                polyColors.Clear();
                 polygon.Add(tris[t].A);
                 polygon.Add(tris[t].B);
                 polygon.Add(tris[t].C);
+                polyUvs.Add(tris[t].UvA);
+                polyUvs.Add(tris[t].UvB);
+                polyUvs.Add(tris[t].UvC);
+                polyColors.Add(tris[t].ColA);
+                polyColors.Add(tris[t].ColB);
+                polyColors.Add(tris[t].ColC);
 
                 for (int p = 0; p < 6 && polygon.Count >= 3; p++)
                 {
-                    ClipPolygonByPlane(polygon, planes.Normals[p], planes.Dists[p]);
+                    ClipPolygonByPlane(polygon, polyUvs, polyColors, planes.Normals[p], planes.Dists[p]);
                 }
 
                 if (polygon.Count < 3)
                     continue;
 
-                EmitPolygonAsTris(polygon, result);
+                EmitPolygonAsTris(polygon, polyUvs, polyColors, result);
             }
 
             return result;
@@ -415,31 +519,51 @@ namespace Pharaoh
         {
             var result = new List<Tri>();
             var remainder = new List<Vector3>(9);
+            var remainderUvs = new List<Vector2>(9);
+            var remainderColors = new List<Color>(9);
             var inside = new List<Vector3>(9);
+            var insideUvs = new List<Vector2>(9);
+            var insideColors = new List<Color>(9);
             var outside = new List<Vector3>(9);
+            var outsideUvs = new List<Vector2>(9);
+            var outsideColors = new List<Color>(9);
 
             for (int t = 0; t < tris.Count; t++)
             {
                 remainder.Clear();
+                remainderUvs.Clear();
+                remainderColors.Clear();
                 remainder.Add(tris[t].A);
                 remainder.Add(tris[t].B);
                 remainder.Add(tris[t].C);
+                remainderUvs.Add(tris[t].UvA);
+                remainderUvs.Add(tris[t].UvB);
+                remainderUvs.Add(tris[t].UvC);
+                remainderColors.Add(tris[t].ColA);
+                remainderColors.Add(tris[t].ColB);
+                remainderColors.Add(tris[t].ColC);
 
                 for (int p = 0; p < 6; p++)
                 {
                     if (remainder.Count < 3)
                         break;
 
-                    SplitPolygonByPlane(remainder, planes.Normals[p], planes.Dists[p],
-                        inside, outside);
+                    SplitPolygonByPlane(remainder, remainderUvs, remainderColors,
+                        planes.Normals[p], planes.Dists[p],
+                        inside, insideUvs, insideColors,
+                        outside, outsideUvs, outsideColors);
 
                     if (outside.Count >= 3)
                     {
-                        EmitPolygonAsTris(outside, result);
+                        EmitPolygonAsTris(outside, outsideUvs, outsideColors, result);
                     }
 
                     remainder.Clear();
                     remainder.AddRange(inside);
+                    remainderUvs.Clear();
+                    remainderUvs.AddRange(insideUvs);
+                    remainderColors.Clear();
+                    remainderColors.AddRange(insideColors);
                 }
 
                 // remainder is fully inside the box → discard
@@ -452,13 +576,12 @@ namespace Pharaoh
 
         public static List<Tri> BuildCaps(
             List<Tri> clippedTris, float snapEps,
-            List<BoxPlanes> previousPlanes, BoxPlanes currentPlanes, string partName)
+            List<BoxPlanes> previousPlanes, BoxPlanes currentPlanes, string partName,
+            List<Tri> sourceTris, Texture2D sourceTexture = null)
         {
             var caps = new List<Tri>();
             var vmap = new VertexMap(snapEps);
 
-            // Find boundary half-edges via cancellation.
-            // Interior edges appear in both directions and cancel; boundary edges remain.
             var boundaryHalfEdges = new HashSet<(int from, int to)>();
 
             foreach (var tri in clippedTris)
@@ -481,7 +604,6 @@ namespace Pharaoh
                 return caps;
             }
 
-            // Collect unique boundary vertex indices
             var boundaryVertIndices = new HashSet<int>();
             foreach (var he in boundaryHalfEdges)
             {
@@ -491,13 +613,13 @@ namespace Pharaoh
 
             float planeTol = snapEps * 2f;
 
-            // Current part's planes: cap faces outward (+normal)
-            GenerateCapFaces(caps, boundaryVertIndices, vmap, currentPlanes, planeTol, false, partName);
+            GenerateCapFaces(caps, boundaryVertIndices, vmap, currentPlanes, planeTol, false, partName,
+                sourceTris, sourceTexture);
 
-            // Previous parts' planes: cap faces inward (-normal)
             foreach (var bp in previousPlanes)
             {
-                GenerateCapFaces(caps, boundaryVertIndices, vmap, bp, planeTol, true, partName);
+                GenerateCapFaces(caps, boundaryVertIndices, vmap, bp, planeTol, true, partName,
+                    sourceTris, sourceTexture);
             }
 
             return caps;
@@ -513,7 +635,7 @@ namespace Pharaoh
         public static List<Tri> BuildCellCaps(
             List<Tri> clippedTris, float snapEps,
             BoxPlanes cellPlanes, Transform t, Vector3 cellMin, Vector3 cellMax,
-            List<Tri> partTris, string cellName)
+            List<Tri> partTris, string cellName, Texture2D sourceTexture = null)
         {
             var caps = new List<Tri>();
             var vmap = new VertexMap(snapEps);
@@ -635,9 +757,17 @@ namespace Pharaoh
                           $"{faceVerts.Count} verts ({cornersInsideCount} corners inside)");
 
                 // Fan triangulate — CCW from +faceNormal → outward facing
+                // Assign UVs and colors from nearest source vertex in XZ
                 for (int i = 1; i < faceVerts.Count - 1; i++)
                 {
-                    caps.Add(new Tri(faceVerts[0], faceVerts[i], faceVerts[i + 1]));
+                    caps.Add(new Tri(
+                        faceVerts[0], faceVerts[i], faceVerts[i + 1],
+                        FindNearestUvXZ(faceVerts[0], partTris),
+                        FindNearestUvXZ(faceVerts[i], partTris),
+                        FindNearestUvXZ(faceVerts[i + 1], partTris),
+                        FindNearestColorXZ(faceVerts[0], partTris, sourceTexture),
+                        FindNearestColorXZ(faceVerts[i], partTris, sourceTexture),
+                        FindNearestColorXZ(faceVerts[i + 1], partTris, sourceTexture)));
                 }
             }
 
@@ -651,11 +781,14 @@ namespace Pharaoh
         /// smoothingAngleDeg = 0 → per-face normals (RecalculateNormals).
         /// smoothingAngleDeg > 0 → smooth normals: face normals are averaged at shared
         /// vertex positions when the angle between them is below the threshold.
+        /// UVs from Tri data are written to mesh.uv.
         /// </summary>
         public static Mesh BuildMesh(List<Tri> tris, Transform partTransform, float smoothingAngleDeg = 0f)
         {
             int vertCount = tris.Count * 3;
             var verts = new Vector3[vertCount];
+            var uvs = new Vector2[vertCount];
+            var colors = new Color[vertCount];
             var indices = new int[vertCount];
 
             for (int i = 0; i < tris.Count; i++)
@@ -664,6 +797,12 @@ namespace Pharaoh
                 verts[idx] = partTransform.InverseTransformPoint(tris[i].A);
                 verts[idx + 1] = partTransform.InverseTransformPoint(tris[i].B);
                 verts[idx + 2] = partTransform.InverseTransformPoint(tris[i].C);
+                uvs[idx] = tris[i].UvA;
+                uvs[idx + 1] = tris[i].UvB;
+                uvs[idx + 2] = tris[i].UvC;
+                colors[idx] = tris[i].ColA;
+                colors[idx + 1] = tris[i].ColB;
+                colors[idx + 2] = tris[i].ColC;
                 indices[idx] = idx;
                 indices[idx + 1] = idx + 1;
                 indices[idx + 2] = idx + 2;
@@ -671,6 +810,8 @@ namespace Pharaoh
 
             var mesh = new Mesh { name = partTransform.name + "_generated" };
             mesh.vertices = verts;
+            mesh.uv = uvs;
+            mesh.colors = colors;
             mesh.SetTriangles(indices, 0);
 
             if (smoothingAngleDeg > 0f)
@@ -771,10 +912,12 @@ namespace Pharaoh
         /// <summary>
         /// For each face of the given box, collect boundary vertices on that face,
         /// sort by angle around centroid, and fan-triangulate.
+        /// UVs are assigned from the nearest source vertex in XZ.
         /// </summary>
         private static void GenerateCapFaces(
             List<Tri> caps, HashSet<int> boundaryVertIndices, VertexMap vmap,
-            BoxPlanes planes, float planeTol, bool flipNormal, string partName)
+            BoxPlanes planes, float planeTol, bool flipNormal, string partName,
+            List<Tri> sourceTris, Texture2D sourceTexture = null)
         {
             for (int p = 0; p < 6; p++)
             {
@@ -832,16 +975,25 @@ namespace Pharaoh
                 Debug.Log($"[MeshSlicer]     Plane (n={faceNormal:F3}, d={dist:F2}): " +
                           $"{faceVerts.Count} cap verts, flip={needsFlip}");
 
-                // Fan triangulate
+                // Fan triangulate with UVs and colors from nearest source vertex in XZ
                 for (int i = 1; i < faceVerts.Count - 1; i++)
                 {
+                    Vector2 uv0 = FindNearestUvXZ(faceVerts[0], sourceTris);
+                    Vector2 uvI = FindNearestUvXZ(faceVerts[i], sourceTris);
+                    Vector2 uvI1 = FindNearestUvXZ(faceVerts[i + 1], sourceTris);
+                    Color col0 = FindNearestColorXZ(faceVerts[0], sourceTris, sourceTexture);
+                    Color colI = FindNearestColorXZ(faceVerts[i], sourceTris, sourceTexture);
+                    Color colI1 = FindNearestColorXZ(faceVerts[i + 1], sourceTris, sourceTexture);
+
                     if (needsFlip)
                     {
-                        caps.Add(new Tri(faceVerts[0], faceVerts[i + 1], faceVerts[i]));
+                        caps.Add(new Tri(faceVerts[0], faceVerts[i + 1], faceVerts[i],
+                            uv0, uvI1, uvI, col0, colI1, colI));
                     }
                     else
                     {
-                        caps.Add(new Tri(faceVerts[0], faceVerts[i], faceVerts[i + 1]));
+                        caps.Add(new Tri(faceVerts[0], faceVerts[i], faceVerts[i + 1],
+                            uv0, uvI, uvI1, col0, colI, colI1));
                     }
                 }
             }
@@ -865,71 +1017,110 @@ namespace Pharaoh
 
         // ───────── Internal: polygon operations ─────────
 
-        private static void ClipPolygonByPlane(List<Vector3> polygon, Vector3 normal, float dist)
+        private static void ClipPolygonByPlane(
+            List<Vector3> polygon, List<Vector2> uvs, List<Color> colors,
+            Vector3 normal, float dist)
         {
             var buffer = new List<Vector3>(polygon.Count + 1);
+            var uvBuffer = new List<Vector2>(polygon.Count + 1);
+            var colorBuffer = new List<Color>(polygon.Count + 1);
 
             for (int i = 0; i < polygon.Count; i++)
             {
                 var current = polygon[i];
                 var next = polygon[(i + 1) % polygon.Count];
+                var uvCurrent = uvs[i];
+                var uvNext = uvs[(i + 1) % polygon.Count];
+                var colorCurrent = colors[i];
+                var colorNext = colors[(i + 1) % polygon.Count];
                 float dCurrent = Vector3.Dot(normal, current) - dist;
                 float dNext = Vector3.Dot(normal, next) - dist;
 
                 if (dCurrent <= 0f)
                 {
                     buffer.Add(current);
+                    uvBuffer.Add(uvCurrent);
+                    colorBuffer.Add(colorCurrent);
                 }
 
                 if ((dCurrent <= 0f) != (dNext <= 0f))
                 {
                     float k = dCurrent / (dCurrent - dNext);
                     buffer.Add(current + k * (next - current));
+                    uvBuffer.Add(Vector2.Lerp(uvCurrent, uvNext, k));
+                    colorBuffer.Add(Color.Lerp(colorCurrent, colorNext, k));
                 }
             }
 
             polygon.Clear();
             polygon.AddRange(buffer);
+            uvs.Clear();
+            uvs.AddRange(uvBuffer);
+            colors.Clear();
+            colors.AddRange(colorBuffer);
         }
 
         private static void SplitPolygonByPlane(
-            List<Vector3> polygon, Vector3 normal, float dist,
-            List<Vector3> inside, List<Vector3> outside)
+            List<Vector3> polygon, List<Vector2> uvs, List<Color> colors,
+            Vector3 normal, float dist,
+            List<Vector3> inside, List<Vector2> insideUvs, List<Color> insideColors,
+            List<Vector3> outside, List<Vector2> outsideUvs, List<Color> outsideColors)
         {
             inside.Clear();
+            insideUvs.Clear();
+            insideColors.Clear();
             outside.Clear();
+            outsideUvs.Clear();
+            outsideColors.Clear();
 
             for (int i = 0; i < polygon.Count; i++)
             {
                 var current = polygon[i];
                 var next = polygon[(i + 1) % polygon.Count];
+                var uvCurrent = uvs[i];
+                var uvNext = uvs[(i + 1) % polygon.Count];
+                var colorCurrent = colors[i];
+                var colorNext = colors[(i + 1) % polygon.Count];
                 float dCurrent = Vector3.Dot(normal, current) - dist;
                 float dNext = Vector3.Dot(normal, next) - dist;
 
                 if (dCurrent <= 0f)
                 {
                     inside.Add(current);
+                    insideUvs.Add(uvCurrent);
+                    insideColors.Add(colorCurrent);
                 }
                 else
                 {
                     outside.Add(current);
+                    outsideUvs.Add(uvCurrent);
+                    outsideColors.Add(colorCurrent);
                 }
 
                 if ((dCurrent <= 0f) != (dNext <= 0f))
                 {
                     float k = dCurrent / (dCurrent - dNext);
                     var intersection = current + k * (next - current);
+                    var uvIntersection = Vector2.Lerp(uvCurrent, uvNext, k);
+                    var colorIntersection = Color.Lerp(colorCurrent, colorNext, k);
                     inside.Add(intersection);
+                    insideUvs.Add(uvIntersection);
+                    insideColors.Add(colorIntersection);
                     outside.Add(intersection);
+                    outsideUvs.Add(uvIntersection);
+                    outsideColors.Add(colorIntersection);
                 }
             }
         }
 
-        private static void EmitPolygonAsTris(List<Vector3> polygon, List<Tri> output)
+        private static void EmitPolygonAsTris(
+            List<Vector3> polygon, List<Vector2> uvs, List<Color> colors, List<Tri> output)
         {
             for (int i = 1; i < polygon.Count - 1; i++)
             {
-                output.Add(new Tri(polygon[0], polygon[i], polygon[i + 1]));
+                output.Add(new Tri(polygon[0], polygon[i], polygon[i + 1],
+                    uvs[0], uvs[i], uvs[i + 1],
+                    colors[0], colors[i], colors[i + 1]));
             }
         }
     }

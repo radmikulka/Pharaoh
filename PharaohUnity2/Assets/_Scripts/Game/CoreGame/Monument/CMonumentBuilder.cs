@@ -25,6 +25,10 @@ namespace Pharaoh
             LogGenerateStart(sourceMesh, parts.Count);
 
             List<CMeshSlicer.Tri> remaining = CMeshSlicer.ExtractTriangles(filter);
+            List<CMeshSlicer.Tri> sourceTris = new List<CMeshSlicer.Tri>(remaining);
+            Material sourceMaterial = _sourceAsset.GetComponent<MeshRenderer>().sharedMaterial;
+            Texture2D sourceTexture = ExtractReadableTexture(sourceMaterial);
+            Material monumentMaterial = CreateMonumentMaterial(sourceMaterial);
             Debug.Log($"{Tag} Extracted {remaining.Count} triangles (world space)");
             LogBounds(remaining, "Source mesh");
 
@@ -38,7 +42,8 @@ namespace Pharaoh
             {
                 if (parts[i].Mode != CMonumentPart.EPartMode.CutoutOnly)
                     continue;
-                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes, sourceTris,
+                    monumentMaterial, sourceTexture);
             }
 
             // Pass 2: Default parts (generate geometry from carved mesh)
@@ -46,7 +51,8 @@ namespace Pharaoh
             {
                 if (parts[i].Mode == CMonumentPart.EPartMode.CutoutOnly)
                     continue;
-                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes, sourceTris,
+                    monumentMaterial, sourceTexture);
             }
 
             Debug.Log($"{Tag} Remaining tris after all parts: {remaining.Count} (discarded)");
@@ -68,6 +74,10 @@ namespace Pharaoh
             LogGenerateStart(sourceMesh, parts.Count);
 
             List<CMeshSlicer.Tri> remaining = CMeshSlicer.ExtractTriangles(filter);
+            List<CMeshSlicer.Tri> sourceTris = new List<CMeshSlicer.Tri>(remaining);
+            Material sourceMaterial = _sourceAsset.GetComponent<MeshRenderer>().sharedMaterial;
+            Texture2D sourceTexture = ExtractReadableTexture(sourceMaterial);
+            Material monumentMaterial = CreateMonumentMaterial(sourceMaterial);
             Debug.Log($"{Tag} Extracted {remaining.Count} triangles (world space)");
             LogBounds(remaining, "Source mesh");
 
@@ -81,7 +91,8 @@ namespace Pharaoh
             {
                 if (parts[i].Mode != CMonumentPart.EPartMode.CutoutOnly)
                     continue;
-                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes, sourceTris,
+                    monumentMaterial, sourceTexture);
             }
 
             // Pass 2: Default parts (generate geometry from carved mesh)
@@ -89,7 +100,8 @@ namespace Pharaoh
             {
                 if (parts[i].Mode == CMonumentPart.EPartMode.CutoutOnly)
                     continue;
-                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes);
+                remaining = ProcessPart(parts[i], i, remaining, snapEps, allPlanes, sourceTris,
+                    monumentMaterial, sourceTexture);
             }
 
             Debug.Log($"{Tag} Remaining tris after all parts: {remaining.Count} (discarded)");
@@ -126,7 +138,6 @@ namespace Pharaoh
 
                 Debug.Log($"{Tag}   Part '{part.name}': CellSize={part.CellSize} → subdividing...");
 
-                // Re-extract the part's tris from GeneratedMesh (in world space)
                 Transform partTransform = part.transform;
                 Transform generatedChild = null;
                 for (int i = 0; i < partTransform.childCount; i++)
@@ -149,7 +160,7 @@ namespace Pharaoh
                 List<CMeshSlicer.Tri> partTris = CMeshSlicer.ExtractTriangles(partFilter);
                 Debug.Log($"{Tag}   Part '{part.name}': extracted {partTris.Count} tris from generated mesh");
 
-                SubdivideIntoGrid(partTris, part, snapEps);
+                SubdivideIntoGrid(partTris, part, snapEps, monumentMaterial, sourceTexture);
                 subdividedCount++;
             }
 
@@ -225,7 +236,10 @@ namespace Pharaoh
         private List<CMeshSlicer.Tri> ProcessPart(
             CMonumentPart part, int index,
             List<CMeshSlicer.Tri> remaining, float snapEps,
-            List<CMeshSlicer.BoxPlanes> allPlanes)
+            List<CMeshSlicer.BoxPlanes> allPlanes,
+            List<CMeshSlicer.Tri> sourceTris,
+            Material sourceMaterial,
+            Texture2D sourceTexture)
         {
             string partName = part.name;
             Debug.Log($"{Tag} ─── Part [{index}] '{partName}' ───");
@@ -273,18 +287,16 @@ namespace Pharaoh
                 // Interior box: generate box faces as geometry
                 Debug.Log($"{Tag}   Part '{partName}': box is INSIDE mesh → generating box face geometry");
 
-                List<CMeshSlicer.Tri> boxTris = CMeshSlicer.GenerateBoxTris(box, false);
+                List<CMeshSlicer.Tri> boxTris = CMeshSlicer.GenerateBoxTris(box, false, sourceTris, sourceTexture);
                 Debug.Log($"{Tag}   Generated {boxTris.Count} box face tris (outward normals) for part");
 
                 Mesh mesh = CMeshSlicer.BuildMesh(boxTris, part.transform);
                 Debug.Log($"{Tag}   Mesh built: verts={mesh.vertexCount}, " +
                           $"tris={mesh.triangles.Length / 3}, bounds={mesh.bounds}");
-                ApplyMesh(part, mesh);
+                ApplyMesh(part, mesh, sourceMaterial);
                 part.Cells = null;
 
-                // Add flipped (inward-facing) box faces to remaining.
-                // Outer parts will pick these up as the walls of the carved hole.
-                List<CMeshSlicer.Tri> flippedTris = CMeshSlicer.GenerateBoxTris(box, true);
+                List<CMeshSlicer.Tri> flippedTris = CMeshSlicer.GenerateBoxTris(box, true, sourceTris, sourceTexture);
                 remaining.AddRange(flippedTris);
                 Debug.Log($"{Tag}   Added {flippedTris.Count} inverted box tris to remaining " +
                           $"(hole walls for outer parts). Remaining now: {remaining.Count}");
@@ -305,7 +317,8 @@ namespace Pharaoh
 
             LogBounds(clipped, $"Part '{partName}' clipped");
 
-            List<CMeshSlicer.Tri> caps = CMeshSlicer.BuildCaps(clipped, snapEps, allPlanes, planes, partName);
+            List<CMeshSlicer.Tri> caps = CMeshSlicer.BuildCaps(clipped, snapEps, allPlanes, planes, partName,
+                sourceTris, sourceTexture);
             allPlanes.Add(planes);
             Debug.Log($"{Tag}   Caps: {caps.Count} cap tris generated");
             clipped.AddRange(caps);
@@ -317,7 +330,7 @@ namespace Pharaoh
             Mesh mesh2 = CMeshSlicer.BuildMesh(clipped, part.transform);
             Debug.Log($"{Tag}   Mesh built: verts={mesh2.vertexCount}, " +
                       $"tris={mesh2.triangles.Length / 3}, bounds={mesh2.bounds}");
-            ApplyMesh(part, mesh2);
+            ApplyMesh(part, mesh2, sourceMaterial);
             part.Cells = null;
 
 #if UNITY_EDITOR
@@ -330,7 +343,8 @@ namespace Pharaoh
         // ───────── Grid subdivision ─────────
 
         private void SubdivideIntoGrid(
-            List<CMeshSlicer.Tri> partTris, CMonumentPart part, float snapEps)
+            List<CMeshSlicer.Tri> partTris, CMonumentPart part, float snapEps,
+            Material sourceMaterial, Texture2D sourceTexture = null)
         {
             BoxCollider box = part.GetComponent<BoxCollider>();
             Vector3 boxMin = box.center - box.size * 0.5f;
@@ -348,8 +362,6 @@ namespace Pharaoh
             int cellCount = 0;
             int interiorCount = 0;
             int emptyCells = 0;
-
-            Material sharedMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
 
             for (int ix = 0; ix < countX; ix++)
             {
@@ -377,7 +389,7 @@ namespace Pharaoh
                             Vector3 cellCenter = t.TransformPoint((cellMin + cellMax) / 2f);
                             if (CMeshSlicer.IsPointInsideMesh(cellCenter, partTris))
                             {
-                                cellTris = CMeshSlicer.GenerateBoxTris(t, cellMin, cellMax, false);
+                                cellTris = CMeshSlicer.GenerateBoxTris(t, cellMin, cellMax, false, partTris, sourceTexture);
                                 Debug.Log($"{Tag}     {cellName}: INTERIOR cell, generated {cellTris.Count} box face tris");
                                 interiorCount++;
                             }
@@ -393,7 +405,8 @@ namespace Pharaoh
                                       $"clipped={cellTris.Count} tris");
 
                             List<CMeshSlicer.Tri> caps = CMeshSlicer.BuildCellCaps(
-                                cellTris, snapEps, cellPlanes, t, cellMin, cellMax, partTris, cellName);
+                                cellTris, snapEps, cellPlanes, t, cellMin, cellMax, partTris, cellName,
+                                sourceTexture);
                             cellTris.AddRange(caps);
 
                             Debug.Log($"{Tag}     {cellName}: +{caps.Count} cap tris → total={cellTris.Count}");
@@ -419,7 +432,7 @@ namespace Pharaoh
                         filter.sharedMesh = mesh;
 
                         MeshRenderer renderer = child.AddComponent<MeshRenderer>();
-                        renderer.sharedMaterial = sharedMat;
+                        renderer.sharedMaterial = sourceMaterial;
 
                         cellCount++;
                     }
@@ -499,9 +512,30 @@ namespace Pharaoh
             return parts;
         }
 
+        // ───────── Texture / material helpers ─────────
+
+        private static Texture2D ExtractReadableTexture(Material material)
+        {
+            Texture2D texture = material.mainTexture as Texture2D;
+            if (texture != null && !texture.isReadable)
+            {
+                Debug.LogWarning($"{Tag} Source texture is not readable. Enable Read/Write in import settings.");
+                texture = null;
+            }
+
+            return texture;
+        }
+
+        private static Material CreateMonumentMaterial(Material sourceMaterial)
+        {
+            Material material = new Material(sourceMaterial);
+            material.EnableKeyword("_VERTEX_COLOR");
+            return material;
+        }
+
         // ───────── Mesh application ─────────
 
-        private static void ApplyMesh(CMonumentPart part, Mesh mesh)
+        private static void ApplyMesh(CMonumentPart part, Mesh mesh, Material material)
         {
             part.GeneratedMesh = mesh;
             CleanPartChild(part);
@@ -524,7 +558,7 @@ namespace Pharaoh
             filter.sharedMesh = mesh;
 
             MeshRenderer renderer = child.AddComponent<MeshRenderer>();
-            renderer.sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            renderer.sharedMaterial = material;
         }
 
         private static void CleanPartChild(CMonumentPart part)
