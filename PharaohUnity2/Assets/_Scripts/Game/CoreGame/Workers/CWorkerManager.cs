@@ -45,11 +45,6 @@ namespace Pharaoh
         private void OnCoreGameUnlocked(CCoreGameUnlockedSignal signal)
         {
             var monument = _monumentProvider.Monument;
-            if (monument == null || monument.EntryPoint == null)
-            {
-                Debug.LogWarning("[CWorkerManager] Monument or EntryPoint not assigned.", this);
-                return;
-            }
 
             _handler.Initialize(monument);
             _initialized = true;

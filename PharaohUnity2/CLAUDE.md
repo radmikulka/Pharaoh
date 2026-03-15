@@ -33,7 +33,7 @@ The DI tree is composed of scene-scoped installers. The root is `CProjectInstall
 - `CConnectionScreenInstaller` — connection/auth screen
 - `CBaseGameInstaller` — base game environment
 - `CCoreGameInstaller` — camera, culling groups, startup queue
-- `CRegionInstaller` — mission/region-specific bindings
+- `CMissionInstaller` — mission-specific bindings
 - `CUiInstaller` — screen manager, UI components
 
 ### Signal/Event System
@@ -65,7 +65,7 @@ Scenes are managed by `CSceneManager`. The startup flow is:
 
 ### Game Mode System
 
-Game modes are created via `CGameModeFactory` and managed by `CGameModeManager`. To trigger a game mode load, publish `CLoadGameModeTask` on the event bus. The active game modes are `CoreGame` and `RegionLiveEvent` (from `EGameModeId`).
+Game modes are created via `CGameModeFactory` and managed by `CGameModeManager`. To trigger a game mode load, publish `CLoadGameModeTask` on the event bus. The active game mode is `CoreGame` (from `EGameModeId`).
 
 ### Screen/UI Management
 
@@ -106,4 +106,4 @@ All game configuration flows through `CResourceConfigs` (a `ScriptableObject` in
 
 ## Pending Features (TODO.txt)
 
-Settings system, localizations, rewards queue, rate-us, dialog system.
+Dialog system (`CErrorHandler`), remote config.

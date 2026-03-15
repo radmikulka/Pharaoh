@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae9ecd880eb4297aaa3f695da01f9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.CMonumentInstance
-  _entryPoint: {fileID: 0}
+  _entryPoint: {fileID: 4849749375779098844}
   _parts: []

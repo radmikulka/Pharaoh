@@ -50,7 +50,6 @@ namespace Pharaoh
 
         private void InstallGoToStates()
         {
-            Container.Bind(typeof(CCameraZoomProxy), typeof(ICameraZoom)).To<CCameraZoomProxy>().AsSingle();
             Container.AddTransient<CUserPropertyAnalytics>(true);
         }
         

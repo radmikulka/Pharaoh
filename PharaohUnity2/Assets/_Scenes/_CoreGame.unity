@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 770446556}
+  - {fileID: 1573018322}
   m_Father: {fileID: 503163733}
   m_LocalEulerAnglesHint: {x: 40, y: 200, z: 0}
 --- !u!114 &444702529
@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8e789635ac4e058cf2efd1a5cebf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraZoom: {fileID: 845584743}
 --- !u!1 &503163732
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,40 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46940af8c0a4b448cc4b2ce402731c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraRotator: {fileID: 1573018323}
   _cameraMover: {fileID: 444702529}
   _cullingGroupApi: {fileID: 838534807}
---- !u!1 &770446555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 770446556}
-  m_Layer: 0
-  m_Name: RubberDelta
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &770446556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770446555}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 845584742}
-  m_Father: {fileID: 444702528}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838534805
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,13 +351,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845584741}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1316049040}
-  m_Father: {fileID: 770446556}
+  m_Father: {fileID: 1573018322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &845584743
 MonoBehaviour:
@@ -704,6 +672,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c882458b5c844ad49b84b7e6f70a41b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1573018321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573018322}
+  - component: {fileID: 1573018323}
+  m_Layer: 0
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573018322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573018321}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 845584742}
+  m_Father: {fileID: 444702528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573018323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573018321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833a46702d8f9a4ba46fc01036231a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AldaGames.CoreGame::Pharaoh.CCameraRotator
+  _sensitivity: 0.15
+  _minPitch: -8
+  _maxPitch: 80
 --- !u!1001 &1827982100680622728
 PrefabInstance:
   m_ObjectHideFlags: 0

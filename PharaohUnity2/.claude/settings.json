@@ -1,0 +1,9 @@
+{
+  "enabledPlugins": {
+    "code-review@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  },
+  "hooks": {}
+}

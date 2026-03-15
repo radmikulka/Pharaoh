@@ -16,6 +16,7 @@ namespace Pharaoh
 {
     public class CCoreGameInstaller : CSceneDiInstaller
     {
+        [SerializeField, Child] private CCameraRotator _cameraRotator;
         [SerializeField, Child] private CCameraMover _cameraMover;
         [SerializeField, Child] private CCullingGroupApi _cullingGroupApi;
 
@@ -33,8 +34,8 @@ namespace Pharaoh
 
         private void InstallCamera()
         {
+            Container.AddSingletonFromInstance(_cameraRotator);
             Container.AddSingletonFromInstance(_cameraMover);
-            Container.AddSingleton<CCameraBorders>();
         }
 
         private void InstallCoreLogic()

@@ -25,7 +25,10 @@
       "Bash(read dir:*)",
       "Bash(pip install:*)",
       "Bash(edge-tts:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(xargs basename:*)",
+      "Bash(echo:*)",
+      "Bash(powershell.exe:*)"
     ],
     "defaultMode": "acceptEdits"
   }

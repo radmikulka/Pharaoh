@@ -21,6 +21,7 @@ namespace Pharaoh
         [SerializeField] private CWorkerPath _pathToMonument;
         [SerializeField] private CWorkerPath _pathFromMonument;
         [SerializeField] private GameObject[] _visuals;
+        [SerializeField] private float _cameraZoom;
 
         public Mesh GeneratedMesh
         {
@@ -38,6 +39,7 @@ namespace Pharaoh
         public Vector3 CellSize => _cellSize;
         public CWorkerPath PathToMonument => _pathToMonument;
         public CWorkerPath PathFromMonument => _pathFromMonument;
+        public float CameraZoom => _cameraZoom;
 
         public void SetVisualsActive(bool active)
         {

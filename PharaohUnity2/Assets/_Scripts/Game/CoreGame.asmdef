@@ -4,6 +4,7 @@
     "references": [
         "Zenject",
         "UniTask",
+        "DOTween.Modules",
         "UniTask.DOTween",
         "Unity.Cinemachine",
         "AldaGames.ServerData",

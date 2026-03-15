@@ -356,6 +356,14 @@ namespace Pharaoh
             int countY = cellSize.y > 0f ? Mathf.CeilToInt((boxMax.y - boxMin.y) / cellSize.y) : 1;
             int countZ = cellSize.z > 0f ? Mathf.CeilToInt((boxMax.z - boxMin.z) / cellSize.z) : 1;
 
+            float meshMinY = float.MaxValue;
+            foreach (var tri in partTris)
+            {
+                if (tri.A.y < meshMinY) { meshMinY = tri.A.y; }
+                if (tri.B.y < meshMinY) { meshMinY = tri.B.y; }
+                if (tri.C.y < meshMinY) { meshMinY = tri.C.y; }
+            }
+
             Debug.Log($"{Tag}   Grid subdivision: {countX}x{countY}x{countZ} = {countX * countY * countZ} cells");
 
             CleanPartChild(part);
@@ -387,7 +395,7 @@ namespace Pharaoh
                         if (cellTris.Count == 0)
                         {
                             Vector3 cellCenter = t.TransformPoint((cellMin + cellMax) / 2f);
-                            if (CMeshSlicer.IsPointInsideMesh(cellCenter, partTris))
+                            if (cellCenter.y >= meshMinY && CMeshSlicer.IsPointInsideMesh(cellCenter, partTris))
                             {
                                 cellTris = CMeshSlicer.GenerateBoxTris(t, cellMin, cellMax, false, partTris, sourceTexture);
                                 Debug.Log($"{Tag}     {cellName}: INTERIOR cell, generated {cellTris.Count} box face tris");
